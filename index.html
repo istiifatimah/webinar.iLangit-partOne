@@ -2,1267 +2,1540 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#063f34">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>The First YES — Isti Fatimah</title>
+<title>Beyond Borders — Isti Fatimah</title>
 
+<!-- GOOGLE FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --green:#063f34;
-  --green-dark:#032f28;
-  --green-soft:#0b5547;
-  --gold:#c28b3c;
-  --gold-light:#f7eddc;
-  --cream:#faf8f3;
-  --white:#ffffff;
-  --text:#17201d;
-  --muted:#727a76;
-  --border:rgba(255,255,255,.16);
-  --shadow:0 25px 80px rgba(0,0,0,.18);
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:"DM Sans",sans-serif;
-  background:var(--green-dark);
-  color:var(--white);
-  overflow:hidden;
-}
-
-/* =========================
-   APP
-========================= */
-
-.app{
-  width:100vw;
-  height:100vh;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(194,139,60,.15), transparent 30%),
-    radial-gradient(circle at 15% 85%, rgba(255,255,255,.05), transparent 30%),
-    var(--green-dark);
-}
-
-/* =========================
-   TOP NAV
-========================= */
-
-.topbar{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 42px;
-  z-index:100;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  backdrop-filter:blur(16px);
-  background:rgba(3,47,40,.45);
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logo-mark{
-  width:42px;
-  height:42px;
-  border:1px solid var(--gold);
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  color:var(--gold);
-  font-family:"Playfair Display",serif;
-  font-size:18px;
-}
-
-.logo-text{
-  font-family:"Playfair Display",serif;
-  font-size:18px;
-  letter-spacing:.5px;
-}
-
-.nav{
-  display:flex;
-  gap:8px;
-}
-
-.nav button{
-  border:none;
-  background:transparent;
-  color:rgba(255,255,255,.62);
-  padding:10px 14px;
-  border-radius:30px;
-  cursor:pointer;
-  font-family:inherit;
-  font-size:13px;
-  transition:.25s;
-}
-
-.nav button:hover,
-.nav button.active{
-  color:white;
-  background:rgba(255,255,255,.09);
-}
-
-/* =========================
-   PROGRESS
-========================= */
-
-.progress{
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:100%;
-  height:4px;
-  background:rgba(255,255,255,.08);
-  z-index:200;
-}
-
-.progress-bar{
-  width:0%;
-  height:100%;
-  background:var(--gold);
-  transition:.5s ease;
-}
-
-/* =========================
-   SLIDES
-========================= */
-
-.slides{
-  width:100%;
-  height:100%;
-  position:relative;
-}
-
-.slide{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:110px 7vw 90px;
-  opacity:0;
-  visibility:hidden;
-  transform:translateX(40px);
-  transition:
-    opacity .55s ease,
-    transform .55s ease,
-    visibility .55s;
-}
-
-.slide.active{
-  opacity:1;
-  visibility:visible;
-  transform:translateX(0);
-}
-
-.content{
-  width:min(1180px,100%);
-  margin:auto;
-}
-
-/* =========================
-   TYPOGRAPHY
-========================= */
-
-.eyebrow{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:3px;
-  font-size:12px;
-  font-weight:700;
-  margin-bottom:18px;
-}
-
-h1{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(48px,7vw,100px);
-  line-height:.96;
-  font-weight:600;
-}
-
-h2{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(38px,5vw,68px);
-  line-height:1.05;
-}
-
-h3{
-  font-family:"Playfair Display",serif;
-}
-
-.lead{
-  max-width:700px;
-  margin-top:28px;
-  color:rgba(255,255,255,.72);
-  font-size:18px;
-  line-height:1.8;
-}
-
-.gold{
-  color:var(--gold);
-}
-
-.muted{
-  color:rgba(255,255,255,.55);
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.btn{
-  border:none;
-  cursor:pointer;
-  padding:14px 22px;
-  border-radius:40px;
-  font-family:inherit;
-  font-weight:700;
-  transition:.25s;
-}
-
-.btn-gold{
-  background:var(--gold);
-  color:white;
-}
-
-.btn-gold:hover{
-  transform:translateY(-2px);
-  box-shadow:0 12px 30px rgba(194,139,60,.25);
-}
-
-.btn-outline{
-  background:transparent;
-  color:white;
-  border:1px solid rgba(255,255,255,.22);
-}
-
-.btn-outline:hover{
-  background:rgba(255,255,255,.08);
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:70px;
-  align-items:center;
-}
-
-.hero-title span{
-  display:block;
-}
-
-.hero-subtitle{
-  margin-top:30px;
-  font-size:18px;
-  line-height:1.7;
-  color:rgba(255,255,255,.68);
-}
-
-.hero-actions{
-  display:flex;
-  gap:12px;
-  margin-top:35px;
-  flex-wrap:wrap;
-}
-
-/* =========================
-   ORBIT VISUAL
-========================= */
-
-.orbit{
-  width:min(430px,70vw);
-  aspect-ratio:1;
-  margin:auto;
-  position:relative;
-  display:grid;
-  place-items:center;
-}
-
-.orbit::before,
-.orbit::after{
-  content:"";
-  position:absolute;
-  border:1px solid rgba(194,139,60,.25);
-  border-radius:50%;
-}
-
-.orbit::before{
-  width:70%;
-  height:70%;
-}
-
-.orbit::after{
-  width:100%;
-  height:100%;
-}
-
-.orbit-core{
-  width:135px;
-  height:135px;
-  border-radius:50%;
-  background:
-    radial-gradient(circle at 35% 30%, #e8c48d, var(--gold));
-  color:var(--green-dark);
-  display:grid;
-  place-items:center;
-  font-family:"Playfair Display",serif;
-  font-size:38px;
-  box-shadow:0 0 80px rgba(194,139,60,.22);
-  z-index:3;
-}
-
-.orbit-dot{
-  position:absolute;
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  background:var(--gold);
-  box-shadow:0 0 20px rgba(194,139,60,.8);
-}
-
-.dot1{top:7%;left:48%}
-.dot2{right:5%;top:48%}
-.dot3{bottom:8%;left:48%}
-.dot4{left:5%;top:48%}
-
-/* =========================
-   QUOTE
-========================= */
-
-.quote{
-  text-align:center;
-  max-width:950px;
-  margin:auto;
-}
-
-.quote-mark{
-  color:var(--gold);
-  font-family:"Playfair Display",serif;
-  font-size:80px;
-  line-height:.5;
-  margin-bottom:30px;
-}
-
-.quote-text{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(32px,5vw,64px);
-  line-height:1.18;
-}
-
-.quote-author{
-  margin-top:28px;
-  color:rgba(255,255,255,.55);
-}
-
-/* =========================
-   TIMELINE
-========================= */
-
-.timeline{
-  position:relative;
-  margin-top:60px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.timeline::before{
-  content:"";
-  position:absolute;
-  left:5%;
-  right:5%;
-  top:26px;
-  height:1px;
-  background:rgba(255,255,255,.18);
-}
-
-.timeline-item{
-  position:relative;
-  z-index:2;
-}
-
-.timeline-dot{
-  width:54px;
-  height:54px;
-  border-radius:50%;
-  border:1px solid var(--gold);
-  background:var(--green-dark);
-  display:grid;
-  place-items:center;
-  color:var(--gold);
-  font-weight:700;
-  margin-bottom:20px;
-}
-
-.timeline-item h3{
-  font-size:22px;
-  margin-bottom:8px;
-}
-
-.timeline-item p{
-  color:rgba(255,255,255,.58);
-  font-size:14px;
-  line-height:1.6;
-}
-
-/* =========================
-   EHEF
-========================= */
-
-.ehef-layout{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:70px;
-  align-items:center;
-}
-
-.ehef-card{
-  min-height:360px;
-  padding:45px;
-  border:1px solid rgba(194,139,60,.3);
-  background:
-    linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.015));
-  border-radius:28px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  box-shadow:var(--shadow);
-}
-
-.ehef-card .big{
-  font-family:"Playfair Display",serif;
-  font-size:90px;
-  color:var(--gold);
-  line-height:1;
-}
-
-.ehef-card small{
-  color:rgba(255,255,255,.5);
-  margin-top:15px;
-  letter-spacing:2px;
-}
-
-.skill-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  margin-top:30px;
-}
-
-.skill{
-  padding:22px;
-  border-radius:18px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.skill strong{
-  display:block;
-  margin-bottom:7px;
-}
-
-.skill span{
-  color:rgba(255,255,255,.52);
-  font-size:13px;
-}
-
-/* =========================
-   PATTERN
-========================= */
-
-.pattern{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:10px;
-  margin-top:60px;
-}
-
-.pattern-item{
-  text-align:center;
-  padding:25px 15px;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:20px;
-  background:rgba(255,255,255,.04);
-  position:relative;
-}
-
-.pattern-item:not(:last-child)::after{
-  content:"→";
-  position:absolute;
-  right:-15px;
-  top:50%;
-  transform:translateY(-50%);
-  color:var(--gold);
-  font-size:20px;
-  z-index:5;
-}
-
-.pattern-number{
-  font-size:12px;
-  color:var(--gold);
-  margin-bottom:12px;
-}
-
-.pattern-item h3{
-  font-size:19px;
-}
-
-.pattern-item p{
-  margin-top:8px;
-  color:rgba(255,255,255,.48);
-  font-size:12px;
-}
-
-/* =========================
-   WORLD MAP
-========================= */
-
-.world{
-  position:relative;
-  height:420px;
-  margin-top:30px;
-  border-radius:30px;
-  background:
-    radial-gradient(circle at 50% 50%,rgba(194,139,60,.08),transparent 45%),
-    rgba(255,255,255,.025);
-  border:1px solid rgba(255,255,255,.08);
-  overflow:hidden;
-}
-
-.world-lines{
-  position:absolute;
-  inset:0;
-  opacity:.18;
-  background-image:
-    linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
-  background-size:60px 60px;
-}
-
-.country-point{
-  position:absolute;
-  width:15px;
-  height:15px;
-  border-radius:50%;
-  background:var(--gold);
-  box-shadow:0 0 0 8px rgba(194,139,60,.1),0 0 25px rgba(194,139,60,.5);
-  cursor:pointer;
-  transition:.25s;
-}
-
-.country-point:hover{
-  transform:scale(1.35);
-}
-
-.country-label{
-  position:absolute;
-  transform:translate(12px,-5px);
-  font-size:12px;
-  white-space:nowrap;
-  color:rgba(255,255,255,.7);
-}
-
-.p1{left:25%;top:36%}
-.p2{left:39%;top:45%}
-.p3{left:51%;top:32%}
-.p4{left:58%;top:52%}
-.p5{left:66%;top:39%}
-.p6{left:72%;top:62%}
-.p7{left:45%;top:65%}
-.p8{left:30%;top:56%}
-.p9{left:78%;top:30%}
-.p10{left:84%;top:55%}
-
-/* =========================
-   AUDIENCE POLL
-========================= */
-
-.poll-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:14px;
-  margin-top:45px;
-}
-
-.poll-option{
-  border:1px solid rgba(255,255,255,.13);
-  border-radius:22px;
-  padding:28px 16px;
-  background:rgba(255,255,255,.045);
-  color:white;
-  cursor:pointer;
-  text-align:center;
-  transition:.25s;
-  font-family:inherit;
-}
-
-.poll-option:hover{
-  transform:translateY(-5px);
-  border-color:var(--gold);
-}
-
-.poll-option.selected{
-  background:var(--gold);
-  border-color:var(--gold);
-}
-
-.poll-icon{
-  font-size:30px;
-  margin-bottom:15px;
-  display:block;
-}
-
-.poll-result{
-  margin-top:25px;
-  text-align:center;
-  min-height:25px;
-  color:var(--gold);
-  font-weight:700;
-}
-
-/* =========================
-   FIRST STEP
-========================= */
-
-.step-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:40px;
-}
-
-.step-card{
-  padding:25px;
-  border-radius:20px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.1);
-  cursor:pointer;
-  transition:.25s;
-}
-
-.step-card:hover{
-  transform:translateY(-4px);
-}
-
-.step-card.selected{
-  border-color:var(--gold);
-  background:rgba(194,139,60,.12);
-}
-
-.step-card strong{
-  display:block;
-  margin-bottom:8px;
-}
-
-.step-card span{
-  color:rgba(255,255,255,.5);
-  font-size:13px;
-}
-
-.step-result{
-  margin-top:28px;
-  font-family:"Playfair Display",serif;
-  font-size:25px;
-  color:var(--gold);
-  min-height:35px;
-}
-
-/* =========================
-   CLIFFHANGER
-========================= */
-
-.cliff{
-  text-align:center;
-  max-width:900px;
-  margin:auto;
-}
-
-.locked{
-  margin:40px auto 0;
-  width:min(550px,100%);
-  padding:35px;
-  border:1px solid rgba(194,139,60,.28);
-  border-radius:25px;
-  background:rgba(255,255,255,.035);
-}
-
-.lock-icon{
-  font-size:35px;
-  margin-bottom:15px;
-}
 
-.next-title{
-  font-family:"Playfair Display",serif;
-  font-size:32px;
-}
+/* =========================================================
+   ROOT
+========================================================= */
 
-.next-text{
-  color:rgba(255,255,255,.5);
-  margin-top:10px;
-}
+:root {
+  --green: #063f34;
+  --green-dark: #032f28;
+  --green-deep: #021f1b;
 
-/* =========================
-   FINAL
-========================= */
+  --green-light: #eaf2ef;
 
-.final{
-  text-align:center;
-}
+  --gold: #c28b3c;
+  --gold-light: #f7eddc;
 
-.final h1{
-  font-size:clamp(50px,8vw,105px);
-}
+  --cream: #faf8f3;
+  --white: #ffffff;
 
-.final-tagline{
-  margin:30px auto;
-  max-width:700px;
-  font-family:"Playfair Display",serif;
-  font-size:clamp(22px,3vw,36px);
-  line-height:1.5;
-  color:rgba(255,255,255,.82);
-}
+  --text: #17201d;
+  --muted: #727a76;
 
-/* =========================
-   CONTROLS
-========================= */
+  --border: rgba(255,255,255,.13);
 
-.controls{
-  position:absolute;
-  bottom:28px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:150;
-  display:flex;
-  align-items:center;
-  gap:10px;
+  --danger: #b94b42;
 }
 
-.control-btn{
-  width:46px;
-  height:46px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.16);
-  background:rgba(255,255,255,.07);
-  color:white;
-  cursor:pointer;
-  font-size:18px;
-  transition:.2s;
-}
 
-.control-btn:hover{
-  background:var(--gold);
-}
+/* =========================================================
+   RESET
+========================================================= */
 
-.slide-counter{
-  color:rgba(255,255,255,.45);
-  font-size:12px;
-  min-width:55px;
-  text-align:center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-/* =========================
-   SIDE CHAPTER INDICATOR
-========================= */
 
-.chapter{
-  position:absolute;
-  right:35px;
-  bottom:30px;
-  z-index:120;
-  color:rgba(255,255,255,.35);
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
+html {
+  scroll-behavior: smooth;
 }
-
-/* =========================
-   RESPONSIVE TABLET
-========================= */
-
-@media(max-width:900px){
-
-  .topbar{
-    padding:0 22px;
-  }
-
-  .nav{
-    display:none;
-  }
-
-  .slide{
-    padding:100px 6vw 90px;
-    overflow-y:auto;
-  }
-
-  .hero,
-  .ehef-layout{
-    grid-template-columns:1fr;
-    gap:35px;
-  }
 
-  .orbit{
-    width:260px;
-  }
-
-  .orbit-core{
-    width:95px;
-    height:95px;
-    font-size:27px;
-  }
-
-  .timeline{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .pattern{
-    grid-template-columns:1fr;
-  }
-
-  .pattern-item:not(:last-child)::after{
-    content:"↓";
-    right:auto;
-    top:auto;
-    bottom:-20px;
-    left:50%;
-    transform:translateX(-50%);
-  }
-
-  .poll-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .step-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .world{
-    height:320px;
-  }
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--green-deep);
+  color: var(--white);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
 }
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-  body{
-    overflow:hidden;
-  }
-
-  .topbar{
-    height:62px;
-    padding:0 16px;
-  }
-
-  .logo-mark{
-    width:35px;
-    height:35px;
-    font-size:15px;
-  }
-
-  .logo-text{
-    font-size:15px;
-  }
-
-  .slide{
-    padding:
-      calc(80px + env(safe-area-inset-top))
-      20px
-      calc(90px + env(safe-area-inset-bottom));
-    align-items:flex-start;
-  }
-
-  .content{
-    padding-top:10px;
-  }
-
-  .eyebrow{
-    font-size:10px;
-    letter-spacing:2px;
-    margin-bottom:14px;
-  }
 
-  h1{
-    font-size:clamp(42px,13vw,65px);
-  }
-
-  h2{
-    font-size:clamp(34px,10vw,48px);
-  }
-
-  .lead{
-    font-size:15px;
-    line-height:1.7;
-    margin-top:20px;
-  }
-
-  .hero{
-    display:flex;
-    flex-direction:column;
-    gap:25px;
-  }
-
-  .hero .orbit{
-    order:-1;
-    width:210px;
-  }
-
-  .orbit-core{
-    width:75px;
-    height:75px;
-    font-size:23px;
-  }
-
-  .hero-actions{
-    margin-top:25px;
-  }
-
-  .btn{
-    width:100%;
-  }
-
-  .quote-mark{
-    font-size:60px;
-  }
-
-  .quote-text{
-    font-size:31px;
-  }
-
-  .timeline{
-    grid-template-columns:1fr;
-    gap:25px;
-    margin-top:35px;
-  }
-
-  .timeline::before{
-    display:none;
-  }
-
-  .timeline-item{
-    display:grid;
-    grid-template-columns:54px 1fr;
-    gap:15px;
-  }
-
-  .timeline-dot{
-    margin:0;
-  }
-
-  .timeline-item h3{
-    font-size:19px;
-  }
-
-  .ehef-card{
-    min-height:220px;
-    padding:30px;
-  }
-
-  .ehef-card .big{
-    font-size:65px;
-  }
-
-  .skill-grid{
-    grid-template-columns:1fr;
-  }
-
-  .pattern{
-    margin-top:30px;
-  }
-
-  .pattern-item{
-    padding:20px;
-  }
-
-  .world{
-    height:260px;
-    margin-top:25px;
-  }
-
-  .country-label{
-    display:none;
-  }
-
-  .country-point{
-    width:11px;
-    height:11px;
-  }
-
-  .poll-grid{
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:30px;
-  }
-
-  .poll-option{
-    padding:20px 10px;
-    font-size:13px;
-  }
-
-  .poll-icon{
-    font-size:25px;
-  }
-
-  .step-grid{
-    grid-template-columns:1fr;
-    margin-top:25px;
-  }
-
-  .step-card{
-    padding:20px;
-  }
-
-  .controls{
-    bottom:18px;
-  }
-
-  .chapter{
-    display:none;
-  }
-
-  .slide-counter{
-    min-width:45px;
-  }
+button {
+  font-family: inherit;
 }
-
-/* =========================
-   TOUCH FRIENDLY
-========================= */
 
 button,
-.country-point{
-  -webkit-tap-highlight-color:transparent;
-  touch-action:manipulation;
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* =========================
+
+/* =========================================================
+   PRESENTATION WRAPPER
+========================================================= */
+
+.presentation {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SLIDES
+========================================================= */
+
+.slide {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 80px 8vw 100px;
+
+  display: flex;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateX(40px) scale(.985);
+
+  transition:
+    opacity .65s ease,
+    transform .65s cubic-bezier(.22,.61,.36,1),
+    visibility .65s ease;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(0) scale(1);
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.slide::before {
+  content: "";
+
+  position: absolute;
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(194,139,60,.10),
+      transparent 68%
+    );
+
+  top: -250px;
+  right: -200px;
+
+  pointer-events: none;
+}
+
+.slide::after {
+  content: "";
+
+  position: absolute;
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.025),
+      transparent 70%
+    );
+
+  bottom: -250px;
+  left: -200px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+  position: relative;
+  z-index: 2;
+
+  width: min(1100px, 100%);
+  margin: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+
+  color: var(--gold);
+
+  font-weight: 700;
+
+  margin-bottom: 22px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(55px, 9vw, 120px);
+  line-height: .95;
+}
+
+h2 {
+  font-size: clamp(42px, 6vw, 78px);
+  line-height: 1.05;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.lead {
+  max-width: 760px;
+
+  font-size: clamp(17px, 2vw, 22px);
+
+  line-height: 1.7;
+
+  color: rgba(255,255,255,.72);
+
+  margin-top: 28px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-title {
+  max-width: 1000px;
+}
+
+.hero-subtitle {
+  margin-top: 35px;
+
+  font-size: clamp(16px, 2vw, 21px);
+
+  line-height: 1.7;
+
+  color: rgba(255,255,255,.62);
+
+  max-width: 700px;
+}
+
+.hero-name {
+  margin-top: 35px;
+
+  color: var(--gold);
+
+  font-size: 14px;
+
+  letter-spacing: .2em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.btn {
+  border: 0;
+
+  border-radius: 999px;
+
+  padding: 14px 24px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease;
+
+  margin-top: 30px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--green-deep);
+}
+
+.btn-outline {
+  background: transparent;
+
+  border: 1px solid rgba(255,255,255,.25);
+
+  color: white;
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,.08);
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote {
+  position: relative;
+
+  padding: 35px 40px;
+
+  border-left: 2px solid var(--gold);
+
+  background: rgba(255,255,255,.035);
+
+  max-width: 850px;
+}
+
+.quote-mark {
+  position: absolute;
+
+  top: 10px;
+  left: 18px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 50px;
+
+  color: rgba(194,139,60,.25);
+}
+
+.quote-text {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(25px, 4vw, 43px);
+
+  line-height: 1.35;
+
+  padding-left: 15px;
+}
+
+
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+.experience-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 35px;
+
+  margin-top: 50px;
+}
+
+.experience-card {
+  position: relative;
+
+  min-height: 300px;
+
+  border-radius: 24px;
+
+  padding: 35px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.08),
+      rgba(255,255,255,.025)
+    );
+
+  border: 1px solid var(--border);
+
+  overflow: hidden;
+}
+
+.experience-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(194,139,60,.16),
+      transparent 70%
+    );
+
+  right: -80px;
+  bottom: -80px;
+}
+
+.year {
+  font-size: 65px;
+
+  font-family: "Playfair Display", serif;
+
+  color: var(--gold);
+
+  line-height: 1;
+}
+
+.card-label {
+  margin-top: 20px;
+
+  font-size: 12px;
+
+  letter-spacing: .18em;
+
+  color: rgba(255,255,255,.5);
+
+  text-transform: uppercase;
+}
+
+.card-title {
+  margin-top: 12px;
+
+  font-size: 28px;
+
+  font-family: "Playfair Display", serif;
+}
+
+.card-description {
+  margin-top: 16px;
+
+  color: rgba(255,255,255,.58);
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   SPLIT LAYOUT
+========================================================= */
+
+.split {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 70px;
+
+  align-items: center;
+
+  margin-top: 45px;
+}
+
+
+/* =========================================================
+   VISUAL PLACEHOLDER
+========================================================= */
+
+.visual {
+  min-height: 390px;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(194,139,60,.16),
+      rgba(255,255,255,.035)
+    );
+
+  border: 1px solid var(--border);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.visual-icon {
+  font-size: 90px;
+
+  opacity: .8;
+}
+
+.visual-caption {
+  position: absolute;
+
+  bottom: 20px;
+  left: 25px;
+
+  right: 25px;
+
+  font-size: 12px;
+
+  letter-spacing: .14em;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,.5);
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+  position: relative;
+
+  margin-top: 50px;
+
+  display: grid;
+
+  gap: 20px;
+}
+
+.timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 21px;
+  top: 22px;
+  bottom: 22px;
+
+  width: 1px;
+
+  background: rgba(194,139,60,.3);
+}
+
+.timeline-item {
+  position: relative;
+
+  display: flex;
+
+  gap: 25px;
+
+  align-items: flex-start;
+
+  padding: 8px 0;
+}
+
+.timeline-dot {
+  position: relative;
+
+  z-index: 2;
+
+  width: 44px;
+  height: 44px;
+
+  min-width: 44px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--green);
+
+  border: 1px solid var(--gold);
+
+  color: var(--gold);
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.timeline-item h3 {
+  font-size: 24px;
+}
+
+.timeline-item p {
+  margin-top: 5px;
+
+  color: rgba(255,255,255,.55);
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skill-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2,1fr);
+
+  gap: 16px;
+
+  margin-top: 35px;
+}
+
+.skill {
+  padding: 25px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.035);
+
+  border: 1px solid var(--border);
+
+  transition:
+    transform .25s ease,
+    background .25s ease;
+}
+
+.skill:hover {
+  transform: translateY(-4px);
+
+  background: rgba(255,255,255,.065);
+}
+
+.skill strong {
+  display: block;
+
+  font-size: 19px;
+
+  color: var(--gold);
+}
+
+.skill span {
+  display: block;
+
+  margin-top: 10px;
+
+  color: rgba(255,255,255,.55);
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   PATTERN
+========================================================= */
+
+.pattern {
+  display: grid;
+
+  grid-template-columns: repeat(5,1fr);
+
+  gap: 12px;
+
+  margin-top: 50px;
+}
+
+.pattern-item {
+  padding: 25px 18px;
+
+  min-height: 180px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.035);
+
+  border: 1px solid var(--border);
+}
+
+.pattern-number {
+  color: var(--gold);
+
+  font-weight: 700;
+
+  font-size: 13px;
+}
+
+.pattern-item h3 {
+  margin-top: 20px;
+
+  font-size: 22px;
+}
+
+.pattern-item p {
+  margin-top: 8px;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: rgba(255,255,255,.5);
+}
+
+
+/* =========================================================
+   WORLD MAP / COUNTRIES
+========================================================= */
+
+.world-box {
+  margin-top: 50px;
+
+  padding: 35px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.07),
+      rgba(255,255,255,.025)
+    );
+
+  border: 1px solid var(--border);
+
+  text-align: center;
+}
+
+.world-symbol {
+  font-size: 90px;
+
+  margin-bottom: 20px;
+}
+
+.country-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5,1fr);
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.country {
+  padding: 14px 10px;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,.04);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  color: rgba(255,255,255,.65);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   AUDIENCE INTERACTION
+========================================================= */
+
+.interaction {
+  margin-top: 45px;
+
+  padding: 30px;
+
+  border-radius: 24px;
+
+  background: rgba(194,139,60,.08);
+
+  border: 1px solid rgba(194,139,60,.25);
+
+  text-align: center;
+}
+
+.interaction h3 {
+  font-size: 27px;
+}
+
+.interaction p {
+  margin-top: 10px;
+
+  color: rgba(255,255,255,.55);
+
+  line-height: 1.6;
+}
+
+.interaction-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.interaction-buttons button {
+  border: 1px solid rgba(255,255,255,.18);
+
+  background: rgba(255,255,255,.05);
+
+  color: white;
+
+  border-radius: 999px;
+
+  padding: 11px 18px;
+
+  cursor: pointer;
+
+  transition: .25s ease;
+}
+
+.interaction-buttons button:hover,
+.interaction-buttons button.selected {
+  background: var(--gold);
+
+  color: var(--green-deep);
+
+  border-color: var(--gold);
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-message {
+  text-align: center;
+
+  max-width: 900px;
+
+  margin: auto;
+}
+
+.final-message h2 {
+  font-size: clamp(45px, 7vw, 90px);
+}
+
+.final-message p {
+  max-width: 700px;
+
+  margin: 30px auto 0;
+
+  color: rgba(255,255,255,.62);
+
+  line-height: 1.8;
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar {
+  position: fixed;
+
+  z-index: 100;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 70px;
+
+  padding: 0 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(2,31,27,.9),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+.brand {
+  pointer-events: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 20px;
+}
+
+.brand-mark {
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid var(--gold);
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--gold);
+
+  font-size: 12px;
+}
+
+.slide-count {
+  font-size: 12px;
+
+  letter-spacing: .12em;
+
+  color: rgba(255,255,255,.5);
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress {
+  position: fixed;
+
+  z-index: 110;
+
+  left: 0;
+  top: 0;
+
+  height: 3px;
+
+  width: 0%;
+
+  background: var(--gold);
+
+  transition: width .4s ease;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navigation {
+  position: fixed;
+
+  z-index: 100;
+
+  left: 50%;
+
+  bottom: 25px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 8px;
+
+  border-radius: 999px;
+
+  background: rgba(3,47,40,.88);
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  backdrop-filter: blur(12px);
+}
+
+.nav-btn {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  border: 0;
+
+  background: rgba(255,255,255,.06);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: .25s ease;
+}
+
+.nav-btn:hover {
+  background: var(--gold);
+
+  color: var(--green-deep);
+}
+
+.nav-btn:disabled {
+  opacity: .3;
+
+  cursor: default;
+}
+
+.nav-home {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,.15);
+
+  background: transparent;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   HINT
+========================================================= */
+
+.swipe-hint {
+  position: fixed;
+
+  z-index: 90;
+
+  bottom: 30px;
+
+  right: 30px;
+
+  color: rgba(255,255,255,.35);
+
+  font-size: 11px;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .slide {
+    padding:
+      85px
+      22px
+      105px;
+  }
+
+  .topbar {
+    padding: 0 18px;
+
+    height: 62px;
+  }
+
+  .brand {
+    font-size: 17px;
+  }
+
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .slide-count {
+    font-size: 10px;
+  }
+
+  .split,
+  .experience-grid {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .visual {
+    min-height: 250px;
+  }
+
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pattern {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .country-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .experience-card {
+    min-height: 250px;
+  }
+
+  .year {
+    font-size: 50px;
+  }
+
+  .navigation {
+    bottom: 15px;
+  }
+
+  .swipe-hint {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .slide {
+    padding:
+      78px
+      18px
+      100px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+
+    letter-spacing: .18em;
+
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 38px;
+  }
+
+  .lead {
+    font-size: 16px;
+
+    line-height: 1.65;
+  }
+
+  .quote {
+    padding: 28px 22px;
+  }
+
+  .quote-text {
+    font-size: 26px;
+  }
+
+  .pattern {
+    grid-template-columns: 1fr;
+  }
+
+  .country-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .country {
+    font-size: 12px;
+  }
+
+  .interaction {
+    padding: 22px 15px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
    ANIMATIONS
-========================= */
+========================================================= */
 
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-12px)}
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
 }
 
-.orbit{
-  animation:float 6s ease-in-out infinite;
+.slide.active .eyebrow,
+.slide.active h1,
+.slide.active h2,
+.slide.active .lead,
+.slide.active .quote,
+.slide.active .experience-card,
+.slide.active .timeline-item,
+.slide.active .skill,
+.slide.active .pattern-item,
+.slide.active .world-box,
+.slide.active .interaction {
+
+  animation:
+    fadeUp .7s ease both;
+
 }
 
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(194,139,60,.35)}
-  70%{box-shadow:0 0 0 18px rgba(194,139,60,0)}
-  100%{box-shadow:0 0 0 0 rgba(194,139,60,0)}
+.slide.active .eyebrow {
+  animation-delay: .05s;
 }
 
-.country-point{
-  animation:pulse 2.5s infinite;
+.slide.active h1,
+.slide.active h2 {
+  animation-delay: .12s;
 }
+
+.slide.active .lead {
+  animation-delay: .2s;
+}
+
+.slide.active .experience-card,
+.slide.active .timeline-item,
+.slide.active .skill,
+.slide.active .pattern-item {
+  animation-delay: .28s;
+}
+
 </style>
 </head>
 
+
 <body>
 
-<div class="app">
 
-  <!-- =========================
-       TOP BAR
-  ========================== -->
+<!-- =====================================================
+     PRESENTATION
+===================================================== -->
 
-  <header class="topbar">
+<div class="presentation">
 
-    <div class="logo">
-      <div class="logo-mark">IF</div>
-      <div class="logo-text">Isti Fatimah</div>
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+
+  <div class="brand">
+
+    <div class="brand-mark">
+      IF
     </div>
 
-    <nav class="nav">
+    <span>
+      Isti Fatimah
+    </span>
 
-      <button onclick="goTo(0)">HOME</button>
-      <button onclick="goTo(1)">STORY</button>
-      <button onclick="goTo(2)">EHEF</button>
-      <button onclick="goTo(4)">JOURNEY</button>
-      <button onclick="goTo(7)">YOUR STEP</button>
-      <button onclick="goTo(9)">NEXT</button>
+  </div>
 
-    </nav>
+  <div class="slide-count" id="slideCount">
+    01 / 14
+  </div>
 
-  </header>
-
-
-  <!-- =========================
-       SLIDES
-  ========================== -->
-
-  <main class="slides">
+</header>
 
 
-    <!-- SLIDE 1 -->
-    <section class="slide active">
+<!-- =====================================================
+     SLIDE 01
+     OPENING
+===================================================== -->
 
-      <div class="content hero">
+<section class="slide active">
 
-        <div>
+  <div class="content hero">
 
-          <div class="eyebrow">
-            Muslimah Beyond Borders · Part 01
-          </div>
+    <div class="hero-title">
 
-          <h1 class="hero-title">
-            <span>The First</span>
-            <span class="gold">YES.</span>
-          </h1>
-
-          <p class="hero-subtitle">
-            The journey didn't start with a plane.
-            It started with one small decision to step
-            outside my comfort zone.
-          </p>
-
-          <div class="hero-actions">
-
-            <button class="btn btn-gold" onclick="nextSlide()">
-              Start the Journey →
-            </button>
-
-            <button class="btn btn-outline" onclick="goTo(2)">
-              The Turning Point
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <div class="orbit">
-
-          <div class="orbit-core">
-            YES
-          </div>
-
-          <div class="orbit-dot dot1"></div>
-          <div class="orbit-dot dot2"></div>
-          <div class="orbit-dot dot3"></div>
-          <div class="orbit-dot dot4"></div>
-
-        </div>
-
+      <div class="eyebrow">
+        WEBINAR SERIES · PART 01
       </div>
 
-    </section>
+      <h1>
+        Beyond
+        <span class="gold">Borders.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+
+        Sebelum saya menjadi seorang traveler,
+        ada banyak sekali "YES" kecil yang ternyata
+        membawa saya semakin dekat dengan dunia.
+
+      </p>
+
+      <div class="hero-name">
+        Isti Fatimah · Journey Before Traveling
+      </div>
+
+      <button
+        class="btn btn-gold"
+        onclick="nextSlide()">
+
+        Let's Begin →
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
 
 
-    <!-- SLIDE 2 -->
-    <section class="slide">
+<!-- =====================================================
+     SLIDE 02
+     AUDIENCE
+===================================================== -->
 
-      <div class="content quote">
+<section class="slide">
 
-        <div class="quote-mark">“</div>
+  <div class="content center">
 
-        <div class="quote-text">
-          I didn't plan to become
-          a traveller.
-        </div>
+    <div class="eyebrow">
+      BEFORE WE BEGIN
+    </div>
 
-        <div class="quote-author">
-          — Isti Fatimah, S.ST.
-        </div>
+    <h2>
+      Saya mau tahu...
+    </h2>
 
-        <button
-          class="btn btn-gold"
-          style="margin-top:35px"
-          onclick="nextSlide()">
-          So... where did it begin?
+    <p class="lead" style="margin-left:auto;margin-right:auto;">
+
+      Siapa di sini yang pernah mendapatkan
+      sebuah kesempatan, tetapi awalnya
+      merasa "kayaknya saya belum siap"?
+
+    </p>
+
+
+    <div class="interaction">
+
+      <h3>
+        Pernah mengalami?
+      </h3>
+
+      <p>
+        Pilih jawaban yang paling menggambarkan kamu.
+      </p>
+
+      <div class="interaction-buttons">
+
+        <button onclick="selectAudience(this)">
+          🙋 Pernah banget
+        </button>
+
+        <button onclick="selectAudience(this)">
+          😅 Sering ragu
+        </button>
+
+        <button onclick="selectAudience(this)">
+          🚀 Langsung YES
+        </button>
+
+        <button onclick="selectAudience(this)">
+          👀 Lagi belajar berani
         </button>
 
       </div>
 
-    </section>
+    </div>
+
+    <button
+      class="btn btn-outline"
+      onclick="nextSlide()">
+
+      Mari mulai dari awal →
+
+    </button>
+
+  </div>
+
+</section>
 
 
-<!-- =========================
-     SLIDE 3 — EHEF
-========================== -->
+<!-- =====================================================
+     SLIDE 03
+     FIRST YES
+===================================================== -->
 
 <section class="slide">
 
   <div class="content">
 
     <div class="eyebrow">
-      The First YES
+      MY JOURNEY · BEFORE TRAVELING
     </div>
 
     <h2>
-      It started with
-      <span class="gold">EHEF.</span>
+      I didn't start with
+      <span class="gold">traveling.</span>
     </h2>
 
     <p class="lead">
-      Salah satu titik balik awal saya adalah ketika
-      saya memberanikan diri menjadi volunteer dan
-      panitia EHEF.
+
+      Kalau hari ini saya dikenal sebagai seorang
+      traveler, mungkin orang akan berpikir bahwa
+      semuanya dimulai dari sebuah perjalanan
+      ke luar negeri.
+
     </p>
 
-    <div class="ehef-layout" style="margin-top:35px">
+    <div class="quote" style="margin-top:40px;">
 
-      <div class="ehef-card">
+      <div class="quote-mark">
+        “
+      </div>
 
-        <div class="big">
-          EHEF
+      <div class="quote-text">
+
+        But actually...
+        <br>
+
+        <span class="gold">
+          it started with courage.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 04
+     FIFA WORLD CUP
+===================================================== -->
+
+<section class="slide">
+
+  <div class="content">
+
+    <div class="eyebrow">
+      THE FIRST YES · 2014
+    </div>
+
+    <h2>
+      My first big
+      <span class="gold">dream.</span>
+    </h2>
+
+    <div class="split">
+
+      <div class="visual">
+
+        <div class="visual-icon">
+          🌎
         </div>
 
-        <small>
-          MY FIRST YES
-        </small>
+        <div class="visual-caption">
+          Rio de Janeiro · Brazil
+        </div>
 
       </div>
 
       <div>
 
-        <p class="lead" style="margin-top:0">
-          Di sana saya mulai belajar menghadapi
-          lingkungan baru, berinteraksi dengan orang
-          dari berbagai latar belakang, menggunakan
-          Bahasa Inggris, dan belajar berkomunikasi
-          secara lebih diplomatis.
+        <div class="year">
+          2014
+        </div>
+
+        <div class="card-label">
+          FIFA WORLD CUP
+        </div>
+
+        <h3 style="margin-top:12px;">
+          Calon Volunteer
+        </h3>
+
+        <p class="lead" style="margin-top:20px;">
+
+          Salah satu titik awal perjalanan saya adalah
+          ketika saya menjadi calon volunteer
+          FIFA World Cup 2014 di Rio de Janeiro, Brazil.
+
         </p>
 
-        <button
-          class="btn btn-gold"
-          style="margin-top:25px"
-          onclick="nextSlide()">
-          And then... another opportunity →
-        </button>
+        <p style="
+          margin-top:18px;
+          color:rgba(255,255,255,.52);
+          line-height:1.7;
+        ">
+
+          Saat itu mungkin belum menjadi perjalanan
+          seperti yang saya bayangkan. Tetapi dari sinilah
+          saya mulai berani membayangkan diri saya berada
+          di lingkungan internasional.
+
+        </p>
 
       </div>
 
@@ -1273,83 +1546,72 @@ button,
 </section>
 
 
-<!-- =========================
-     SLIDE 4 — ASIAN GAMES INVITATION
-========================== -->
+<!-- =====================================================
+     SLIDE 05
+     INVITATION TOURNAMENT
+===================================================== -->
 
 <section class="slide">
 
   <div class="content">
 
     <div class="eyebrow">
-      Another Opportunity
+      THE NEXT YES · 2018
     </div>
 
     <h2>
-      Then came another
-      <span class="gold">YES.</span>
+      Another door
+      <span class="gold">opened.</span>
     </h2>
 
-    <p class="lead">
-      Setelah pengalaman dari EHEF, datang kesempatan
-      berikutnya: menjadi volunteer invitation tournament
-      Asian Games.
-    </p>
-
-    <div class="ehef-layout" style="margin-top:40px">
-
-      <div class="ehef-card">
-
-        <div class="big">
-          02
-        </div>
-
-        <small>
-          VOLUNTEER INVITATION TOURNAMENT
-        </small>
-
-      </div>
+    <div class="split">
 
       <div>
 
-        <div class="skill-grid">
-
-          <div class="skill">
-            <strong>Meet</strong>
-            <span>
-              Bertemu lebih banyak orang dan lingkungan baru.
-            </span>
-          </div>
-
-          <div class="skill">
-            <strong>Communicate</strong>
-            <span>
-              Mengasah kemampuan komunikasi dalam situasi nyata.
-            </span>
-          </div>
-
-          <div class="skill">
-            <strong>Adapt</strong>
-            <span>
-              Belajar menyesuaikan diri dengan situasi yang berbeda.
-            </span>
-          </div>
-
-          <div class="skill">
-            <strong>Confidence</strong>
-            <span>
-              Kepercayaan diri mulai terbentuk dari pengalaman.
-            </span>
-          </div>
-
+        <div class="year">
+          2018
         </div>
 
-        <button
-          class="btn btn-gold"
-          style="margin-top:25px"
-          onclick="nextSlide()">
-          And then... it got bigger →
-        </button>
+        <div class="card-label">
+          ASIAN GAMES
+        </div>
+
+        <h3 style="margin-top:12px;">
+          Volunteer Invitation Tournament
+        </h3>
+
+        <p class="lead">
+
+          Saya kemudian mendapatkan kesempatan
+          menjadi volunteer pada
+          Invitation Tournament Asian Games 2018.
+
+        </p>
+
+        <p style="
+          margin-top:18px;
+          color:rgba(255,255,255,.52);
+          line-height:1.7;
+        ">
+
+          Saya semakin sering bertemu dengan orang-orang
+          baru dan mulai merasakan bagaimana berada
+          dalam lingkungan yang lebih beragam.
+
+        </p>
+
+      </div>
+
+
+      <div class="visual">
+
+        <div class="visual-icon">
+          🏟️
+        </div>
+
+        <div class="visual-caption">
+          Invitation Tournament · Asian Games 2018
+        </div>
 
       </div>
 
@@ -1360,29 +1622,88 @@ button,
 </section>
 
 
-<!-- =========================
-     SLIDE 5 — ASIAN GAMES
-========================== -->
+<!-- =====================================================
+     SLIDE 06
+     GIVEAWAY
+===================================================== -->
+
+<section class="slide">
+
+  <div class="content center">
+
+    <div class="eyebrow">
+      SOMETIMES · JUST SAY YES
+    </div>
+
+    <h2>
+      And then...
+      <span class="gold">a giveaway.</span>
+    </h2>
+
+    <p class="lead" style="margin-left:auto;margin-right:auto;">
+
+      Saya mengikuti giveaway flight
+      <strong>Bandung — Bali.</strong>
+
+    </p>
+
+    <div class="visual" style="
+      max-width:800px;
+      margin:45px auto 0;
+      min-height:330px;
+    ">
+
+      <div class="visual-icon">
+        ✈️
+      </div>
+
+      <div class="visual-caption">
+        Bandung → Bali
+      </div>
+
+    </div>
+
+    <p style="
+      margin-top:30px;
+      color:rgba(255,255,255,.48);
+      font-family:'Playfair Display',serif;
+      font-size:24px;
+    ">
+
+      Not every journey starts with a plan.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 07
+     ASIAN GAMES
+===================================================== -->
 
 <section class="slide">
 
   <div class="content">
 
     <div class="eyebrow">
-      The Bigger YES
+      THE BIGGER YES · 2018
     </div>
 
     <h2>
-      Until I became a
-      <span class="gold">Volunteer Asian Games.</span>
+      I stepped into
+      <span class="gold">Asian Games 2018.</span>
     </h2>
 
     <p class="lead">
-      Dari satu kesempatan ke kesempatan berikutnya,
-      saya mulai menyadari bahwa setiap pengalaman
-      sebelumnya ternyata mempersiapkan saya untuk
-      kesempatan yang lebih besar.
+
+      Setelah pengalaman sebelumnya, saya kemudian
+      menjadi volunteer Asian Games 2018.
+
     </p>
+
 
     <div class="timeline">
 
@@ -1393,13 +1714,19 @@ button,
         </div>
 
         <div>
-          <h3>EHEF</h3>
+
+          <h3>
+            Meet
+          </h3>
+
           <p>
-            Berani mencoba.
+            Bertemu lebih banyak orang.
           </p>
+
         </div>
 
       </div>
+
 
       <div class="timeline-item">
 
@@ -1408,13 +1735,19 @@ button,
         </div>
 
         <div>
-          <h3>Invitation Tournament</h3>
+
+          <h3>
+            Interact
+          </h3>
+
           <p>
-            Berani berada di lingkungan yang lebih besar.
+            Berinteraksi dengan lingkungan yang lebih beragam.
           </p>
+
         </div>
 
       </div>
+
 
       <div class="timeline-item">
 
@@ -1423,13 +1756,19 @@ button,
         </div>
 
         <div>
-          <h3>Asian Games</h3>
+
+          <h3>
+            Adapt
+          </h3>
+
           <p>
-            Mengambil kesempatan yang lebih besar lagi.
+            Belajar menyesuaikan diri.
           </p>
+
         </div>
 
       </div>
+
 
       <div class="timeline-item">
 
@@ -1438,10 +1777,15 @@ button,
         </div>
 
         <div>
-          <h3>Growth</h3>
+
+          <h3>
+            Grow
+          </h3>
+
           <p>
-            Pengalaman membentuk kepercayaan diri.
+            Kepercayaan diri semakin tumbuh.
           </p>
+
         </div>
 
       </div>
@@ -1453,28 +1797,292 @@ button,
 </section>
 
 
-<!-- =========================
-     SLIDE 6 — THE PATTERN
-========================== -->
+<!-- =====================================================
+     SLIDE 08
+     EHEF
+===================================================== -->
 
 <section class="slide">
 
   <div class="content">
 
     <div class="eyebrow">
-      The Pattern
+      ANOTHER CHAPTER · 2018 — 2020
     </div>
 
     <h2>
-      I finally discovered
+      Then came
+      <span class="gold">EHEF.</span>
+    </h2>
+
+    <div class="split">
+
+      <div class="visual">
+
+        <div class="visual-icon">
+          🌐
+        </div>
+
+        <div class="visual-caption">
+          EHEF · 2018 — 2020
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="year">
+          2018–20
+        </div>
+
+        <div class="card-label">
+          EHEF
+        </div>
+
+        <h3 style="margin-top:12px;">
+          Volunteer & Committee
+        </h3>
+
+        <p class="lead">
+
+          Saya kemudian bergabung dalam volunteer
+          dan kepanitiaan EHEF pada periode 2018–2020.
+
+        </p>
+
+        <p style="
+          margin-top:18px;
+          color:rgba(255,255,255,.52);
+          line-height:1.7;
+        ">
+
+          Pengalaman ini semakin mempertemukan saya
+          dengan banyak orang dari berbagai negara
+          dan latar belakang.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 09
+     INTERNATIONAL FRIENDS
+===================================================== -->
+
+<section class="slide">
+
+  <div class="content center">
+
+    <div class="eyebrow">
+      THEN SOMETHING CHANGED
+    </div>
+
+    <h2>
+      I met people
+      <span class="gold">from everywhere.</span>
+    </h2>
+
+    <p class="lead" style="margin-left:auto;margin-right:auto;">
+
+      Dari berbagai pengalaman tersebut,
+      saya bertemu banyak teman dari luar negeri.
+
+    </p>
+
+
+    <div class="experience-grid">
+
+      <div class="experience-card">
+
+        <div style="font-size:50px;">
+          🌎
+        </div>
+
+        <h3 style="margin-top:20px;">
+          Different backgrounds
+        </h3>
+
+        <p class="card-description">
+          Saya mulai terbiasa berada di lingkungan
+          dengan orang-orang yang memiliki
+          latar belakang berbeda.
+        </p>
+
+      </div>
+
+
+      <div class="experience-card">
+
+        <div style="font-size:50px;">
+          🤝
+        </div>
+
+        <h3 style="margin-top:20px;">
+          New connections
+        </h3>
+
+        <p class="card-description">
+          Pertemanan menjadi salah satu alasan
+          saya semakin ingin mengenal dunia
+          lebih luas.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 10
+     ENGLISH
+===================================================== -->
+
+<section class="slide">
+
+  <div class="content">
+
+    <div class="eyebrow">
+      THE SKILL I DIDN'T EXPECT
+    </div>
+
+    <h2>
+      Then I realized...
+      <span class="gold">I had to speak.</span>
+    </h2>
+
+    <p class="lead">
+
+      Bertemu dengan banyak teman dari luar negeri
+      membuat saya harus belajar berkomunikasi
+      dalam Bahasa Inggris.
+
+    </p>
+
+    <div class="skill-grid">
+
+      <div class="skill">
+
+        <strong>
+          English
+        </strong>
+
+        <span>
+          Bukan hanya belajar memahami,
+          tetapi belajar menggunakannya.
+        </span>
+
+      </div>
+
+
+      <div class="skill">
+
+        <strong>
+          Communication
+        </strong>
+
+        <span>
+          Belajar menyampaikan pikiran
+          kepada orang dari latar belakang berbeda.
+        </span>
+
+      </div>
+
+
+      <div class="skill">
+
+        <strong>
+          Confidence
+        </strong>
+
+        <span>
+          Berani berbicara meskipun
+          belum merasa sempurna.
+        </span>
+
+      </div>
+
+
+      <div class="skill">
+
+        <strong>
+          Connection
+        </strong>
+
+        <span>
+          Bahasa menjadi jembatan
+          untuk membangun pertemanan.
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="quote" style="
+      margin:45px auto 0;
+      text-align:left;
+    ">
+
+      <div class="quote-text">
+
+        I didn't need to speak
+        <span class="gold">perfect English.</span>
+
+        <br><br>
+
+        I needed the courage
+        <span class="gold">to speak.</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 11
+     PATTERN
+===================================================== -->
+
+<section class="slide">
+
+  <div class="content">
+
+    <div class="eyebrow">
+      LOOKING BACK
+    </div>
+
+    <h2>
+      I finally saw
       <span class="gold">the pattern.</span>
     </h2>
 
     <p class="lead">
-      Ternyata perjalanan saya tidak terjadi dalam satu
-      lompatan besar. Semuanya dimulai dari keberanian
-      mengambil kesempatan kecil, lalu belajar dari sana.
+
+      Ternyata saya tidak menjadi traveler
+      dalam satu lompatan besar.
+
+      <br>
+
+      Semuanya dimulai dari kesempatan-kesempatan kecil.
+
     </p>
+
 
     <div class="pattern">
 
@@ -1484,10 +2092,12 @@ button,
           01
         </div>
 
-        <h3>Berani</h3>
+        <h3>
+          Berani
+        </h3>
 
         <p>
-          Say YES to an opportunity.
+          Mengambil kesempatan pertama.
         </p>
 
       </div>
@@ -1499,10 +2109,12 @@ button,
           02
         </div>
 
-        <h3>Belajar</h3>
+        <h3>
+          Bertemu
+        </h3>
 
         <p>
-          Learn English & communication.
+          Berinteraksi dengan orang baru.
         </p>
 
       </div>
@@ -1514,10 +2126,12 @@ button,
           03
         </div>
 
-        <h3>Bertemu</h3>
+        <h3>
+          Belajar
+        </h3>
 
         <p>
-          Meet people from different backgrounds.
+          English, communication & adaptability.
         </p>
 
       </div>
@@ -1529,10 +2143,12 @@ button,
           04
         </div>
 
-        <h3>Bertumbuh</h3>
+        <h3>
+          Bertumbuh
+        </h3>
 
         <p>
-          Build confidence and adaptability.
+          Confidence mulai terbentuk.
         </p>
 
       </div>
@@ -1544,401 +2160,400 @@ button,
           05
         </div>
 
-        <h3>Berani Lagi</h3>
+        <h3>
+          Berani Lagi
+        </h3>
 
         <p>
-          Take the next opportunity.
+          Mengambil kesempatan berikutnya.
         </p>
 
       </div>
 
-    </div>
-
-    <div style="
-      text-align:center;
-      margin-top:40px;
-      color:var(--gold);
-      font-family:'Playfair Display',serif;
-      font-size:24px;
-    ">
-      And eventually...
-      <strong>the world started opening.</strong>
     </div>
 
   </div>
 
 </section>
-    <!-- SLIDE 7 -->
-    <section class="slide">
 
-      <div class="content">
 
-        <div class="eyebrow">
-          Then The World Started Opening
-        </div>
+<!-- =====================================================
+     SLIDE 12
+     THE WORLD OPENED
+===================================================== -->
 
-        <h2>
-          One YES.
-          <span class="gold">Ten countries.</span>
-        </h2>
+<section class="slide">
 
-        <p class="lead">
-          Tapi hari ini saya tidak akan menceritakan semuanya.
-          Karena setiap negara memiliki cerita, tantangan,
-          dan pelajarannya sendiri.
-        </p>
+  <div class="content center">
 
-
-        <div class="world">
-
-          <div class="world-lines"></div>
-
-          <div class="country-point p1" onclick="countryClick(1)">
-            <span class="country-label">Chapter 01</span>
-          </div>
-
-          <div class="country-point p2" onclick="countryClick(2)">
-            <span class="country-label">Chapter 02</span>
-          </div>
-
-          <div class="country-point p3" onclick="countryClick(3)">
-            <span class="country-label">Chapter 03</span>
-          </div>
-
-          <div class="country-point p4" onclick="countryClick(4)">
-            <span class="country-label">Chapter 04</span>
-          </div>
-
-          <div class="country-point p5" onclick="countryClick(5)">
-            <span class="country-label">Chapter 05</span>
-          </div>
-
-          <div class="country-point p6" onclick="countryClick(6)">
-            <span class="country-label">Chapter 06</span>
-          </div>
-
-          <div class="country-point p7" onclick="countryClick(7)">
-            <span class="country-label">Chapter 07</span>
-          </div>
-
-          <div class="country-point p8" onclick="countryClick(8)">
-            <span class="country-label">Chapter 08</span>
-          </div>
-
-          <div class="country-point p9" onclick="countryClick(9)">
-            <span class="country-label">Chapter 09</span>
-          </div>
-
-          <div class="country-point p10" onclick="countryClick(10)">
-            <span class="country-label">Chapter 10</span>
-          </div>
-
-        </div>
-
-
-        <div id="countryMessage"
-             style="text-align:center;margin-top:15px;color:var(--gold);min-height:25px">
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- SLIDE 8 -->
-    <section class="slide">
-
-      <div class="content">
-
-        <div class="eyebrow">
-          Your Turn
-        </div>
-
-        <h2>
-          What's stopping
-          <span class="gold">you?</span>
-        </h2>
-
-        <p class="lead">
-          Sekarang saya ingin mendengar dari kalian.
-          Kalau kalian ingin melakukan sesuatu yang baru,
-          apa yang paling membuat kalian ragu?
-        </p>
-
-
-        <div class="poll-grid">
-
-          <button class="poll-option" onclick="selectPoll(this,'Fear')">
-            <span class="poll-icon">😨</span>
-            Fear
-          </button>
-
-          <button class="poll-option" onclick="selectPoll(this,'English')">
-            <span class="poll-icon">🗣️</span>
-            English
-          </button>
-
-          <button class="poll-option" onclick="selectPoll(this,'Budget')">
-            <span class="poll-icon">💰</span>
-            Budget
-          </button>
-
-          <button class="poll-option" onclick="selectPoll(this,'Opportunity')">
-            <span class="poll-icon">🚪</span>
-            No Opportunity
-          </button>
-
-          <button class="poll-option" onclick="selectPoll(this,'Confidence')">
-            <span class="poll-icon">💪</span>
-            Confidence
-          </button>
-
-        </div>
-
-
-        <div id="pollResult" class="poll-result"></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- SLIDE 9 -->
-    <section class="slide">
-
-      <div class="content">
-
-        <div class="eyebrow">
-          Your First YES
-        </div>
-
-        <h2>
-          What is one small
-          <span class="gold">YES</span>
-          you can make?
-        </h2>
-
-        <p class="lead">
-          Tidak harus langsung pergi ke luar negeri.
-          Tidak harus langsung menjadi seorang traveller.
-          Perjalanan bisa dimulai dari satu langkah kecil.
-        </p>
-
-
-        <div class="step-grid">
-
-          <div class="step-card" onclick="chooseStep(this,'Learn English')">
-            <strong>🗣️ Learn English</strong>
-            <span>Mulai membangun kemampuan komunikasi.</span>
-          </div>
-
-          <div class="step-card" onclick="chooseStep(this,'Meet New People')">
-            <strong>🤝 Meet New People</strong>
-            <span>Berani membuka diri pada lingkungan baru.</span>
-          </div>
-
-          <div class="step-card" onclick="chooseStep(this,'Join an Opportunity')">
-            <strong>🚪 Join an Opportunity</strong>
-            <span>Volunteer, event, komunitas, atau pengalaman baru.</span>
-          </div>
-
-          <div class="step-card" onclick="chooseStep(this,'Research a Country')">
-            <strong>🌏 Research a Country</strong>
-            <span>Mulai mengenal dunia dari sekarang.</span>
-          </div>
-
-          <div class="step-card" onclick="chooseStep(this,'Build Confidence')">
-            <strong>💪 Build Confidence</strong>
-            <span>Belajar percaya bahwa saya mampu.</span>
-          </div>
-
-          <div class="step-card" onclick="chooseStep(this,'Say YES')">
-            <strong>✨ Say YES</strong>
-            <span>Berani mengambil kesempatan pertama.</span>
-          </div>
-
-        </div>
-
-
-        <div id="stepResult" class="step-result"></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- SLIDE 10 -->
-    <section class="slide">
-
-      <div class="content cliff">
-
-        <div class="eyebrow">
-          The Journey Continues
-        </div>
-
-        <h2>
-          But this...
-          <span class="gold">is only the beginning.</span>
-        </h2>
-
-        <p class="lead" style="margin-left:auto;margin-right:auto">
-          Ada cerita lain setelah EHEF.
-          Ada perjalanan pertama.
-          Ada tantangan.
-          Ada negara-negara yang mengubah cara pandang saya.
-        </p>
-
-
-        <div class="locked">
-
-          <div class="lock-icon">🔒</div>
-
-          <div class="next-title">
-            CHAPTER 02
-          </div>
-
-          <div class="next-text">
-            What happened after the first YES?
-          </div>
-
-          <button
-            class="btn btn-gold"
-            style="margin-top:25px"
-            onclick="nextSlide()">
-            Continue →
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- SLIDE 11 -->
-    <section class="slide">
-
-      <div class="content final">
-
-        <div class="eyebrow">
-          Muslimah Beyond Borders
-        </div>
-
-        <h1>
-          Your journey
-          <span class="gold">starts somewhere.</span>
-        </h1>
-
-        <div class="final-tagline">
-
-          Travel beyond borders.<br>
-          Learn beyond classrooms.<br>
-          Grow beyond expectations.
-
-        </div>
-
-        <p class="muted">
-          Part 01 · The First YES
-        </p>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-  <!-- =========================
-       CONTROLS
-  ========================== -->
-
-  <div class="controls">
-
-    <button
-      class="control-btn"
-      onclick="previousSlide()"
-      aria-label="Previous">
-      ‹
-    </button>
-
-    <div class="slide-counter">
-      <span id="currentSlide">01</span>
-      /
-      <span id="totalSlides">11</span>
+    <div class="eyebrow">
+      AND THEN
     </div>
 
+    <h2>
+      The world
+      <span class="gold">opened.</span>
+    </h2>
+
+    <p class="lead" style="margin-left:auto;margin-right:auto;">
+
+      Saya tidak pernah merencanakan bahwa
+      rangkaian pengalaman itu akan membawa saya
+      menjadi seorang traveler.
+
+    </p>
+
+    <div class="world-box">
+
+      <div class="world-symbol">
+        🌏
+      </div>
+
+      <p style="
+        font-family:'Playfair Display',serif;
+        font-size:clamp(25px,4vw,42px);
+        line-height:1.35;
+      ">
+
+        One opportunity
+        <span class="gold">led to another.</span>
+
+      </p>
+
+      <p style="
+        margin-top:15px;
+        color:rgba(255,255,255,.5);
+      ">
+
+        And eventually,
+        those opportunities took me beyond borders.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 13
+     10 COUNTRIES TEASER
+===================================================== -->
+
+<section class="slide">
+
+  <div class="content center">
+
+    <div class="eyebrow">
+      NEXT CHAPTER
+    </div>
+
+    <h2>
+      And that's where
+      <span class="gold">the next story begins.</span>
+    </h2>
+
+    <p class="lead" style="margin-left:auto;margin-right:auto;">
+
+      Perjalanan saya kemudian membawa saya
+      bertemu dengan berbagai tempat,
+      budaya, manusia, dan cerita.
+
+    </p>
+
+
+    <div class="world-box">
+
+      <div class="world-symbol">
+        ✈️
+      </div>
+
+      <p style="
+        font-family:'Playfair Display',serif;
+        font-size:32px;
+      ">
+
+        <span class="gold">10 countries.</span>
+
+        <br>
+
+        10 different stories.
+
+      </p>
+
+      <div class="country-grid">
+
+        <div class="country">
+          Country 01
+        </div>
+
+        <div class="country">
+          Country 02
+        </div>
+
+        <div class="country">
+          Country 03
+        </div>
+
+        <div class="country">
+          Country 04
+        </div>
+
+        <div class="country">
+          Country 05
+        </div>
+
+        <div class="country">
+          Country 06
+        </div>
+
+        <div class="country">
+          Country 07
+        </div>
+
+        <div class="country">
+          Country 08
+        </div>
+
+        <div class="country">
+          Country 09
+        </div>
+
+        <div class="country">
+          Country 10
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <p style="
+      margin-top:30px;
+      color:rgba(255,255,255,.42);
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    ">
+
+      We will explore them in the next webinar.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 14
+     CLOSING
+===================================================== -->
+
+<section class="slide">
+
+  <div class="content final-message">
+
+    <div class="eyebrow">
+      PART 01 · THE BEGINNING
+    </div>
+
+    <h2>
+
+      You don't have to
+      <span class="gold">be ready.</span>
+
+    </h2>
+
+    <p>
+
+      Kadang kita hanya perlu cukup berani
+      untuk mengatakan YES pada kesempatan pertama.
+
+      <br><br>
+
+      Karena kita tidak pernah tahu,
+      satu YES hari ini akan membawa kita
+      ke mana di masa depan.
+
+    </p>
+
+
+    <div class="quote" style="
+      margin:40px auto 0;
+      text-align:left;
+    ">
+
+      <div class="quote-text">
+
+        Maybe your first YES
+        is already waiting for you.
+
+      </div>
+
+    </div>
+
+
+    <div style="
+      margin-top:45px;
+      color:var(--gold);
+      font-size:13px;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+    ">
+
+      Isti Fatimah
+
+    </div>
+
+
     <button
-      class="control-btn"
-      onclick="nextSlide()"
-      aria-label="Next">
-      ›
+      class="btn btn-gold"
+      onclick="goToSlide(0)">
+
+      ↺ Back to Beginning
+
     </button>
 
   </div>
 
-
-  <div class="chapter" id="chapterLabel">
-    THE FIRST YES
-  </div>
+</section>
 
 
-  <div class="progress">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<div class="navigation">
+
+  <button
+    class="nav-btn"
+    id="prevBtn"
+    onclick="prevSlide()">
+
+    ←
+
+  </button>
+
+
+  <button
+    class="nav-home"
+    onclick="goToSlide(0)">
+
+    ⌂
+
+  </button>
+
+
+  <button
+    class="nav-btn"
+    id="nextBtn"
+    onclick="nextSlide()">
+
+    →
+
+  </button>
 
 </div>
 
 
+<div class="swipe-hint">
+  Swipe / ← →
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/* =====================================================
-   PRESENTATION ENGINE
-===================================================== */
+/* =========================================================
+   SLIDE SYSTEM
+========================================================= */
 
 const slides = document.querySelectorAll(".slide");
 
-let current = 0;
+let currentSlide = 0;
 
-const total = slides.length;
-
-document.getElementById("totalSlides").textContent =
-  String(total).padStart(2,"0");
+const totalSlides = slides.length;
 
 
-function updatePresentation(){
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
-  slides.forEach((slide,index)=>{
+const progress =
+  document.getElementById("progress");
+
+const slideCount =
+  document.getElementById("slideCount");
+
+const prevBtn =
+  document.getElementById("prevBtn");
+
+const nextBtn =
+  document.getElementById("nextBtn");
+
+
+/* =========================================================
+   UPDATE PRESENTATION
+========================================================= */
+
+function updatePresentation() {
+
+  slides.forEach((slide, index) => {
 
     slide.classList.toggle(
       "active",
-      index === current
+      index === currentSlide
     );
 
   });
 
 
-  document.getElementById("currentSlide").textContent =
-    String(current + 1).padStart(2,"0");
+  /* slide number */
+
+  slideCount.textContent =
+    String(currentSlide + 1).padStart(2, "0")
+    + " / "
+    + String(totalSlides).padStart(2, "0");
 
 
-  const progress =
-    ((current + 1) / total) * 100;
+  /* progress */
 
-  document.getElementById("progressBar").style.width =
-    progress + "%";
+  const percentage =
+    ((currentSlide + 1) / totalSlides) * 100;
+
+  progress.style.width =
+    percentage + "%";
 
 
-  updateChapter();
+  /* buttons */
+
+  prevBtn.disabled =
+    currentSlide === 0;
+
+  nextBtn.disabled =
+    currentSlide === totalSlides - 1;
 
 }
 
 
-function nextSlide(){
+/* =========================================================
+   NEXT
+========================================================= */
 
-  if(current < total - 1){
+function nextSlide() {
 
-    current++;
+  if (currentSlide < totalSlides - 1) {
+
+    currentSlide++;
 
     updatePresentation();
 
@@ -1947,24 +2562,15 @@ function nextSlide(){
 }
 
 
-function previousSlide(){
+/* =========================================================
+   PREVIOUS
+========================================================= */
 
-  if(current > 0){
+function prevSlide() {
 
-    current--;
+  if (currentSlide > 0) {
 
-    updatePresentation();
-
-  }
-
-}
-
-
-function goTo(index){
-
-  if(index >= 0 && index < total){
-
-    current = index;
+    currentSlide--;
 
     updatePresentation();
 
@@ -1973,213 +2579,218 @@ function goTo(index){
 }
 
 
-/* =====================================================
-   CHAPTER LABEL
-===================================================== */
+/* =========================================================
+   GO TO SLIDE
+========================================================= */
 
-function updateChapter(){
+function goToSlide(index) {
 
-  const labels = [
+  if (
+    index >= 0 &&
+    index < totalSlides
+  ) {
 
-    "OPENING",
-    "THE STORY",
-    "EHEF",
-    "THE FIRST CHALLENGE",
-    "THE PATTERN",
-    "YOUR JOURNEY",
-    "THE WORLD",
-    "YOUR TURN",
-    "YOUR FIRST YES",
-    "NEXT CHAPTER",
-    "CLOSING"
+    currentSlide = index;
 
-  ];
+    updatePresentation();
 
-  document.getElementById("chapterLabel").textContent =
-    labels[current];
+  }
 
 }
 
 
-/* =====================================================
-   KEYBOARD
-===================================================== */
+/* =========================================================
+   AUDIENCE INTERACTION
+========================================================= */
 
-document.addEventListener("keydown",(e)=>{
+function selectAudience(button) {
 
-  if(
-    e.key === "ArrowRight" ||
-    e.key === " " ||
-    e.key === "PageDown"
-  ){
+  const buttons =
+    button.parentElement.querySelectorAll("button");
 
-    e.preventDefault();
+  buttons.forEach(btn => {
 
-    nextSlide();
+    btn.classList.remove("selected");
+
+  });
+
+
+  button.classList.add("selected");
+
+
+  /* visual feedback */
+
+  button.innerHTML =
+    "✓ " + button.innerHTML.replace(/^✓ /, "");
+
+}
+
+
+/* =========================================================
+   KEYBOARD NAVIGATION
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "ArrowRight" ||
+      event.key === " " ||
+      event.key === "PageDown"
+    ) {
+
+      event.preventDefault();
+
+      nextSlide();
+
+    }
+
+
+    if (
+      event.key === "ArrowLeft" ||
+      event.key === "PageUp"
+    ) {
+
+      event.preventDefault();
+
+      prevSlide();
+
+    }
+
+
+    if (event.key === "Home") {
+
+      event.preventDefault();
+
+      goToSlide(0);
+
+    }
+
+
+    if (event.key === "End") {
+
+      event.preventDefault();
+
+      goToSlide(totalSlides - 1);
+
+    }
 
   }
+);
 
 
-  if(
-    e.key === "ArrowLeft" ||
-    e.key === "PageUp"
-  ){
-
-    e.preventDefault();
-
-    previousSlide();
-
-  }
-
-
-  if(e.key === "Home"){
-
-    goTo(0);
-
-  }
-
-
-  if(e.key === "End"){
-
-    goTo(total - 1);
-
-  }
-
-});
-
-
-/* =====================================================
-   SWIPE MOBILE
-===================================================== */
+/* =========================================================
+   TOUCH / SWIPE
+========================================================= */
 
 let touchStartX = 0;
-let touchEndX = 0;
-
+let touchStartY = 0;
 
 document.addEventListener(
   "touchstart",
-  function(e){
+  function(event) {
 
     touchStartX =
-      e.changedTouches[0].screenX;
+      event.changedTouches[0].screenX;
+
+    touchStartY =
+      event.changedTouches[0].screenY;
 
   },
-  {passive:true}
+  { passive: true }
 );
 
 
 document.addEventListener(
   "touchend",
-  function(e){
+  function(event) {
 
-    touchEndX =
-      e.changedTouches[0].screenX;
+    const touchEndX =
+      event.changedTouches[0].screenX;
 
-    handleSwipe();
+    const touchEndY =
+      event.changedTouches[0].screenY;
+
+
+    const diffX =
+      touchEndX - touchStartX;
+
+    const diffY =
+      touchEndY - touchStartY;
+
+
+    /* Ignore vertical scrolling */
+
+    if (
+      Math.abs(diffX) < 50 ||
+      Math.abs(diffX) < Math.abs(diffY)
+    ) {
+
+      return;
+
+    }
+
+
+    if (diffX < 0) {
+
+      nextSlide();
+
+    } else {
+
+      prevSlide();
+
+    }
 
   },
-  {passive:true}
+  { passive: true }
 );
 
 
-function handleSwipe(){
-
-  const distance =
-    touchEndX - touchStartX;
-
-
-  if(Math.abs(distance) < 50){
-
-    return;
-
-  }
-
-
-  if(distance < 0){
-
-    nextSlide();
-
-  }else{
-
-    previousSlide();
-
-  }
-
-}
-
-
-/* =====================================================
-   POLL
-===================================================== */
-
-function selectPoll(element,answer){
-
-  document
-    .querySelectorAll(".poll-option")
-    .forEach(btn=>{
-      btn.classList.remove("selected");
-    });
-
-
-  element.classList.add("selected");
-
-
-  document.getElementById("pollResult").innerHTML =
-    "✨ Kamu memilih: " + answer +
-    "<br><small style='color:rgba(255,255,255,.45)'>" +
-    "Jawaban ini bisa menjadi awal dari percakapan kita." +
-    "</small>";
-
-}
-
-
-/* =====================================================
-   FIRST STEP
-===================================================== */
-
-function chooseStep(element,step){
-
-  document
-    .querySelectorAll(".step-card")
-    .forEach(card=>{
-      card.classList.remove("selected");
-    });
-
-
-  element.classList.add("selected");
-
-
-  document.getElementById("stepResult").textContent =
-    "✨ My first YES: " + step;
-
-
-}
-
-
-/* =====================================================
-   COUNTRY INTERACTION
-===================================================== */
-
-function countryClick(number){
-
-  const message =
-    document.getElementById("countryMessage");
-
-
-  message.innerHTML =
-    "🔒 Chapter " +
-    String(number).padStart(2,"0") +
-    " akan dibuka di perjalanan berikutnya.";
-
-
-}
-
-
-/* =====================================================
+/* =========================================================
    INITIALIZE
-===================================================== */
+========================================================= */
 
 updatePresentation();
+
+
+/* =========================================================
+   CLICK LEFT / RIGHT AREA
+========================================================= */
+
+document.addEventListener(
+  "click",
+  function(event) {
+
+    const target =
+      event.target.closest(
+        "button, a, input, select, textarea"
+      );
+
+    if (target) return;
+
+
+    const width =
+      window.innerWidth;
+
+    const x =
+      event.clientX;
+
+
+    if (x > width * .72) {
+
+      nextSlide();
+
+    }
+
+    else if (x < width * .28) {
+
+      prevSlide();
+
+    }
+
+  }
+);
 
 </script>
 
