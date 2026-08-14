@@ -1,358 +1,2078 @@
-<!-- =========================
-     SLIDE 3 — EHEF
-========================== -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#063f34">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<section class="slide">
+<title>The First YES — Isti Fatimah</title>
 
-  <div class="content">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <div class="eyebrow">
-      The First YES
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green:#063f34;
+  --green-dark:#032f28;
+  --green-soft:#0b5547;
+  --gold:#c28b3c;
+  --gold-light:#f7eddc;
+  --cream:#faf8f3;
+  --white:#ffffff;
+  --text:#17201d;
+  --muted:#727a76;
+  --border:rgba(255,255,255,.16);
+  --shadow:0 25px 80px rgba(0,0,0,.18);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"DM Sans",sans-serif;
+  background:var(--green-dark);
+  color:var(--white);
+  overflow:hidden;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app{
+  width:100vw;
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(194,139,60,.15), transparent 30%),
+    radial-gradient(circle at 15% 85%, rgba(255,255,255,.05), transparent 30%),
+    var(--green-dark);
+}
+
+/* =========================
+   TOP NAV
+========================= */
+
+.topbar{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 42px;
+  z-index:100;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(16px);
+  background:rgba(3,47,40,.45);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-mark{
+  width:42px;
+  height:42px;
+  border:1px solid var(--gold);
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:var(--gold);
+  font-family:"Playfair Display",serif;
+  font-size:18px;
+}
+
+.logo-text{
+  font-family:"Playfair Display",serif;
+  font-size:18px;
+  letter-spacing:.5px;
+}
+
+.nav{
+  display:flex;
+  gap:8px;
+}
+
+.nav button{
+  border:none;
+  background:transparent;
+  color:rgba(255,255,255,.62);
+  padding:10px 14px;
+  border-radius:30px;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:13px;
+  transition:.25s;
+}
+
+.nav button:hover,
+.nav button.active{
+  color:white;
+  background:rgba(255,255,255,.09);
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:4px;
+  background:rgba(255,255,255,.08);
+  z-index:200;
+}
+
+.progress-bar{
+  width:0%;
+  height:100%;
+  background:var(--gold);
+  transition:.5s ease;
+}
+
+/* =========================
+   SLIDES
+========================= */
+
+.slides{
+  width:100%;
+  height:100%;
+  position:relative;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:110px 7vw 90px;
+  opacity:0;
+  visibility:hidden;
+  transform:translateX(40px);
+  transition:
+    opacity .55s ease,
+    transform .55s ease,
+    visibility .55s;
+}
+
+.slide.active{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(0);
+}
+
+.content{
+  width:min(1180px,100%);
+  margin:auto;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.eyebrow{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(48px,7vw,100px);
+  line-height:.96;
+  font-weight:600;
+}
+
+h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(38px,5vw,68px);
+  line-height:1.05;
+}
+
+h3{
+  font-family:"Playfair Display",serif;
+}
+
+.lead{
+  max-width:700px;
+  margin-top:28px;
+  color:rgba(255,255,255,.72);
+  font-size:18px;
+  line-height:1.8;
+}
+
+.gold{
+  color:var(--gold);
+}
+
+.muted{
+  color:rgba(255,255,255,.55);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+  border:none;
+  cursor:pointer;
+  padding:14px 22px;
+  border-radius:40px;
+  font-family:inherit;
+  font-weight:700;
+  transition:.25s;
+}
+
+.btn-gold{
+  background:var(--gold);
+  color:white;
+}
+
+.btn-gold:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(194,139,60,.25);
+}
+
+.btn-outline{
+  background:transparent;
+  color:white;
+  border:1px solid rgba(255,255,255,.22);
+}
+
+.btn-outline:hover{
+  background:rgba(255,255,255,.08);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:70px;
+  align-items:center;
+}
+
+.hero-title span{
+  display:block;
+}
+
+.hero-subtitle{
+  margin-top:30px;
+  font-size:18px;
+  line-height:1.7;
+  color:rgba(255,255,255,.68);
+}
+
+.hero-actions{
+  display:flex;
+  gap:12px;
+  margin-top:35px;
+  flex-wrap:wrap;
+}
+
+/* =========================
+   ORBIT VISUAL
+========================= */
+
+.orbit{
+  width:min(430px,70vw);
+  aspect-ratio:1;
+  margin:auto;
+  position:relative;
+  display:grid;
+  place-items:center;
+}
+
+.orbit::before,
+.orbit::after{
+  content:"";
+  position:absolute;
+  border:1px solid rgba(194,139,60,.25);
+  border-radius:50%;
+}
+
+.orbit::before{
+  width:70%;
+  height:70%;
+}
+
+.orbit::after{
+  width:100%;
+  height:100%;
+}
+
+.orbit-core{
+  width:135px;
+  height:135px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%, #e8c48d, var(--gold));
+  color:var(--green-dark);
+  display:grid;
+  place-items:center;
+  font-family:"Playfair Display",serif;
+  font-size:38px;
+  box-shadow:0 0 80px rgba(194,139,60,.22);
+  z-index:3;
+}
+
+.orbit-dot{
+  position:absolute;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 20px rgba(194,139,60,.8);
+}
+
+.dot1{top:7%;left:48%}
+.dot2{right:5%;top:48%}
+.dot3{bottom:8%;left:48%}
+.dot4{left:5%;top:48%}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote{
+  text-align:center;
+  max-width:950px;
+  margin:auto;
+}
+
+.quote-mark{
+  color:var(--gold);
+  font-family:"Playfair Display",serif;
+  font-size:80px;
+  line-height:.5;
+  margin-bottom:30px;
+}
+
+.quote-text{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(32px,5vw,64px);
+  line-height:1.18;
+}
+
+.quote-author{
+  margin-top:28px;
+  color:rgba(255,255,255,.55);
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
+  position:relative;
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:5%;
+  right:5%;
+  top:26px;
+  height:1px;
+  background:rgba(255,255,255,.18);
+}
+
+.timeline-item{
+  position:relative;
+  z-index:2;
+}
+
+.timeline-dot{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  background:var(--green-dark);
+  display:grid;
+  place-items:center;
+  color:var(--gold);
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.timeline-item h3{
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.timeline-item p{
+  color:rgba(255,255,255,.58);
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* =========================
+   EHEF
+========================= */
+
+.ehef-layout{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:70px;
+  align-items:center;
+}
+
+.ehef-card{
+  min-height:360px;
+  padding:45px;
+  border:1px solid rgba(194,139,60,.3);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.015));
+  border-radius:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  box-shadow:var(--shadow);
+}
+
+.ehef-card .big{
+  font-family:"Playfair Display",serif;
+  font-size:90px;
+  color:var(--gold);
+  line-height:1;
+}
+
+.ehef-card small{
+  color:rgba(255,255,255,.5);
+  margin-top:15px;
+  letter-spacing:2px;
+}
+
+.skill-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:30px;
+}
+
+.skill{
+  padding:22px;
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.skill strong{
+  display:block;
+  margin-bottom:7px;
+}
+
+.skill span{
+  color:rgba(255,255,255,.52);
+  font-size:13px;
+}
+
+/* =========================
+   PATTERN
+========================= */
+
+.pattern{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:60px;
+}
+
+.pattern-item{
+  text-align:center;
+  padding:25px 15px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  background:rgba(255,255,255,.04);
+  position:relative;
+}
+
+.pattern-item:not(:last-child)::after{
+  content:"→";
+  position:absolute;
+  right:-15px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--gold);
+  font-size:20px;
+  z-index:5;
+}
+
+.pattern-number{
+  font-size:12px;
+  color:var(--gold);
+  margin-bottom:12px;
+}
+
+.pattern-item h3{
+  font-size:19px;
+}
+
+.pattern-item p{
+  margin-top:8px;
+  color:rgba(255,255,255,.48);
+  font-size:12px;
+}
+
+/* =========================
+   WORLD MAP
+========================= */
+
+.world{
+  position:relative;
+  height:420px;
+  margin-top:30px;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(194,139,60,.08),transparent 45%),
+    rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+}
+
+.world-lines{
+  position:absolute;
+  inset:0;
+  opacity:.18;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+
+.country-point{
+  position:absolute;
+  width:15px;
+  height:15px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 8px rgba(194,139,60,.1),0 0 25px rgba(194,139,60,.5);
+  cursor:pointer;
+  transition:.25s;
+}
+
+.country-point:hover{
+  transform:scale(1.35);
+}
+
+.country-label{
+  position:absolute;
+  transform:translate(12px,-5px);
+  font-size:12px;
+  white-space:nowrap;
+  color:rgba(255,255,255,.7);
+}
+
+.p1{left:25%;top:36%}
+.p2{left:39%;top:45%}
+.p3{left:51%;top:32%}
+.p4{left:58%;top:52%}
+.p5{left:66%;top:39%}
+.p6{left:72%;top:62%}
+.p7{left:45%;top:65%}
+.p8{left:30%;top:56%}
+.p9{left:78%;top:30%}
+.p10{left:84%;top:55%}
+
+/* =========================
+   AUDIENCE POLL
+========================= */
+
+.poll-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+  margin-top:45px;
+}
+
+.poll-option{
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:22px;
+  padding:28px 16px;
+  background:rgba(255,255,255,.045);
+  color:white;
+  cursor:pointer;
+  text-align:center;
+  transition:.25s;
+  font-family:inherit;
+}
+
+.poll-option:hover{
+  transform:translateY(-5px);
+  border-color:var(--gold);
+}
+
+.poll-option.selected{
+  background:var(--gold);
+  border-color:var(--gold);
+}
+
+.poll-icon{
+  font-size:30px;
+  margin-bottom:15px;
+  display:block;
+}
+
+.poll-result{
+  margin-top:25px;
+  text-align:center;
+  min-height:25px;
+  color:var(--gold);
+  font-weight:700;
+}
+
+/* =========================
+   FIRST STEP
+========================= */
+
+.step-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:40px;
+}
+
+.step-card{
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  cursor:pointer;
+  transition:.25s;
+}
+
+.step-card:hover{
+  transform:translateY(-4px);
+}
+
+.step-card.selected{
+  border-color:var(--gold);
+  background:rgba(194,139,60,.12);
+}
+
+.step-card strong{
+  display:block;
+  margin-bottom:8px;
+}
+
+.step-card span{
+  color:rgba(255,255,255,.5);
+  font-size:13px;
+}
+
+.step-result{
+  margin-top:28px;
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  color:var(--gold);
+  min-height:35px;
+}
+
+/* =========================
+   CLIFFHANGER
+========================= */
+
+.cliff{
+  text-align:center;
+  max-width:900px;
+  margin:auto;
+}
+
+.locked{
+  margin:40px auto 0;
+  width:min(550px,100%);
+  padding:35px;
+  border:1px solid rgba(194,139,60,.28);
+  border-radius:25px;
+  background:rgba(255,255,255,.035);
+}
+
+.lock-icon{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.next-title{
+  font-family:"Playfair Display",serif;
+  font-size:32px;
+}
+
+.next-text{
+  color:rgba(255,255,255,.5);
+  margin-top:10px;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+  text-align:center;
+}
+
+.final h1{
+  font-size:clamp(50px,8vw,105px);
+}
+
+.final-tagline{
+  margin:30px auto;
+  max-width:700px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(22px,3vw,36px);
+  line-height:1.5;
+  color:rgba(255,255,255,.82);
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls{
+  position:absolute;
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:150;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.control-btn{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.07);
+  color:white;
+  cursor:pointer;
+  font-size:18px;
+  transition:.2s;
+}
+
+.control-btn:hover{
+  background:var(--gold);
+}
+
+.slide-counter{
+  color:rgba(255,255,255,.45);
+  font-size:12px;
+  min-width:55px;
+  text-align:center;
+}
+
+/* =========================
+   SIDE CHAPTER INDICATOR
+========================= */
+
+.chapter{
+  position:absolute;
+  right:35px;
+  bottom:30px;
+  z-index:120;
+  color:rgba(255,255,255,.35);
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+
+@media(max-width:900px){
+
+  .topbar{
+    padding:0 22px;
+  }
+
+  .nav{
+    display:none;
+  }
+
+  .slide{
+    padding:100px 6vw 90px;
+    overflow-y:auto;
+  }
+
+  .hero,
+  .ehef-layout{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .orbit{
+    width:260px;
+  }
+
+  .orbit-core{
+    width:95px;
+    height:95px;
+    font-size:27px;
+  }
+
+  .timeline{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .pattern{
+    grid-template-columns:1fr;
+  }
+
+  .pattern-item:not(:last-child)::after{
+    content:"↓";
+    right:auto;
+    top:auto;
+    bottom:-20px;
+    left:50%;
+    transform:translateX(-50%);
+  }
+
+  .poll-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .step-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .world{
+    height:320px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  body{
+    overflow:hidden;
+  }
+
+  .topbar{
+    height:62px;
+    padding:0 16px;
+  }
+
+  .logo-mark{
+    width:35px;
+    height:35px;
+    font-size:15px;
+  }
+
+  .logo-text{
+    font-size:15px;
+  }
+
+  .slide{
+    padding:
+      calc(80px + env(safe-area-inset-top))
+      20px
+      calc(90px + env(safe-area-inset-bottom));
+    align-items:flex-start;
+  }
+
+  .content{
+    padding-top:10px;
+  }
+
+  .eyebrow{
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:14px;
+  }
+
+  h1{
+    font-size:clamp(42px,13vw,65px);
+  }
+
+  h2{
+    font-size:clamp(34px,10vw,48px);
+  }
+
+  .lead{
+    font-size:15px;
+    line-height:1.7;
+    margin-top:20px;
+  }
+
+  .hero{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+  }
+
+  .hero .orbit{
+    order:-1;
+    width:210px;
+  }
+
+  .orbit-core{
+    width:75px;
+    height:75px;
+    font-size:23px;
+  }
+
+  .hero-actions{
+    margin-top:25px;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .quote-mark{
+    font-size:60px;
+  }
+
+  .quote-text{
+    font-size:31px;
+  }
+
+  .timeline{
+    grid-template-columns:1fr;
+    gap:25px;
+    margin-top:35px;
+  }
+
+  .timeline::before{
+    display:none;
+  }
+
+  .timeline-item{
+    display:grid;
+    grid-template-columns:54px 1fr;
+    gap:15px;
+  }
+
+  .timeline-dot{
+    margin:0;
+  }
+
+  .timeline-item h3{
+    font-size:19px;
+  }
+
+  .ehef-card{
+    min-height:220px;
+    padding:30px;
+  }
+
+  .ehef-card .big{
+    font-size:65px;
+  }
+
+  .skill-grid{
+    grid-template-columns:1fr;
+  }
+
+  .pattern{
+    margin-top:30px;
+  }
+
+  .pattern-item{
+    padding:20px;
+  }
+
+  .world{
+    height:260px;
+    margin-top:25px;
+  }
+
+  .country-label{
+    display:none;
+  }
+
+  .country-point{
+    width:11px;
+    height:11px;
+  }
+
+  .poll-grid{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:30px;
+  }
+
+  .poll-option{
+    padding:20px 10px;
+    font-size:13px;
+  }
+
+  .poll-icon{
+    font-size:25px;
+  }
+
+  .step-grid{
+    grid-template-columns:1fr;
+    margin-top:25px;
+  }
+
+  .step-card{
+    padding:20px;
+  }
+
+  .controls{
+    bottom:18px;
+  }
+
+  .chapter{
+    display:none;
+  }
+
+  .slide-counter{
+    min-width:45px;
+  }
+}
+
+/* =========================
+   TOUCH FRIENDLY
+========================= */
+
+button,
+.country-point{
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+
+.orbit{
+  animation:float 6s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(194,139,60,.35)}
+  70%{box-shadow:0 0 0 18px rgba(194,139,60,0)}
+  100%{box-shadow:0 0 0 0 rgba(194,139,60,0)}
+}
+
+.country-point{
+  animation:pulse 2.5s infinite;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- =========================
+       TOP BAR
+  ========================== -->
+
+  <header class="topbar">
+
+    <div class="logo">
+      <div class="logo-mark">IF</div>
+      <div class="logo-text">Isti Fatimah</div>
     </div>
 
-    <h2>
-      It started with
-      <span class="gold">EHEF.</span>
-    </h2>
+    <nav class="nav">
 
-    <p class="lead">
-      Salah satu titik balik awal saya adalah ketika
-      saya memberanikan diri menjadi volunteer dan
-      panitia EHEF.
-    </p>
+      <button onclick="goTo(0)">HOME</button>
+      <button onclick="goTo(1)">STORY</button>
+      <button onclick="goTo(2)">EHEF</button>
+      <button onclick="goTo(4)">JOURNEY</button>
+      <button onclick="goTo(7)">YOUR STEP</button>
+      <button onclick="goTo(9)">NEXT</button>
 
-    <div class="ehef-layout" style="margin-top:35px">
+    </nav>
 
-      <div class="ehef-card">
+  </header>
 
-        <div class="big">
-          EHEF
+
+  <!-- =========================
+       SLIDES
+  ========================== -->
+
+  <main class="slides">
+
+
+    <!-- SLIDE 1 -->
+    <section class="slide active">
+
+      <div class="content hero">
+
+        <div>
+
+          <div class="eyebrow">
+            Muslimah Beyond Borders · Part 01
+          </div>
+
+          <h1 class="hero-title">
+            <span>The First</span>
+            <span class="gold">YES.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            The journey didn't start with a plane.
+            It started with one small decision to step
+            outside my comfort zone.
+          </p>
+
+          <div class="hero-actions">
+
+            <button class="btn btn-gold" onclick="nextSlide()">
+              Start the Journey →
+            </button>
+
+            <button class="btn btn-outline" onclick="goTo(2)">
+              The Turning Point
+            </button>
+
+          </div>
+
         </div>
 
-        <small>
-          MY FIRST YES
-        </small>
+
+        <div class="orbit">
+
+          <div class="orbit-core">
+            YES
+          </div>
+
+          <div class="orbit-dot dot1"></div>
+          <div class="orbit-dot dot2"></div>
+          <div class="orbit-dot dot3"></div>
+          <div class="orbit-dot dot4"></div>
+
+        </div>
 
       </div>
 
-      <div>
+    </section>
 
-        <p class="lead" style="margin-top:0">
-          Di sana saya mulai belajar menghadapi
-          lingkungan baru, berinteraksi dengan orang
-          dari berbagai latar belakang, menggunakan
-          Bahasa Inggris, dan belajar berkomunikasi
-          secara lebih diplomatis.
-        </p>
+
+    <!-- SLIDE 2 -->
+    <section class="slide">
+
+      <div class="content quote">
+
+        <div class="quote-mark">“</div>
+
+        <div class="quote-text">
+          I didn't plan to become
+          a traveller.
+        </div>
+
+        <div class="quote-author">
+          — Isti Fatimah, S.ST.
+        </div>
 
         <button
           class="btn btn-gold"
-          style="margin-top:25px"
+          style="margin-top:35px"
           onclick="nextSlide()">
-          And then... another opportunity →
+          So... where did it begin?
         </button>
 
       </div>
 
-    </div>
-
-  </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     SLIDE 4 — ASIAN GAMES INVITATION
-========================== -->
+    <!-- SLIDE 3 -->
+    <section class="slide">
 
-<section class="slide">
+      <div class="content">
 
-  <div class="content">
-
-    <div class="eyebrow">
-      Another Opportunity
-    </div>
-
-    <h2>
-      Then came another
-      <span class="gold">YES.</span>
-    </h2>
-
-    <p class="lead">
-      Setelah pengalaman dari EHEF, datang kesempatan
-      berikutnya: menjadi volunteer invitation tournament
-      Asian Games.
-    </p>
-
-    <div class="ehef-layout" style="margin-top:40px">
-
-      <div class="ehef-card">
-
-        <div class="big">
-          02
+        <div class="eyebrow">
+          The Turning Point
         </div>
 
-        <small>
-          VOLUNTEER INVITATION TOURNAMENT
-        </small>
+        <h2>
+          It started with
+          <span class="gold">EHEF.</span>
+        </h2>
+
+        <p class="lead">
+          Sebuah kesempatan yang pada awalnya mungkin terlihat sederhana:
+          berani menjadi volunteer dan panitia.
+        </p>
+
+
+        <div class="ehef-layout" style="margin-top:35px">
+
+          <div class="ehef-card">
+
+            <div class="big">
+              EHEF
+            </div>
+
+            <small>
+              THE FIRST YES
+            </small>
+
+          </div>
+
+
+          <div>
+
+            <p class="lead" style="margin-top:0">
+              Di titik ini, perjalanan saya mulai berubah.
+              Saya harus berinteraksi dengan orang baru,
+              belajar berbahasa Inggris, dan belajar
+              berkomunikasi secara lebih diplomatis.
+            </p>
+
+            <button
+              class="btn btn-gold"
+              style="margin-top:25px"
+              onclick="nextSlide()">
+              What happened next?
+            </button>
+
+          </div>
+
+        </div>
 
       </div>
 
-      <div>
+    </section>
+
+
+    <!-- SLIDE 4 -->
+    <section class="slide">
+
+      <div class="content">
+
+        <div class="eyebrow">
+          The First Challenge
+        </div>
+
+        <h2>
+          English wasn't
+          just a subject anymore.
+        </h2>
+
+        <p class="lead">
+          Saya mulai menyadari bahwa kemampuan bahasa Inggris
+          bukan hanya tentang grammar atau vocabulary.
+          Bahasa adalah alat untuk bertemu, berkomunikasi,
+          dan membangun kepercayaan diri.
+        </p>
+
 
         <div class="skill-grid">
 
           <div class="skill">
-            <strong>Meet</strong>
-            <span>
-              Bertemu lebih banyak orang dan lingkungan baru.
-            </span>
+            <strong>English</strong>
+            <span>Belajar berkomunikasi dalam situasi nyata.</span>
           </div>
 
           <div class="skill">
-            <strong>Communicate</strong>
-            <span>
-              Mengasah kemampuan komunikasi dalam situasi nyata.
-            </span>
+            <strong>Communication</strong>
+            <span>Belajar menyampaikan sesuatu dengan baik.</span>
           </div>
 
           <div class="skill">
-            <strong>Adapt</strong>
-            <span>
-              Belajar menyesuaikan diri dengan situasi yang berbeda.
-            </span>
+            <strong>Diplomacy</strong>
+            <span>Belajar membawa diri dan menghargai orang lain.</span>
           </div>
 
           <div class="skill">
             <strong>Confidence</strong>
-            <span>
-              Kepercayaan diri mulai terbentuk dari pengalaman.
-            </span>
+            <span>Belajar percaya bahwa saya mampu.</span>
           </div>
 
         </div>
 
-        <button
-          class="btn btn-gold"
-          style="margin-top:25px"
-          onclick="nextSlide()">
-          And then... it got bigger →
-        </button>
+      </div>
+
+    </section>
+
+
+    <!-- SLIDE 5 -->
+    <section class="slide">
+
+      <div class="content">
+
+        <div class="eyebrow">
+          The Pattern
+        </div>
+
+        <h2>
+          Then I discovered
+          <span class="gold">a pattern.</span>
+        </h2>
+
+        <p class="lead">
+          Setiap kali saya berani mengambil satu kesempatan,
+          saya belajar sesuatu yang baru. Dan pengalaman itu
+          membuat saya berani mengambil kesempatan berikutnya.
+        </p>
+
+
+        <div class="pattern">
+
+          <div class="pattern-item">
+            <div class="pattern-number">01</div>
+            <h3>Berani</h3>
+            <p>Take the opportunity.</p>
+          </div>
+
+          <div class="pattern-item">
+            <div class="pattern-number">02</div>
+            <h3>Belajar</h3>
+            <p>Learn something new.</p>
+          </div>
+
+          <div class="pattern-item">
+            <div class="pattern-number">03</div>
+            <h3>Bertemu</h3>
+            <p>Meet new people.</p>
+          </div>
+
+          <div class="pattern-item">
+            <div class="pattern-number">04</div>
+            <h3>Bertumbuh</h3>
+            <p>Become a better version.</p>
+          </div>
+
+          <div class="pattern-item">
+            <div class="pattern-number">05</div>
+            <h3>Berani Lagi</h3>
+            <p>Say YES again.</p>
+          </div>
+
+        </div>
 
       </div>
 
+    </section>
+
+
+    <!-- SLIDE 6 -->
+    <section class="slide">
+
+      <div class="content">
+
+        <div class="eyebrow">
+          Your Journey
+        </div>
+
+        <h2>
+          Maybe traveling
+          starts <span class="gold">before</span> traveling.
+        </h2>
+
+        <p class="lead">
+          Bukan selalu tentang tiket pesawat.
+          Kadang perjalanan dimulai ketika kita berani
+          mengambil satu kesempatan yang membuat kita
+          sedikit tidak nyaman.
+        </p>
+
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">01</div>
+
+            <div>
+              <h3>Opportunity</h3>
+              <p>Satu kesempatan datang.</p>
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">02</div>
+
+            <div>
+              <h3>Courage</h3>
+              <p>Kita memilih untuk berkata YES.</p>
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">03</div>
+
+            <div>
+              <h3>Experience</h3>
+              <p>Kita belajar dari pengalaman.</p>
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">04</div>
+
+            <div>
+              <h3>Growth</h3>
+              <p>Kita berubah dan tumbuh.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SLIDE 7 -->
+    <section class="slide">
+
+      <div class="content">
+
+        <div class="eyebrow">
+          Then The World Started Opening
+        </div>
+
+        <h2>
+          One YES.
+          <span class="gold">Ten countries.</span>
+        </h2>
+
+        <p class="lead">
+          Tapi hari ini saya tidak akan menceritakan semuanya.
+          Karena setiap negara memiliki cerita, tantangan,
+          dan pelajarannya sendiri.
+        </p>
+
+
+        <div class="world">
+
+          <div class="world-lines"></div>
+
+          <div class="country-point p1" onclick="countryClick(1)">
+            <span class="country-label">Chapter 01</span>
+          </div>
+
+          <div class="country-point p2" onclick="countryClick(2)">
+            <span class="country-label">Chapter 02</span>
+          </div>
+
+          <div class="country-point p3" onclick="countryClick(3)">
+            <span class="country-label">Chapter 03</span>
+          </div>
+
+          <div class="country-point p4" onclick="countryClick(4)">
+            <span class="country-label">Chapter 04</span>
+          </div>
+
+          <div class="country-point p5" onclick="countryClick(5)">
+            <span class="country-label">Chapter 05</span>
+          </div>
+
+          <div class="country-point p6" onclick="countryClick(6)">
+            <span class="country-label">Chapter 06</span>
+          </div>
+
+          <div class="country-point p7" onclick="countryClick(7)">
+            <span class="country-label">Chapter 07</span>
+          </div>
+
+          <div class="country-point p8" onclick="countryClick(8)">
+            <span class="country-label">Chapter 08</span>
+          </div>
+
+          <div class="country-point p9" onclick="countryClick(9)">
+            <span class="country-label">Chapter 09</span>
+          </div>
+
+          <div class="country-point p10" onclick="countryClick(10)">
+            <span class="country-label">Chapter 10</span>
+          </div>
+
+        </div>
+
+
+        <div id="countryMessage"
+             style="text-align:center;margin-top:15px;color:var(--gold);min-height:25px">
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SLIDE 8 -->
+    <section class="slide">
+
+      <div class="content">
+
+        <div class="eyebrow">
+          Your Turn
+        </div>
+
+        <h2>
+          What's stopping
+          <span class="gold">you?</span>
+        </h2>
+
+        <p class="lead">
+          Sekarang saya ingin mendengar dari kalian.
+          Kalau kalian ingin melakukan sesuatu yang baru,
+          apa yang paling membuat kalian ragu?
+        </p>
+
+
+        <div class="poll-grid">
+
+          <button class="poll-option" onclick="selectPoll(this,'Fear')">
+            <span class="poll-icon">😨</span>
+            Fear
+          </button>
+
+          <button class="poll-option" onclick="selectPoll(this,'English')">
+            <span class="poll-icon">🗣️</span>
+            English
+          </button>
+
+          <button class="poll-option" onclick="selectPoll(this,'Budget')">
+            <span class="poll-icon">💰</span>
+            Budget
+          </button>
+
+          <button class="poll-option" onclick="selectPoll(this,'Opportunity')">
+            <span class="poll-icon">🚪</span>
+            No Opportunity
+          </button>
+
+          <button class="poll-option" onclick="selectPoll(this,'Confidence')">
+            <span class="poll-icon">💪</span>
+            Confidence
+          </button>
+
+        </div>
+
+
+        <div id="pollResult" class="poll-result"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SLIDE 9 -->
+    <section class="slide">
+
+      <div class="content">
+
+        <div class="eyebrow">
+          Your First YES
+        </div>
+
+        <h2>
+          What is one small
+          <span class="gold">YES</span>
+          you can make?
+        </h2>
+
+        <p class="lead">
+          Tidak harus langsung pergi ke luar negeri.
+          Tidak harus langsung menjadi seorang traveller.
+          Perjalanan bisa dimulai dari satu langkah kecil.
+        </p>
+
+
+        <div class="step-grid">
+
+          <div class="step-card" onclick="chooseStep(this,'Learn English')">
+            <strong>🗣️ Learn English</strong>
+            <span>Mulai membangun kemampuan komunikasi.</span>
+          </div>
+
+          <div class="step-card" onclick="chooseStep(this,'Meet New People')">
+            <strong>🤝 Meet New People</strong>
+            <span>Berani membuka diri pada lingkungan baru.</span>
+          </div>
+
+          <div class="step-card" onclick="chooseStep(this,'Join an Opportunity')">
+            <strong>🚪 Join an Opportunity</strong>
+            <span>Volunteer, event, komunitas, atau pengalaman baru.</span>
+          </div>
+
+          <div class="step-card" onclick="chooseStep(this,'Research a Country')">
+            <strong>🌏 Research a Country</strong>
+            <span>Mulai mengenal dunia dari sekarang.</span>
+          </div>
+
+          <div class="step-card" onclick="chooseStep(this,'Build Confidence')">
+            <strong>💪 Build Confidence</strong>
+            <span>Belajar percaya bahwa saya mampu.</span>
+          </div>
+
+          <div class="step-card" onclick="chooseStep(this,'Say YES')">
+            <strong>✨ Say YES</strong>
+            <span>Berani mengambil kesempatan pertama.</span>
+          </div>
+
+        </div>
+
+
+        <div id="stepResult" class="step-result"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SLIDE 10 -->
+    <section class="slide">
+
+      <div class="content cliff">
+
+        <div class="eyebrow">
+          The Journey Continues
+        </div>
+
+        <h2>
+          But this...
+          <span class="gold">is only the beginning.</span>
+        </h2>
+
+        <p class="lead" style="margin-left:auto;margin-right:auto">
+          Ada cerita lain setelah EHEF.
+          Ada perjalanan pertama.
+          Ada tantangan.
+          Ada negara-negara yang mengubah cara pandang saya.
+        </p>
+
+
+        <div class="locked">
+
+          <div class="lock-icon">🔒</div>
+
+          <div class="next-title">
+            CHAPTER 02
+          </div>
+
+          <div class="next-text">
+            What happened after the first YES?
+          </div>
+
+          <button
+            class="btn btn-gold"
+            style="margin-top:25px"
+            onclick="nextSlide()">
+            Continue →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SLIDE 11 -->
+    <section class="slide">
+
+      <div class="content final">
+
+        <div class="eyebrow">
+          Muslimah Beyond Borders
+        </div>
+
+        <h1>
+          Your journey
+          <span class="gold">starts somewhere.</span>
+        </h1>
+
+        <div class="final-tagline">
+
+          Travel beyond borders.<br>
+          Learn beyond classrooms.<br>
+          Grow beyond expectations.
+
+        </div>
+
+        <p class="muted">
+          Part 01 · The First YES
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================
+       CONTROLS
+  ========================== -->
+
+  <div class="controls">
+
+    <button
+      class="control-btn"
+      onclick="previousSlide()"
+      aria-label="Previous">
+      ‹
+    </button>
+
+    <div class="slide-counter">
+      <span id="currentSlide">01</span>
+      /
+      <span id="totalSlides">11</span>
     </div>
+
+    <button
+      class="control-btn"
+      onclick="nextSlide()"
+      aria-label="Next">
+      ›
+    </button>
 
   </div>
 
-</section>
 
-
-<!-- =========================
-     SLIDE 5 — ASIAN GAMES
-========================== -->
-
-<section class="slide">
-
-  <div class="content">
-
-    <div class="eyebrow">
-      The Bigger YES
-    </div>
-
-    <h2>
-      Until I became a
-      <span class="gold">Volunteer Asian Games.</span>
-    </h2>
-
-    <p class="lead">
-      Dari satu kesempatan ke kesempatan berikutnya,
-      saya mulai menyadari bahwa setiap pengalaman
-      sebelumnya ternyata mempersiapkan saya untuk
-      kesempatan yang lebih besar.
-    </p>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-
-        <div class="timeline-dot">
-          01
-        </div>
-
-        <div>
-          <h3>EHEF</h3>
-          <p>
-            Berani mencoba.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="timeline-item">
-
-        <div class="timeline-dot">
-          02
-        </div>
-
-        <div>
-          <h3>Invitation Tournament</h3>
-          <p>
-            Berani berada di lingkungan yang lebih besar.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="timeline-item">
-
-        <div class="timeline-dot">
-          03
-        </div>
-
-        <div>
-          <h3>Asian Games</h3>
-          <p>
-            Mengambil kesempatan yang lebih besar lagi.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="timeline-item">
-
-        <div class="timeline-dot">
-          04
-        </div>
-
-        <div>
-          <h3>Growth</h3>
-          <p>
-            Pengalaman membentuk kepercayaan diri.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
+  <div class="chapter" id="chapterLabel">
+    THE FIRST YES
   </div>
 
-</section>
 
-
-<!-- =========================
-     SLIDE 6 — THE PATTERN
-========================== -->
-
-<section class="slide">
-
-  <div class="content">
-
-    <div class="eyebrow">
-      The Pattern
-    </div>
-
-    <h2>
-      I finally discovered
-      <span class="gold">the pattern.</span>
-    </h2>
-
-    <p class="lead">
-      Ternyata perjalanan saya tidak terjadi dalam satu
-      lompatan besar. Semuanya dimulai dari keberanian
-      mengambil kesempatan kecil, lalu belajar dari sana.
-    </p>
-
-    <div class="pattern">
-
-      <div class="pattern-item">
-
-        <div class="pattern-number">
-          01
-        </div>
-
-        <h3>Berani</h3>
-
-        <p>
-          Say YES to an opportunity.
-        </p>
-
-      </div>
-
-
-      <div class="pattern-item">
-
-        <div class="pattern-number">
-          02
-        </div>
-
-        <h3>Belajar</h3>
-
-        <p>
-          Learn English & communication.
-        </p>
-
-      </div>
-
-
-      <div class="pattern-item">
-
-        <div class="pattern-number">
-          03
-        </div>
-
-        <h3>Bertemu</h3>
-
-        <p>
-          Meet people from different backgrounds.
-        </p>
-
-      </div>
-
-
-      <div class="pattern-item">
-
-        <div class="pattern-number">
-          04
-        </div>
-
-        <h3>Bertumbuh</h3>
-
-        <p>
-          Build confidence and adaptability.
-        </p>
-
-      </div>
-
-
-      <div class="pattern-item">
-
-        <div class="pattern-number">
-          05
-        </div>
-
-        <h3>Berani Lagi</h3>
-
-        <p>
-          Take the next opportunity.
-        </p>
-
-      </div>
-
-    </div>
-
-    <div style="
-      text-align:center;
-      margin-top:40px;
-      color:var(--gold);
-      font-family:'Playfair Display',serif;
-      font-size:24px;
-    ">
-      And eventually...
-      <strong>the world started opening.</strong>
-    </div>
-
+  <div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
   </div>
 
-</section>
+</div>
+
+
+<script>
+
+/* =====================================================
+   PRESENTATION ENGINE
+===================================================== */
+
+const slides = document.querySelectorAll(".slide");
+
+let current = 0;
+
+const total = slides.length;
+
+document.getElementById("totalSlides").textContent =
+  String(total).padStart(2,"0");
+
+
+function updatePresentation(){
+
+  slides.forEach((slide,index)=>{
+
+    slide.classList.toggle(
+      "active",
+      index === current
+    );
+
+  });
+
+
+  document.getElementById("currentSlide").textContent =
+    String(current + 1).padStart(2,"0");
+
+
+  const progress =
+    ((current + 1) / total) * 100;
+
+  document.getElementById("progressBar").style.width =
+    progress + "%";
+
+
+  updateChapter();
+
+}
+
+
+function nextSlide(){
+
+  if(current < total - 1){
+
+    current++;
+
+    updatePresentation();
+
+  }
+
+}
+
+
+function previousSlide(){
+
+  if(current > 0){
+
+    current--;
+
+    updatePresentation();
+
+  }
+
+}
+
+
+function goTo(index){
+
+  if(index >= 0 && index < total){
+
+    current = index;
+
+    updatePresentation();
+
+  }
+
+}
+
+
+/* =====================================================
+   CHAPTER LABEL
+===================================================== */
+
+function updateChapter(){
+
+  const labels = [
+
+    "OPENING",
+    "THE STORY",
+    "EHEF",
+    "THE FIRST CHALLENGE",
+    "THE PATTERN",
+    "YOUR JOURNEY",
+    "THE WORLD",
+    "YOUR TURN",
+    "YOUR FIRST YES",
+    "NEXT CHAPTER",
+    "CLOSING"
+
+  ];
+
+  document.getElementById("chapterLabel").textContent =
+    labels[current];
+
+}
+
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+document.addEventListener("keydown",(e)=>{
+
+  if(
+    e.key === "ArrowRight" ||
+    e.key === " " ||
+    e.key === "PageDown"
+  ){
+
+    e.preventDefault();
+
+    nextSlide();
+
+  }
+
+
+  if(
+    e.key === "ArrowLeft" ||
+    e.key === "PageUp"
+  ){
+
+    e.preventDefault();
+
+    previousSlide();
+
+  }
+
+
+  if(e.key === "Home"){
+
+    goTo(0);
+
+  }
+
+
+  if(e.key === "End"){
+
+    goTo(total - 1);
+
+  }
+
+});
+
+
+/* =====================================================
+   SWIPE MOBILE
+===================================================== */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+
+document.addEventListener(
+  "touchstart",
+  function(e){
+
+    touchStartX =
+      e.changedTouches[0].screenX;
+
+  },
+  {passive:true}
+);
+
+
+document.addEventListener(
+  "touchend",
+  function(e){
+
+    touchEndX =
+      e.changedTouches[0].screenX;
+
+    handleSwipe();
+
+  },
+  {passive:true}
+);
+
+
+function handleSwipe(){
+
+  const distance =
+    touchEndX - touchStartX;
+
+
+  if(Math.abs(distance) < 50){
+
+    return;
+
+  }
+
+
+  if(distance < 0){
+
+    nextSlide();
+
+  }else{
+
+    previousSlide();
+
+  }
+
+}
+
+
+/* =====================================================
+   POLL
+===================================================== */
+
+function selectPoll(element,answer){
+
+  document
+    .querySelectorAll(".poll-option")
+    .forEach(btn=>{
+      btn.classList.remove("selected");
+    });
+
+
+  element.classList.add("selected");
+
+
+  document.getElementById("pollResult").innerHTML =
+    "✨ Kamu memilih: " + answer +
+    "<br><small style='color:rgba(255,255,255,.45)'>" +
+    "Jawaban ini bisa menjadi awal dari percakapan kita." +
+    "</small>";
+
+}
+
+
+/* =====================================================
+   FIRST STEP
+===================================================== */
+
+function chooseStep(element,step){
+
+  document
+    .querySelectorAll(".step-card")
+    .forEach(card=>{
+      card.classList.remove("selected");
+    });
+
+
+  element.classList.add("selected");
+
+
+  document.getElementById("stepResult").textContent =
+    "✨ My first YES: " + step;
+
+
+}
+
+
+/* =====================================================
+   COUNTRY INTERACTION
+===================================================== */
+
+function countryClick(number){
+
+  const message =
+    document.getElementById("countryMessage");
+
+
+  message.innerHTML =
+    "🔒 Chapter " +
+    String(number).padStart(2,"0") +
+    " akan dibuka di perjalanan berikutnya.";
+
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+updatePresentation();
+
+</script>
+
+</body>
+</html>
