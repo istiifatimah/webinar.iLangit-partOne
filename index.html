@@ -18,28 +18,31 @@
   rel="stylesheet"
 >
 
+
 <style>
 
 /* =========================================================
    ROOT
 ========================================================= */
 
-:root {
-  --green: #063f34;
-  --green-dark: #032f28;
-  --green-deep: #021f1b;
-  --green-soft: #0a4c40;
+:root{
 
-  --gold: #c28b3c;
-  --gold-light: #f7eddc;
+  --green:#063f34;
+  --green-dark:#032f28;
+  --green-deep:#021f1b;
+  --green-soft:#0b5144;
 
-  --cream: #faf8f3;
-  --white: #ffffff;
+  --gold:#c28b3c;
+  --gold-light:#f7eddc;
 
-  --text: #17201d;
-  --muted: #727a76;
+  --cream:#faf8f3;
+  --white:#ffffff;
 
-  --border: rgba(255,255,255,.13);
+  --text:#17201d;
+  --muted:#727a76;
+
+  --border:rgba(255,255,255,.13);
+
 }
 
 
@@ -47,31 +50,51 @@
    RESET
 ========================================================= */
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+
+  margin:0;
+  padding:0;
+
+  box-sizing:border-box;
+
 }
 
-html {
-  scroll-behavior: smooth;
+
+html{
+
+  scroll-behavior:smooth;
+
 }
 
-body {
-  font-family: "DM Sans", sans-serif;
-  background: var(--green-deep);
-  color: var(--white);
-  overflow: hidden;
-  -webkit-font-smoothing: antialiased;
+
+body{
+
+  width:100vw;
+  height:100vh;
+
+  overflow:hidden;
+
+  font-family:"DM Sans",sans-serif;
+
+  background:var(--green-deep);
+
+  color:white;
+
 }
 
-button {
-  font-family: inherit;
+
+button{
+
+  font-family:inherit;
+
 }
+
 
 button,
-a {
-  -webkit-tap-highlight-color: transparent;
+a{
+
+  -webkit-tap-highlight-color:transparent;
+
 }
 
 
@@ -79,11 +102,15 @@ a {
    PRESENTATION
 ========================================================= */
 
-.presentation {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
+.presentation{
+
+  position:relative;
+
+  width:100vw;
+  height:100vh;
+
+  overflow:hidden;
+
 }
 
 
@@ -91,15 +118,22 @@ a {
    PROGRESS
 ========================================================= */
 
-.progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  width: 0%;
-  z-index: 1000;
-  background: var(--gold);
-  transition: width .4s ease;
+.progress{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:0;
+  height:3px;
+
+  background:var(--gold);
+
+  z-index:2000;
+
+  transition:width .4s ease;
+
 }
 
 
@@ -107,27 +141,35 @@ a {
    HEADER
 ========================================================= */
 
-.top-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 74px;
-  z-index: 500;
+.top-header{
 
-  display: flex;
-  align-items: center;
-  gap: 30px;
+  position:fixed;
 
-  padding: 0 28px;
+  top:0;
+  left:0;
+  right:0;
+
+  height:76px;
+
+  padding:0 28px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:28px;
+
+  z-index:1000;
 
   background:
+
     linear-gradient(
       to bottom,
       rgba(2,31,27,.98),
-      rgba(2,31,27,.82),
+      rgba(2,31,27,.88),
       transparent
     );
+
 }
 
 
@@ -135,108 +177,127 @@ a {
    BRAND
 ========================================================= */
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.brand{
 
-  min-width: 175px;
+  display:flex;
 
-  font-family:
-    "Playfair Display",
-    serif;
+  align-items:center;
 
-  font-size: 19px;
-  white-space: nowrap;
+  gap:10px;
+
+  min-width:175px;
+
+  font-family:"Playfair Display",serif;
+
+  font-size:19px;
+
+  white-space:nowrap;
+
 }
 
-.brand-mark {
-  width: 34px;
-  height: 34px;
 
-  border-radius: 50%;
+.brand-mark{
 
-  border: 1px solid var(--gold);
+  width:34px;
+  height:34px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display:flex;
 
-  color: var(--gold);
+  align-items:center;
+  justify-content:center;
 
-  font-size: 11px;
+  border:1px solid var(--gold);
+
+  border-radius:50%;
+
+  color:var(--gold);
+
+  font-size:11px;
+
 }
 
 
 /* =========================================================
-   TAB BAR
+   TABS
 ========================================================= */
 
-.tab-wrapper {
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
+.tab-wrapper{
+
+  flex:1;
+
+  min-width:0;
+
+  overflow:hidden;
+
 }
 
-.tab-bar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
 
-  overflow-x: auto;
-  overflow-y: hidden;
+.tab-bar{
 
-  white-space: nowrap;
+  display:flex;
 
-  scrollbar-width: none;
+  gap:6px;
 
-  padding: 6px 3px;
+  overflow-x:auto;
+
+  scrollbar-width:none;
+
+  white-space:nowrap;
+
 }
 
-.tab-bar::-webkit-scrollbar {
-  display: none;
+
+.tab-bar::-webkit-scrollbar{
+
+  display:none;
+
 }
 
-.tab {
-  flex: 0 0 auto;
 
-  border: 1px solid transparent;
+.tab{
 
-  background: transparent;
+  flex:0 0 auto;
 
-  color: rgba(255,255,255,.42);
+  padding:9px 13px;
 
-  border-radius: 999px;
+  border-radius:999px;
 
-  padding: 9px 13px;
+  border:1px solid transparent;
 
-  font-size: 10px;
+  background:transparent;
 
-  letter-spacing: .08em;
+  color:rgba(255,255,255,.42);
 
-  text-transform: uppercase;
+  font-size:10px;
 
-  cursor: pointer;
+  letter-spacing:.08em;
 
-  transition:
-    color .25s ease,
-    background .25s ease,
-    border .25s ease;
+  text-transform:uppercase;
+
+  cursor:pointer;
+
+  transition:.25s ease;
+
 }
 
-.tab:hover {
-  color: rgba(255,255,255,.8);
-  background: rgba(255,255,255,.05);
+
+.tab:hover{
+
+  color:white;
+
+  background:rgba(255,255,255,.05);
+
 }
 
-.tab.active {
-  color: var(--gold);
 
-  background:
-    rgba(194,139,60,.10);
+.tab.active{
 
-  border-color:
-    rgba(194,139,60,.28);
+  color:var(--gold);
+
+  border-color:rgba(194,139,60,.3);
+
+  background:rgba(194,139,60,.1);
+
 }
 
 
@@ -244,26 +305,29 @@ a {
    SLIDES
 ========================================================= */
 
-.slide {
-  position: absolute;
-  inset: 0;
+.slide{
 
-  width: 100%;
-  height: 100%;
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+  height:100%;
 
   padding:
     105px
     8vw
-    105px;
+    100px;
 
-  display: flex;
-  align-items: center;
+  display:flex;
 
-  overflow-y: auto;
-  overflow-x: hidden;
+  align-items:center;
 
-  opacity: 0;
-  visibility: hidden;
+  overflow-y:auto;
+
+  opacity:0;
+
+  visibility:hidden;
 
   transform:
     translateX(40px)
@@ -271,38 +335,44 @@ a {
 
   transition:
     opacity .6s ease,
-    transform .6s cubic-bezier(.22,.61,.36,1),
+    transform .6s ease,
     visibility .6s ease;
+
 }
 
-.slide.active {
-  opacity: 1;
-  visibility: visible;
+
+.slide.active{
+
+  opacity:1;
+
+  visibility:visible;
 
   transform:
     translateX(0)
     scale(1);
 
-  z-index: 10;
+  z-index:10;
+
 }
 
 
 /* =========================================================
-   BACKGROUND EFFECT
+   BACKGROUND
 ========================================================= */
 
-.slide::before {
-  content: "";
+.slide::before{
 
-  position: absolute;
+  content:"";
 
-  width: 650px;
-  height: 650px;
+  position:absolute;
 
-  border-radius: 50%;
+  width:650px;
+  height:650px;
 
-  top: -300px;
-  right: -200px;
+  right:-300px;
+  top:-300px;
+
+  border-radius:50%;
 
   background:
     radial-gradient(
@@ -311,21 +381,24 @@ a {
       transparent 70%
     );
 
-  pointer-events: none;
+  pointer-events:none;
+
 }
 
-.slide::after {
-  content: "";
 
-  position: absolute;
+.slide::after{
 
-  width: 550px;
-  height: 550px;
+  content:"";
 
-  border-radius: 50%;
+  position:absolute;
 
-  bottom: -300px;
-  left: -250px;
+  width:600px;
+  height:600px;
+
+  left:-300px;
+  bottom:-350px;
+
+  border-radius:50%;
 
   background:
     radial-gradient(
@@ -334,7 +407,8 @@ a {
       transparent 70%
     );
 
-  pointer-events: none;
+  pointer-events:none;
+
 }
 
 
@@ -342,17 +416,23 @@ a {
    CONTENT
 ========================================================= */
 
-.content {
-  position: relative;
-  z-index: 5;
+.content{
 
-  width: min(1120px, 100%);
+  position:relative;
 
-  margin: auto;
+  z-index:5;
+
+  width:min(1150px,100%);
+
+  margin:auto;
+
 }
 
-.center {
-  text-align: center;
+
+.center{
+
+  text-align:center;
+
 }
 
 
@@ -360,189 +440,133 @@ a {
    TYPOGRAPHY
 ========================================================= */
 
-.eyebrow {
-  color: var(--gold);
+.eyebrow{
 
-  font-size: 11px;
+  margin-bottom:20px;
 
-  font-weight: 700;
+  color:var(--gold);
 
-  letter-spacing: .25em;
+  font-size:11px;
 
-  text-transform: uppercase;
+  font-weight:700;
 
-  margin-bottom: 20px;
+  letter-spacing:.25em;
+
+  text-transform:uppercase;
+
 }
+
 
 h1,
 h2,
-h3 {
-  font-family:
-    "Playfair Display",
-    serif;
+h3{
 
-  font-weight: 500;
+  font-family:"Playfair Display",serif;
+
+  font-weight:500;
+
 }
 
-h1 {
-  font-size:
-    clamp(58px, 9vw, 125px);
 
-  line-height: .94;
-}
-
-h2 {
-  font-size:
-    clamp(42px, 6vw, 78px);
-
-  line-height: 1.05;
-}
-
-h3 {
-  font-size: 29px;
-}
-
-.gold {
-  color: var(--gold);
-}
-
-.lead {
-  max-width: 760px;
-
-  margin-top: 28px;
-
-  color:
-    rgba(255,255,255,.70);
+h1{
 
   font-size:
-    clamp(16px, 2vw, 21px);
+    clamp(58px,9vw,125px);
 
-  line-height: 1.75;
+  line-height:.94;
+
+}
+
+
+h2{
+
+  font-size:
+    clamp(43px,6vw,78px);
+
+  line-height:1.05;
+
+}
+
+
+h3{
+
+  font-size:29px;
+
+}
+
+
+.gold{
+
+  color:var(--gold);
+
+}
+
+
+.lead{
+
+  max-width:760px;
+
+  margin-top:28px;
+
+  color:rgba(255,255,255,.68);
+
+  font-size:
+    clamp(16px,2vw,21px);
+
+  line-height:1.75;
+
 }
 
 
 /* =========================================================
-   HERO
+   BUTTON
 ========================================================= */
 
-.hero-subtitle {
-  max-width: 700px;
+.btn{
 
-  margin-top: 35px;
+  margin-top:30px;
 
-  color:
-    rgba(255,255,255,.60);
+  padding:14px 24px;
 
-  font-size:
-    clamp(16px, 2vw, 21px);
+  border:0;
 
-  line-height: 1.7;
-}
+  border-radius:999px;
 
-.hero-name {
-  margin-top: 32px;
+  font-size:14px;
 
-  color: var(--gold);
+  font-weight:700;
 
-  font-size: 13px;
+  cursor:pointer;
 
-  letter-spacing: .2em;
+  transition:.25s ease;
 
-  text-transform: uppercase;
 }
 
 
-/* =========================================================
-   BUTTONS
-========================================================= */
+.btn:hover{
 
-.btn {
-  border: 0;
+  transform:translateY(-3px);
 
-  border-radius: 999px;
-
-  padding: 14px 24px;
-
-  margin-top: 30px;
-
-  font-size: 14px;
-
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: .25s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-.btn-gold {
-  background: var(--gold);
-  color: var(--green-deep);
-}
-
-.btn-outline {
-  background: transparent;
-
-  border:
-    1px solid rgba(255,255,255,.22);
-
-  color: white;
-}
-
-.btn-outline:hover {
-  background:
-    rgba(255,255,255,.06);
 }
 
 
-/* =========================================================
-   QUOTE
-========================================================= */
+.btn-gold{
 
-.quote {
-  position: relative;
+  background:var(--gold);
 
-  max-width: 850px;
+  color:var(--green-deep);
 
-  padding: 34px 38px;
-
-  border-left:
-    2px solid var(--gold);
-
-  background:
-    rgba(255,255,255,.035);
 }
 
-.quote-mark {
-  position: absolute;
 
-  top: 8px;
-  left: 17px;
+.btn-outline{
 
-  color:
-    rgba(194,139,60,.25);
+  color:white;
 
-  font-family:
-    "Playfair Display",
-    serif;
+  background:transparent;
 
-  font-size: 55px;
-}
+  border:1px solid rgba(255,255,255,.2);
 
-.quote-text {
-  padding-left: 14px;
-
-  font-family:
-    "Playfair Display",
-    serif;
-
-  font-size:
-    clamp(25px, 4vw, 43px);
-
-  line-height: 1.35;
 }
 
 
@@ -550,175 +574,335 @@ h3 {
    SPLIT
 ========================================================= */
 
-.split {
-  display: grid;
+.split{
 
-  grid-template-columns: 1fr 1fr;
+  display:grid;
 
-  gap: 70px;
+  grid-template-columns:1fr 1fr;
 
-  align-items: center;
+  gap:65px;
 
-  margin-top: 45px;
+  align-items:center;
+
+  margin-top:40px;
+
 }
 
 
 /* =========================================================
-   VISUAL
+   PHOTO FRAME
 ========================================================= */
 
-.visual {
-  position: relative;
+.photo-frame{
 
-  min-height: 390px;
+  position:relative;
 
-  border-radius: 28px;
+  width:100%;
 
-  overflow: hidden;
+  height:420px;
 
-  border:
-    1px solid var(--border);
+  overflow:hidden;
 
-  display: flex;
+  border-radius:28px;
 
-  align-items: center;
-  justify-content: center;
+  border:1px solid rgba(255,255,255,.14);
 
   background:
+
     linear-gradient(
       145deg,
-      rgba(194,139,60,.15),
+      rgba(194,139,60,.16),
       rgba(255,255,255,.025)
     );
+
+  cursor:pointer;
+
 }
 
-.visual-icon {
-  font-size: 90px;
+
+.photo-frame img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+  transition:
+    transform .7s ease,
+    filter .5s ease;
+
+}
+
+
+.photo-frame:hover img{
+
+  transform:scale(1.05);
 
   filter:
-    drop-shadow(
-      0 15px 30px rgba(0,0,0,.25)
-    );
-}
+    brightness(1.08);
 
-.visual-caption {
-  position: absolute;
-
-  left: 25px;
-  right: 25px;
-  bottom: 20px;
-
-  color:
-    rgba(255,255,255,.48);
-
-  font-size: 11px;
-
-  letter-spacing: .15em;
-
-  text-transform: uppercase;
 }
 
 
 /* =========================================================
-   CARDS
+   PHOTO PLACEHOLDER
 ========================================================= */
 
-.experience-grid {
-  display: grid;
+.photo-placeholder{
+
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:30px;
+
+  text-align:center;
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      rgba(194,139,60,.12),
+      rgba(3,47,40,.9)
+    );
+
+}
+
+
+.photo-placeholder-icon{
+
+  font-size:60px;
+
+  margin-bottom:18px;
+
+}
+
+
+.photo-placeholder strong{
+
+  font-family:"Playfair Display",serif;
+
+  font-size:24px;
+
+}
+
+
+.photo-placeholder span{
+
+  max-width:300px;
+
+  margin-top:10px;
+
+  color:rgba(255,255,255,.45);
+
+  font-size:11px;
+
+  line-height:1.6;
+
+}
+
+
+/* =========================================================
+   PHOTO LABEL
+========================================================= */
+
+.photo-label{
+
+  position:absolute;
+
+  left:18px;
+  bottom:18px;
+
+  z-index:5;
+
+  padding:8px 12px;
+
+  border-radius:999px;
+
+  background:rgba(2,31,27,.85);
+
+  border:1px solid rgba(255,255,255,.15);
+
+  backdrop-filter:blur(10px);
+
+  font-size:9px;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+
+}
+
+
+/* =========================================================
+   PHOTO CREDIT
+========================================================= */
+
+.photo-note{
+
+  margin-top:10px;
+
+  color:rgba(255,255,255,.3);
+
+  font-size:9px;
+
+  text-align:center;
+
+  letter-spacing:.05em;
+
+}
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+.year{
+
+  color:var(--gold);
+
+  font-family:"Playfair Display",serif;
+
+  font-size:70px;
+
+  line-height:1;
+
+}
+
+
+.card-label{
+
+  margin-top:12px;
+
+  color:rgba(255,255,255,.4);
+
+  font-size:10px;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote{
+
+  position:relative;
+
+  max-width:900px;
+
+  margin-top:40px;
+
+  padding:30px 35px;
+
+  border-left:2px solid var(--gold);
+
+  background:rgba(255,255,255,.035);
+
+}
+
+
+.quote-text{
+
+  font-family:"Playfair Display",serif;
+
+  font-size:
+    clamp(25px,4vw,43px);
+
+  line-height:1.4;
+
+}
+
+
+/* =========================================================
+   PHOTO GALLERY
+========================================================= */
+
+.gallery{
+
+  display:grid;
 
   grid-template-columns:
-    repeat(2,1fr);
+    repeat(3,1fr);
 
-  gap: 20px;
+  gap:15px;
 
-  margin-top: 45px;
+  margin-top:35px;
+
 }
 
-.experience-card {
-  position: relative;
 
-  min-height: 250px;
+.gallery-photo{
 
-  padding: 32px;
+  position:relative;
 
-  border-radius: 24px;
+  height:210px;
 
-  overflow: hidden;
+  overflow:hidden;
 
-  border:
-    1px solid var(--border);
+  border-radius:20px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.075),
-      rgba(255,255,255,.025)
-    );
+  border:1px solid rgba(255,255,255,.12);
+
+  background:rgba(255,255,255,.04);
+
+  cursor:pointer;
+
 }
 
-.experience-card::after {
-  content: "";
 
-  position: absolute;
+.gallery-photo img{
 
-  width: 230px;
-  height: 230px;
+  width:100%;
+  height:100%;
 
-  right: -100px;
-  bottom: -100px;
+  object-fit:cover;
 
-  border-radius: 50%;
+  transition:.5s ease;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(194,139,60,.14),
-      transparent 70%
-    );
 }
 
-.year {
-  font-family:
-    "Playfair Display",
-    serif;
 
-  color: var(--gold);
+.gallery-photo:hover img{
 
-  font-size: 68px;
+  transform:scale(1.07);
 
-  line-height: 1;
 }
 
-.card-label {
-  margin-top: 16px;
 
-  color:
-    rgba(255,255,255,.45);
+.gallery-label{
 
-  font-size: 11px;
+  position:absolute;
 
-  letter-spacing: .18em;
+  left:12px;
+  bottom:12px;
 
-  text-transform: uppercase;
-}
+  padding:7px 10px;
 
-.card-title {
-  margin-top: 10px;
+  border-radius:999px;
 
-  font-family:
-    "Playfair Display",
-    serif;
+  background:rgba(2,31,27,.85);
 
-  font-size: 29px;
-}
+  font-size:9px;
 
-.card-description {
-  margin-top: 14px;
+  letter-spacing:.1em;
 
-  color:
-    rgba(255,255,255,.53);
+  text-transform:uppercase;
 
-  line-height: 1.7;
 }
 
 
@@ -726,82 +910,94 @@ h3 {
    TIMELINE
 ========================================================= */
 
-.timeline {
-  position: relative;
+.timeline{
 
-  margin-top: 45px;
+  position:relative;
 
-  display: grid;
+  margin-top:40px;
 
-  gap: 18px;
+  display:grid;
+
+  gap:17px;
+
 }
 
-.timeline::before {
-  content: "";
 
-  position: absolute;
+.timeline::before{
 
-  left: 21px;
+  content:"";
 
-  top: 22px;
-  bottom: 22px;
+  position:absolute;
 
-  width: 1px;
+  left:21px;
 
-  background:
-    rgba(194,139,60,.30);
+  top:22px;
+  bottom:22px;
+
+  width:1px;
+
+  background:rgba(194,139,60,.3);
+
 }
 
-.timeline-item {
-  position: relative;
 
-  display: flex;
+.timeline-item{
 
-  align-items: flex-start;
+  position:relative;
 
-  gap: 22px;
+  display:flex;
+
+  gap:20px;
+
 }
 
-.timeline-dot {
-  position: relative;
 
-  z-index: 2;
+.timeline-dot{
 
-  flex: 0 0 44px;
+  position:relative;
 
-  width: 44px;
-  height: 44px;
+  z-index:2;
 
-  display: flex;
+  flex:0 0 44px;
 
-  align-items: center;
-  justify-content: center;
+  width:44px;
+  height:44px;
 
-  border-radius: 50%;
+  display:flex;
 
-  border:
-    1px solid var(--gold);
+  align-items:center;
+  justify-content:center;
 
-  background: var(--green);
+  border-radius:50%;
 
-  color: var(--gold);
+  border:1px solid var(--gold);
 
-  font-size: 11px;
+  background:var(--green);
 
-  font-weight: 700;
+  color:var(--gold);
+
+  font-size:11px;
+
+  font-weight:700;
+
 }
 
-.timeline-item h3 {
-  font-size: 24px;
+
+.timeline-item h3{
+
+  font-size:24px;
+
 }
 
-.timeline-item p {
-  margin-top: 4px;
 
-  color:
-    rgba(255,255,255,.52);
+.timeline-item p{
 
-  line-height: 1.6;
+  margin-top:4px;
+
+  color:rgba(255,255,255,.5);
+
+  line-height:1.6;
+
 }
 
 
@@ -809,170 +1005,106 @@ h3 {
    SKILLS
 ========================================================= */
 
-.skill-grid {
-  display: grid;
+.skill-grid{
+
+  display:grid;
 
   grid-template-columns:
     repeat(2,1fr);
 
-  gap: 15px;
+  gap:15px;
 
-  margin-top: 38px;
-}
+  margin-top:38px;
 
-.skill {
-  padding: 25px;
-
-  border-radius: 18px;
-
-  border:
-    1px solid var(--border);
-
-  background:
-    rgba(255,255,255,.035);
-
-  transition: .25s ease;
-}
-
-.skill:hover {
-  transform: translateY(-4px);
-
-  background:
-    rgba(255,255,255,.065);
-}
-
-.skill strong {
-  display: block;
-
-  color: var(--gold);
-
-  font-size: 19px;
-}
-
-.skill span {
-  display: block;
-
-  margin-top: 10px;
-
-  color:
-    rgba(255,255,255,.52);
-
-  line-height: 1.6;
 }
 
 
-/* =========================================================
-   PATTERN
-========================================================= */
+.skill{
 
-.pattern {
-  display: grid;
+  padding:25px;
 
-  grid-template-columns:
-    repeat(5,1fr);
+  border-radius:18px;
 
-  gap: 12px;
+  border:1px solid var(--border);
 
-  margin-top: 45px;
+  background:rgba(255,255,255,.035);
+
 }
 
-.pattern-item {
-  min-height: 175px;
 
-  padding: 22px 17px;
+.skill strong{
 
-  border-radius: 18px;
+  display:block;
 
-  border:
-    1px solid var(--border);
+  color:var(--gold);
 
-  background:
-    rgba(255,255,255,.035);
+  font-size:19px;
+
 }
 
-.pattern-number {
-  color: var(--gold);
 
-  font-size: 12px;
+.skill span{
 
-  font-weight: 700;
-}
+  display:block;
 
-.pattern-item h3 {
-  margin-top: 18px;
+  margin-top:9px;
 
-  font-size: 22px;
-}
+  color:rgba(255,255,255,.5);
 
-.pattern-item p {
-  margin-top: 7px;
+  line-height:1.6;
 
-  color:
-    rgba(255,255,255,.48);
-
-  font-size: 13px;
-
-  line-height: 1.6;
 }
 
 
 /* =========================================================
-   WORLD MAP
+   MAP
 ========================================================= */
 
-.map-wrapper {
+.map-wrapper{
 
-  position: relative;
+  position:relative;
 
-  width: 100%;
+  margin-top:35px;
 
-  margin-top: 40px;
+  width:100%;
 
-  border-radius: 30px;
+  border-radius:28px;
 
-  overflow: hidden;
+  overflow:hidden;
 
-  border:
-    1px solid rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.12);
 
   background:
+
     radial-gradient(
       ellipse at center,
       rgba(10,76,64,.65),
-      rgba(2,31,27,.95)
+      rgba(2,31,27,.98)
     );
 
-  box-shadow:
-    inset 0 0 100px
-    rgba(0,0,0,.25);
+}
+
+
+.map{
+
+  position:relative;
+
+  width:100%;
+
+  aspect-ratio:2/1;
+
+  min-height:400px;
 
 }
 
 
-.map {
+.map-grid{
 
-  position: relative;
+  position:absolute;
 
-  width: 100%;
+  inset:0;
 
-  aspect-ratio: 2 / 1;
-
-  min-height: 420px;
-
-}
-
-
-/* -----------------------------------------
-   GRID
------------------------------------------ */
-
-.map-grid {
-
-  position: absolute;
-
-  inset: 0;
-
-  opacity: .18;
+  opacity:.15;
 
   background-image:
 
@@ -987,529 +1119,301 @@ h3 {
       transparent 1px
     );
 
-  background-size:
-    10% 20%;
-}
-
-
-/* -----------------------------------------
-   CONTINENTS
------------------------------------------ */
-
-.continent {
-
-  position: absolute;
-
-  background:
-    rgba(255,255,255,.075);
-
-  border:
-    1px solid rgba(255,255,255,.06);
-
-  opacity: .85;
-
-  filter:
-    blur(.1px);
-}
-
-
-/* North America */
-
-.north-america {
-
-  width: 18%;
-  height: 24%;
-
-  left: 12%;
-  top: 22%;
-
-  border-radius:
-    60% 35% 45% 35% /
-    45% 55% 40% 55%;
-
-  transform:
-    rotate(-12deg);
-}
-
-
-/* South America */
-
-.south-america {
-
-  width: 11%;
-  height: 31%;
-
-  left: 25%;
-  top: 47%;
-
-  border-radius:
-    50% 45% 55% 45% /
-    30% 45% 65% 70%;
-
-  transform:
-    rotate(12deg);
-}
-
-
-/* Europe */
-
-.europe {
-
-  width: 10%;
-  height: 9%;
-
-  left: 47%;
-  top: 27%;
-
-  border-radius:
-    60% 40% 50% 40%;
-}
-
-
-/* Africa */
-
-.africa {
-
-  width: 14%;
-  height: 30%;
-
-  left: 47%;
-  top: 40%;
-
-  border-radius:
-    50% 45% 60% 45% /
-    35% 45% 65% 60%;
-
-  transform:
-    rotate(8deg);
-}
-
-
-/* Asia */
-
-.asia {
-
-  width: 25%;
-  height: 25%;
-
-  left: 55%;
-  top: 25%;
-
-  border-radius:
-    40% 60% 45% 50% /
-    45% 45% 55% 55%;
-
-  transform:
-    rotate(-4deg);
-}
-
-
-/* Australia */
-
-.australia {
-
-  width: 12%;
-  height: 10%;
-
-  right: 12%;
-  bottom: 22%;
-
-  border-radius:
-    50% 45% 55% 45%;
-}
-
-
-/* -----------------------------------------
-   MAP DOTS
------------------------------------------ */
-
-.map-point {
-
-  position: absolute;
-
-  width: 15px;
-  height: 15px;
-
-  border-radius: 50%;
-
-  background: var(--gold);
-
-  border:
-    2px solid rgba(255,255,255,.85);
-
-  box-shadow:
-    0 0 0 0 rgba(194,139,60,.7),
-    0 0 20px rgba(194,139,60,.65);
-
-  cursor: pointer;
-
-  transform:
-    translate(-50%, -50%);
-
-  z-index: 20;
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
-}
-
-
-.map-point::before {
-
-  content: "";
-
-  position: absolute;
-
-  inset: -9px;
-
-  border-radius: 50%;
-
-  border:
-    1px solid rgba(194,139,60,.35);
-
-  animation:
-    mapPulse 2.2s infinite;
-
-}
-
-
-.map-point:hover {
-
-  transform:
-    translate(-50%, -50%)
-    scale(1.5);
-
-  box-shadow:
-    0 0 0 8px rgba(194,139,60,.10),
-    0 0 30px rgba(194,139,60,.8);
-
-}
-
-
-@keyframes mapPulse {
-
-  0% {
-    transform: scale(.6);
-    opacity: .8;
-  }
-
-  70% {
-    transform: scale(1.4);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1.4);
-    opacity: 0;
-  }
-
-}
-
-
-/* -----------------------------------------
-   MAP LABEL
------------------------------------------ */
-
-.map-tooltip {
-
-  position: absolute;
-
-  z-index: 50;
-
-  min-width: 190px;
-
-  max-width: 230px;
-
-  padding: 16px 18px;
-
-  border-radius: 16px;
-
-  background:
-    rgba(3,47,40,.96);
-
-  border:
-    1px solid rgba(194,139,60,.4);
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.35);
-
-  pointer-events: none;
-
-  opacity: 0;
-
-  transform:
-    translateY(8px);
-
-  transition:
-    opacity .25s ease,
-    transform .25s ease;
-
-}
-
-
-.map-tooltip.show {
-
-  opacity: 1;
-
-  transform:
-    translateY(0);
-
-}
-
-
-.tooltip-number {
-
-  color: var(--gold);
-
-  font-size: 10px;
-
-  letter-spacing: .15em;
-
-  text-transform: uppercase;
-}
-
-
-.tooltip-country {
-
-  margin-top: 5px;
-
-  font-family:
-    "Playfair Display",
-    serif;
-
-  font-size: 23px;
-}
-
-
-.tooltip-text {
-
-  margin-top: 5px;
-
-  color:
-    rgba(255,255,255,.52);
-
-  font-size: 11px;
-
-  line-height: 1.5;
-}
-
-
-/* -----------------------------------------
-   MAP HEADER
------------------------------------------ */
-
-.map-title {
-
-  position: absolute;
-
-  z-index: 30;
-
-  left: 25px;
-  top: 22px;
-
-  pointer-events: none;
-
-}
-
-
-.map-title strong {
-
-  display: block;
-
-  font-family:
-    "Playfair Display",
-    serif;
-
-  font-size: 24px;
-
-}
-
-
-.map-title span {
-
-  display: block;
-
-  margin-top: 4px;
-
-  color:
-    rgba(255,255,255,.42);
-
-  font-size: 10px;
-
-  letter-spacing: .13em;
-
-  text-transform: uppercase;
-
-}
-
-
-/* -----------------------------------------
-   MAP LEGEND
------------------------------------------ */
-
-.map-legend {
-
-  position: absolute;
-
-  z-index: 30;
-
-  right: 22px;
-  bottom: 20px;
-
-  color:
-    rgba(255,255,255,.45);
-
-  font-size: 10px;
-
-}
-
-
-.legend-dot {
-
-  display: inline-block;
-
-  width: 8px;
-  height: 8px;
-
-  margin-right: 6px;
-
-  border-radius: 50%;
-
-  background: var(--gold);
+  background-size:10% 20%;
 
 }
 
 
 /* =========================================================
-   WORLD BOX
+   SIMPLE CONTINENTS
 ========================================================= */
 
-.world-box {
+.continent{
 
-  margin-top: 35px;
+  position:absolute;
 
-  padding: 35px;
+  background:rgba(255,255,255,.07);
 
-  border-radius: 28px;
+  border:1px solid rgba(255,255,255,.05);
 
-  border:
-    1px solid var(--border);
+}
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.065),
-      rgba(255,255,255,.02)
-    );
+
+.north-america{
+
+  width:18%;
+  height:24%;
+
+  left:12%;
+  top:22%;
+
+  border-radius:60% 35% 45% 35%;
+
+  transform:rotate(-12deg);
+
+}
+
+
+.south-america{
+
+  width:11%;
+  height:31%;
+
+  left:25%;
+  top:47%;
+
+  border-radius:50% 45% 55% 45%;
+
+  transform:rotate(12deg);
+
+}
+
+
+.europe{
+
+  width:10%;
+  height:9%;
+
+  left:47%;
+  top:27%;
+
+  border-radius:60% 40% 50% 40%;
+
+}
+
+
+.africa{
+
+  width:14%;
+  height:30%;
+
+  left:47%;
+  top:40%;
+
+  border-radius:50% 45% 60% 45%;
+
+}
+
+
+.asia{
+
+  width:25%;
+  height:25%;
+
+  left:55%;
+  top:25%;
+
+  border-radius:40% 60% 45% 50%;
+
+}
+
+
+.australia{
+
+  width:12%;
+  height:10%;
+
+  right:12%;
+  bottom:22%;
+
+  border-radius:50%;
+
 }
 
 
 /* =========================================================
-   INTERACTION
+   MAP POINT
 ========================================================= */
 
-.interaction {
+.map-point{
 
-  max-width: 800px;
+  position:absolute;
 
-  margin: 45px auto 0;
+  width:15px;
+  height:15px;
 
-  padding: 28px;
+  transform:translate(-50%,-50%);
 
-  border-radius: 24px;
+  border-radius:50%;
 
-  border:
-    1px solid rgba(194,139,60,.25);
+  background:var(--gold);
 
-  background:
-    rgba(194,139,60,.07);
+  border:2px solid white;
+
+  box-shadow:
+    0 0 20px rgba(194,139,60,.7);
+
+  cursor:pointer;
+
+  z-index:30;
+
 }
 
-.interaction h3 {
-  font-size: 27px;
+
+.map-point::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:-9px;
+
+  border-radius:50%;
+
+  border:1px solid rgba(194,139,60,.4);
+
+  animation:pulse 2s infinite;
+
 }
 
-.interaction p {
-  margin-top: 9px;
 
-  color:
-    rgba(255,255,255,.5);
-}
+@keyframes pulse{
 
-.interaction-buttons {
+  0%{
 
-  display: flex;
+    transform:scale(.6);
 
-  justify-content: center;
+    opacity:.8;
 
-  flex-wrap: wrap;
+  }
 
-  gap: 10px;
+  70%{
 
-  margin-top: 20px;
-}
+    transform:scale(1.5);
 
-.interaction-buttons button {
+    opacity:0;
 
-  padding: 11px 17px;
+  }
 
-  border-radius: 999px;
+  100%{
 
-  border:
-    1px solid rgba(255,255,255,.15);
+    transform:scale(1.5);
 
-  background:
-    rgba(255,255,255,.04);
+    opacity:0;
 
-  color: white;
+  }
 
-  cursor: pointer;
-
-  transition: .25s ease;
-}
-
-.interaction-buttons button:hover,
-.interaction-buttons button.selected {
-
-  background: var(--gold);
-
-  color: var(--green-deep);
-
-  border-color: var(--gold);
 }
 
 
 /* =========================================================
-   FINAL
+   MAP TOOLTIP
 ========================================================= */
 
-.final-message {
+.map-tooltip{
 
-  max-width: 900px;
+  position:absolute;
 
-  margin: auto;
+  z-index:50;
 
-  text-align: center;
+  min-width:180px;
+
+  padding:15px;
+
+  border-radius:15px;
+
+  background:rgba(3,47,40,.97);
+
+  border:1px solid rgba(194,139,60,.4);
+
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transform:translateY(8px);
+
+  transition:.25s ease;
+
 }
 
-.final-message h2 {
 
-  font-size:
-    clamp(45px, 7vw, 90px);
+.map-tooltip.show{
+
+  opacity:1;
+
+  transform:translateY(0);
+
 }
 
-.final-message p {
 
-  max-width: 700px;
+.tooltip-number{
 
-  margin: 28px auto 0;
+  color:var(--gold);
 
-  color:
-    rgba(255,255,255,.60);
+  font-size:9px;
 
-  line-height: 1.8;
+  letter-spacing:.15em;
 
-  font-size: 18px;
+}
+
+
+.tooltip-country{
+
+  margin-top:4px;
+
+  font-family:"Playfair Display",serif;
+
+  font-size:22px;
+
+}
+
+
+.tooltip-text{
+
+  margin-top:5px;
+
+  color:rgba(255,255,255,.5);
+
+  font-size:10px;
+
+  line-height:1.5;
+
+}
+
+
+/* =========================================================
+   MAP TITLE
+========================================================= */
+
+.map-title{
+
+  position:absolute;
+
+  top:20px;
+  left:22px;
+
+  z-index:35;
+
+}
+
+
+.map-title strong{
+
+  display:block;
+
+  font-family:"Playfair Display",serif;
+
+  font-size:24px;
+
+}
+
+
+.map-title span{
+
+  display:block;
+
+  margin-top:3px;
+
+  color:rgba(255,255,255,.4);
+
+  font-size:9px;
+
+  letter-spacing:.13em;
+
+  text-transform:uppercase;
+
 }
 
 
@@ -1517,209 +1421,178 @@ h3 {
    BOTTOM NAV
 ========================================================= */
 
-.bottom-navigation {
+.bottom-navigation{
 
-  position: fixed;
+  position:fixed;
 
-  z-index: 400;
+  left:50%;
+  bottom:17px;
 
-  left: 50%;
-  bottom: 18px;
+  transform:translateX(-50%);
 
-  transform:
-    translateX(-50%);
+  z-index:1000;
 
-  display: flex;
+  display:flex;
 
-  align-items: center;
+  gap:8px;
 
-  gap: 8px;
+  padding:7px;
 
-  padding: 7px;
+  border-radius:999px;
 
-  border-radius: 999px;
+  background:rgba(3,47,40,.9);
 
-  background:
-    rgba(3,47,40,.90);
+  border:1px solid rgba(255,255,255,.12);
 
-  border:
-    1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(15px);
 
-  backdrop-filter: blur(15px);
 }
 
-.nav-btn {
 
-  width: 42px;
-  height: 42px;
+.nav-btn,
+.nav-home{
 
-  border: 0;
+  width:42px;
+  height:42px;
 
-  border-radius: 50%;
+  border-radius:50%;
 
-  background:
-    rgba(255,255,255,.05);
+  cursor:pointer;
 
-  color: white;
+  transition:.25s ease;
 
-  cursor: pointer;
-
-  transition: .25s ease;
 }
 
-.nav-btn:hover {
 
-  background: var(--gold);
+.nav-btn{
 
-  color: var(--green-deep);
+  border:0;
+
+  background:rgba(255,255,255,.05);
+
+  color:white;
+
 }
 
-.nav-btn:disabled {
-  opacity: .3;
+
+.nav-home{
+
+  border:1px solid rgba(255,255,255,.14);
+
+  background:transparent;
+
+  color:white;
+
 }
 
-.nav-home {
 
-  width: 42px;
-  height: 42px;
+.nav-btn:hover,
+.nav-home:hover{
 
-  border-radius: 50%;
+  background:var(--gold);
 
-  border:
-    1px solid rgba(255,255,255,.14);
+  color:var(--green-deep);
 
-  background: transparent;
-
-  color: white;
-
-  cursor: pointer;
 }
 
 
 /* =========================================================
-   SWIPE HINT
+   LIGHTBOX
 ========================================================= */
 
-.swipe-hint {
+.lightbox{
 
-  position: fixed;
+  position:fixed;
 
-  z-index: 300;
+  inset:0;
 
-  right: 25px;
-  bottom: 30px;
+  z-index:5000;
 
-  color:
-    rgba(255,255,255,.28);
+  display:flex;
 
-  font-size: 10px;
+  align-items:center;
+  justify-content:center;
 
-  letter-spacing: .08em;
+  padding:25px;
 
-  text-transform: uppercase;
-}
+  background:rgba(0,0,0,.94);
 
+  opacity:0;
 
-/* =========================================================
-   ANIMATION
-========================================================= */
+  visibility:hidden;
 
-@keyframes fadeUp {
-
-  from {
-
-    opacity: 0;
-
-    transform:
-      translateY(25px);
-
-  }
-
-  to {
-
-    opacity: 1;
-
-    transform:
-      translateY(0);
-
-  }
+  transition:.3s ease;
 
 }
 
-.slide.active .eyebrow,
-.slide.active h1,
-.slide.active h2,
-.slide.active .lead,
-.slide.active .quote,
-.slide.active .visual,
-.slide.active .experience-card,
-.slide.active .timeline-item,
-.slide.active .skill,
-.slide.active .pattern-item,
-.slide.active .world-box,
-.slide.active .interaction,
-.slide.active .map-wrapper {
 
-  animation:
-    fadeUp .65s ease both;
-}
+.lightbox.show{
 
-.slide.active h1,
-.slide.active h2 {
-  animation-delay: .10s;
-}
+  opacity:1;
 
-.slide.active .lead {
-  animation-delay: .18s;
-}
+  visibility:visible;
 
-.slide.active .visual,
-.slide.active .experience-card,
-.slide.active .timeline-item,
-.slide.active .skill,
-.slide.active .pattern-item,
-.slide.active .world-box,
-.slide.active .interaction,
-.slide.active .map-wrapper {
-
-  animation-delay: .25s;
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+.lightbox img{
 
-@media (max-width: 900px) {
+  max-width:95vw;
 
-  .brand {
-    min-width: 130px;
-  }
+  max-height:90vh;
 
-  .top-header {
-    gap: 12px;
-    padding: 0 16px;
-  }
+  object-fit:contain;
 
-  .tab {
-    font-size: 9px;
-    padding: 8px 11px;
-  }
+  border-radius:12px;
 
-  .split,
-  .experience-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.6);
 
-  .visual {
-    min-height: 270px;
-  }
+}
 
-  .pattern {
-    grid-template-columns:
-      repeat(2,1fr);
-  }
+
+.lightbox-close{
+
+  position:absolute;
+
+  top:20px;
+  right:25px;
+
+  width:45px;
+  height:45px;
+
+  border-radius:50%;
+
+  border:1px solid rgba(255,255,255,.2);
+
+  background:rgba(255,255,255,.08);
+
+  color:white;
+
+  font-size:24px;
+
+  cursor:pointer;
+
+}
+
+
+.lightbox-caption{
+
+  position:absolute;
+
+  bottom:20px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  color:rgba(255,255,255,.6);
+
+  font-size:11px;
+
+  letter-spacing:.1em;
+
+  text-transform:uppercase;
 
 }
 
@@ -1728,235 +1601,236 @@ h3 {
    MOBILE
 ========================================================= */
 
-@media (max-width: 600px) {
+@media(max-width:900px){
 
-  .top-header {
+  .split{
 
-    height: 112px;
+    grid-template-columns:1fr;
 
-    display: block;
+    gap:30px;
 
-    padding: 10px 14px 0;
+  }
+
+  .gallery{
+
+    grid-template-columns:1fr 1fr;
+
+  }
+
+}
+
+
+@media(max-width:600px){
+
+  .top-header{
+
+    height:112px;
+
+    display:block;
+
+    padding:10px 14px 0;
 
     background:
       linear-gradient(
         to bottom,
         rgba(2,31,27,.99),
-        rgba(2,31,27,.94)
+        rgba(2,31,27,.95)
       );
+
   }
 
-  .brand {
 
-    height: 35px;
+  .brand{
 
-    min-width: 0;
+    min-width:0;
 
-    font-size: 17px;
+    height:35px;
+
+    font-size:17px;
+
   }
 
-  .brand-mark {
 
-    width: 28px;
-    height: 28px;
+  .brand-mark{
+
+    width:28px;
+    height:28px;
+
   }
 
-  .tab-wrapper {
 
-    width: 100%;
+  .tab-wrapper{
 
-    margin-top: 5px;
+    margin-top:5px;
+
   }
 
-  .tab-bar {
-    padding-bottom: 9px;
+
+  .tab{
+
+    padding:7px 10px;
+
+    font-size:8px;
+
   }
 
-  .tab {
 
-    font-size: 8px;
-
-    padding:
-      7px
-      10px;
-  }
-
-  .slide {
+  .slide{
 
     padding:
       130px
       18px
-      95px;
+      90px;
+
   }
 
-  h1 {
+
+  h1{
 
     font-size:
-      clamp(54px, 18vw, 82px);
+      clamp(54px,18vw,82px);
+
   }
 
-  h2 {
+
+  h2{
 
     font-size:
-      clamp(37px, 11vw, 55px);
+      clamp(37px,11vw,55px);
+
   }
 
-  h3 {
-    font-size: 25px;
+
+  .lead{
+
+    font-size:16px;
+
+    line-height:1.65;
+
   }
 
-  .lead {
 
-    font-size: 16px;
+  .photo-frame{
 
-    line-height: 1.65;
+    height:260px;
+
   }
 
-  .quote {
 
-    padding:
-      28px
-      20px;
+  .gallery{
+
+    grid-template-columns:1fr;
+
   }
 
-  .quote-text {
-    font-size: 25px;
+
+  .gallery-photo{
+
+    height:220px;
+
   }
 
-  .split {
-    grid-template-columns: 1fr;
+
+  .year{
+
+    font-size:54px;
+
   }
 
-  .visual {
-    min-height: 220px;
+
+  .skill-grid{
+
+    grid-template-columns:1fr;
+
   }
 
-  .visual-icon {
-    font-size: 70px;
+
+  .map{
+
+    min-height:300px;
+
+    aspect-ratio:1.45/1;
+
   }
 
-  .experience-grid {
-    grid-template-columns: 1fr;
+
+  .map-point{
+
+    width:12px;
+    height:12px;
+
   }
 
-  .experience-card {
-    min-height: 210px;
+
+  .map-title{
+
+    left:14px;
+    top:14px;
+
   }
 
-  .year {
-    font-size: 52px;
+
+  .map-title strong{
+
+    font-size:18px;
+
   }
 
-  .skill-grid {
-    grid-template-columns: 1fr;
+
+  .map-title span{
+
+    font-size:8px;
+
   }
 
-  .pattern {
-    grid-template-columns:
-      1fr 1fr;
+
+  .map-tooltip{
+
+    min-width:155px;
+
+    max-width:180px;
+
+    padding:12px;
+
   }
 
-  .pattern-item {
-    min-height: 145px;
+
+  .tooltip-country{
+
+    font-size:18px;
+
   }
 
-  .map {
-
-    min-height: 300px;
-
-    aspect-ratio: 1.5 / 1;
-  }
-
-  .map-title {
-
-    left: 15px;
-    top: 15px;
-  }
-
-  .map-title strong {
-    font-size: 18px;
-  }
-
-  .map-title span {
-    font-size: 8px;
-  }
-
-  .map-point {
-
-    width: 12px;
-    height: 12px;
-  }
-
-  .map-tooltip {
-
-    min-width: 150px;
-
-    max-width: 180px;
-
-    padding: 12px;
-  }
-
-  .tooltip-country {
-    font-size: 19px;
-  }
-
-  .tooltip-text {
-    font-size: 10px;
-  }
-
-  .map-legend {
-    right: 12px;
-    bottom: 12px;
-  }
-
-  .world-box {
-    padding: 20px 10px;
-  }
-
-  .interaction {
-    padding: 22px 14px;
-  }
-
-  .bottom-navigation {
-    bottom: 12px;
-  }
-
-  .swipe-hint {
-    display: none;
-  }
 
 }
 
 
 /* =========================================================
-   VERY SMALL PHONE
+   VERY SMALL
 ========================================================= */
 
-@media (max-width: 380px) {
+@media(max-width:380px){
 
-  .slide {
+  .slide{
 
     padding:
       128px
       15px
       90px;
+
   }
 
-  h2 {
-    font-size: 34px;
-  }
 
-  .pattern {
-    grid-template-columns: 1fr;
-  }
+  h2{
 
-  .tab {
-    font-size: 7.5px;
+    font-size:34px;
+
   }
 
 }
 
 </style>
+
 </head>
 
 
@@ -1977,7 +1851,7 @@ h3 {
 
 
 <!-- =====================================================
-     HEADER
+     HEADER + TABS
 ===================================================== -->
 
 <header class="top-header">
@@ -1998,106 +1872,104 @@ h3 {
 
   <div class="tab-wrapper">
 
-    <nav
-      class="tab-bar"
-      id="tabBar">
+    <nav class="tab-bar">
 
 
-      <button class="tab active"
-        data-slide="0"
+      <button
+        class="tab active"
         onclick="goToSlide(0)">
         Start Here
       </button>
 
 
-      <button class="tab"
-        data-slide="1"
+      <button
+        class="tab"
         onclick="goToSlide(1)">
-        Meet The Audience
+        Audience
       </button>
 
 
-      <button class="tab"
-        data-slide="2"
+      <button
+        class="tab"
         onclick="goToSlide(2)">
-        The First Yes
+        First Yes
       </button>
 
 
-      <button class="tab"
-        data-slide="3"
+      <button
+        class="tab"
         onclick="goToSlide(3)">
-        Dreaming Beyond
+        FIFA 2014
       </button>
 
 
-      <button class="tab"
-        data-slide="4"
+      <button
+        class="tab"
         onclick="goToSlide(4)">
-        Another Door
+        Invitation
       </button>
 
 
-      <button class="tab"
-        data-slide="5"
+      <button
+        class="tab"
         onclick="goToSlide(5)">
-        Bandung → Bali
+        Bandung Bali
       </button>
 
 
-      <button class="tab"
-        data-slide="6"
+      <button
+        class="tab"
         onclick="goToSlide(6)">
-        The Bigger Yes
+        Asian Games
       </button>
 
 
-      <button class="tab"
-        data-slide="7"
+      <button
+        class="tab"
         onclick="goToSlide(7)">
-        The EHEF Chapter
+        EHEF
       </button>
 
 
-      <button class="tab"
-        data-slide="8"
+      <button
+        class="tab"
         onclick="goToSlide(8)">
-        Global Connections
+        Connections
       </button>
 
 
-      <button class="tab"
-        data-slide="9"
+      <button
+        class="tab"
         onclick="goToSlide(9)">
-        Finding My Voice
+        English
       </button>
 
 
-      <button class="tab"
-        data-slide="10"
+      <button
+        class="tab"
         onclick="goToSlide(10)">
         The Pattern
       </button>
 
 
-      <button class="tab"
-        data-slide="11"
+      <button
+        class="tab"
         onclick="goToSlide(11)">
-        The World Opened
+        Travel Map
       </button>
 
 
-      <button class="tab"
-        data-slide="12"
+      <button
+        class="tab"
         onclick="goToSlide(12)">
         Next Chapter
       </button>
 
 
-      <button class="tab"
-        data-slide="13"
+      <button
+        class="tab"
         onclick="goToSlide(13)">
-        The Beginning
+        Closing
       </button>
 
 
@@ -2110,7 +1982,7 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 01
+     SLIDE 01 — HERO
 ===================================================== -->
 
 <section class="slide active">
@@ -2121,6 +1993,7 @@ h3 {
       WEBINAR SERIES · PART 01
     </div>
 
+
     <h1>
 
       Beyond
@@ -2130,7 +2003,8 @@ h3 {
 
     </h1>
 
-    <p class="hero-subtitle">
+
+    <p class="lead">
 
       Sebelum saya menjadi seorang traveler,
       ada banyak "YES" kecil yang ternyata
@@ -2138,11 +2012,19 @@ h3 {
 
     </p>
 
-    <div class="hero-name">
+
+    <div style="
+      margin-top:28px;
+      color:var(--gold);
+      font-size:12px;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+    ">
 
       Isti Fatimah · Journey Before Traveling
 
     </div>
+
 
     <button
       class="btn btn-gold"
@@ -2159,7 +2041,7 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 02
+     SLIDE 02 — AUDIENCE
 ===================================================== -->
 
 <section class="slide">
@@ -2170,112 +2052,43 @@ h3 {
       MEET THE AUDIENCE
     </div>
 
+
     <h2>
+
       Saya mau tahu...
+
     </h2>
+
 
     <p
       class="lead"
       style="margin-left:auto;margin-right:auto;">
 
       Siapa di sini yang pernah mendapatkan
-      sebuah kesempatan, tetapi awalnya
-      merasa "kayaknya saya belum siap"?
+      sebuah kesempatan tetapi merasa,
+
+      <br>
+
+      <strong>
+        "Kayaknya saya belum siap."
+      </strong>
 
     </p>
 
-    <div class="interaction">
 
-      <h3>
-        Pernah mengalami?
-      </h3>
-
-      <p>
-        Pilih jawaban yang paling menggambarkan kamu.
-      </p>
-
-      <div class="interaction-buttons">
-
-        <button onclick="selectAudience(this)">
-          🙋 Pernah banget
-        </button>
-
-        <button onclick="selectAudience(this)">
-          😅 Sering ragu
-        </button>
-
-        <button onclick="selectAudience(this)">
-          🚀 Langsung YES
-        </button>
-
-        <button onclick="selectAudience(this)">
-          👀 Lagi belajar berani
-        </button>
-
-      </div>
-
-    </div>
-
-    <button
-      class="btn btn-outline"
-      onclick="nextSlide()">
-
-      Mari mulai dari awal →
-
-    </button>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SLIDE 03
-===================================================== -->
-
-<section class="slide">
-
-  <div class="content">
-
-    <div class="eyebrow">
-      THE FIRST YES
-    </div>
-
-    <h2>
-
-      I didn't start with
-      <span class="gold">
-        traveling.
-      </span>
-
-    </h2>
-
-    <p class="lead">
-
-      Kalau hari ini saya dikenal sebagai seorang
-      traveler, mungkin orang akan berpikir bahwa
-      semuanya dimulai dari sebuah perjalanan
-      ke luar negeri.
-
-    </p>
-
-    <div
-      class="quote"
-      style="margin-top:40px;">
-
-      <div class="quote-mark">
-        “
-      </div>
+    <div class="quote"
+      style="margin-left:auto;margin-right:auto;">
 
       <div class="quote-text">
 
-        But actually...
+        Maybe being ready
+        isn't the first step.
 
         <br>
 
         <span class="gold">
-          it started with courage.
+          Maybe saying YES is.
+
         </span>
 
       </div>
@@ -2289,7 +2102,62 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 04
+     SLIDE 03 — FIRST YES
+===================================================== -->
+
+<section class="slide">
+
+  <div class="content">
+
+    <div class="eyebrow">
+      THE FIRST YES
+    </div>
+
+
+    <h2>
+
+      I didn't start with
+      <span class="gold">
+        traveling.
+      </span>
+
+    </h2>
+
+
+    <p class="lead">
+
+      Kalau hari ini saya dikenal sebagai seorang
+      traveler, mungkin orang akan berpikir
+      semuanya dimulai dari perjalanan ke luar negeri.
+
+    </p>
+
+
+    <div class="quote">
+
+      <div class="quote-text">
+
+        But actually...
+
+        <br><br>
+
+        it started with
+        <span class="gold">
+          courage.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SLIDE 04 — FIFA 2014
 ===================================================== -->
 
 <section class="slide">
@@ -2300,6 +2168,7 @@ h3 {
       DREAMING BEYOND · 2014
     </div>
 
+
     <h2>
 
       My first big
@@ -2309,19 +2178,64 @@ h3 {
 
     </h2>
 
+
     <div class="split">
 
-      <div class="visual">
 
-        <div class="visual-icon">
-          🌎
+      <!-- FOTO FIFA -->
+
+      <div>
+
+        <div
+          class="photo-frame"
+          onclick="openPhoto(
+            'images/fifa-2014.jpg',
+            'Calon Volunteer FIFA World Cup 2014 · Rio de Janeiro, Brazil'
+          )">
+
+
+          <img
+            src="images/fifa-2014.jpg"
+            alt="FIFA World Cup 2014 Rio de Janeiro"
+            onerror="imageFallback(this)"
+          >
+
+
+          <div class="photo-placeholder">
+
+            <div class="photo-placeholder-icon">
+              ⚽
+            </div>
+
+            <strong>
+              Foto FIFA World Cup 2014
+            </strong>
+
+            <span>
+              Simpan foto dokumentasi Kak Isti
+              dengan nama:
+              <br>
+              <b>fifa-2014.jpg</b>
+            </span>
+
+          </div>
+
+
+          <div class="photo-label">
+            Rio de Janeiro · Brazil
+          </div>
+
         </div>
 
-        <div class="visual-caption">
-          Rio de Janeiro · Brazil
+
+        <div class="photo-note">
+          Klik foto untuk memperbesar
         </div>
 
       </div>
+
+
+      <!-- CERITA -->
 
       <div>
 
@@ -2329,36 +2243,38 @@ h3 {
           2014
         </div>
 
+
         <div class="card-label">
           FIFA WORLD CUP
         </div>
+
 
         <h3 style="margin-top:12px;">
           Calon Volunteer
         </h3>
 
-        <p
-          class="lead"
-          style="margin-top:20px;">
+
+        <p class="lead">
 
           Salah satu titik awal perjalanan saya
-          adalah ketika saya menjadi calon volunteer
-          FIFA World Cup 2014 di Rio de Janeiro, Brazil.
+          adalah ketika saya memberanikan diri
+          menjadi calon volunteer FIFA World Cup 2014
+          di Rio de Janeiro, Brazil.
 
         </p>
 
+
         <p style="
           margin-top:18px;
-          color:rgba(255,255,255,.52);
+          color:rgba(255,255,255,.5);
           line-height:1.7;
         ">
 
-          Saat itu mungkin belum menjadi perjalanan
-          seperti yang saya bayangkan.
+          Mungkin saat itu saya belum tahu
+          perjalanan ini akan membawa saya ke mana.
 
-          Tetapi dari sinilah saya mulai berani
-          membayangkan diri saya berada di lingkungan
-          internasional.
+          Tetapi saya mulai berani membayangkan
+          diri saya berada di lingkungan internasional.
 
         </p>
 
@@ -2373,7 +2289,7 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 05
+     SLIDE 05 — INVITATION TOURNAMENT
 ===================================================== -->
 
 <section class="slide">
@@ -2384,6 +2300,7 @@ h3 {
       ANOTHER DOOR · 2018
     </div>
 
+
     <h2>
 
       Another door
@@ -2393,7 +2310,9 @@ h3 {
 
     </h2>
 
+
     <div class="split">
+
 
       <div>
 
@@ -2401,13 +2320,16 @@ h3 {
           2018
         </div>
 
+
         <div class="card-label">
           ASIAN GAMES
         </div>
 
+
         <h3 style="margin-top:12px;">
           Volunteer Invitation Tournament
         </h3>
+
 
         <p class="lead">
 
@@ -2417,29 +2339,72 @@ h3 {
 
         </p>
 
+
         <p style="
           margin-top:18px;
-          color:rgba(255,255,255,.52);
+          color:rgba(255,255,255,.5);
           line-height:1.7;
         ">
 
-          Saya semakin sering bertemu dengan
-          orang-orang baru dan mulai merasakan
-          bagaimana berada dalam lingkungan
-          yang lebih beragam.
+          Saya mulai semakin sering bertemu
+          dengan orang baru.
+
+          Dan perlahan, dunia terasa
+          semakin dekat.
 
         </p>
 
       </div>
 
-      <div class="visual">
 
-        <div class="visual-icon">
-          🏟️
+      <!-- FOTO -->
+
+      <div>
+
+        <div
+          class="photo-frame"
+          onclick="openPhoto(
+            'images/invitation-asian-games.jpg',
+            'Volunteer Invitation Tournament Asian Games 2018'
+          )">
+
+
+          <img
+            src="images/invitation-asian-games.jpg"
+            alt="Invitation Tournament Asian Games 2018"
+            onerror="imageFallback(this)"
+          >
+
+
+          <div class="photo-placeholder">
+
+            <div class="photo-placeholder-icon">
+              🏟️
+            </div>
+
+            <strong>
+              Foto Invitation Tournament
+            </strong>
+
+            <span>
+              Tambahkan foto dokumentasi
+              dengan nama:
+              <br>
+              <b>invitation-asian-games.jpg</b>
+            </span>
+
+          </div>
+
+
+          <div class="photo-label">
+            Asian Games 2018
+          </div>
+
         </div>
 
-        <div class="visual-caption">
-          Invitation Tournament · Asian Games 2018
+
+        <div class="photo-note">
+          Klik foto untuk memperbesar
         </div>
 
       </div>
@@ -2453,7 +2418,7 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 06
+     SLIDE 06 — BANDUNG BALI
 ===================================================== -->
 
 <section class="slide">
@@ -2464,6 +2429,7 @@ h3 {
       AN UNEXPECTED TURN
     </div>
 
+
     <h2>
 
       Sometimes...
@@ -2473,44 +2439,113 @@ h3 {
 
     </h2>
 
+
     <p
       class="lead"
       style="margin-left:auto;margin-right:auto;">
 
       Saya mengikuti giveaway flight
-      <strong>Bandung — Bali.</strong>
+
+      <strong>
+        Bandung — Bali.
+      </strong>
 
     </p>
 
-    <div
-      class="visual"
-      style="
-        max-width:800px;
-        margin:45px auto 0;
-        min-height:330px;
-      ">
 
-      <div class="visual-icon">
-        ✈️
+    <div
+      class="split"
+      style="text-align:left;">
+
+
+      <div>
+
+        <div
+          class="photo-frame"
+          onclick="openPhoto(
+            'images/giveaway-bandung-bali.jpg',
+            'Giveaway Flight Bandung — Bali'
+          )">
+
+
+          <img
+            src="images/giveaway-bandung-bali.jpg"
+            alt="Giveaway Flight Bandung Bali"
+            onerror="imageFallback(this)"
+          >
+
+
+          <div class="photo-placeholder">
+
+            <div class="photo-placeholder-icon">
+              ✈️
+            </div>
+
+            <strong>
+              Foto Bandung → Bali
+            </strong>
+
+            <span>
+              Tambahkan foto dokumentasi
+              dengan nama:
+              <br>
+              <b>giveaway-bandung-bali.jpg</b>
+            </span>
+
+          </div>
+
+
+          <div class="photo-label">
+            Bandung → Bali
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="visual-caption">
-        Bandung → Bali
+
+      <div>
+
+        <div class="quote">
+
+          <div class="quote-text">
+
+            Not every journey
+
+            <br>
+
+            starts with
+
+            <span class="gold">
+              a plan.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <p style="
+          margin-top:25px;
+          color:rgba(255,255,255,.5);
+          line-height:1.7;
+        ">
+
+          Kadang sebuah perjalanan muncul
+          dari sesuatu yang sederhana.
+
+          Yang penting adalah:
+
+          <strong style="color:white;">
+            berani mencoba.
+
+          </strong>
+
+        </p>
+
       </div>
 
     </div>
-
-    <p style="
-      margin-top:30px;
-      color:rgba(255,255,255,.48);
-      font-family:'Playfair Display',serif;
-      font-size:24px;
-    ">
-
-      Not every journey
-      starts with a plan.
-
-    </p>
 
   </div>
 
@@ -2519,7 +2554,7 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 07
+     SLIDE 07 — ASIAN GAMES
 ===================================================== -->
 
 <section class="slide">
@@ -2530,6 +2565,7 @@ h3 {
       THE BIGGER YES · 2018
     </div>
 
+
     <h2>
 
       I stepped into
@@ -2539,91 +2575,149 @@ h3 {
 
     </h2>
 
-    <p class="lead">
 
-      Setelah pengalaman sebelumnya,
-      saya kemudian menjadi volunteer
-      Asian Games 2018.
+    <div class="split">
 
-    </p>
 
-    <div class="timeline">
+      <!-- FOTO -->
 
-      <div class="timeline-item">
+      <div>
 
-        <div class="timeline-dot">
-          01
-        </div>
+        <div
+          class="photo-frame"
+          onclick="openPhoto(
+            'images/asian-games-2018.jpg',
+            'Volunteer Asian Games 2018'
+          )">
 
-        <div>
 
-          <h3>
-            Meet
-          </h3>
+          <img
+            src="images/asian-games-2018.jpg"
+            alt="Volunteer Asian Games 2018"
+            onerror="imageFallback(this)"
+          >
 
-          <p>
-            Bertemu lebih banyak orang.
-          </p>
 
-        </div>
+          <div class="photo-placeholder">
 
-      </div>
+            <div class="photo-placeholder-icon">
+              🏅
+            </div>
 
-      <div class="timeline-item">
+            <strong>
+              Foto Volunteer Asian Games
+            </strong>
 
-        <div class="timeline-dot">
-          02
-        </div>
+            <span>
+              Tambahkan foto dokumentasi
+              dengan nama:
+              <br>
+              <b>asian-games-2018.jpg</b>
+            </span>
 
-        <div>
+          </div>
 
-          <h3>
-            Interact
-          </h3>
 
-          <p>
-            Berinteraksi dengan lingkungan yang lebih beragam.
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="timeline-item">
-
-        <div class="timeline-dot">
-          03
-        </div>
-
-        <div>
-
-          <h3>
-            Adapt
-          </h3>
-
-          <p>
-            Belajar menyesuaikan diri.
-          </p>
+          <div class="photo-label">
+            Volunteer · Asian Games 2018
+          </div>
 
         </div>
 
       </div>
 
-      <div class="timeline-item">
 
-        <div class="timeline-dot">
-          04
-        </div>
+      <!-- TIMELINE -->
 
-        <div>
+      <div>
 
-          <h3>
-            Grow
-          </h3>
+        <div class="timeline">
 
-          <p>
-            Kepercayaan diri semakin tumbuh.
-          </p>
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">
+              01
+            </div>
+
+            <div>
+
+              <h3>
+                Meet
+              </h3>
+
+              <p>
+                Bertemu lebih banyak orang.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">
+              02
+            </div>
+
+            <div>
+
+              <h3>
+                Interact
+              </h3>
+
+              <p>
+                Berinteraksi dengan lingkungan
+                yang lebih beragam.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">
+              03
+            </div>
+
+            <div>
+
+              <h3>
+                Adapt
+              </h3>
+
+              <p>
+                Belajar menyesuaikan diri.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-dot">
+              04
+            </div>
+
+            <div>
+
+              <h3>
+                Grow
+              </h3>
+
+              <p>
+                Kepercayaan diri semakin tumbuh.
+              </p>
+
+            </div>
+
+          </div>
+
 
         </div>
 
@@ -2638,7 +2732,7 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 08
+     SLIDE 08 — EHEF
 ===================================================== -->
 
 <section class="slide">
@@ -2649,6 +2743,7 @@ h3 {
       THE EHEF CHAPTER · 2018—2020
     </div>
 
+
     <h2>
 
       Then came
@@ -2658,19 +2753,9 @@ h3 {
 
     </h2>
 
+
     <div class="split">
 
-      <div class="visual">
-
-        <div class="visual-icon">
-          🌐
-        </div>
-
-        <div class="visual-caption">
-          EHEF · 2018—2020
-        </div>
-
-      </div>
 
       <div>
 
@@ -2678,24 +2763,29 @@ h3 {
           2018–20
         </div>
 
+
         <div class="card-label">
           EHEF
         </div>
+
 
         <h3 style="margin-top:12px;">
           Volunteer & Committee
         </h3>
 
+
         <p class="lead">
 
-          Saya kemudian bergabung dalam volunteer
-          dan kepanitiaan EHEF pada periode 2018–2020.
+          Saya kemudian bergabung dalam
+          volunteer dan kepanitiaan EHEF
+          pada periode 2018–2020.
 
         </p>
 
+
         <p style="
           margin-top:18px;
-          color:rgba(255,255,255,.52);
+          color:rgba(255,255,255,.5);
           line-height:1.7;
         ">
 
@@ -2707,6 +2797,127 @@ h3 {
 
       </div>
 
+
+      <!-- FOTO EHEF -->
+
+      <div>
+
+        <div
+          class="photo-frame"
+          onclick="openPhoto(
+            'images/ehef-2018.jpg',
+            'Volunteer & Committee EHEF 2018'
+          )">
+
+
+          <img
+            src="images/ehef-2018.jpg"
+            alt="EHEF 2018"
+            onerror="imageFallback(this)"
+          >
+
+
+          <div class="photo-placeholder">
+
+            <div class="photo-placeholder-icon">
+              🌍
+            </div>
+
+            <strong>
+              Foto EHEF
+            </strong>
+
+            <span>
+              Tambahkan foto EHEF dengan nama:
+              <br>
+              <b>ehef-2018.jpg</b>
+            </span>
+
+          </div>
+
+
+          <div class="photo-label">
+            EHEF · 2018
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOTO TAMBAHAN EHEF -->
+
+    <div class="gallery">
+
+
+      <div
+        class="gallery-photo"
+        onclick="openPhoto(
+          'images/ehef-2019.jpg',
+          'EHEF 2019'
+        )">
+
+
+        <img
+          src="images/ehef-2019.jpg"
+          alt="EHEF 2019"
+          onerror="galleryFallback(this)"
+        >
+
+
+        <div class="gallery-label">
+          EHEF 2019
+        </div>
+
+      </div>
+
+
+      <div
+        class="gallery-photo"
+        onclick="openPhoto(
+          'images/ehef-2020.jpg',
+          'EHEF 2020'
+        )">
+
+
+        <img
+          src="images/ehef-2020.jpg"
+          alt="EHEF 2020"
+          onerror="galleryFallback(this)"
+        >
+
+
+        <div class="gallery-label">
+          EHEF 2020
+        </div>
+
+      </div>
+
+
+      <div
+        class="gallery-photo"
+        onclick="openPhoto(
+          'images/ehef-2018.jpg',
+          'EHEF Memories'
+        )">
+
+
+        <img
+          src="images/ehef-2018.jpg"
+          alt="EHEF Memories"
+          onerror="galleryFallback(this)"
+        >
+
+
+        <div class="gallery-label">
+          EHEF Memories
+        </div>
+
+      </div>
+
+
     </div>
 
   </div>
@@ -2716,7 +2927,7 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 09
+     SLIDE 09 — CONNECTIONS
 ===================================================== -->
 
 <section class="slide">
@@ -2727,6 +2938,7 @@ h3 {
       GLOBAL CONNECTIONS
     </div>
 
+
     <h2>
 
       I met people
@@ -2735,6 +2947,7 @@ h3 {
       </span>
 
     </h2>
+
 
     <p
       class="lead"
@@ -2745,45 +2958,21 @@ h3 {
 
     </p>
 
-    <div class="experience-grid">
 
-      <div class="experience-card">
+    <div class="quote"
+      style="margin-left:auto;margin-right:auto;">
 
-        <div style="font-size:50px;">
-          🌎
-        </div>
+      <div class="quote-text">
 
-        <h3 style="margin-top:20px;">
-          Different backgrounds
-        </h3>
+        The world became
+        <span class="gold">
+          smaller
+        </span>
 
-        <p class="card-description">
-
-          Saya mulai terbiasa berada di lingkungan
-          dengan orang-orang yang memiliki
-          latar belakang berbeda.
-
-        </p>
-
-      </div>
-
-      <div class="experience-card">
-
-        <div style="font-size:50px;">
-          🤝
-        </div>
-
-        <h3 style="margin-top:20px;">
-          New connections
-        </h3>
-
-        <p class="card-description">
-
-          Pertemanan menjadi salah satu alasan
-          saya semakin ingin mengenal dunia
-          lebih luas.
-
-        </p>
+        when I started
+        <span class="gold">
+          connecting.
+        </span>
 
       </div>
 
@@ -2796,7 +2985,7 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 10
+     SLIDE 10 — ENGLISH
 ===================================================== -->
 
 <section class="slide">
@@ -2807,14 +2996,19 @@ h3 {
       FINDING MY VOICE
     </div>
 
+
     <h2>
 
       Then I realized...
+
+      <br>
+
       <span class="gold">
         I had to speak.
       </span>
 
     </h2>
+
 
     <p class="lead">
 
@@ -2824,7 +3018,9 @@ h3 {
 
     </p>
 
+
     <div class="skill-grid">
+
 
       <div class="skill">
 
@@ -2839,6 +3035,7 @@ h3 {
 
       </div>
 
+
       <div class="skill">
 
         <strong>
@@ -2851,6 +3048,7 @@ h3 {
         </span>
 
       </div>
+
 
       <div class="skill">
 
@@ -2865,6 +3063,7 @@ h3 {
 
       </div>
 
+
       <div class="skill">
 
         <strong>
@@ -2878,15 +3077,16 @@ h3 {
 
       </div>
 
+
     </div>
 
-    <div
-      class="quote"
-      style="margin:45px auto 0;">
+
+    <div class="quote">
 
       <div class="quote-text">
 
         I didn't need to speak
+
         <span class="gold">
           perfect English.
         </span>
@@ -2894,6 +3094,7 @@ h3 {
         <br><br>
 
         I needed the courage
+
         <span class="gold">
           to speak.
         </span>
@@ -2909,7 +3110,7 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 11
+     SLIDE 11 — PATTERN
 ===================================================== -->
 
 <section class="slide">
@@ -2920,6 +3121,7 @@ h3 {
       THE PATTERN
     </div>
 
+
     <h2>
 
       Looking back,
@@ -2928,6 +3130,7 @@ h3 {
       </span>
 
     </h2>
+
 
     <p class="lead">
 
@@ -2940,87 +3143,61 @@ h3 {
 
     </p>
 
-    <div class="pattern">
 
-      <div class="pattern-item">
+    <div class="skill-grid">
 
-        <div class="pattern-number">
-          01
-        </div>
 
-        <h3>
-          Berani
-        </h3>
+      <div class="skill">
 
-        <p>
+        <strong>
+          01 · Berani
+        </strong>
+
+        <span>
           Mengambil kesempatan pertama.
-        </p>
+        </span>
 
       </div>
 
-      <div class="pattern-item">
 
-        <div class="pattern-number">
-          02
-        </div>
+      <div class="skill">
 
-        <h3>
-          Bertemu
-        </h3>
+        <strong>
+          02 · Bertemu
+        </strong>
 
-        <p>
+        <span>
           Berinteraksi dengan orang baru.
-        </p>
+        </span>
 
       </div>
 
-      <div class="pattern-item">
 
-        <div class="pattern-number">
-          03
-        </div>
+      <div class="skill">
 
-        <h3>
-          Belajar
-        </h3>
+        <strong>
+          03 · Belajar
+        </strong>
 
-        <p>
+        <span>
           English, communication & adaptability.
-        </p>
+        </span>
 
       </div>
 
-      <div class="pattern-item">
 
-        <div class="pattern-number">
-          04
-        </div>
+      <div class="skill">
 
-        <h3>
-          Bertumbuh
-        </h3>
+        <strong>
+          04 · Bertumbuh
+        </strong>
 
-        <p>
+        <span>
           Confidence mulai terbentuk.
-        </p>
+        </span>
 
       </div>
 
-      <div class="pattern-item">
-
-        <div class="pattern-number">
-          05
-        </div>
-
-        <h3>
-          Berani Lagi
-        </h3>
-
-        <p>
-          Mengambil kesempatan berikutnya.
-        </p>
-
-      </div>
 
     </div>
 
@@ -3031,7 +3208,7 @@ h3 {
 
 
 <!-- =====================================================
-     SLIDE 12 — INTERACTIVE WORLD MAP
+     SLIDE 12 — MAP
 ===================================================== -->
 
 <section class="slide">
@@ -3042,14 +3219,17 @@ h3 {
       THE WORLD OPENED
     </div>
 
+
     <h2>
 
       And eventually...
+
       <span class="gold">
         I became a traveler.
       </span>
 
     </h2>
+
 
     <p
       class="lead"
@@ -3059,7 +3239,7 @@ h3 {
       perjalanan saya akhirnya membawa saya
       ke berbagai negara.
 
-      <br>
+      <br><br>
 
       <strong>
         Ini baru teaser-nya.
@@ -3067,10 +3247,6 @@ h3 {
 
     </p>
 
-
-    <!-- =================================================
-         INTERACTIVE MAP
-    ================================================= -->
 
     <div class="map-wrapper">
 
@@ -3093,12 +3269,8 @@ h3 {
         id="worldMap">
 
 
-        <!-- GRID -->
-
         <div class="map-grid"></div>
 
-
-        <!-- CONTINENTS -->
 
         <div class="continent north-america"></div>
 
@@ -3113,17 +3285,10 @@ h3 {
         <div class="continent australia"></div>
 
 
-        <!-- =============================================
-             10 COUNTRY POINTS
+        <!--
+          NANTI NAMA NEGARA BISA DIUBAH
+        -->
 
-             POSISI SENGAJA DIBUAT BERDASARKAN
-             KOORDINAT VISUAL PETA.
-
-             NANTI NAMA NEGARA BISA DIGANTI.
-        ============================================== -->
-
-
-        <!-- 01 -->
 
         <button
           class="map-point"
@@ -3131,13 +3296,9 @@ h3 {
           data-country="Brazil"
           data-number="01"
           data-text="Salah satu titik awal perjalanan global."
-          onclick="showCountry(this)"
-          aria-label="Brazil">
-
+          onclick="showCountry(this)">
         </button>
 
-
-        <!-- 02 -->
 
         <button
           class="map-point"
@@ -3145,13 +3306,9 @@ h3 {
           data-country="Country 02"
           data-number="02"
           data-text="A story waiting to be told."
-          onclick="showCountry(this)"
-          aria-label="Country 02">
-
+          onclick="showCountry(this)">
         </button>
 
-
-        <!-- 03 -->
 
         <button
           class="map-point"
@@ -3159,13 +3316,9 @@ h3 {
           data-country="Country 03"
           data-number="03"
           data-text="A story waiting to be told."
-          onclick="showCountry(this)"
-          aria-label="Country 03">
-
+          onclick="showCountry(this)">
         </button>
 
-
-        <!-- 04 -->
 
         <button
           class="map-point"
@@ -3173,13 +3326,9 @@ h3 {
           data-country="Country 04"
           data-number="04"
           data-text="A story waiting to be told."
-          onclick="showCountry(this)"
-          aria-label="Country 04">
-
+          onclick="showCountry(this)">
         </button>
 
-
-        <!-- 05 -->
 
         <button
           class="map-point"
@@ -3187,13 +3336,9 @@ h3 {
           data-country="Country 05"
           data-number="05"
           data-text="A story waiting to be told."
-          onclick="showCountry(this)"
-          aria-label="Country 05">
-
+          onclick="showCountry(this)">
         </button>
 
-
-        <!-- 06 -->
 
         <button
           class="map-point"
@@ -3201,13 +3346,9 @@ h3 {
           data-country="Country 06"
           data-number="06"
           data-text="A story waiting to be told."
-          onclick="showCountry(this)"
-          aria-label="Country 06">
-
+          onclick="showCountry(this)">
         </button>
 
-
-        <!-- 07 -->
 
         <button
           class="map-point"
@@ -3215,13 +3356,9 @@ h3 {
           data-country="Country 07"
           data-number="07"
           data-text="A story waiting to be told."
-          onclick="showCountry(this)"
-          aria-label="Country 07">
-
+          onclick="showCountry(this)">
         </button>
 
-
-        <!-- 08 -->
 
         <button
           class="map-point"
@@ -3229,13 +3366,9 @@ h3 {
           data-country="Country 08"
           data-number="08"
           data-text="A story waiting to be told."
-          onclick="showCountry(this)"
-          aria-label="Country 08">
-
+          onclick="showCountry(this)">
         </button>
 
-
-        <!-- 09 -->
 
         <button
           class="map-point"
@@ -3243,13 +3376,9 @@ h3 {
           data-country="Country 09"
           data-number="09"
           data-text="A story waiting to be told."
-          onclick="showCountry(this)"
-          aria-label="Country 09">
-
+          onclick="showCountry(this)">
         </button>
 
-
-        <!-- 10 -->
 
         <button
           class="map-point"
@@ -3257,41 +3386,32 @@ h3 {
           data-country="Country 10"
           data-number="10"
           data-text="A story waiting to be told."
-          onclick="showCountry(this)"
-          aria-label="Country 10">
-
+          onclick="showCountry(this)">
         </button>
 
-
-        <!-- TOOLTIP -->
 
         <div
           class="map-tooltip"
           id="mapTooltip">
+
 
           <div
             class="tooltip-number"
             id="tooltipNumber">
           </div>
 
+
           <div
             class="tooltip-country"
             id="tooltipCountry">
           </div>
+
 
           <div
             class="tooltip-text"
             id="tooltipText">
           </div>
 
-        </div>
-
-
-        <div class="map-legend">
-
-          <span class="legend-dot"></span>
-
-          Tap a point to explore
 
         </div>
 
@@ -3302,14 +3422,14 @@ h3 {
 
 
     <p style="
-      margin-top:25px;
-      color:rgba(255,255,255,.42);
-      font-size:11px;
+      margin-top:20px;
+      color:rgba(255,255,255,.4);
+      font-size:10px;
       letter-spacing:.1em;
       text-transform:uppercase;
     ">
 
-      ✦ The stories behind these points will be revealed in the next episodes.
+      Tap a point · The stories will continue in the next webinar
 
     </p>
 
@@ -3331,6 +3451,7 @@ h3 {
       NEXT CHAPTER
     </div>
 
+
     <h2>
 
       The story
@@ -3339,6 +3460,7 @@ h3 {
       </span>
 
     </h2>
+
 
     <p
       class="lead"
@@ -3351,58 +3473,33 @@ h3 {
     </p>
 
 
-    <div class="world-box">
+    <div class="quote"
+      style="margin-left:auto;margin-right:auto;">
 
-      <div
-        style="
-          font-size:75px;
-          margin-bottom:20px;
-        ">
+      <div class="quote-text">
 
-        🗺️
-
-      </div>
-
-      <p style="
-        font-family:'Playfair Display',serif;
-        font-size:clamp(25px,4vw,42px);
-        line-height:1.35;
-      ">
-
-        <span class="gold">
-          10 countries.
-        </span>
+        10 countries.
 
         <br>
 
-        10 different stories.
+        <span class="gold">
+          10 different stories.
+        </span>
 
-      </p>
-
-      <p style="
-        margin-top:18px;
-        color:rgba(255,255,255,.5);
-        line-height:1.7;
-      ">
-
-        Bukan hanya tentang tempat yang saya kunjungi,
-        tetapi tentang apa yang saya pelajari
-        dari setiap perjalanan.
-
-      </p>
+      </div>
 
     </div>
 
 
     <p style="
-      margin-top:28px;
-      color:rgba(255,255,255,.42);
-      font-size:12px;
-      letter-spacing:.1em;
-      text-transform:uppercase;
+      margin-top:25px;
+      color:rgba(255,255,255,.45);
+      line-height:1.7;
     ">
 
-      To be continued...
+      Bukan hanya tentang tempat yang saya kunjungi,
+      tetapi tentang apa yang saya pelajari
+      dari setiap perjalanan.
 
     </p>
 
@@ -3418,11 +3515,12 @@ h3 {
 
 <section class="slide">
 
-  <div class="content final-message">
+  <div class="content center">
 
     <div class="eyebrow">
       THE BEGINNING
     </div>
+
 
     <h2>
 
@@ -3433,7 +3531,9 @@ h3 {
 
     </h2>
 
-    <p>
+
+    <p class="lead"
+      style="margin-left:auto;margin-right:auto;">
 
       Kadang kita hanya perlu cukup berani
       untuk mengatakan YES pada kesempatan pertama.
@@ -3447,12 +3547,8 @@ h3 {
     </p>
 
 
-    <div
-      class="quote"
-      style="
-        margin:40px auto 0;
-        text-align:left;
-      ">
+    <div class="quote"
+      style="margin-left:auto;margin-right:auto;text-align:left;">
 
       <div class="quote-text">
 
@@ -3465,7 +3561,7 @@ h3 {
 
 
     <div style="
-      margin-top:40px;
+      margin-top:35px;
       color:var(--gold);
       font-size:13px;
       letter-spacing:.2em;
@@ -3492,10 +3588,11 @@ h3 {
 
 
 <!-- =====================================================
-     BOTTOM NAVIGATION
+     BOTTOM NAV
 ===================================================== -->
 
 <div class="bottom-navigation">
+
 
   <button
     class="nav-btn"
@@ -3525,12 +3622,45 @@ h3 {
 
   </button>
 
+
 </div>
 
 
-<div class="swipe-hint">
-  Swipe / ← →
+
+<!-- =====================================================
+     LIGHTBOX FOTO
+===================================================== -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+  onclick="closePhoto()">
+
+
+  <button
+    class="lightbox-close"
+    onclick="closePhoto()">
+
+    ×
+
+  </button>
+
+
+  <img
+    id="lightboxImage"
+    src=""
+    alt=""
+  >
+
+
+  <div
+    class="lightbox-caption"
+    id="lightboxCaption">
+  </div>
+
+
 </div>
+
 
 
 </div>
@@ -3540,7 +3670,7 @@ h3 {
 <script>
 
 /* =========================================================
-   SLIDE ENGINE
+   SLIDE SYSTEM
 ========================================================= */
 
 const slides =
@@ -3565,13 +3695,13 @@ const totalSlides =
 
 
 /* =========================================================
-   UPDATE PRESENTATION
+   UPDATE SLIDE
 ========================================================= */
 
-function updatePresentation() {
+function updatePresentation(){
 
   slides.forEach(
-    (slide,index) => {
+    (slide,index)=>{
 
       slide.classList.toggle(
         "active",
@@ -3583,7 +3713,7 @@ function updatePresentation() {
 
 
   tabs.forEach(
-    (tab,index) => {
+    (tab,index)=>{
 
       tab.classList.toggle(
         "active",
@@ -3594,13 +3724,9 @@ function updatePresentation() {
   );
 
 
-  const percentage =
-    ((currentSlide + 1) /
-      totalSlides) * 100;
-
-
   progress.style.width =
-    percentage + "%";
+    ((currentSlide + 1) /
+      totalSlides * 100) + "%";
 
 
   prevBtn.disabled =
@@ -3611,17 +3737,14 @@ function updatePresentation() {
     currentSlide === totalSlides - 1;
 
 
-  const activeTab =
-    tabs[currentSlide];
+  if(tabs[currentSlide]){
 
-
-  if(activeTab){
-
-    activeTab.scrollIntoView({
-      behavior:"smooth",
-      block:"nearest",
-      inline:"center"
-    });
+    tabs[currentSlide]
+      .scrollIntoView({
+        behavior:"smooth",
+        inline:"center",
+        block:"nearest"
+      });
 
   }
 
@@ -3634,10 +3757,7 @@ function updatePresentation() {
 
 function nextSlide(){
 
-  if(
-    currentSlide <
-    totalSlides - 1
-  ){
+  if(currentSlide < totalSlides - 1){
 
     currentSlide++;
 
@@ -3654,9 +3774,7 @@ function nextSlide(){
 
 function prevSlide(){
 
-  if(
-    currentSlide > 0
-  ){
+  if(currentSlide > 0){
 
     currentSlide--;
 
@@ -3668,7 +3786,7 @@ function prevSlide(){
 
 
 /* =========================================================
-   GO TO SLIDE
+   GO TO
 ========================================================= */
 
 function goToSlide(index){
@@ -3678,8 +3796,7 @@ function goToSlide(index){
     index < totalSlides
   ){
 
-    currentSlide =
-      index;
+    currentSlide = index;
 
     updatePresentation();
 
@@ -3689,46 +3806,71 @@ function goToSlide(index){
 
 
 /* =========================================================
-   AUDIENCE
+   PHOTO FALLBACK
 ========================================================= */
 
-function selectAudience(button){
+function imageFallback(img){
 
-  const parent =
-    button.parentElement;
-
-  const buttons =
-    parent.querySelectorAll("button");
-
-
-  buttons.forEach(
-    btn => {
-
-      btn.classList.remove(
-        "selected"
-      );
-
-      btn.innerHTML =
-        btn.innerHTML
-          .replace(/^✓\s*/,"");
-
-    }
-  );
-
-
-  button.classList.add(
-    "selected"
-  );
-
-
-  button.innerHTML =
-    "✓ " + button.innerHTML;
+  img.style.display = "none";
 
 }
 
 
 /* =========================================================
-   INTERACTIVE MAP
+   GALLERY FALLBACK
+========================================================= */
+
+function galleryFallback(img){
+
+  img.style.display = "none";
+
+}
+
+
+/* =========================================================
+   LIGHTBOX OPEN
+========================================================= */
+
+function openPhoto(src,caption){
+
+  const lightbox =
+    document.getElementById("lightbox");
+
+  const image =
+    document.getElementById("lightboxImage");
+
+  const captionElement =
+    document.getElementById("lightboxCaption");
+
+
+  image.src = src;
+
+  captionElement.textContent =
+    caption;
+
+
+  lightbox.classList.add(
+    "show"
+  );
+
+}
+
+
+/* =========================================================
+   LIGHTBOX CLOSE
+========================================================= */
+
+function closePhoto(){
+
+  document
+    .getElementById("lightbox")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   MAP
 ========================================================= */
 
 const map =
@@ -3749,26 +3891,17 @@ const tooltipText =
 
 function showCountry(point){
 
-  const country =
-    point.dataset.country;
-
-  const number =
-    point.dataset.number;
-
-  const text =
-    point.dataset.text;
-
-
   tooltipNumber.textContent =
-    "JOURNEY " + number;
+    "JOURNEY " +
+    point.dataset.number;
 
 
   tooltipCountry.textContent =
-    country;
+    point.dataset.country;
 
 
   tooltipText.textContent =
-    text;
+    point.dataset.text;
 
 
   const mapRect =
@@ -3788,25 +3921,12 @@ function showCountry(point){
   let top =
     pointRect.top -
     mapRect.top -
-    15;
+    10;
 
 
-  const tooltipWidth =
-    window.innerWidth < 600
-      ? 180
-      : 230;
+  if(left + 200 > mapRect.width){
 
-
-  if(
-    left + tooltipWidth >
-    mapRect.width
-  ){
-
-    left =
-      pointRect.left -
-      mapRect.left -
-      tooltipWidth -
-      18;
+    left -= 220;
 
   }
 
@@ -3834,7 +3954,7 @@ function showCountry(point){
 
 
 /* =========================================================
-   CLOSE MAP TOOLTIP
+   MAP CLOSE
 ========================================================= */
 
 map.addEventListener(
@@ -3867,11 +3987,8 @@ document.addEventListener(
 
     if(
       event.key === "ArrowRight" ||
-      event.key === " " ||
       event.key === "PageDown"
     ){
-
-      event.preventDefault();
 
       nextSlide();
 
@@ -3883,8 +4000,6 @@ document.addEventListener(
       event.key === "PageUp"
     ){
 
-      event.preventDefault();
-
       prevSlide();
 
     }
@@ -3893,8 +4008,6 @@ document.addEventListener(
     if(
       event.key === "Home"
     ){
-
-      event.preventDefault();
 
       goToSlide(0);
 
@@ -3905,11 +4018,18 @@ document.addEventListener(
       event.key === "End"
     ){
 
-      event.preventDefault();
-
       goToSlide(
         totalSlides - 1
       );
+
+    }
+
+
+    if(
+      event.key === "Escape"
+    ){
+
+      closePhoto();
 
     }
 
@@ -3918,7 +4038,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   TOUCH SWIPE
+   SWIPE
 ========================================================= */
 
 let touchStartX = 0;
@@ -3931,12 +4051,10 @@ document.addEventListener(
   function(event){
 
     touchStartX =
-      event.changedTouches[0]
-        .screenX;
+      event.changedTouches[0].screenX;
 
     touchStartY =
-      event.changedTouches[0]
-        .screenY;
+      event.changedTouches[0].screenY;
 
   },
   {
@@ -3949,22 +4067,18 @@ document.addEventListener(
   "touchend",
   function(event){
 
-    const touchEndX =
-      event.changedTouches[0]
-        .screenX;
+    const endX =
+      event.changedTouches[0].screenX;
 
-    const touchEndY =
-      event.changedTouches[0]
-        .screenY;
+    const endY =
+      event.changedTouches[0].screenY;
 
 
     const diffX =
-      touchEndX -
-      touchStartX;
+      endX - touchStartX;
 
     const diffY =
-      touchEndY -
-      touchStartY;
+      endY - touchStartY;
 
 
     if(
@@ -4004,60 +4118,13 @@ document.addEventListener(
 
 
 /* =========================================================
-   CLICK SCREEN
-========================================================= */
-
-document.addEventListener(
-  "click",
-  function(event){
-
-    const interactive =
-      event.target.closest(
-        "button,a,input,select,textarea"
-      );
-
-
-    if(interactive){
-
-      return;
-
-    }
-
-
-    const width =
-      window.innerWidth;
-
-    const x =
-      event.clientX;
-
-
-    if(
-      x > width * .75
-    ){
-
-      nextSlide();
-
-    }
-
-    else if(
-      x < width * .25
-    ){
-
-      prevSlide();
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   INITIALIZE
+   INIT
 ========================================================= */
 
 updatePresentation();
 
 </script>
+
 
 </body>
 </html>
