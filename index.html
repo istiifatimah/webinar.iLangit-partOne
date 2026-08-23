@@ -10,12 +10,29 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
   --green:#063f34;
   --deep:#021f1b;
-  --gold:#c28b3c;
-  --cream:#faf8f3;
-  --white:#fff;
+  --green2:#0c5a4c;
+
+  --gold:#d69a45;
+  --gold2:#f0bd6d;
+
+  --cream:#fffaf1;
+  --white:#ffffff;
+
+  --pink:#ef8fa8;
+  --blue:#77b8e8;
+  --purple:#aa91df;
+  --orange:#f2a35e;
+  --mint:#82d5bd;
+  --yellow:#f4d878;
+
   --muted:#c7cfcc;
 }
 
@@ -36,49 +53,130 @@ body{
   overflow:hidden;
 }
 
-/* =========================
+/* =========================================================
    PRESENTATION
-========================= */
+========================================================= */
 
 .presentation{
   height:100vh;
   position:relative;
   overflow:hidden;
+
+  background:
+    radial-gradient(circle at 15% 20%,#ef8fa81c,transparent 25%),
+    radial-gradient(circle at 85% 15%,#77b8e81c,transparent 28%),
+    radial-gradient(circle at 70% 90%,#d69a4518,transparent 28%),
+    linear-gradient(135deg,#021f1b,#063f34 55%,#021f1b);
 }
 
-/* =========================
+/* =========================================================
+   ANIMATED BACKGROUND
+========================================================= */
+
+.ambient{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+
+.blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(2px);
+  opacity:.35;
+  animation:float 9s ease-in-out infinite;
+}
+
+.blob.one{
+  width:230px;
+  height:230px;
+  background:#ef8fa8;
+  top:12%;
+  left:-90px;
+}
+
+.blob.two{
+  width:170px;
+  height:170px;
+  background:#77b8e8;
+  right:-50px;
+  top:28%;
+  animation-delay:2s;
+}
+
+.blob.three{
+  width:200px;
+  height:200px;
+  background:#d69a45;
+  bottom:-90px;
+  left:45%;
+  animation-delay:4s;
+}
+
+.blob.four{
+  width:100px;
+  height:100px;
+  background:#aa91df;
+  right:22%;
+  bottom:12%;
+  animation-delay:1s;
+}
+
+@keyframes float{
+
+  0%,100%{
+    transform:translate(0,0) scale(1);
+  }
+
+  50%{
+    transform:translate(25px,-35px) scale(1.08);
+  }
+}
+
+/* =========================================================
    PROGRESS
-========================= */
+========================================================= */
 
 .progress{
   position:fixed;
   top:0;
   left:0;
-  height:4px;
-  background:var(--gold);
-  z-index:200;
-  width:0;
-  transition:.4s ease;
-  box-shadow:0 0 12px #c28b3c88;
+  height:5px;
+  background:linear-gradient(
+    90deg,
+    var(--pink),
+    var(--gold),
+    var(--blue)
+  );
+  z-index:500;
+  width:5%;
+  transition:.5s ease;
+  box-shadow:0 0 12px #d69a45aa;
 }
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 header{
   position:fixed;
   top:0;
   left:0;
   right:0;
-  z-index:100;
+  z-index:200;
+
   padding:12px 18px;
-  background:linear-gradient(
-    #021f1b 75%,
-    transparent
-  );
+
+  background:
+    linear-gradient(
+      #021f1bee 65%,
+      transparent
+    );
+
   display:flex;
-  gap:18px;
+  gap:20px;
   align-items:center;
 }
 
@@ -86,22 +184,42 @@ header{
   font-family:"Playfair Display";
   font-size:18px;
   white-space:nowrap;
+
   display:flex;
   align-items:center;
   gap:9px;
 }
 
 .mark{
-  width:34px;
-  height:34px;
-  border:1px solid var(--gold);
+  width:36px;
+  height:36px;
+
+  border:2px solid var(--gold);
   border-radius:50%;
+
   display:grid;
   place-items:center;
-  color:var(--gold);
+
+  color:var(--gold2);
   font-size:10px;
-  font-weight:700;
-  box-shadow:0 0 15px #c28b3c20;
+
+  background:#d69a4510;
+
+  box-shadow:
+    0 0 20px #d69a4525;
+
+  animation:pulseMark 3s infinite;
+}
+
+@keyframes pulseMark{
+
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.08);
+  }
 }
 
 .tabs{
@@ -117,158 +235,173 @@ header{
 
 .tab{
   flex:0 0 auto;
+
   border:1px solid transparent;
-  background:transparent;
+
+  background:#ffffff06;
+
   color:#aaa;
-  padding:8px 11px;
+
+  padding:8px 12px;
+
   border-radius:999px;
+
   font-size:10px;
+
   cursor:pointer;
+
   transition:.25s;
 }
 
 .tab:hover{
   color:#fff;
-  border-color:#ffffff22;
+  background:#ffffff12;
+  transform:translateY(-2px);
 }
 
 .tab.active{
-  color:var(--gold);
-  border-color:#805f30;
-  background:#ffffff0a;
+  color:#021f1b;
+
+  border-color:transparent;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--gold2),
+      var(--gold)
+    );
+
+  box-shadow:
+    0 5px 18px #d69a4530;
 }
 
-/* =========================
-   SLIDE
-========================= */
+/* =========================================================
+   SLIDES
+========================================================= */
 
 .slide{
   position:absolute;
   inset:0;
+
   padding:105px 8vw 90px;
+
   display:flex;
   align-items:center;
+
   overflow-y:auto;
+
   opacity:0;
   visibility:hidden;
-  transform:translateX(35px) scale(.98);
+
+  transform:translateX(50px) scale(.98);
+
   transition:
     opacity .45s ease,
-    transform .45s ease,
-    visibility .45s;
+    transform .55s ease;
 }
 
 .slide.active{
   opacity:1;
   visibility:visible;
   transform:none;
+  z-index:5;
 }
+
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .content{
   width:min(1120px,100%);
   margin:auto;
   position:relative;
+  z-index:2;
 }
 
-.content:before{
+.content:after{
   content:"";
-  position:fixed;
-  width:520px;
-  height:520px;
+
+  position:absolute;
+
+  width:260px;
+  height:260px;
+
+  right:-150px;
+  bottom:-150px;
+
   border-radius:50%;
-  right:-260px;
-  top:-260px;
-  background:radial-gradient(
-    circle,
-    #c28b3c22,
-    transparent 68%
-  );
+
+  border:1px solid #ffffff12;
+
+  box-shadow:
+    0 0 0 25px #ffffff03,
+    0 0 0 50px #ffffff02;
+
   pointer-events:none;
 }
 
-/* =========================
-   DECORATION
-========================= */
+/* =========================================================
+   ICON
+========================================================= */
 
 .slide-icon{
-  position:absolute;
-  right:5%;
-  top:-25px;
-  width:78px;
-  height:78px;
+  width:72px;
+  height:72px;
+
   border-radius:24px;
+
   display:grid;
   place-items:center;
-  font-size:38px;
-  background:#ffffff08;
-  border:1px solid #ffffff18;
-  transform:rotate(7deg);
-  box-shadow:0 15px 40px #0004;
-  animation:floatIcon 4s ease-in-out infinite;
+
+  font-size:34px;
+
+  margin-bottom:22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff20,
+      #ffffff06
+    );
+
+  border:1px solid #ffffff22;
+
+  box-shadow:
+    0 15px 40px #0003;
+
+  animation:iconFloat 3s ease-in-out infinite;
 }
 
-.slide-icon.small{
-  width:58px;
-  height:58px;
-  font-size:27px;
-  border-radius:18px;
+.center .slide-icon{
+  margin-left:auto;
+  margin-right:auto;
 }
 
-@keyframes floatIcon{
+@keyframes iconFloat{
+
   0%,100%{
-    transform:translateY(0) rotate(7deg);
+    transform:translateY(0) rotate(0deg);
   }
+
   50%{
-    transform:translateY(-9px) rotate(3deg);
+    transform:translateY(-8px) rotate(3deg);
   }
 }
 
-.spark{
-  position:absolute;
-  color:var(--gold);
-  opacity:.8;
-  font-size:18px;
-  animation:twinkle 2.5s infinite;
-}
-
-.spark.s1{
-  right:18%;
-  top:13%;
-}
-
-.spark.s2{
-  right:10%;
-  bottom:22%;
-  animation-delay:.8s;
-}
-
-.spark.s3{
-  left:4%;
-  top:20%;
-  animation-delay:1.3s;
-}
-
-@keyframes twinkle{
-  0%,100%{
-    opacity:.25;
-    transform:scale(.8);
-  }
-  50%{
-    opacity:1;
-    transform:scale(1.2);
-  }
-}
-
-/* =========================
-   TEXT
-========================= */
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
 
 .eyebrow{
-  color:var(--gold);
-  letter-spacing:.22em;
+  color:var(--gold2);
+
+  letter-spacing:.2em;
+
   font-size:11px;
+
   font-weight:700;
-  margin-bottom:16px;
+
+  margin-bottom:14px;
 }
 
 h1,h2,h3{
@@ -278,12 +411,12 @@ h1,h2,h3{
 
 h1{
   font-size:clamp(58px,9vw,120px);
-  line-height:.95;
+  line-height:.92;
 }
 
 h2{
-  font-size:clamp(42px,6vw,75px);
-  line-height:1.05;
+  font-size:clamp(40px,6vw,75px);
+  line-height:1.04;
 }
 
 h3{
@@ -291,14 +424,18 @@ h3{
 }
 
 .gold{
-  color:var(--gold);
+  color:var(--gold2);
 }
 
 .lead{
   max-width:760px;
-  color:#ffffffb0;
+
+  color:#ffffffb8;
+
   line-height:1.75;
+
   font-size:clamp(16px,2vw,21px);
+
   margin-top:22px;
 }
 
@@ -313,104 +450,204 @@ h3{
 
 .label{
   color:#ffffff70;
+
   letter-spacing:.18em;
+
   font-size:10px;
-  margin-top:6px;
+
+  margin-top:16px;
 }
 
-/* =========================
+/* =========================================================
    BUTTON
-========================= */
+========================================================= */
 
 .btn{
   margin-top:28px;
-  padding:13px 23px;
+
+  padding:14px 24px;
+
   border:0;
+
   border-radius:999px;
-  background:var(--gold);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--gold2),
+      var(--gold)
+    );
+
   color:var(--deep);
+
   font-weight:700;
+
   cursor:pointer;
+
+  box-shadow:
+    0 10px 30px #d69a4540;
+
   transition:.25s;
-  box-shadow:0 8px 25px #c28b3c33;
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px #c28b3c55;
+  transform:
+    translateY(-4px)
+    scale(1.03);
+
+  box-shadow:
+    0 16px 35px #d69a4560;
 }
 
-/* =========================
+/* =========================================================
    QUOTE
-========================= */
+========================================================= */
 
 .quote{
   margin-top:28px;
+
   padding:28px 32px;
-  border-left:2px solid var(--gold);
-  background:#ffffff09;
+
+  border-left:3px solid var(--gold);
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff10,
+      #ffffff04
+    );
+
   max-width:900px;
-  border-radius:0 18px 18px 0;
+
+  border-radius:
+    0 22px 22px 0;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.quote:before{
+  content:"“";
+
+  position:absolute;
+
+  right:20px;
+  top:-15px;
+
+  font-family:"Playfair Display";
+
+  font-size:100px;
+
+  color:#ffffff08;
 }
 
 .quote-text{
   font-family:"Playfair Display";
+
   font-size:clamp(24px,4vw,42px);
+
   line-height:1.35;
+
+  position:relative;
+  z-index:2;
 }
 
-/* =========================
+/* =========================================================
    SPLIT
-========================= */
+========================================================= */
 
 .split{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:55px;
+
   align-items:center;
+
   margin-top:34px;
 }
 
 .year{
-  font:70px "Playfair Display";
-  color:var(--gold);
-}
+  font:
+    70px
+    "Playfair Display";
 
-/* =========================
-   PHOTO
-========================= */
+  color:var(--gold2);
+}
 
 .photo{
   height:400px;
-  border-radius:26px;
+
+  border-radius:30px;
+
   overflow:hidden;
+
   border:1px solid #ffffff20;
+
   background:#ffffff08;
+
   position:relative;
+
   cursor:pointer;
-  box-shadow:0 20px 60px #0004;
+
+  box-shadow:
+    0 25px 60px #0004;
+
+  transition:.35s;
+}
+
+.photo:hover{
+  transform:
+    translateY(-8px)
+    rotate(-1deg);
+
+  box-shadow:
+    0 35px 70px #0006;
 }
 
 .photo img{
   width:100%;
   height:100%;
+
   object-fit:cover;
+
   display:block;
+
+  transition:.5s;
+}
+
+.photo:hover img{
+  transform:scale(1.06);
 }
 
 .placeholder{
   position:absolute;
+
   inset:0;
+
   display:grid;
+
   place-items:center;
+
   text-align:center;
+
   padding:20px;
+
   background:
     radial-gradient(
-      circle,
-      #c28b3c22,
-      #063f34ee
-    );
+      circle at 30% 30%,
+      #ef8fa833,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      #d69a4533,
+      transparent 30%
+    ),
+    #063f34ee;
+
   color:#fff;
 }
 
@@ -422,19 +659,26 @@ h3{
 
 .photo .tag{
   position:absolute;
+
   left:14px;
   bottom:14px;
+
   background:#021f1bdd;
+
   border:1px solid #ffffff22;
+
   border-radius:99px;
-  padding:7px 10px;
+
+  padding:7px 11px;
+
   font-size:9px;
+
   letter-spacing:.1em;
 }
 
-/* =========================
+/* =========================================================
    TIMELINE
-========================= */
+========================================================= */
 
 .timeline{
   display:grid;
@@ -442,255 +686,475 @@ h3{
 }
 
 .timeline div{
-  padding:16px 18px;
-  border-left:2px solid var(--gold);
-  background:#ffffff08;
-  border-radius:0 14px 14px 0;
-  transition:.25s;
+  padding:18px;
+
+  border-left:3px solid var(--gold);
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff0d,
+      #ffffff04
+    );
+
+  border-radius:
+    0 18px 18px 0;
+
+  transition:.3s;
 }
 
 .timeline div:hover{
-  transform:translateX(6px);
-  background:#ffffff0d;
+  transform:translateX(8px);
+  background:#ffffff12;
 }
 
 .timeline p{
   color:#ffffff90;
+
   margin-top:6px;
+
   line-height:1.55;
 }
 
-/* =========================
-   GRID CARDS
-========================= */
+/* =========================================================
+   CARDS
+========================================================= */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:15px;
+
   margin-top:30px;
 }
 
 .card{
   padding:24px;
+
   border:1px solid #ffffff18;
-  background:#ffffff08;
-  border-radius:18px;
-  transition:.3s;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff0e,
+      #ffffff04
+    );
+
+  border-radius:22px;
+
   position:relative;
+
   overflow:hidden;
+
+  transition:.3s;
+
+  box-shadow:
+    0 10px 35px #0002;
 }
 
-.card:after{
+.card:before{
   content:"";
+
   position:absolute;
+
   width:80px;
   height:80px;
+
   border-radius:50%;
-  right:-35px;
-  bottom:-35px;
-  background:#c28b3c12;
+
+  right:-30px;
+  top:-30px;
+
+  background:#ffffff08;
 }
 
 .card:hover{
-  transform:translateY(-5px);
-  border-color:#c28b3c55;
-  background:#ffffff0d;
+  transform:
+    translateY(-6px)
+    scale(1.01);
+
+  border-color:#ffffff35;
+
+  background:#ffffff12;
+
+  box-shadow:
+    0 20px 45px #0004;
 }
 
 .card strong{
-  color:var(--gold);
+  color:var(--gold2);
+
   font-size:19px;
+
+  position:relative;
 }
 
 .card span{
   display:block;
+
   margin-top:9px;
+
   color:#ffffff95;
+
   line-height:1.6;
+
+  position:relative;
 }
 
-/* =========================
+/* =========================================================
    MAP
-========================= */
+========================================================= */
 
 .map{
   margin-top:28px;
+
   height:410px;
+
   border:1px solid #ffffff20;
-  border-radius:28px;
+
+  border-radius:30px;
+
   position:relative;
+
   overflow:hidden;
+
   background:
     radial-gradient(
       ellipse at center,
-      #0a4c40,
+      #0b6756,
       #021f1b
     );
+
+  box-shadow:
+    inset 0 0 80px #0005,
+    0 20px 50px #0004;
 }
 
 .map:before{
   content:"";
+
   position:absolute;
+
   inset:0;
-  opacity:.12;
+
+  opacity:.1;
+
   background-image:
-    linear-gradient(#fff 1px,transparent 1px),
-    linear-gradient(90deg,#fff 1px,transparent 1px);
-  background-size:10% 20%;
+    linear-gradient(
+      #fff 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      #fff 1px,
+      transparent 1px
+    );
+
+  background-size:
+    10% 20%;
 }
 
 .land{
   position:absolute;
+
   background:#ffffff12;
+
   border-radius:50%;
+
+  filter:blur(1px);
 }
 
-.l1{width:18%;height:24%;left:12%;top:20%}
-.l2{width:10%;height:30%;left:25%;top:48%}
-.l3{width:11%;height:10%;left:47%;top:25%}
-.l4{width:15%;height:32%;left:47%;top:40%}
-.l5{width:27%;height:27%;left:55%;top:23%}
-.l6{width:12%;height:11%;right:10%;bottom:18%}
+.l1{
+  width:18%;
+  height:24%;
+  left:12%;
+  top:20%;
+}
+
+.l2{
+  width:10%;
+  height:30%;
+  left:25%;
+  top:48%;
+}
+
+.l3{
+  width:11%;
+  height:10%;
+  left:47%;
+  top:25%;
+}
+
+.l4{
+  width:15%;
+  height:32%;
+  left:47%;
+  top:40%;
+}
+
+.l5{
+  width:27%;
+  height:27%;
+  left:55%;
+  top:23%;
+}
+
+.l6{
+  width:12%;
+  height:11%;
+  right:10%;
+  bottom:18%;
+}
+
+/* MAP POINT */
 
 .point{
   position:absolute;
-  width:15px;
-  height:15px;
+
+  width:16px;
+  height:16px;
+
   border-radius:50%;
+
   border:2px solid white;
-  background:var(--gold);
-  box-shadow:0 0 18px #c28b3c;
-  transform:translate(-50%,-50%);
+
+  background:var(--gold2);
+
+  box-shadow:
+    0 0 0 5px #d69a4520,
+    0 0 25px #d69a45;
+
+  transform:
+    translate(-50%,-50%);
+
   cursor:pointer;
-  animation:pulse 2s infinite;
+
+  z-index:3;
+
+  animation:pointPulse 2s infinite;
 }
 
-@keyframes pulse{
-  0%{
-    box-shadow:0 0 0 0 #c28b3c66;
+@keyframes pointPulse{
+
+  0%,100%{
+    box-shadow:
+      0 0 0 3px #d69a4520,
+      0 0 15px #d69a45;
   }
-  70%{
-    box-shadow:0 0 0 12px #c28b3c00;
-  }
-  100%{
-    box-shadow:0 0 0 0 #c28b3c00;
+
+  50%{
+    box-shadow:
+      0 0 0 10px #d69a4508,
+      0 0 30px #d69a45;
   }
 }
 
 .tip{
   position:absolute;
+
   display:none;
-  z-index:3;
+
+  z-index:5;
+
   background:#032f28;
+
   border:1px solid var(--gold);
-  border-radius:14px;
+
+  border-radius:16px;
+
   padding:12px 15px;
-  font-size:12px;
-  box-shadow:0 15px 40px #0008;
+
+  font-size:11px;
+
+  box-shadow:
+    0 15px 40px #0007;
 }
 
 .tip.show{
   display:block;
+
+  animation:tipIn .25s ease;
+}
+
+@keyframes tipIn{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+
+  to{
+    opacity:1;
+    transform:none;
+  }
 }
 
 .tip b{
   display:block;
-  font:21px "Playfair Display";
+
+  font:
+    21px
+    "Playfair Display";
+
   margin-top:4px;
+
+  color:var(--gold2);
 }
 
-/* =========================
+/* =========================================================
    GALLERY
-========================= */
+========================================================= */
 
 .gallery{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:13px;
+
   margin-top:28px;
 }
 
 .gallery-item{
   height:180px;
+
   position:relative;
-  border-radius:17px;
+
+  border-radius:20px;
+
   overflow:hidden;
+
   background:#ffffff08;
+
   border:1px solid #ffffff18;
+
   cursor:pointer;
+
   transition:.3s;
 }
 
 .gallery-item:hover{
-  transform:translateY(-5px);
-  border-color:#c28b3c55;
+  transform:
+    translateY(-7px)
+    rotate(-1deg);
+
+  border-color:#ffffff40;
+
+  box-shadow:
+    0 20px 40px #0005;
 }
 
 .gallery-item img{
   width:100%;
   height:100%;
+
   object-fit:cover;
+
+  transition:.5s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.08);
 }
 
 .gallery-item span{
   position:absolute;
+
   bottom:10px;
   left:10px;
+
   background:#021f1bdd;
+
   border-radius:99px;
+
   padding:6px 9px;
+
   font-size:9px;
 }
 
-/* =========================
+/* =========================================================
    BOTTOM NAV
-========================= */
+========================================================= */
 
 .bottom{
   position:fixed;
-  z-index:150;
+
+  z-index:300;
+
   bottom:16px;
+
   left:50%;
+
   transform:translateX(-50%);
+
   display:flex;
+
   gap:8px;
+
   padding:7px;
-  border:1px solid #ffffff1f;
-  background:#032f28e8;
+
+  border:1px solid #ffffff20;
+
+  background:#032f28ee;
+
+  backdrop-filter:blur(15px);
+
   border-radius:999px;
-  backdrop-filter:blur(12px);
+
+  box-shadow:
+    0 15px 40px #0005;
 }
 
 .bottom button{
-  width:40px;
-  height:40px;
+  width:42px;
+  height:42px;
+
   border-radius:50%;
+
   border:0;
+
   background:#ffffff10;
+
   color:#fff;
+
   font-size:18px;
+
   cursor:pointer;
-  transition:.2s;
+
+  transition:.25s;
 }
 
 .bottom button:hover{
-  background:#c28b3c;
+  background:var(--gold);
+
   color:var(--deep);
+
+  transform:scale(1.08);
 }
 
-/* =========================
+/* =========================================================
    LIGHTBOX
-========================= */
+========================================================= */
 
 .lightbox{
   position:fixed;
+
   inset:0;
+
   z-index:999;
+
   display:none;
+
   place-items:center;
+
   background:#000e;
+
   padding:20px;
+
+  backdrop-filter:blur(10px);
 }
 
 .lightbox.show{
@@ -699,28 +1163,92 @@ h3{
 
 .lightbox img{
   max-width:95vw;
+
   max-height:88vh;
-  border-radius:12px;
-  box-shadow:0 20px 80px #000;
+
+  border-radius:16px;
+
+  box-shadow:
+    0 30px 100px #000;
 }
 
 .close{
   position:absolute;
+
   top:20px;
   right:20px;
+
   width:44px;
   height:44px;
+
   border-radius:50%;
+
   border:1px solid #fff4;
+
   background:#fff2;
+
   color:#fff;
+
   font-size:25px;
+
   cursor:pointer;
 }
 
-/* =========================
+/* =========================================================
+   DECORATIVE MINI ICONS
+========================================================= */
+
+.sparkles{
+  position:absolute;
+
+  font-size:20px;
+
+  opacity:.7;
+
+  animation:sparkle 2.5s infinite;
+}
+
+.s1{
+  top:20%;
+  right:8%;
+}
+
+.s2{
+  bottom:20%;
+  left:7%;
+
+  animation-delay:1s;
+}
+
+.s3{
+  top:35%;
+  left:4%;
+
+  animation-delay:.5s;
+}
+
+@keyframes sparkle{
+
+  0%,100%{
+    transform:
+      scale(1)
+      rotate(0deg);
+
+    opacity:.35;
+  }
+
+  50%{
+    transform:
+      scale(1.4)
+      rotate(20deg);
+
+    opacity:1;
+  }
+}
+
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media(max-width:850px){
 
@@ -730,23 +1258,23 @@ h3{
   }
 
   .gallery{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
-  .slide-icon{
-    right:2%;
-    top:-15px;
-    width:60px;
-    height:60px;
-    font-size:28px;
+  .photo{
+    height:300px;
   }
+
 }
 
 @media(max-width:600px){
 
   header{
     display:block;
+
     padding:8px 12px;
+
     height:110px;
   }
 
@@ -754,12 +1282,52 @@ h3{
     height:34px;
   }
 
+  .tabs{
+    margin-top:4px;
+  }
+
   .slide{
-    padding:125px 18px 85px;
+    padding:
+      125px
+      18px
+      85px;
+  }
+
+  .slide-icon{
+    width:58px;
+    height:58px;
+
+    border-radius:18px;
+
+    font-size:28px;
+
+    margin-bottom:16px;
+  }
+
+  h1{
+    font-size:
+      clamp(
+        55px,
+        17vw,
+        85px
+      );
+  }
+
+  h2{
+    font-size:
+      clamp(
+        38px,
+        11vw,
+        58px
+      );
+  }
+
+  .lead{
+    font-size:15px;
   }
 
   .photo{
-    height:260px;
+    height:250px;
   }
 
   .grid{
@@ -776,17 +1344,39 @@ h3{
 
   .tab{
     font-size:8px;
-    padding:7px 9px;
+
+    padding:
+      7px
+      9px;
   }
 
-  .slide-icon{
-    display:none;
+  .quote{
+    padding:
+      23px
+      22px;
   }
 
-  .spark{
-    display:none;
+  .bottom{
+    bottom:10px;
   }
+
 }
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *:before,
+  *:after{
+    animation:none !important;
+    transition:none !important;
+  }
+
+}
+
 </style>
 </head>
 
@@ -794,1370 +1384,1745 @@ h3{
 
 <div class="presentation">
 
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="ambient">
+
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="blob three"></div>
+  <div class="blob four"></div>
+
+  <span class="sparkles s1">✦</span>
+  <span class="sparkles s2">✧</span>
+  <span class="sparkles s3">✦</span>
+
+</div>
+
 <div class="progress" id="progress"></div>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
   <div class="brand">
-    <div class="mark">IF</div>
+
+    <div class="mark">
+      IF
+    </div>
+
     Isti Fatimah
+
   </div>
 
-  <nav class="tabs" id="tabs"></nav>
+  <nav
+    class="tabs"
+    id="tabs">
+  </nav>
 
 </header>
+
+<!-- =====================================================
+     SLIDES
+===================================================== -->
 
 <main id="slides">
 
 <!-- =====================================================
-     01 START
+  1 START
 ===================================================== -->
 
 <section class="slide active">
 
 <div class="content">
 
-<div class="slide-icon">🌍</div>
-<div class="spark s1">✦</div>
-<div class="spark s3">✧</div>
+  <div class="slide-icon">
+    ✈️
+  </div>
 
-<div class="eyebrow">
-WEBINAR SERIES · PART 01
+  <div class="eyebrow">
+    WEBINAR SERIES · PART 01
+  </div>
+
+  <h1>
+    Beyond<br>
+    <span class="gold">
+      Borders.
+    </span>
+  </h1>
+
+  <p class="lead">
+
+    Sebelum saya menjadi seorang traveler,
+    ada banyak “YES” kecil yang ternyata
+    membawa saya semakin dekat dengan dunia.
+
+  </p>
+
+  <div class="label">
+    ISTI FATIMAH · JOURNEY BEFORE TRAVELING
+  </div>
+
+  <button
+    class="btn"
+    onclick="nextSlide()">
+
+    Let's Begin →
+
+  </button>
+
 </div>
 
-<h1>
-Beyond<br>
-<span class="gold">Borders.</span>
-</h1>
-
-<p class="lead">
-Sebelum saya menjadi seorang traveler,
-ada banyak “YES” kecil yang ternyata
-membawa saya semakin dekat dengan dunia.
-</p>
-
-<div class="label">
-ISTI FATIMAH · JOURNEY BEFORE TRAVELING
-</div>
-
-<button class="btn" onclick="nextSlide()">
-Let's Begin →
-</button>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     02 AUDIENCE
+  2 AUDIENCE
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content center">
 
-<div class="slide-icon">🙋🏻‍♀️</div>
+  <div class="slide-icon">
+    👋
+  </div>
 
-<div class="eyebrow">
-MEET THE AUDIENCE
+  <div class="eyebrow">
+    MEET THE AUDIENCE
+  </div>
+
+  <h2>
+    Saya mau tahu...
+  </h2>
+
+  <p class="lead">
+
+    Siapa di sini yang pernah mendapatkan
+    sebuah kesempatan tetapi merasa,
+
+    <br><br>
+
+    <b>
+      “Kayaknya saya belum siap.”
+    </b>
+
+  </p>
+
+  <div
+    class="quote"
+    style="margin:auto">
+
+    <div class="quote-text">
+
+      Maybe being ready isn't
+      the first step.
+
+      <br><br>
+
+      <span class="gold">
+        Maybe saying YES is.
+      </span>
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Saya mau tahu...
-</h2>
-
-<p class="lead">
-Siapa di sini yang pernah mendapatkan sebuah
-kesempatan tetapi merasa,
-<br><br>
-
-<b>“Kayaknya saya belum siap.”</b>
-</p>
-
-<div class="quote" style="margin:auto">
-
-<div class="quote-text">
-
-Maybe being ready isn't the first step.
-<br><br>
-
-<span class="gold">
-Maybe saying YES is.
-</span>
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     03 FIRST YES
+  3 FIRST YES
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">💡</div>
+  <div class="slide-icon">
+    💛
+  </div>
 
-<div class="eyebrow">
-THE FIRST YES
+  <div class="eyebrow">
+    THE FIRST YES
+  </div>
+
+  <h2>
+
+    I didn't start with<br>
+
+    <span class="gold">
+      traveling.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Kalau hari ini saya dikenal sebagai
+    seorang traveler, mungkin orang akan
+    berpikir semuanya dimulai dari
+    perjalanan ke luar negeri.
+
+  </p>
+
+  <div class="quote">
+
+    <div class="quote-text">
+
+      But actually...
+
+      <br><br>
+
+      it started with
+      <span class="gold">
+        courage.
+      </span>
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-I didn't start with<br>
-<span class="gold">traveling.</span>
-</h2>
-
-<p class="lead">
-Kalau hari ini saya dikenal sebagai seorang traveler,
-mungkin orang akan berpikir semuanya dimulai
-dari perjalanan ke luar negeri.
-</p>
-
-<div class="quote">
-
-<div class="quote-text">
-
-But actually...
-<br><br>
-
-it started with
-<span class="gold">courage.</span>
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     04 FIFA
+  4 FIFA
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">⚽</div>
+  <div class="slide-icon">
+    ⚽
+  </div>
 
-<div class="eyebrow">
-DREAMING BEYOND · 2014
+  <div class="eyebrow">
+    DREAMING BEYOND · 2014
+  </div>
+
+  <h2>
+
+    My first big
+    <span class="gold">
+      dream.
+    </span>
+
+  </h2>
+
+  <div class="split">
+
+    <div
+      class="photo"
+      onclick="openPhoto('images/fifa-2014.jpg')">
+
+      <img
+        src="images/fifa-2014.jpg"
+        onerror="this.style.display='none'">
+
+      <div class="placeholder">
+
+        ⚽
+
+        <div>
+
+          <b>
+            Foto FIFA World Cup 2014
+          </b>
+
+          <small>
+            fifa-2014.jpg
+          </small>
+
+        </div>
+
+      </div>
+
+      <div class="tag">
+        RIO DE JANEIRO · BRAZIL
+      </div>
+
+    </div>
+
+    <div>
+
+      <div class="year">
+        2014
+      </div>
+
+      <div class="label">
+        FIFA WORLD CUP
+      </div>
+
+      <h3 style="margin-top:12px">
+        Calon Volunteer
+      </h3>
+
+      <p class="lead">
+
+        Salah satu titik awal perjalanan saya
+        adalah ketika saya memberanikan diri
+        menjadi calon volunteer FIFA World Cup
+        2014 di Rio de Janeiro, Brazil.
+
+      </p>
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-My first big
-<span class="gold">dream.</span>
-</h2>
-
-<div class="split">
-
-<div class="photo"
-onclick="openPhoto('images/fifa-2014.jpg')">
-
-<img
-src="images/fifa-2014.jpg"
-onerror="this.style.display='none'">
-
-<div class="placeholder">
-
-⚽
-
-<div>
-
-<b>Foto FIFA World Cup 2014</b>
-
-<small>
-fifa-2014.jpg
-</small>
-
-</div>
-
-</div>
-
-<div class="tag">
-RIO DE JANEIRO · BRAZIL
-</div>
-
-</div>
-
-<div>
-
-<div class="year">
-2014
-</div>
-
-<div class="label">
-FIFA WORLD CUP
-</div>
-
-<h3 style="margin-top:12px">
-Calon Volunteer
-</h3>
-
-<p class="lead">
-
-Salah satu titik awal perjalanan saya adalah ketika
-saya memberanikan diri menjadi calon volunteer
-FIFA World Cup 2014 di Rio de Janeiro, Brazil.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     05 INVITATION
+  5 INVITATION
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">🏟️</div>
+  <div class="slide-icon">
+    🏟️
+  </div>
 
-<div class="eyebrow">
-ANOTHER DOOR · 2018
+  <div class="eyebrow">
+    ANOTHER DOOR · 2018
+  </div>
+
+  <h2>
+
+    Another door
+    <span class="gold">
+      opened.
+    </span>
+
+  </h2>
+
+  <div class="split">
+
+    <div>
+
+      <div class="year">
+        2018
+      </div>
+
+      <div class="label">
+        ASIAN GAMES
+      </div>
+
+      <h3 style="margin-top:12px">
+        Volunteer Invitation Tournament
+      </h3>
+
+      <p class="lead">
+
+        Saya kemudian mendapatkan kesempatan
+        menjadi volunteer pada Invitation Tournament
+        Asian Games 2018.
+
+      </p>
+
+    </div>
+
+    <div
+      class="photo"
+      onclick="openPhoto('images/invitation-asian-games.jpg')">
+
+      <img
+        src="images/invitation-asian-games.jpg"
+        onerror="this.style.display='none'">
+
+      <div class="placeholder">
+
+        🏟️
+
+        <div>
+
+          <b>
+            Invitation Tournament
+          </b>
+
+          <small>
+            invitation-asian-games.jpg
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Another door
-<span class="gold">opened.</span>
-</h2>
-
-<div class="split">
-
-<div>
-
-<div class="year">
-2018
-</div>
-
-<div class="label">
-ASIAN GAMES
-</div>
-
-<h3 style="margin-top:12px">
-Volunteer Invitation Tournament
-</h3>
-
-<p class="lead">
-
-Saya kemudian mendapatkan kesempatan menjadi
-volunteer pada Invitation Tournament Asian Games 2018.
-
-</p>
-
-</div>
-
-<div class="photo"
-onclick="openPhoto('images/invitation-asian-games.jpg')">
-
-<img
-src="images/invitation-asian-games.jpg"
-onerror="this.style.display='none'">
-
-<div class="placeholder">
-
-🏟️
-
-<div>
-
-<b>
-Invitation Tournament
-</b>
-
-<small>
-invitation-asian-games.jpg
-</small>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     06 BANDUNG BALI
+  6 BANDUNG BALI
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content center">
 
-<div class="slide-icon">✈️</div>
+  <div class="slide-icon">
+    ✈️
+  </div>
 
-<div class="eyebrow">
-AN UNEXPECTED TURN
+  <div class="eyebrow">
+    AN UNEXPECTED TURN
+  </div>
+
+  <h2>
+
+    Sometimes...
+    <span class="gold">
+      just say YES.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Saya mengikuti giveaway flight
+    <b>
+      Bandung — Bali.
+    </b>
+
+  </p>
+
+  <div
+    class="split"
+    style="text-align:left">
+
+    <div
+      class="photo"
+      onclick="openPhoto('images/giveaway-bandung-bali.jpg')">
+
+      <img
+        src="images/giveaway-bandung-bali.jpg"
+        onerror="this.style.display='none'">
+
+      <div class="placeholder">
+
+        ✈️
+
+        <div>
+
+          <b>
+            Bandung → Bali
+          </b>
+
+          <small>
+            giveaway-bandung-bali.jpg
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="quote">
+
+      <div class="quote-text">
+
+        Not every journey
+
+        <br>
+
+        starts with
+
+        <span class="gold">
+          a plan.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Sometimes...
-<span class="gold">just say YES.</span>
-</h2>
-
-<p class="lead">
-
-Saya mengikuti giveaway flight
-<b>Bandung — Bali.</b>
-
-</p>
-
-<div class="split" style="text-align:left">
-
-<div class="photo"
-onclick="openPhoto('images/giveaway-bandung-bali.jpg')">
-
-<img
-src="images/giveaway-bandung-bali.jpg"
-onerror="this.style.display='none'">
-
-<div class="placeholder">
-
-✈️
-
-<div>
-
-<b>
-Bandung → Bali
-</b>
-
-<small>
-giveaway-bandung-bali.jpg
-</small>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="quote">
-
-<div class="quote-text">
-
-Not every journey
-<br>
-starts with
-<span class="gold">a plan.</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     07 ASIAN GAMES
+  7 ASIAN GAMES
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">🏅</div>
+  <div class="slide-icon">
+    🏅
+  </div>
 
-<div class="eyebrow">
-THE BIGGER YES · 2018
+  <div class="eyebrow">
+    THE BIGGER YES · 2018
+  </div>
+
+  <h2>
+
+    I stepped into
+    <span class="gold">
+      Asian Games 2018.
+    </span>
+
+  </h2>
+
+  <div class="split">
+
+    <div
+      class="photo"
+      onclick="openPhoto('images/asian-games-2018.jpg')">
+
+      <img
+        src="images/asian-games-2018.jpg"
+        onerror="this.style.display='none'">
+
+      <div class="placeholder">
+
+        🏅
+
+        <div>
+
+          <b>
+            Volunteer Asian Games
+          </b>
+
+          <small>
+            asian-games-2018.jpg
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="timeline">
+
+      <div>
+        <h3>Meet</h3>
+        <p>
+          Bertemu lebih banyak orang.
+        </p>
+      </div>
+
+      <div>
+        <h3>Interact</h3>
+        <p>
+          Berinteraksi dengan lingkungan
+          yang lebih beragam.
+        </p>
+      </div>
+
+      <div>
+        <h3>Adapt</h3>
+        <p>
+          Belajar menyesuaikan diri.
+        </p>
+      </div>
+
+      <div>
+        <h3>Grow</h3>
+        <p>
+          Kepercayaan diri semakin tumbuh.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-I stepped into
-<span class="gold">Asian Games 2018.</span>
-</h2>
-
-<div class="split">
-
-<div class="photo"
-onclick="openPhoto('images/asian-games-2018.jpg')">
-
-<img
-src="images/asian-games-2018.jpg"
-onerror="this.style.display='none'">
-
-<div class="placeholder">
-
-🏅
-
-<div>
-
-<b>
-Volunteer Asian Games
-</b>
-
-<small>
-asian-games-2018.jpg
-</small>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="timeline">
-
-<div>
-<h3>🤝 Meet</h3>
-<p>
-Bertemu lebih banyak orang.
-</p>
-</div>
-
-<div>
-<h3>💬 Interact</h3>
-<p>
-Berinteraksi dengan lingkungan yang lebih beragam.
-</p>
-</div>
-
-<div>
-<h3>🧩 Adapt</h3>
-<p>
-Belajar menyesuaikan diri.
-</p>
-</div>
-
-<div>
-<h3>🌱 Grow</h3>
-<p>
-Kepercayaan diri semakin tumbuh.
-</p>
-</div>
-
-</div>
-
-</div>
-</div>
 </section>
 
 
 <!-- =====================================================
-     08 EHEF
+  8 EHEF
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">🌏</div>
+  <div class="slide-icon">
+    🌍
+  </div>
 
-<div class="eyebrow">
-THE EHEF CHAPTER · 2018—2020
+  <div class="eyebrow">
+    THE EHEF CHAPTER · 2018—2020
+  </div>
+
+  <h2>
+
+    Then came
+    <span class="gold">
+      EHEF.
+    </span>
+
+  </h2>
+
+  <div class="split">
+
+    <div>
+
+      <div class="year">
+        2018–20
+      </div>
+
+      <div class="label">
+        EHEF
+      </div>
+
+      <h3 style="margin-top:12px">
+        Volunteer & Committee
+      </h3>
+
+      <p class="lead">
+
+        Saya kemudian bergabung dalam
+        volunteer dan kepanitiaan EHEF
+        pada periode 2018–2020.
+
+      </p>
+
+      <p
+        class="lead"
+        style="font-size:15px">
+
+        Pengalaman ini semakin mempertemukan
+        saya dengan banyak orang dari berbagai
+        negara dan latar belakang.
+
+      </p>
+
+    </div>
+
+    <div
+      class="photo"
+      onclick="openPhoto('images/ehef-2018.jpg')">
+
+      <img
+        src="images/ehef-2018.jpg"
+        onerror="this.style.display='none'">
+
+      <div class="placeholder">
+
+        🌍
+
+        <div>
+
+          <b>
+            Foto EHEF
+          </b>
+
+          <small>
+            ehef-2018.jpg
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Then came
-<span class="gold">EHEF.</span>
-</h2>
-
-<div class="split">
-
-<div>
-
-<div class="year">
-2018–20
-</div>
-
-<div class="label">
-EHEF
-</div>
-
-<h3 style="margin-top:12px">
-Volunteer & Committee
-</h3>
-
-<p class="lead">
-
-Saya kemudian bergabung dalam volunteer
-dan kepanitiaan EHEF pada periode 2018–2020.
-
-</p>
-
-<p class="lead" style="font-size:15px">
-
-Pengalaman ini semakin mempertemukan saya
-dengan banyak orang dari berbagai negara
-dan latar belakang.
-
-</p>
-
-</div>
-
-<div class="photo"
-onclick="openPhoto('images/ehef-2018.jpg')">
-
-<img
-src="images/ehef-2018.jpg"
-onerror="this.style.display='none'">
-
-<div class="placeholder">
-
-🌍
-
-<div>
-
-<b>
-Foto EHEF
-</b>
-
-<small>
-ehef-2018.jpg
-</small>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-</div>
 </section>
 
 
 <!-- =====================================================
-     09 CONNECTION
+  9 CONNECTION
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content center">
 
-<div class="slide-icon">🤝</div>
+  <div class="slide-icon">
+    🤝
+  </div>
 
-<div class="eyebrow">
-GLOBAL CONNECTIONS
+  <div class="eyebrow">
+    GLOBAL CONNECTIONS
+  </div>
+
+  <h2>
+
+    I met people
+    <span class="gold">
+      from everywhere.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Dari berbagai pengalaman tersebut,
+    saya bertemu banyak teman dari luar negeri.
+
+  </p>
+
+  <div
+    class="quote"
+    style="margin:auto">
+
+    <div class="quote-text">
+
+      The world became
+      <span class="gold">
+        smaller
+      </span>
+
+      <br>
+
+      when I started
+      <span class="gold">
+        connecting.
+      </span>
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-I met people
-<span class="gold">from everywhere.</span>
-</h2>
-
-<p class="lead">
-
-Dari berbagai pengalaman tersebut,
-saya bertemu banyak teman dari luar negeri.
-
-</p>
-
-<div class="quote" style="margin:auto">
-
-<div class="quote-text">
-
-The world became
-<span class="gold">smaller</span>
-<br>
-
-when I started
-<span class="gold">connecting.</span>
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     10 ENGLISH
+  10 ENGLISH
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">💬</div>
+  <div class="slide-icon">
+    💬
+  </div>
 
-<div class="eyebrow">
-FINDING MY VOICE
+  <div class="eyebrow">
+    FINDING MY VOICE
+  </div>
+
+  <h2>
+
+    Then I realized...
+    <br>
+
+    <span class="gold">
+      I had to speak.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Bertemu dengan banyak teman dari luar
+    negeri membuat saya harus belajar
+    berkomunikasi dalam Bahasa Inggris.
+
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <strong>
+        English
+      </strong>
+      <span>
+        Bukan hanya belajar memahami,
+        tetapi belajar menggunakannya.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Communication
+      </strong>
+      <span>
+        Belajar menyampaikan pikiran kepada
+        orang dari latar belakang berbeda.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Confidence
+      </strong>
+      <span>
+        Berani berbicara meskipun belum
+        merasa sempurna.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Connection
+      </strong>
+      <span>
+        Bahasa menjadi jembatan untuk
+        membangun pertemanan.
+      </span>
+    </div>
+
+  </div>
+
+  <div class="quote">
+
+    <div class="quote-text">
+
+      I didn't need to speak
+      <span class="gold">
+        perfect English.
+      </span>
+
+      <br><br>
+
+      I needed the courage
+      <span class="gold">
+        to speak.
+      </span>
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Then I realized...
-<br>
-<span class="gold">I had to speak.</span>
-</h2>
-
-<p class="lead">
-
-Bertemu dengan banyak teman dari luar negeri
-membuat saya harus belajar berkomunikasi
-dalam Bahasa Inggris.
-
-</p>
-
-<div class="grid">
-
-<div class="card">
-<strong>🗣️ English</strong>
-<span>
-Bukan hanya belajar memahami,
-tetapi belajar menggunakannya.
-</span>
-</div>
-
-<div class="card">
-<strong>💬 Communication</strong>
-<span>
-Belajar menyampaikan pikiran kepada
-orang dari latar belakang berbeda.
-</span>
-</div>
-
-<div class="card">
-<strong>✨ Confidence</strong>
-<span>
-Berani berbicara meskipun belum
-merasa sempurna.
-</span>
-</div>
-
-<div class="card">
-<strong>🌉 Connection</strong>
-<span>
-Bahasa menjadi jembatan untuk
-membangun pertemanan.
-</span>
-</div>
-
-</div>
-
-<div class="quote">
-
-<div class="quote-text">
-
-I didn't need to speak
-<span class="gold">perfect English.</span>
-
-<br><br>
-
-I needed the courage
-<span class="gold">to speak.</span>
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     11 PATTERN
+  11 PATTERN
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">🧭</div>
+  <div class="slide-icon">
+    🧩
+  </div>
 
-<div class="eyebrow">
-THE PATTERN
+  <div class="eyebrow">
+    THE PATTERN
+  </div>
+
+  <h2>
+
+    Looking back,
+    <span class="gold">
+      I see it now.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Ternyata saya tidak menjadi traveler
+    dalam satu lompatan besar.
+    Semuanya dimulai dari kesempatan-kesempatan kecil.
+
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <strong>
+        01 · Berani
+      </strong>
+
+      <span>
+        Mengambil kesempatan pertama.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        02 · Bertemu
+      </strong>
+
+      <span>
+        Berinteraksi dengan orang baru.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        03 · Belajar
+      </strong>
+
+      <span>
+        English, communication & adaptability.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        04 · Bertumbuh
+      </strong>
+
+      <span>
+        Confidence mulai terbentuk.
+      </span>
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Looking back,
-<span class="gold">I see it now.</span>
-</h2>
-
-<p class="lead">
-
-Ternyata saya tidak menjadi traveler
-dalam satu lompatan besar.
-Semuanya dimulai dari kesempatan-kesempatan kecil.
-
-</p>
-
-<div class="grid">
-
-<div class="card">
-<strong>01 · 🦋 Berani</strong>
-<span>
-Mengambil kesempatan pertama.
-</span>
-</div>
-
-<div class="card">
-<strong>02 · 🤝 Bertemu</strong>
-<span>
-Berinteraksi dengan orang baru.
-</span>
-</div>
-
-<div class="card">
-<strong>03 · 📚 Belajar</strong>
-<span>
-English, communication & adaptability.
-</span>
-</div>
-
-<div class="card">
-<strong>04 · 🌱 Bertumbuh</strong>
-<span>
-Confidence mulai terbentuk.
-</span>
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     12 MAP
+  12 MAP
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content center">
 
-<div class="slide-icon">🗺️</div>
+  <div class="slide-icon">
+    🗺️
+  </div>
 
-<div class="eyebrow">
-THE WORLD OPENED
+  <div class="eyebrow">
+    THE WORLD OPENED
+  </div>
+
+  <h2>
+
+    And eventually...
+    <br>
+
+    <span class="gold">
+      I became a traveler.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Dari semua pengalaman itu,
+    perjalanan saya akhirnya membawa saya
+    ke berbagai negara.
+
+    <br><br>
+
+    <b>
+      Ini baru teaser-nya.
+    </b>
+
+  </p>
+
+  <div
+    class="map"
+    id="worldMap">
+
+    <i class="land l1"></i>
+    <i class="land l2"></i>
+    <i class="land l3"></i>
+    <i class="land l4"></i>
+    <i class="land l5"></i>
+    <i class="land l6"></i>
+
+    <div
+      class="tip"
+      id="tip">
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-And eventually...
-<br>
-<span class="gold">I became a traveler.</span>
-</h2>
-
-<p class="lead">
-
-Dari semua pengalaman itu,
-perjalanan saya akhirnya membawa saya
-ke berbagai negara.
-
-<br><br>
-
-<b>Ini baru teaser-nya.</b>
-
-</p>
-
-<div class="map" id="worldMap">
-
-<i class="land l1"></i>
-<i class="land l2"></i>
-<i class="land l3"></i>
-<i class="land l4"></i>
-<i class="land l5"></i>
-<i class="land l6"></i>
-
-<div class="tip" id="tip"></div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     13 GALLERY
+  13 GALLERY
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">📸</div>
+  <div class="slide-icon">
+    📸
+  </div>
 
-<div class="eyebrow">
-ONE JOURNEY · MANY MOMENTS
+  <div class="eyebrow">
+    ONE JOURNEY · MANY MOMENTS
+  </div>
+
+  <h2>
+
+    My Journey
+    <span class="gold">
+      Gallery.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Satu perjalanan tidak selalu terdiri dari
+    satu tempat. Setiap foto menyimpan cerita,
+    orang, keberanian, dan pengalaman yang
+    membawa saya sampai ke titik hari ini.
+
+  </p>
+
+  <div
+    class="gallery"
+    id="gallery">
+  </div>
+
+  <p
+    style="
+      margin-top:20px;
+      text-align:center;
+      color:#ffffff80;
+      font-size:11px">
+
+    ✨ Klik foto untuk melihat lebih besar
+
+  </p>
+
 </div>
 
-<h2>
-My Journey
-<span class="gold">Gallery.</span>
-</h2>
-
-<p class="lead">
-
-Satu perjalanan tidak selalu terdiri dari satu tempat.
-Setiap foto menyimpan cerita, orang,
-keberanian, dan pengalaman yang membawa saya
-sampai ke titik hari ini.
-
-</p>
-
-<div class="gallery" id="gallery"></div>
-
-<p style="
-margin-top:20px;
-text-align:center;
-color:#ffffff80;
-font-size:11px">
-
-👆 Klik foto untuk melihat lebih besar
-
-</p>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     14 SAFAR
+  14 SAFAR
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">🌙</div>
+  <div class="slide-icon">
+    🕌
+  </div>
 
-<div class="eyebrow">
-WEBINAR MATERIAL · 01
+  <div class="eyebrow">
+    WEBINAR MATERIAL · 01
+  </div>
+
+  <h2>
+
+    Safar dalam
+    <span class="gold">
+      Perspektif Islam.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Perjalanan bukan sekadar berpindah tempat.
+    Dalam webinar ini, safar menjadi ruang
+    untuk belajar, bertafakur, memperluas wawasan,
+    dan menjaga adab sebagai seorang Muslimah.
+
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <strong>
+        Makna Safar
+      </strong>
+      <span>
+        Memahami perjalanan dalam perspektif
+        Al-Qur'an dan Sunnah.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Hikmah Perjalanan
+      </strong>
+      <span>
+        Melihat perjalanan sebagai kesempatan
+        untuk belajar dan mengambil pelajaran.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Beyond Comfort
+      </strong>
+      <span>
+        Traveling sebagai sarana belajar,
+        bertafakur, dan memperluas wawasan.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Adab Safar
+      </strong>
+      <span>
+        Menjaga sikap dan adab seorang
+        Muslimah ketika melakukan perjalanan.
+      </span>
+    </div>
+
+  </div>
+
+  <div class="quote">
+
+    <div class="quote-text">
+
+      “The world is wide, but every journey
+      can bring us
+      <span class="gold">
+        closer to meaning.
+      </span>”
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Safar dalam
-<span class="gold">Perspektif Islam.</span>
-</h2>
-
-<p class="lead">
-
-Perjalanan bukan sekadar berpindah tempat.
-Dalam webinar ini, safar menjadi ruang untuk belajar,
-bertafakur, memperluas wawasan, dan menjaga adab
-sebagai seorang Muslimah.
-
-</p>
-
-<div class="grid">
-
-<div class="card">
-<strong>🕌 Makna Safar</strong>
-<span>
-Memahami perjalanan dalam perspektif
-Al-Qur'an dan Sunnah.
-</span>
-</div>
-
-<div class="card">
-<strong>💭 Hikmah Perjalanan</strong>
-<span>
-Melihat perjalanan sebagai kesempatan
-untuk belajar dan mengambil pelajaran.
-</span>
-</div>
-
-<div class="card">
-<strong>🌎 Beyond Comfort</strong>
-<span>
-Traveling sebagai sarana belajar,
-bertafakur, dan memperluas wawasan.
-</span>
-</div>
-
-<div class="card">
-<strong>🤍 Adab Safar</strong>
-<span>
-Menjaga sikap dan adab seorang Muslimah
-ketika melakukan perjalanan.
-</span>
-</div>
-
-</div>
-
-<div class="quote">
-
-<div class="quote-text">
-
-“The world is wide, but every journey can bring us
-<span class="gold">closer to meaning.</span>”
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     15 BEYOND BORDERS
+  15 BEYOND BORDERS
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content center">
 
-<div class="slide-icon">🌎</div>
+  <div class="slide-icon">
+    🌎
+  </div>
 
-<div class="eyebrow">
-WEBINAR MATERIAL · 02
+  <div class="eyebrow">
+    WEBINAR MATERIAL · 02
+  </div>
+
+  <h2>
+
+    Beyond Borders:<br>
+
+    <span class="gold">
+      Berani Melihat Dunia.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Melihat dunia bukan berarti kehilangan
+    jati diri. Justru perjalanan dapat menjadi
+    ruang untuk mengenal perbedaan, belajar
+    keluar dari zona nyaman, dan kembali
+    dengan wawasan yang lebih luas.
+
+  </p>
+
+  <div
+    class="grid"
+    style="text-align:left">
+
+    <div class="card">
+      <strong>
+        Global Mindset
+      </strong>
+      <span>
+        Mengapa Muslimah perlu memiliki
+        wawasan global.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Learning Outside Class
+      </strong>
+      <span>
+        Traveling sebagai proses belajar
+        di luar ruang kelas.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Courage
+      </strong>
+      <span>
+        Membangun keberanian untuk keluar
+        dari zona nyaman.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Life Investment
+      </strong>
+      <span>
+        Menjadikan setiap perjalanan sebagai
+        investasi pengalaman.
+      </span>
+    </div>
+
+  </div>
+
+  <div
+    class="quote"
+    style="margin:28px auto 0">
+
+    <div class="quote-text">
+
+      “You do not have to cross every border
+      to grow. Sometimes, growth begins the
+      moment you dare to cross
+      <span class="gold">
+        your own limits.
+      </span>”
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Beyond Borders:<br>
-<span class="gold">Berani Melihat Dunia.</span>
-</h2>
-
-<p class="lead">
-
-Melihat dunia bukan berarti kehilangan jati diri.
-Justru perjalanan dapat menjadi ruang untuk mengenal
-perbedaan, belajar keluar dari zona nyaman,
-dan kembali dengan wawasan yang lebih luas.
-
-</p>
-
-<div class="grid" style="text-align:left">
-
-<div class="card">
-<strong>🌐 Global Mindset</strong>
-<span>
-Mengapa Muslimah perlu memiliki wawasan global.
-</span>
-</div>
-
-<div class="card">
-<strong>📖 Learning Outside Class</strong>
-<span>
-Traveling sebagai proses belajar
-di luar ruang kelas.
-</span>
-</div>
-
-<div class="card">
-<strong>🦋 Courage</strong>
-<span>
-Membangun keberanian untuk
-keluar dari zona nyaman.
-</span>
-</div>
-
-<div class="card">
-<strong>💎 Life Investment</strong>
-<span>
-Menjadikan setiap perjalanan
-sebagai investasi pengalaman.
-</span>
-</div>
-
-</div>
-
-<div class="quote" style="margin:28px auto 0">
-
-<div class="quote-text">
-
-“You do not have to cross every border to grow.
-Sometimes, growth begins the moment you dare to cross
-<span class="gold">your own limits.</span>”
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     16 TEN COUNTRIES
+  16 TEN COUNTRIES
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">🌏</div>
+  <div class="slide-icon">
+    🌏
+  </div>
 
-<div class="eyebrow">
-WEBINAR MATERIAL · 03
+  <div class="eyebrow">
+    WEBINAR MATERIAL · 03
+  </div>
+
+  <h2>
+
+    Belajar dari Perjalanan<br>
+
+    ke
+    <span class="gold">
+      Berbagai Negara.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Narasumber akan berbagi pengalaman selama
+    mengunjungi sepuluh negara—bukan hanya
+    tentang tempat yang indah, tetapi tentang
+    pelajaran yang dibawa pulang.
+
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <strong>
+        Culture
+      </strong>
+      <span>
+        Keunikan budaya dan kebiasaan masyarakat.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Positive Values
+      </strong>
+      <span>
+        Nilai-nilai positif yang dapat dipelajari
+        dari setiap negara.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Perspective
+      </strong>
+      <span>
+        Pengalaman yang mengubah cara pandang
+        terhadap kehidupan.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Challenges
+      </strong>
+      <span>
+        Tantangan selama perjalanan dan
+        cara menghadapinya.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Memorable Moments
+      </strong>
+      <span>
+        Momen paling berkesan yang memberikan
+        pelajaran hidup.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Ten Stories
+      </strong>
+      <span>
+        Setiap negara memiliki cerita yang
+        berbeda dan makna yang berbeda.
+      </span>
+    </div>
+
+  </div>
+
+  <div class="quote">
+
+    <div class="quote-text">
+
+      “A journey may change your location
+      for a while, but the lessons you bring
+      home can change
+      <span class="gold">
+        your life forever.
+      </span>”
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Belajar dari Perjalanan<br>
-ke <span class="gold">Berbagai Negara.</span>
-</h2>
-
-<p class="lead">
-
-Narasumber akan berbagi pengalaman selama mengunjungi
-sepuluh negara—bukan hanya tentang tempat yang indah,
-tetapi tentang pelajaran yang dibawa pulang.
-
-</p>
-
-<div class="grid">
-
-<div class="card">
-<strong>🏛️ Culture</strong>
-<span>
-Keunikan budaya dan kebiasaan masyarakat.
-</span>
-</div>
-
-<div class="card">
-<strong>✨ Positive Values</strong>
-<span>
-Nilai-nilai positif yang dapat dipelajari
-dari setiap negara.
-</span>
-</div>
-
-<div class="card">
-<strong>👀 Perspective</strong>
-<span>
-Pengalaman yang mengubah cara pandang
-terhadap kehidupan.
-</span>
-</div>
-
-<div class="card">
-<strong>🧗 Challenges</strong>
-<span>
-Tantangan selama perjalanan dan
-cara menghadapinya.
-</span>
-</div>
-
-<div class="card">
-<strong>📸 Memorable Moments</strong>
-<span>
-Momen paling berkesan yang memberikan
-pelajaran hidup.
-</span>
-</div>
-
-<div class="card">
-<strong>🌍 Ten Stories</strong>
-<span>
-Setiap negara memiliki cerita yang
-berbeda dan makna yang berbeda.
-</span>
-</div>
-
-</div>
-
-<div class="quote">
-
-<div class="quote-text">
-
-“A journey may change your location for a while,
-but the lessons you bring home can change
-<span class="gold">your life forever.</span>”
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     17 CONFIDENT MUSLIMAH
+  17 CONFIDENT MUSLIMAH
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">🧕🏻</div>
+  <div class="slide-icon">
+    🧕✨
+  </div>
 
-<div class="eyebrow">
-WEBINAR MATERIAL · 04
+  <div class="eyebrow">
+    WEBINAR MATERIAL · 04
+  </div>
+
+  <h2>
+
+    Menjadi Muslimah yang<br>
+
+    <span class="gold">
+      Percaya Diri di Mana Pun Berada.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Kepercayaan diri tidak berarti menjadi
+    orang lain. Kepercayaan diri berarti tetap
+    mengenal nilai diri, menjaga identitas,
+    dan berinteraksi dengan dunia secara
+    baik dan terbuka.
+
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <strong>
+        Identity
+      </strong>
+      <span>
+        Menjaga identitas sebagai Muslimah
+        di lingkungan internasional.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Adab & Akhlak
+      </strong>
+      <span>
+        Menjaga ibadah dan akhlak
+        selama perjalanan.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Interaction
+      </strong>
+      <span>
+        Berinteraksi dengan masyarakat
+        dari berbagai latar belakang.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Representation
+      </strong>
+      <span>
+        Menjadi representasi Islam yang
+        ramah, santun, dan terbuka.
+      </span>
+    </div>
+
+  </div>
+
+  <div class="quote">
+
+    <div class="quote-text">
+
+      “Confidence is not becoming louder.
+      It is becoming so secure in your values
+      that you can walk into the world and still
+      remain
+      <span class="gold">
+        yourself.
+      </span>”
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Menjadi Muslimah yang<br>
-<span class="gold">Percaya Diri di Mana Pun Berada.</span>
-</h2>
-
-<p class="lead">
-
-Kepercayaan diri tidak berarti menjadi orang lain.
-Kepercayaan diri berarti tetap mengenal nilai diri,
-menjaga identitas, dan berinteraksi dengan dunia
-secara baik dan terbuka.
-
-</p>
-
-<div class="grid">
-
-<div class="card">
-<strong>🤍 Identity</strong>
-<span>
-Menjaga identitas sebagai Muslimah
-di lingkungan internasional.
-</span>
-</div>
-
-<div class="card">
-<strong>🌙 Adab & Akhlak</strong>
-<span>
-Menjaga ibadah dan akhlak selama perjalanan.
-</span>
-</div>
-
-<div class="card">
-<strong>🤝 Interaction</strong>
-<span>
-Berinteraksi dengan masyarakat
-dari berbagai latar belakang.
-</span>
-</div>
-
-<div class="card">
-<strong>🌎 Representation</strong>
-<span>
-Menjadi representasi Islam yang ramah,
-santun, dan terbuka.
-</span>
-</div>
-
-</div>
-
-<div class="quote">
-
-<div class="quote-text">
-
-“Confidence is not becoming louder.
-It is becoming so secure in your values that you can
-walk into the world and still remain
-<span class="gold">yourself.</span>”
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     18 TRAVEL ESSENTIALS
+  18 TRAVEL ESSENTIALS
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="slide-icon">🎒</div>
+  <div class="slide-icon">
+    🎒
+  </div>
 
-<div class="eyebrow">
-WEBINAR MATERIAL · 05
+  <div class="eyebrow">
+    WEBINAR MATERIAL · 05
+  </div>
+
+  <h2>
+
+    Bekal untuk Memulai<br>
+
+    <span class="gold">
+      Perjalanan.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Memulai perjalanan tidak harus selalu
+    dengan langkah besar. Bekal yang tepat
+    dapat membantu sebuah mimpi terasa
+    lebih mungkin untuk diwujudkan.
+
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <strong>
+        Mental & Spiritual
+      </strong>
+      <span>
+        Persiapan mental dan spiritual
+        sebelum melakukan perjalanan.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Simple Planning
+      </strong>
+      <span>
+        Perencanaan perjalanan secara
+        sederhana dan bertahap.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        English
+      </strong>
+      <span>
+        Pentingnya kemampuan Bahasa Inggris
+        sebagai bekal komunikasi internasional.
+      </span>
+    </div>
+
+    <div class="card">
+      <strong>
+        Small Steps
+      </strong>
+      <span>
+        Langkah kecil untuk mulai mewujudkan
+        impian menjelajah dunia.
+      </span>
+    </div>
+
+  </div>
+
+  <div class="quote">
+
+    <div class="quote-text">
+
+      “You don't need to see the whole road
+      before you begin. Take the next right step,
+      and let the journey reveal
+      <span class="gold">
+        what comes after.
+      </span>”
+
+    </div>
+
+  </div>
+
 </div>
 
-<h2>
-Bekal untuk Memulai<br>
-<span class="gold">Perjalanan.</span>
-</h2>
-
-<p class="lead">
-
-Memulai perjalanan tidak harus selalu dengan langkah besar.
-Bekal yang tepat dapat membantu sebuah mimpi terasa
-lebih mungkin untuk diwujudkan.
-
-</p>
-
-<div class="grid">
-
-<div class="card">
-<strong>🧠 Mental & Spiritual</strong>
-<span>
-Persiapan mental dan spiritual sebelum
-melakukan perjalanan.
-</span>
-</div>
-
-<div class="card">
-<strong>📝 Simple Planning</strong>
-<span>
-Perencanaan perjalanan secara sederhana
-dan bertahap.
-</span>
-</div>
-
-<div class="card">
-<strong>🗣️ English</strong>
-<span>
-Pentingnya kemampuan Bahasa Inggris
-sebagai bekal komunikasi internasional.
-</span>
-</div>
-
-<div class="card">
-<strong>👣 Small Steps</strong>
-<span>
-Langkah kecil untuk mulai mewujudkan
-impian menjelajah dunia.
-</span>
-</div>
-
-</div>
-
-<div class="quote">
-
-<div class="quote-text">
-
-“You don't need to see the whole road before you begin.
-Take the next right step, and let the journey reveal
-<span class="gold">what comes after.</span>”
-
-</div>
-
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     19 INTERACTIVE + EXPECTED OUTCOME
+  19 INTERACTIVE + EXPECTED OUTCOME
+  DIGABUNG — QUOTE SAJA
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content center">
 
-<div class="slide-icon">💛</div>
+  <div class="slide-icon">
+    💫
+  </div>
 
-<div class="eyebrow">
-HOW WE LEARN TOGETHER
+  <div class="eyebrow">
+    HOW WE LEARN TOGETHER
+  </div>
+
+  <h2>
+
+    A journey is not only
+    <span class="gold">
+      about listening.
+    </span>
+
+  </h2>
+
+  <div
+    class="quote"
+    style="
+      margin:35px auto;
+      text-align:left">
+
+    <div class="quote-text">
+
+      “The best conversations do not end
+      when the webinar ends.
+
+      <br><br>
+
+      They continue in the choices people make
+      <span class="gold">
+        afterwards.
+      </span>
+
+      <br><br>
+
+      May you leave with more than notes.
+
+      <br>
+
+      May you leave with a wider mind,
+      a braver heart, and the courage to take
+      your
+      <span class="gold">
+        next step.
+      </span>”
+
+    </div>
+
+  </div>
+
+  <div
+    class="label"
+    style="color:var(--gold2)">
+
+    LEARN · REFLECT · CONNECT · BEGIN
+
+  </div>
+
 </div>
 
-<h2>
-Learn.
-<span class="gold">Reflect.</span>
-</h2>
-
-<div class="quote" style="margin:35px auto">
-
-<div class="quote-text">
-
-“The best conversations do not end when the webinar ends.
-They continue in the choices people make
-<span class="gold">afterwards.</span>”
-
-<br><br>
-
-“May you leave with more than notes.
-May you leave with a wider mind, a braver heart,
-and the courage to take your
-<span class="gold">next step.</span>”
-
-</div>
-
-</div>
-
-<div class="label" style="color:var(--gold)">
-LEARN · REFLECT · CONNECT · BEGIN
-</div>
-
-</div>
 </section>
 
 
 <!-- =====================================================
-     20 CLOSING
+  20 CLOSING
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content center">
 
-<div class="slide-icon">🌟</div>
+  <div class="slide-icon">
+    🌱
+  </div>
 
-<div class="eyebrow">
-THE BEGINNING
+  <div class="eyebrow">
+    THE BEGINNING
+  </div>
+
+  <h2>
+
+    You don't have to
+    <br>
+
+    <span class="gold">
+      be ready.
+    </span>
+
+  </h2>
+
+  <p class="lead">
+
+    Kadang kita hanya perlu cukup berani
+    untuk mengatakan YES pada kesempatan pertama.
+
+    <br><br>
+
+    Karena kita tidak pernah tahu,
+    satu YES hari ini akan membawa kita
+    ke mana di masa depan.
+
+  </p>
+
+  <div
+    class="quote"
+    style="
+      margin:auto;
+      text-align:left">
+
+    <div class="quote-text">
+
+      Maybe your first YES
+
+      <br>
+
+      is already waiting for you.
+
+    </div>
+
+  </div>
+
+  <div
+    class="label"
+    style="
+      margin-top:30px;
+      color:var(--gold2)">
+
+    ISTI FATIMAH
+
+  </div>
+
+  <button
+    class="btn"
+    onclick="go(0)">
+
+    ↺ Back to Beginning
+
+  </button>
+
 </div>
 
-<h2>
-You don't have to
-<br>
-<span class="gold">be ready.</span>
-</h2>
-
-<p class="lead">
-
-Kadang kita hanya perlu cukup berani
-untuk mengatakan YES pada kesempatan pertama.
-
-<br><br>
-
-Karena kita tidak pernah tahu,
-satu YES hari ini akan membawa kita ke mana
-di masa depan.
-
-</p>
-
-<div class="quote"
-style="margin:auto;text-align:left">
-
-<div class="quote-text">
-
-Maybe your first YES
-<br>
-is already waiting for you.
-
-</div>
-
-</div>
-
-<div class="label"
-style="margin-top:30px;color:var(--gold)">
-
-ISTI FATIMAH
-
-</div>
-
-<button class="btn" onclick="go(0)">
-↺ Back to Beginning
-</button>
-
-</div>
 </section>
 
 </main>
 
 
 <!-- =====================================================
-     BOTTOM NAV
+     BOTTOM NAVIGATION
 ===================================================== -->
 
 <div class="bottom">
 
-<button onclick="prev()" aria-label="Previous">
-←
-</button>
+  <button
+    onclick="prev()"
+    title="Previous">
 
-<button onclick="go(0)" aria-label="Home">
-⌂
-</button>
+    ←
 
-<button onclick="nextSlide()" aria-label="Next">
-→
-</button>
+  </button>
+
+  <button
+    onclick="go(0)"
+    title="Home">
+
+    ⌂
+
+  </button>
+
+  <button
+    onclick="nextSlide()"
+    title="Next">
+
+    →
+
+  </button>
 
 </div>
 
@@ -2167,46 +3132,35 @@ ISTI FATIMAH
 ===================================================== -->
 
 <div
-class="lightbox"
-id="lightbox"
-onclick="closePhoto()">
+  class="lightbox"
+  id="lightbox"
+  onclick="closePhoto()">
 
-<button
-class="close"
-onclick="event.stopPropagation();closePhoto()">
-×
-</button>
+  <button
+    class="close"
+    onclick="closePhoto()">
 
-<img id="lightboxImg">
+    ×
+
+  </button>
+
+  <img
+    id="lightboxImg"
+    alt="Journey photo">
 
 </div>
-
 
 </div>
 
 
 <script>
 
-/* =====================================================
-   SLIDES
-===================================================== */
+/* =========================================================
+   SLIDE NAMES
+========================================================= */
 
-const slides=[
-  ...document.querySelectorAll(".slide")
-];
+const names = [
 
-const tabs=document.getElementById("tabs");
-const progress=document.getElementById("progress");
-
-let cur=0;
-
-
-/* =====================================================
-   NAMES
-   JUMLAH HARUS SAMA DENGAN SLIDE
-===================================================== */
-
-const names=[
   "Start",
   "Audience",
   "First Yes",
@@ -2225,50 +3179,71 @@ const names=[
   "10 Countries",
   "Confident Muslimah",
   "Travel Essentials",
-  "Learn & Reflect",
+  "Interactive",
   "Closing"
+
 ];
 
 
-/* =====================================================
+/* =========================================================
+   SLIDES
+========================================================= */
+
+const slides = [
+  ...document.querySelectorAll(".slide")
+];
+
+const tabs =
+  document.getElementById("tabs");
+
+const progress =
+  document.getElementById("progress");
+
+let cur = 0;
+
+
+/* =========================================================
    CREATE TABS
-===================================================== */
+========================================================= */
 
 names.forEach((name,index)=>{
 
-  const button=document.createElement("button");
+  const button =
+    document.createElement("button");
 
-  button.className="tab";
+  button.className =
+    "tab" +
+    (index === 0
+      ? " active"
+      : "");
 
-  if(index===0){
-    button.classList.add("active");
-  }
+  button.textContent =
+    name;
 
-  button.textContent=name;
-
-  button.onclick=()=>{
-    go(index);
-  };
+  button.onclick =
+    () => go(index);
 
   tabs.appendChild(button);
 
 });
 
 
-/* =====================================================
+/* =========================================================
    UPDATE SLIDE
-===================================================== */
+========================================================= */
 
 function update(){
 
-  slides.forEach((slide,index)=>{
+  slides.forEach(
+    (slide,index)=>{
 
-    slide.classList.toggle(
-      "active",
-      index===cur
-    );
+      slide.classList.toggle(
+        "active",
+        index === cur
+      );
 
-  });
+    }
+  );
 
 
   [...tabs.children].forEach(
@@ -2276,342 +3251,72 @@ function update(){
 
       tab.classList.toggle(
         "active",
-        index===cur
+        index === cur
       );
 
     }
   );
 
 
-  const percentage=
-    ((cur+1)/slides.length)*100;
-
-  progress.style.width=
-    percentage+"%";
+  progress.style.width =
+    (
+      ((cur + 1) /
+      slides.length) *
+      100
+    ) + "%";
 
 
   if(tabs.children[cur]){
 
-    tabs.children[cur].scrollIntoView({
-      behavior:"smooth",
-      inline:"center",
-      block:"nearest"
-    });
+    tabs.children[cur]
+      .scrollIntoView({
+
+        behavior:"smooth",
+
+        inline:"center",
+
+        block:"nearest"
+
+      });
 
   }
 
 }
 
 
-/* =====================================================
-   GO
-===================================================== */
+/* =========================================================
+   GO TO SLIDE
+========================================================= */
 
 function go(index){
 
-  cur=Math.max(
-    0,
-    Math.min(
-      slides.length-1,
-      index
-    )
-  );
+  cur =
+    Math.max(
+      0,
+      Math.min(
+        slides.length - 1,
+        index
+      )
+    );
 
   update();
 
 }
 
 
-/* =====================================================
-   NEXT / PREVIOUS
-===================================================== */
+/* =========================================================
+   NEXT
+========================================================= */
 
 function nextSlide(){
 
-  if(cur<slides.length-1){
+  if(cur < slides.length - 1){
 
-    go(cur+1);
-
-  }
-
-}
-
-
-function prev(){
-
-  if(cur>0){
-
-    go(cur-1);
+    go(cur + 1);
 
   }
 
 }
 
 
-/* =====================================================
-   PHOTO LIGHTBOX
-===================================================== */
-
-function openPhoto(src){
-
-  const image=
-    document.getElementById("lightboxImg");
-
-  image.src=src;
-
-  document
-    .getElementById("lightbox")
-    .classList.add("show");
-
-}
-
-
-function closePhoto(){
-
-  document
-    .getElementById("lightbox")
-    .classList.remove("show");
-
-}
-
-
-/* =====================================================
-   KEYBOARD
-===================================================== */
-
-document.addEventListener(
-  "keydown",
-  event=>{
-
-    if(event.key==="ArrowRight"){
-      nextSlide();
-    }
-
-    if(event.key==="ArrowLeft"){
-      prev();
-    }
-
-    if(event.key==="Escape"){
-      closePhoto();
-    }
-
-  }
-);
-
-
-/* =====================================================
-   MOBILE SWIPE
-===================================================== */
-
-let startX=0;
-let startY=0;
-
-document.addEventListener(
-  "touchstart",
-  event=>{
-
-    startX=
-      event.changedTouches[0].screenX;
-
-    startY=
-      event.changedTouches[0].screenY;
-
-  },
-  {passive:true}
-);
-
-
-document.addEventListener(
-  "touchend",
-  event=>{
-
-    const endX=
-      event.changedTouches[0].screenX;
-
-    const endY=
-      event.changedTouches[0].screenY;
-
-    const diffX=
-      endX-startX;
-
-    const diffY=
-      endY-startY;
-
-    /*
-      hanya dianggap swipe jika
-      gerakan horizontal lebih besar
-      daripada gerakan vertikal
-    */
-
-    if(
-      Math.abs(diffX)>65 &&
-      Math.abs(diffX)>Math.abs(diffY)
-    ){
-
-      if(diffX<0){
-        nextSlide();
-      }else{
-        prev();
-      }
-
-    }
-
-  },
-  {passive:true}
-);
-
-
-/* =====================================================
-   WORLD MAP
-===================================================== */
-
-const countries=[
-
-  ["Singapore",67,53],
-  ["Malaysia",66,56],
-  ["Thailand",64,48],
-  ["Saudi Arabia",56,47],
-  ["Japan",78,39],
-  ["Korea",74,37],
-  ["Sri Lanka",63,60],
-  ["Vietnam",69,52],
-  ["Philippines",74,55],
-  ["Mongolia",70,31]
-
-];
-
-
-const map=
-  document.getElementById("worldMap");
-
-const tip=
-  document.getElementById("tip");
-
-
-countries.forEach(
-  ([country,x,y],index)=>{
-
-    const point=
-      document.createElement("button");
-
-    point.className="point";
-
-    point.style.left=
-      x+"%";
-
-    point.style.top=
-      y+"%";
-
-
-    point.title=
-      country;
-
-
-    point.onclick=event=>{
-
-      event.stopPropagation();
-
-
-      tip.innerHTML=
-        "JOURNEY "+
-        String(index+1).padStart(2,"0")+
-        "<b>"+
-        country+
-        "</b>";
-
-
-      tip.style.left=
-        Math.min(x+2,78)+"%";
-
-      tip.style.top=
-        Math.max(y-12,5)+"%";
-
-
-      tip.classList.add("show");
-
-    };
-
-
-    map.appendChild(point);
-
-  }
-);
-
-
-/* =====================================================
-   CLOSE MAP TIP
-===================================================== */
-
-map.addEventListener(
-  "click",
-  event=>{
-
-    if(
-      !event.target.classList.contains("point")
-    ){
-
-      tip.classList.remove("show");
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   GALLERY
-===================================================== */
-
-const gallery=
-  document.getElementById("gallery");
-
-
-for(let i=1;i<=8;i++){
-
-  const number=
-    String(i).padStart(2,"0");
-
-  const item=
-    document.createElement("div");
-
-  item.className=
-    "gallery-item";
-
-
-  item.innerHTML=`
-
-    <img
-      src="images/gallery-${number}.jpg"
-      onerror="this.style.display='none'">
-
-    <span>
-      MOMENT ${number}
-    </span>
-
-  `;
-
-
-  item.onclick=()=>{
-
-    openPhoto(
-      `images/gallery-${number}.jpg`
-    );
-
-  };
-
-
-  gallery.appendChild(item);
-
-}
-
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
-
-update();
-
-</script>
-
-</body>
-</html>
+/
