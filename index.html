@@ -2,12 +2,12 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
 <title>Beyond Borders — Isti Fatimah</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,24 +18,16 @@
 :root{
   --green:#063f34;
   --deep:#021f1b;
-  --green2:#0a5547;
-
-  --gold:#d4a04d;
-  --gold2:#f1c978;
-
-  --cream:#fffaf1;
-  --pink:#e99a9a;
-  --peach:#f3b27f;
-  --blue:#8ec9d8;
-  --purple:#b8a1d9;
-
-  --white:#ffffff;
-  --muted:#d3d9d6;
+  --green2:#0a5b4c;
+  --gold:#c28b3c;
+  --gold2:#f0c875;
+  --cream:#fffaf0;
+  --pink:#f28ba8;
+  --blue:#72c9e8;
+  --purple:#a68bea;
+  --white:#fff;
+  --muted:#c7cfcc;
 }
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
   box-sizing:border-box;
@@ -55,14 +47,73 @@ body{
 }
 
 /* =========================================================
+   BACKGROUND
+========================================================= */
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-10;
+  background:
+    radial-gradient(circle at 10% 20%,#c28b3c22,transparent 28%),
+    radial-gradient(circle at 90% 15%,#a68bea1c,transparent 28%),
+    radial-gradient(circle at 80% 85%,#72c9e81b,transparent 30%),
+    linear-gradient(135deg,#021f1b,#063f34 55%,#021f1b);
+}
+
+/* decorative blobs */
+
+.bg-blob{
+  position:fixed;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  filter:blur(70px);
+  opacity:.18;
+  pointer-events:none;
+  z-index:-5;
+  animation:blobMove 10s ease-in-out infinite alternate;
+}
+
+.blob1{
+  background:var(--gold);
+  top:-100px;
+  right:-80px;
+}
+
+.blob2{
+  background:var(--purple);
+  bottom:-120px;
+  left:-80px;
+  animation-delay:2s;
+}
+
+.blob3{
+  background:var(--blue);
+  top:45%;
+  left:35%;
+  width:220px;
+  height:220px;
+  animation-delay:4s;
+}
+
+@keyframes blobMove{
+  from{
+    transform:translate(0,0) scale(1);
+  }
+  to{
+    transform:translate(50px,30px) scale(1.25);
+  }
+}
+
+/* =========================================================
    PRESENTATION
 ========================================================= */
 
 .presentation{
-  width:100%;
   height:100vh;
   position:relative;
-  overflow:hidden;
 }
 
 /* =========================================================
@@ -73,17 +124,12 @@ body{
   position:fixed;
   top:0;
   left:0;
-  width:0%;
   height:5px;
-  background:linear-gradient(
-    90deg,
-    var(--gold),
-    var(--gold2),
-    var(--pink)
-  );
-  z-index:999;
+  background:linear-gradient(90deg,var(--gold),var(--pink),var(--blue));
+  z-index:500;
+  width:5%;
   transition:.45s ease;
-  box-shadow:0 0 12px #d4a04d88;
+  box-shadow:0 0 15px #f0c87599;
 }
 
 /* =========================================================
@@ -95,70 +141,52 @@ header{
   top:0;
   left:0;
   right:0;
-  z-index:100;
-
+  z-index:400;
   padding:12px 18px;
-
+  background:linear-gradient(#021f1bee 65%,transparent);
   display:flex;
-  align-items:center;
   gap:18px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #021f1bf7 20%,
-      #021f1bcc 70%,
-      transparent
-    );
+  align-items:center;
 }
 
 .brand{
-  flex:0 0 auto;
-
+  font-family:"Playfair Display";
+  font-size:18px;
+  white-space:nowrap;
   display:flex;
   align-items:center;
   gap:9px;
-
-  font-family:"Playfair Display",serif;
-  font-size:18px;
 }
 
 .mark{
   width:36px;
   height:36px;
-
-  display:grid;
-  place-items:center;
-
   border:1px solid var(--gold);
   border-radius:50%;
-
+  display:grid;
+  place-items:center;
   color:var(--gold2);
   font-size:10px;
-
-  background:
-    radial-gradient(
-      circle,
-      #d4a04d22,
-      transparent 70%
-    );
-
   box-shadow:
-    0 0 20px #d4a04d22;
+    0 0 0 5px #c28b3c0d,
+    0 0 25px #c28b3c33;
+  animation:pulseMark 2.5s infinite;
 }
 
-/* =========================================================
-   TABS
-========================================================= */
+@keyframes pulseMark{
+  0%,100%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.08);
+  }
+}
 
 .tabs{
   display:flex;
   gap:6px;
-
   overflow-x:auto;
   scrollbar-width:none;
-
-  padding-bottom:2px;
 }
 
 .tabs::-webkit-scrollbar{
@@ -167,40 +195,26 @@ header{
 
 .tab{
   flex:0 0 auto;
-
   border:1px solid transparent;
   background:#ffffff05;
-
-  color:#9fa8a5;
-
-  padding:8px 12px;
-
+  color:#aaa;
+  padding:8px 11px;
   border-radius:999px;
-
   font-size:10px;
   cursor:pointer;
-
-  transition:.25s;
+  transition:.3s;
 }
 
 .tab:hover{
   color:white;
-  background:#ffffff12;
+  transform:translateY(-2px);
 }
 
 .tab.active{
   color:var(--gold2);
-  border-color:#d4a04d88;
-
-  background:
-    linear-gradient(
-      135deg,
-      #d4a04d18,
-      #ffffff0a
-    );
-
-  box-shadow:
-    0 0 15px #d4a04d14;
+  border-color:#c28b3c88;
+  background:#c28b3c15;
+  box-shadow:0 0 18px #c28b3c1c;
 }
 
 /* =========================================================
@@ -210,23 +224,19 @@ header{
 .slide{
   position:absolute;
   inset:0;
-
-  padding:110px 7vw 90px;
-
+  padding:105px 8vw 90px;
   display:flex;
   align-items:center;
-
   overflow-y:auto;
 
   opacity:0;
   visibility:hidden;
-
-  transform:translateX(45px) scale(.98);
+  transform:translateX(60px) scale(.97);
 
   transition:
-    opacity .45s ease,
-    transform .55s ease,
-    visibility .45s;
+    opacity .55s ease,
+    transform .65s cubic-bezier(.2,.8,.2,1),
+    visibility .55s;
 }
 
 .slide.active{
@@ -235,192 +245,75 @@ header{
   transform:none;
 }
 
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-.slide::before{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      #d4a04d12,
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 85% 75%,
-      #8ec9d814,
-      transparent 28%
-    );
-
-  pointer-events:none;
-}
-
-.slide:nth-child(3n)::before{
-  background:
-    radial-gradient(
-      circle at 80% 20%,
-      #e99a9a15,
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 20% 80%,
-      #d4a04d12,
-      transparent 30%
-    );
-}
-
-.slide:nth-child(4n)::before{
-  background:
-    radial-gradient(
-      circle at 20% 30%,
-      #8ec9d815,
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 80% 70%,
-      #b8a1d915,
-      transparent 30%
-    );
-}
-
-/* =========================================================
-   DECORATIVE BLOBS
-========================================================= */
-
-.slide::after{
-  content:"";
-
-  position:absolute;
-
-  width:360px;
-  height:360px;
-
-  right:-180px;
-  top:-180px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      #d4a04d18,
-      transparent 68%
-    );
-
-  pointer-events:none;
-
-  animation:
-    floatBlob 8s ease-in-out infinite;
-}
-
-@keyframes floatBlob{
-  0%,100%{
-    transform:translate(0,0);
-  }
-
-  50%{
-    transform:translate(-20px,25px);
-  }
-}
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
 .content{
-  width:min(1150px,100%);
+  width:min(1120px,100%);
   margin:auto;
-
   position:relative;
-  z-index:2;
-}
-
-.center{
-  text-align:center;
 }
 
 /* =========================================================
-   ICON
+   FLOATING DECORATION
 ========================================================= */
 
-.hero-icon{
-  width:78px;
-  height:78px;
-
-  display:grid;
-  place-items:center;
-
-  margin-bottom:18px;
-
-  border-radius:25px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #d4a04d22,
-      #ffffff08
-    );
-
-  border:1px solid #ffffff1c;
-
-  font-size:38px;
-
-  box-shadow:
-    0 15px 35px #0004;
-
-  animation:
-    iconFloat 3.5s ease-in-out infinite;
+.content:before{
+  content:"✦";
+  position:absolute;
+  right:-20px;
+  top:-30px;
+  color:var(--gold2);
+  font-size:28px;
+  opacity:.6;
+  animation:floatStar 4s ease-in-out infinite;
 }
 
-.center .hero-icon{
-  margin-left:auto;
-  margin-right:auto;
+.content:after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  border:1px solid #ffffff12;
+  right:20px;
+  bottom:-50px;
+  animation:rotateSlow 15s linear infinite;
+  pointer-events:none;
 }
 
-@keyframes iconFloat{
+@keyframes floatStar{
   0%,100%{
-    transform:translateY(0) rotate(-2deg);
+    transform:translateY(0) rotate(0);
   }
-
   50%{
-    transform:translateY(-8px) rotate(2deg);
+    transform:translateY(-12px) rotate(15deg);
+  }
+}
+
+@keyframes rotateSlow{
+  to{
+    transform:rotate(360deg);
   }
 }
 
 /* =========================================================
-   EYEBROW
+   TEXT
 ========================================================= */
 
 .eyebrow{
   color:var(--gold2);
-
-  letter-spacing:.2em;
-
-  font-size:10px;
-  font-weight:800;
-
-  margin-bottom:15px;
+  letter-spacing:.22em;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:16px;
 }
 
-/* =========================================================
-   HEADINGS
-========================================================= */
-
-h1,
-h2,
-h3{
-  font-family:"Playfair Display",serif;
+h1,h2,h3{
+  font-family:"Playfair Display";
   font-weight:500;
 }
 
 h1{
   font-size:clamp(58px,9vw,120px);
-  line-height:.92;
+  line-height:.95;
 }
 
 h2{
@@ -436,29 +329,28 @@ h3{
   color:var(--gold2);
 }
 
-/* =========================================================
-   LEAD
-========================================================= */
-
 .lead{
   max-width:760px;
-
-  margin-top:22px;
-
   color:#ffffffb8;
-
   line-height:1.75;
+  font-size:clamp(16px,2vw,21px);
+  margin-top:22px;
+}
 
-  font-size:clamp(
-    16px,
-    2vw,
-    21px
-  );
+.center{
+  text-align:center;
 }
 
 .center .lead{
   margin-left:auto;
   margin-right:auto;
+}
+
+.label{
+  color:#ffffff70;
+  letter-spacing:.18em;
+  font-size:10px;
+  margin-top:12px;
 }
 
 /* =========================================================
@@ -467,49 +359,20 @@ h3{
 
 .btn{
   margin-top:28px;
-
-  padding:14px 24px;
-
+  padding:14px 25px;
   border:0;
   border-radius:999px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold2),
-      var(--gold)
-    );
-
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
   color:var(--deep);
-
-  font-weight:800;
-
+  font-weight:700;
   cursor:pointer;
-
-  box-shadow:
-    0 10px 30px #d4a04d35;
-
-  transition:.25s;
+  box-shadow:0 10px 30px #c28b3c35;
+  transition:.3s;
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  box-shadow:
-    0 14px 35px #d4a04d55;
-}
-
-/* =========================================================
-   LABEL
-========================================================= */
-
-.label{
-  color:#ffffff75;
-
-  letter-spacing:.16em;
-
-  font-size:10px;
-
-  margin-top:14px;
+  transform:translateY(-4px) scale(1.03);
+  box-shadow:0 15px 35px #c28b3c55;
 }
 
 /* =========================================================
@@ -518,39 +381,30 @@ h3{
 
 .quote{
   margin-top:28px;
-
-  padding:27px 30px;
-
-  max-width:900px;
-
-  border-left:3px solid var(--gold);
-
-  border-radius:0 20px 20px 0;
-
+  padding:28px 32px;
+  border-left:3px solid var(--gold2);
   background:
-    linear-gradient(
-      135deg,
-      #ffffff0c,
-      #d4a04d08
-    );
+    linear-gradient(135deg,#ffffff0c,#c28b3c0b);
+  max-width:900px;
+  border-radius:0 22px 22px 0;
+  box-shadow:0 15px 40px #0002;
+  position:relative;
+  overflow:hidden;
+}
 
-  border-top:1px solid #ffffff0b;
-  border-right:1px solid #ffffff0b;
-  border-bottom:1px solid #ffffff0b;
-
-  box-shadow:
-    0 15px 40px #0002;
+.quote:after{
+  content:"❞";
+  position:absolute;
+  right:20px;
+  bottom:-18px;
+  font-family:Georgia;
+  font-size:100px;
+  color:#ffffff08;
 }
 
 .quote-text{
-  font-family:"Playfair Display",serif;
-
-  font-size:clamp(
-    24px,
-    4vw,
-    42px
-  );
-
+  font-family:"Playfair Display";
+  font-size:clamp(24px,4vw,42px);
   line-height:1.35;
 }
 
@@ -560,26 +414,49 @@ h3{
 
 .split{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
-  gap:50px;
-
+  gap:55px;
   align-items:center;
-
   margin-top:34px;
 }
 
+.year{
+  font:70px "Playfair Display";
+  color:var(--gold2);
+  text-shadow:0 0 30px #c28b3c33;
+}
+
 /* =========================================================
-   YEAR
+   ICON BUBBLE
 ========================================================= */
 
-.year{
-  font:
-    70px "Playfair Display",
-    serif;
+.icon-bubble{
+  width:64px;
+  height:64px;
+  border-radius:22px;
+  display:grid;
+  place-items:center;
+  font-size:30px;
+  margin-bottom:18px;
+  background:linear-gradient(
+    135deg,
+    #ffffff16,
+    #c28b3c18
+  );
+  border:1px solid #ffffff18;
+  box-shadow:
+    0 15px 30px #0002,
+    inset 0 0 20px #ffffff08;
+  animation:iconFloat 4s ease-in-out infinite;
+}
 
-  color:var(--gold2);
+@keyframes iconFloat{
+  0%,100%{
+    transform:translateY(0) rotate(0);
+  }
+  50%{
+    transform:translateY(-8px) rotate(3deg);
+  }
 }
 
 /* =========================================================
@@ -588,102 +465,64 @@ h3{
 
 .photo{
   height:400px;
-
-  border-radius:28px;
-
+  border-radius:26px;
   overflow:hidden;
-
   border:1px solid #ffffff20;
-
   background:#ffffff08;
-
   position:relative;
-
   cursor:pointer;
-
-  box-shadow:
-    0 20px 50px #0003;
-
-  transition:
-    transform .3s,
-    box-shadow .3s;
+  box-shadow:0 20px 50px #0004;
+  transition:.4s;
 }
 
 .photo:hover{
-  transform:
-    translateY(-6px)
-    rotate(-.5deg);
-
+  transform:translateY(-8px) rotate(.5deg);
+  border-color:#c28b3c77;
   box-shadow:
-    0 25px 60px #0005;
+    0 25px 60px #0005,
+    0 0 35px #c28b3c18;
 }
 
 .photo img{
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   display:block;
+  transition:.6s;
+}
+
+.photo:hover img{
+  transform:scale(1.06);
 }
 
 .placeholder{
   position:absolute;
   inset:0;
-
   display:grid;
   place-items:center;
-
   text-align:center;
-
   padding:20px;
-
   background:
-    radial-gradient(
-      circle at center,
-      #d4a04d25,
-      #063f34f5
-    );
-
-  font-size:45px;
-}
-
-.placeholder b{
-  display:block;
-
-  font-family:
-    "Playfair Display",
-    serif;
-
-  font-size:22px;
+    radial-gradient(circle at 50% 30%,#c28b3c33,transparent 30%),
+    linear-gradient(135deg,#0a5b4cee,#021f1bee);
+  color:#fff;
 }
 
 .placeholder small{
   display:block;
-
-  color:#ffffff88;
-
+  color:#ffffff99;
   margin-top:8px;
-
-  font-size:11px;
 }
 
 .photo .tag{
   position:absolute;
-
   left:14px;
   bottom:14px;
-
   background:#021f1bdd;
-
   border:1px solid #ffffff22;
-
   border-radius:99px;
-
-  padding:7px 11px;
-
+  padding:7px 10px;
   font-size:9px;
-
   letter-spacing:.1em;
 }
 
@@ -693,31 +532,25 @@ h3{
 
 .timeline{
   display:grid;
-  gap:14px;
+  gap:16px;
 }
 
 .timeline div{
-  padding:17px 19px;
-
+  padding:18px 20px;
   border-left:3px solid var(--gold);
-
   background:#ffffff08;
-
-  border-radius:0 17px 17px 0;
-
-  transition:.25s;
+  border-radius:0 18px 18px 0;
+  transition:.3s;
 }
 
 .timeline div:hover{
-  transform:translateX(6px);
-  background:#ffffff0e;
+  transform:translateX(8px);
+  background:#c28b3c12;
 }
 
 .timeline p{
   color:#ffffff90;
-
   margin-top:6px;
-
   line-height:1.55;
 }
 
@@ -727,78 +560,49 @@ h3{
 
 .grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:15px;
-
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
   margin-top:30px;
 }
 
 .card{
-  position:relative;
-
   padding:24px;
-
-  border:1px solid #ffffff17;
-
+  border:1px solid #ffffff18;
   background:
-    linear-gradient(
-      135deg,
-      #ffffff0b,
-      #ffffff04
-    );
-
-  border-radius:22px;
-
+    linear-gradient(135deg,#ffffff0b,#ffffff03);
+  border-radius:20px;
+  position:relative;
   overflow:hidden;
-
-  transition:
-    transform .25s,
-    background .25s,
-    border .25s;
+  transition:.35s;
 }
 
-.card::after{
-  content:"✦";
-
+.card:before{
+  content:"";
   position:absolute;
-
-  right:17px;
-  top:13px;
-
-  color:#ffffff25;
-
-  font-size:20px;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:#c28b3c15;
+  right:-25px;
+  top:-25px;
 }
 
 .card:hover{
-  transform:translateY(-5px);
-
-  background:
-    linear-gradient(
-      135deg,
-      #d4a04d16,
-      #ffffff08
-    );
-
-  border-color:#d4a04d55;
+  transform:translateY(-7px);
+  border-color:#c28b3c66;
+  background:#ffffff10;
+  box-shadow:0 15px 35px #0003;
 }
 
 .card strong{
   color:var(--gold2);
-
-  font-size:18px;
+  font-size:19px;
 }
 
 .card span{
   display:block;
-
   margin-top:9px;
-
-  color:#ffffff98;
-
+  color:#ffffff95;
   line-height:1.6;
 }
 
@@ -808,196 +612,92 @@ h3{
 
 .map{
   margin-top:28px;
-
   height:410px;
-
   border:1px solid #ffffff20;
-
-  border-radius:30px;
-
+  border-radius:28px;
   position:relative;
-
   overflow:hidden;
-
   background:
     radial-gradient(
       ellipse at center,
-      #0a5547,
+      #0a5b4c,
       #021f1b
     );
-
-  box-shadow:
-    inset 0 0 60px #0005;
+  box-shadow:0 20px 60px #0004;
 }
 
 .map:before{
   content:"";
-
   position:absolute;
   inset:0;
-
   opacity:.12;
-
   background-image:
-    linear-gradient(
-      #fff 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      #fff 1px,
-      transparent 1px
-    );
-
-  background-size:
-    10% 20%;
+    linear-gradient(#fff 1px,transparent 1px),
+    linear-gradient(90deg,#fff 1px,transparent 1px);
+  background-size:10% 20%;
 }
 
 .land{
   position:absolute;
-
   background:#ffffff12;
-
   border-radius:50%;
-
-  filter:blur(.3px);
 }
 
-.l1{
-  width:18%;
-  height:24%;
-  left:12%;
-  top:20%;
-}
-
-.l2{
-  width:10%;
-  height:30%;
-  left:25%;
-  top:48%;
-}
-
-.l3{
-  width:11%;
-  height:10%;
-  left:47%;
-  top:25%;
-}
-
-.l4{
-  width:15%;
-  height:32%;
-  left:47%;
-  top:40%;
-}
-
-.l5{
-  width:27%;
-  height:27%;
-  left:55%;
-  top:23%;
-}
-
-.l6{
-  width:12%;
-  height:11%;
-  right:10%;
-  bottom:18%;
-}
-
-/* =========================================================
-   MAP POINTS
-========================================================= */
+.l1{width:18%;height:24%;left:12%;top:20%}
+.l2{width:10%;height:30%;left:25%;top:48%}
+.l3{width:11%;height:10%;left:47%;top:25%}
+.l4{width:15%;height:32%;left:47%;top:40%}
+.l5{width:27%;height:27%;left:55%;top:23%}
+.l6{width:12%;height:11%;right:10%;bottom:18%}
 
 .point{
   position:absolute;
-
   width:17px;
   height:17px;
-
   border-radius:50%;
-
   border:2px solid white;
-
-  background:var(--gold);
-
+  background:var(--gold2);
   box-shadow:
-    0 0 0 5px #d4a04d18,
-    0 0 25px #d4a04d;
-
-  transform:
-    translate(-50%,-50%);
-
+    0 0 0 7px #c28b3c22,
+    0 0 25px #c28b3c;
+  transform:translate(-50%,-50%);
   cursor:pointer;
-
-  animation:
-    pulsePoint 2s infinite;
+  animation:mapPulse 2s infinite;
 }
 
-@keyframes pulsePoint{
+@keyframes mapPulse{
   0%,100%{
     box-shadow:
-      0 0 0 5px #d4a04d18,
-      0 0 20px #d4a04d;
+      0 0 0 5px #c28b3c20,
+      0 0 20px #c28b3c;
   }
-
   50%{
     box-shadow:
-      0 0 0 12px #d4a04d08,
-      0 0 30px #d4a04d;
+      0 0 0 12px #c28b3c08,
+      0 0 30px #c28b3c;
   }
 }
 
 .tip{
   position:absolute;
-
   display:none;
-
-  z-index:5;
-
+  z-index:3;
   background:#032f28;
-
   border:1px solid var(--gold);
-
-  border-radius:16px;
-
+  border-radius:14px;
   padding:12px 15px;
-
-  font-size:11px;
-
-  box-shadow:
-    0 15px 40px #0006;
+  font-size:12px;
+  box-shadow:0 15px 30px #0005;
 }
 
 .tip.show{
   display:block;
-
-  animation:
-    pop .25s ease;
-}
-
-@keyframes pop{
-  from{
-    opacity:0;
-    transform:scale(.8);
-  }
-
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
 }
 
 .tip b{
   display:block;
-
-  font:
-    21px "Playfair Display",
-    serif;
-
+  font:21px "Playfair Display";
   margin-top:4px;
-
-  color:var(--gold2);
 }
 
 /* =========================================================
@@ -1006,62 +706,45 @@ h3{
 
 .gallery{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   gap:13px;
-
   margin-top:28px;
 }
 
 .gallery-item{
   height:180px;
-
   position:relative;
-
-  border-radius:19px;
-
+  border-radius:17px;
   overflow:hidden;
-
   background:#ffffff08;
-
   border:1px solid #ffffff18;
-
   cursor:pointer;
-
-  transition:
-    transform .3s,
-    border .3s;
+  transition:.35s;
 }
 
 .gallery-item:hover{
-  transform:
-    translateY(-6px)
-    scale(1.02);
-
-  border-color:#d4a04d66;
+  transform:translateY(-7px) scale(1.02);
+  border-color:#c28b3c66;
 }
 
 .gallery-item img{
   width:100%;
   height:100%;
-
   object-fit:cover;
+  transition:.5s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.08);
 }
 
 .gallery-item span{
   position:absolute;
-
   bottom:10px;
   left:10px;
-
   background:#021f1bdd;
-
   border-radius:99px;
-
   padding:6px 9px;
-
   font-size:9px;
 }
 
@@ -1071,55 +754,36 @@ h3{
 
 .bottom{
   position:fixed;
-
-  z-index:300;
-
+  z-index:600;
   bottom:16px;
-
   left:50%;
-
   transform:translateX(-50%);
-
   display:flex;
-
   gap:8px;
-
   padding:7px;
-
   border:1px solid #ffffff1f;
-
   background:#032f28e8;
-
-  backdrop-filter:blur(12px);
-
   border-radius:999px;
-
-  box-shadow:
-    0 15px 40px #0005;
+  backdrop-filter:blur(15px);
+  box-shadow:0 10px 40px #0005;
 }
 
 .bottom button{
   width:40px;
   height:40px;
-
   border-radius:50%;
-
   border:0;
-
   background:#ffffff10;
-
   color:#fff;
-
   font-size:18px;
-
   cursor:pointer;
-
   transition:.25s;
 }
 
 .bottom button:hover{
-  background:#d4a04d33;
+  background:#c28b3c33;
   color:var(--gold2);
+  transform:scale(1.1);
 }
 
 /* =========================================================
@@ -1128,18 +792,13 @@ h3{
 
 .lightbox{
   position:fixed;
-
   inset:0;
-
-  z-index:9999;
-
+  z-index:999;
   display:none;
-
   place-items:center;
-
   background:#000e;
-
   padding:20px;
+  backdrop-filter:blur(10px);
 }
 
 .lightbox.show{
@@ -1149,87 +808,22 @@ h3{
 .lightbox img{
   max-width:95vw;
   max-height:88vh;
-
-  border-radius:16px;
-
-  box-shadow:
-    0 25px 80px #000;
+  border-radius:15px;
+  box-shadow:0 20px 80px #000;
 }
 
 .close{
   position:absolute;
-
   top:20px;
   right:20px;
-
   width:44px;
   height:44px;
-
   border-radius:50%;
-
   border:1px solid #fff4;
-
   background:#fff2;
-
   color:#fff;
-
   font-size:25px;
-
   cursor:pointer;
-}
-
-/* =========================================================
-   ANIMATION ON ACTIVE SLIDE
-========================================================= */
-
-.slide.active .eyebrow{
-  animation:
-    fadeUp .6s ease both;
-}
-
-.slide.active h1,
-.slide.active h2{
-  animation:
-    fadeUp .7s .08s ease both;
-}
-
-.slide.active .lead{
-  animation:
-    fadeUp .7s .16s ease both;
-}
-
-.slide.active .quote{
-  animation:
-    fadeUp .7s .24s ease both;
-}
-
-.slide.active .card{
-  animation:
-    fadeUp .55s ease both;
-}
-
-.slide.active .card:nth-child(2){
-  animation-delay:.08s;
-}
-
-.slide.active .card:nth-child(3){
-  animation-delay:.16s;
-}
-
-.slide.active .card:nth-child(4){
-  animation-delay:.24s;
-}
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-
-  to{
-    opacity:1;
-    transform:none;
-  }
 }
 
 /* =========================================================
@@ -1244,8 +838,7 @@ h3{
   }
 
   .gallery{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .photo{
@@ -1258,54 +851,39 @@ h3{
 
   header{
     display:block;
-
     padding:8px 12px;
-
-    height:108px;
+    height:110px;
   }
 
   .brand{
-    height:35px;
-  }
-
-  .tabs{
-    margin-top:5px;
+    height:34px;
   }
 
   .slide{
-    padding:
-      125px
-      18px
-      85px;
+    padding:125px 18px 85px;
   }
 
-  .hero-icon{
-    width:64px;
-    height:64px;
-    font-size:30px;
-    border-radius:20px;
+  .content:before{
+    right:5px;
+    top:-15px;
+    font-size:20px;
   }
 
   h1{
-    font-size:
-      clamp(
-        55px,
-        16vw,
-        85px
-      );
+    font-size:60px;
   }
 
   h2{
-    font-size:
-      clamp(
-        39px,
-        12vw,
-        62px
-      );
+    font-size:43px;
+  }
+
+  .lead{
+    font-size:15px;
+    line-height:1.65;
   }
 
   .photo{
-    height:250px;
+    height:240px;
   }
 
   .grid{
@@ -1317,48 +895,76 @@ h3{
   }
 
   .map{
-    height:330px;
+    height:300px;
+  }
+
+  .year{
+    font-size:55px;
   }
 
   .quote{
     padding:22px;
   }
 
-  .bottom{
-    bottom:12px;
+  .quote-text{
+    font-size:25px;
   }
 
-  .bottom button{
-    width:38px;
-    height:38px;
+  .tab{
+    font-size:8px;
+    padding:7px 9px;
+  }
+
+  .bottom{
+    bottom:10px;
   }
 
 }
 
 /* =========================================================
-   VERY SMALL PHONE
+   EXTRA ANIMATION
 ========================================================= */
 
-@media(max-width:380px){
+.slide.active .eyebrow{
+  animation:fadeUp .6s both;
+}
 
-  .slide{
-    padding-top:120px;
+.slide.active h1,
+.slide.active h2{
+  animation:fadeUp .7s .08s both;
+}
+
+.slide.active .lead{
+  animation:fadeUp .7s .16s both;
+}
+
+.slide.active .grid,
+.slide.active .split,
+.slide.active .quote,
+.slide.active .map,
+.slide.active .gallery{
+  animation:fadeUp .8s .22s both;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(22px);
   }
-
-  .lead{
-    font-size:15px;
+  to{
+    opacity:1;
+    transform:none;
   }
-
-  .quote-text{
-    font-size:23px;
-  }
-
 }
 
 </style>
 </head>
 
 <body>
+
+<div class="bg-blob blob1"></div>
+<div class="bg-blob blob2"></div>
+<div class="bg-blob blob3"></div>
 
 <div class="presentation">
 
@@ -1371,1531 +977,1406 @@ h3{
     Isti Fatimah
   </div>
 
-  <nav
-    class="tabs"
-    id="tabs">
-  </nav>
+  <nav class="tabs" id="tabs"></nav>
 
 </header>
-
 
 <main id="slides">
 
 
 <!-- =====================================================
-     01 START
+  1. START
 ===================================================== -->
 
-<section
-  class="slide active"
-  data-name="Start">
+<section class="slide active">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">🌍</div>
+<div class="icon-bubble">🌏</div>
 
-    <div class="eyebrow">
-      WEBINAR SERIES · PART 01
-    </div>
+<div class="eyebrow">
+WEBINAR SERIES · PART 01
+</div>
 
-    <h1>
-      Beyond<br>
-      <span class="gold">
-        Borders.
-      </span>
-    </h1>
+<h1>
+Beyond<br>
+<span class="gold">Borders.</span>
+</h1>
 
-    <p class="lead">
-      Sebelum saya menjadi seorang traveler,
-      ada banyak “YES” kecil yang ternyata
-      membawa saya semakin dekat dengan dunia.
-    </p>
+<p class="lead">
+Sebelum saya menjadi seorang traveler, ada banyak
+“YES” kecil yang ternyata membawa saya semakin dekat
+dengan dunia.
+</p>
 
-    <div class="label">
-      ISTI FATIMAH · JOURNEY BEFORE TRAVELING
-    </div>
+<div class="label">
+ISTI FATIMAH · JOURNEY BEFORE TRAVELING
+</div>
 
-    <button
-      class="btn"
-      onclick="nextSlide()">
-      Let's Begin →
-    </button>
+<button class="btn" onclick="nextSlide()">
+Let's Begin →
+</button>
 
-  </div>
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     02 AUDIENCE
+  2. AUDIENCE
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Audience">
+<section class="slide">
 
-  <div class="content center">
+<div class="content center">
 
-    <div class="hero-icon">🙋🏻‍♀️</div>
+<div class="icon-bubble" style="margin:auto auto 18px">
+🙋🏻‍♀️
+</div>
 
-    <div class="eyebrow">
-      MEET THE AUDIENCE
-    </div>
+<div class="eyebrow">
+MEET THE AUDIENCE
+</div>
 
-    <h2>
-      Saya mau tahu...
-    </h2>
+<h2>
+Saya mau tahu...
+</h2>
 
-    <p class="lead">
-      Siapa di sini yang pernah mendapatkan
-      sebuah kesempatan tetapi merasa,
-      <br><br>
-      <b>
-        “Kayaknya saya belum siap.”
-      </b>
-    </p>
+<p class="lead">
+Siapa di sini yang pernah mendapatkan sebuah kesempatan
+tetapi merasa,
+<br><br>
+<b>“Kayaknya saya belum siap.”</b>
+</p>
 
-    <div
-      class="quote"
-      style="margin-left:auto;margin-right:auto">
+<div class="quote" style="margin:auto">
 
-      <div class="quote-text">
-        Maybe being ready isn't
-        the first step.
-        <br><br>
-        <span class="gold">
-          Maybe saying YES is.
-        </span>
-      </div>
+<div class="quote-text">
 
-    </div>
+Maybe being ready isn't the first step.
 
-  </div>
+<br><br>
+
+<span class="gold">
+Maybe saying YES is.
+</span>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     03 FIRST YES
+  3. FIRST YES
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="First Yes">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">💡</div>
+<div class="icon-bubble">✨</div>
 
-    <div class="eyebrow">
-      THE FIRST YES
-    </div>
+<div class="eyebrow">
+THE FIRST YES
+</div>
 
-    <h2>
-      I didn't start with<br>
-      <span class="gold">
-        traveling.
-      </span>
-    </h2>
+<h2>
+I didn't start with<br>
+<span class="gold">traveling.</span>
+</h2>
 
-    <p class="lead">
-      Kalau hari ini saya dikenal sebagai
-      seorang traveler, mungkin orang akan
-      berpikir semuanya dimulai dari perjalanan
-      ke luar negeri.
-    </p>
+<p class="lead">
+Kalau hari ini saya dikenal sebagai seorang traveler,
+mungkin orang akan berpikir semuanya dimulai
+dari perjalanan ke luar negeri.
+</p>
 
-    <div class="quote">
+<div class="quote">
 
-      <div class="quote-text">
-        But actually...
-        <br><br>
-        it started with
-        <span class="gold">
-          courage.
-        </span>
-      </div>
+<div class="quote-text">
 
-    </div>
+But actually...
 
-  </div>
+<br><br>
+
+it started with
+<span class="gold">courage.</span>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     04 FIFA
+  4. FIFA
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="FIFA 2014">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">⚽</div>
+<div class="icon-bubble">⚽</div>
 
-    <div class="eyebrow">
-      DREAMING BEYOND · 2014
-    </div>
+<div class="eyebrow">
+DREAMING BEYOND · 2014
+</div>
 
-    <h2>
-      My first big
-      <span class="gold">
-        dream.
-      </span>
-    </h2>
+<h2>
+My first big
+<span class="gold">dream.</span>
+</h2>
 
-    <div class="split">
+<div class="split">
 
-      <div
-        class="photo"
-        onclick="openPhoto('images/fifa-2014.jpg')">
+<div class="photo"
+onclick="openPhoto('images/fifa-2014.jpg')">
 
-        <img
-          src="images/fifa-2014.jpg"
-          onerror="this.style.display='none'">
+<img
+src="images/fifa-2014.jpg"
+onerror="this.style.display='none'">
 
-        <div class="placeholder">
-          ⚽
-          <div>
-            <b>
-              Foto FIFA World Cup 2014
-            </b>
+<div class="placeholder">
 
-            <small>
-              fifa-2014.jpg
-            </small>
-          </div>
-        </div>
+⚽
 
-        <div class="tag">
-          RIO DE JANEIRO · BRAZIL
-        </div>
+<div>
+<b>Foto FIFA World Cup 2014</b>
+<small>
+fifa-2014.jpg
+</small>
+</div>
 
-      </div>
+</div>
 
+<div class="tag">
+RIO DE JANEIRO · BRAZIL
+</div>
 
-      <div>
+</div>
 
-        <div class="year">
-          2014
-        </div>
+<div>
 
-        <div class="label">
-          FIFA WORLD CUP
-        </div>
+<div class="year">
+2014
+</div>
 
-        <h3 style="margin-top:12px">
-          Calon Volunteer
-        </h3>
+<div class="label">
+FIFA WORLD CUP
+</div>
 
-        <p class="lead">
-          Salah satu titik awal perjalanan
-          saya adalah ketika saya memberanikan
-          diri menjadi calon volunteer
-          FIFA World Cup 2014 di Rio de Janeiro,
-          Brazil.
-        </p>
+<h3 style="margin-top:12px">
+Calon Volunteer
+</h3>
 
-      </div>
+<p class="lead">
 
-    </div>
+Salah satu titik awal perjalanan saya adalah ketika
+saya memberanikan diri menjadi calon volunteer
+FIFA World Cup 2014 di Rio de Janeiro, Brazil.
 
-  </div>
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     05 INVITATION
+  5. INVITATION
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Invitation">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">🏟️</div>
+<div class="icon-bubble">🏟️</div>
 
-    <div class="eyebrow">
-      ANOTHER DOOR · 2018
-    </div>
+<div class="eyebrow">
+ANOTHER DOOR · 2018
+</div>
 
-    <h2>
-      Another door
-      <span class="gold">
-        opened.
-      </span>
-    </h2>
+<h2>
+Another door
+<span class="gold">opened.</span>
+</h2>
 
-    <div class="split">
+<div class="split">
 
-      <div>
+<div>
 
-        <div class="year">
-          2018
-        </div>
+<div class="year">
+2018
+</div>
 
-        <div class="label">
-          ASIAN GAMES
-        </div>
+<div class="label">
+ASIAN GAMES
+</div>
 
-        <h3 style="margin-top:12px">
-          Volunteer Invitation Tournament
-        </h3>
+<h3 style="margin-top:12px">
+Volunteer Invitation Tournament
+</h3>
 
-        <p class="lead">
-          Saya kemudian mendapatkan
-          kesempatan menjadi volunteer
-          pada Invitation Tournament
-          Asian Games 2018.
-        </p>
+<p class="lead">
 
-      </div>
+Saya kemudian mendapatkan kesempatan menjadi volunteer
+pada Invitation Tournament Asian Games 2018.
 
-      <div
-        class="photo"
-        onclick="openPhoto(
-          'images/invitation-asian-games.jpg'
-        )">
+</p>
 
-        <img
-          src="images/invitation-asian-games.jpg"
-          onerror="this.style.display='none'">
+</div>
 
-        <div class="placeholder">
-          🏟️
-          <div>
-            <b>
-              Invitation Tournament
-            </b>
+<div class="photo"
+onclick="openPhoto('images/invitation-asian-games.jpg')">
 
-            <small>
-              invitation-asian-games.jpg
-            </small>
-          </div>
-        </div>
+<img
+src="images/invitation-asian-games.jpg"
+onerror="this.style.display='none'">
 
-      </div>
+<div class="placeholder">
 
-    </div>
+🏟️
 
-  </div>
+<div>
+<b>
+Invitation Tournament
+</b>
+
+<small>
+invitation-asian-games.jpg
+</small>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     06 BANDUNG BALI
+  6. BANDUNG BALI
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Bandung Bali">
+<section class="slide">
 
-  <div class="content center">
+<div class="content center">
 
-    <div class="hero-icon">✈️</div>
+<div class="icon-bubble" style="margin:auto auto 18px">
+✈️
+</div>
 
-    <div class="eyebrow">
-      AN UNEXPECTED TURN
-    </div>
+<div class="eyebrow">
+AN UNEXPECTED TURN
+</div>
 
-    <h2>
-      Sometimes...
-      <span class="gold">
-        just say YES.
-      </span>
-    </h2>
+<h2>
+Sometimes...
+<span class="gold">just say YES.</span>
+</h2>
 
-    <p class="lead">
-      Saya mengikuti giveaway flight
-      <b>
-        Bandung — Bali.
-      </b>
-    </p>
+<p class="lead">
+Saya mengikuti giveaway flight
+<b>Bandung — Bali.</b>
+</p>
 
-    <div
-      class="split"
-      style="text-align:left">
+<div class="split" style="text-align:left">
 
-      <div
-        class="photo"
-        onclick="openPhoto(
-          'images/giveaway-bandung-bali.jpg'
-        )">
+<div class="photo"
+onclick="openPhoto('images/giveaway-bandung-bali.jpg')">
 
-        <img
-          src="images/giveaway-bandung-bali.jpg"
-          onerror="this.style.display='none'">
+<img
+src="images/giveaway-bandung-bali.jpg"
+onerror="this.style.display='none'">
 
-        <div class="placeholder">
-          ✈️
-          <div>
-            <b>
-              Bandung → Bali
-            </b>
+<div class="placeholder">
 
-            <small>
-              giveaway-bandung-bali.jpg
-            </small>
-          </div>
-        </div>
+✈️
 
-      </div>
+<div>
 
-      <div class="quote">
+<b>
+Bandung → Bali
+</b>
 
-        <div class="quote-text">
-          Not every journey
-          <br>
-          starts with
-          <span class="gold">
-            a plan.
-          </span>
-        </div>
+<small>
+giveaway-bandung-bali.jpg
+</small>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
+
+<div class="quote">
+
+<div class="quote-text">
+
+Not every journey
+
+<br>
+
+starts with
+
+<span class="gold">
+a plan.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     07 ASIAN GAMES
+  7. ASIAN GAMES
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Asian Games">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">🏅</div>
+<div class="icon-bubble">🏅</div>
 
-    <div class="eyebrow">
-      THE BIGGER YES · 2018
-    </div>
+<div class="eyebrow">
+THE BIGGER YES · 2018
+</div>
 
-    <h2>
-      I stepped into
-      <span class="gold">
-        Asian Games 2018.
-      </span>
-    </h2>
+<h2>
+I stepped into
+<span class="gold">Asian Games 2018.</span>
+</h2>
 
-    <div class="split">
+<div class="split">
 
-      <div
-        class="photo"
-        onclick="openPhoto(
-          'images/asian-games-2018.jpg'
-        )">
+<div class="photo"
+onclick="openPhoto('images/asian-games-2018.jpg')">
 
-        <img
-          src="images/asian-games-2018.jpg"
-          onerror="this.style.display='none'">
+<img
+src="images/asian-games-2018.jpg"
+onerror="this.style.display='none'">
 
-        <div class="placeholder">
-          🏅
-          <div>
-            <b>
-              Volunteer Asian Games
-            </b>
+<div class="placeholder">
 
-            <small>
-              asian-games-2018.jpg
-            </small>
-          </div>
-        </div>
+🏅
 
-      </div>
+<div>
 
+<b>
+Volunteer Asian Games
+</b>
 
-      <div class="timeline">
+<small>
+asian-games-2018.jpg
+</small>
 
-        <div>
-          <h3>🤝 Meet</h3>
-          <p>
-            Bertemu lebih banyak orang.
-          </p>
-        </div>
+</div>
 
-        <div>
-          <h3>💬 Interact</h3>
-          <p>
-            Berinteraksi dengan lingkungan
-            yang lebih beragam.
-          </p>
-        </div>
+</div>
 
-        <div>
-          <h3>🌱 Adapt</h3>
-          <p>
-            Belajar menyesuaikan diri.
-          </p>
-        </div>
+</div>
 
-        <div>
-          <h3>✨ Grow</h3>
-          <p>
-            Kepercayaan diri semakin tumbuh.
-          </p>
-        </div>
+<div class="timeline">
 
-      </div>
+<div>
+<h3>🤝 Meet</h3>
+<p>
+Bertemu lebih banyak orang.
+</p>
+</div>
 
-    </div>
+<div>
+<h3>💬 Interact</h3>
+<p>
+Berinteraksi dengan lingkungan yang lebih beragam.
+</p>
+</div>
 
-  </div>
+<div>
+<h3>🌱 Adapt</h3>
+<p>
+Belajar menyesuaikan diri.
+</p>
+</div>
+
+<div>
+<h3>🚀 Grow</h3>
+<p>
+Kepercayaan diri semakin tumbuh.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     08 EHEF
+  8. EHEF
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="EHEF">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">🌐</div>
+<div class="icon-bubble">🌍</div>
 
-    <div class="eyebrow">
-      THE EHEF CHAPTER · 2018—2020
-    </div>
+<div class="eyebrow">
+THE EHEF CHAPTER · 2018—2020
+</div>
 
-    <h2>
-      Then came
-      <span class="gold">
-        EHEF.
-      </span>
-    </h2>
+<h2>
+Then came
+<span class="gold">EHEF.</span>
+</h2>
 
-    <div class="split">
+<div class="split">
 
-      <div>
+<div>
 
-        <div class="year">
-          2018–20
-        </div>
+<div class="year">
+2018–20
+</div>
 
-        <div class="label">
-          EHEF
-        </div>
+<div class="label">
+EHEF
+</div>
 
-        <h3 style="margin-top:12px">
-          Volunteer & Committee
-        </h3>
+<h3 style="margin-top:12px">
+Volunteer & Committee
+</h3>
 
-        <p class="lead">
-          Saya kemudian bergabung dalam
-          volunteer dan kepanitiaan EHEF
-          pada periode 2018–2020.
-        </p>
+<p class="lead">
 
-        <p
-          class="lead"
-          style="font-size:15px">
+Saya kemudian bergabung dalam volunteer
+dan kepanitiaan EHEF pada periode 2018–2020.
 
-          Pengalaman ini semakin mempertemukan
-          saya dengan banyak orang dari berbagai
-          negara dan latar belakang.
+</p>
 
-        </p>
+<p class="lead" style="font-size:15px">
 
-      </div>
+Pengalaman ini semakin mempertemukan saya
+dengan banyak orang dari berbagai negara
+dan latar belakang.
 
-      <div
-        class="photo"
-        onclick="openPhoto(
-          'images/ehef-2018.jpg'
-        )">
+</p>
 
-        <img
-          src="images/ehef-2018.jpg"
-          onerror="this.style.display='none'">
+</div>
 
-        <div class="placeholder">
-          🌍
-          <div>
-            <b>
-              Foto EHEF
-            </b>
+<div class="photo"
+onclick="openPhoto('images/ehef-2018.jpg')">
 
-            <small>
-              ehef-2018.jpg
-            </small>
-          </div>
-        </div>
+<img
+src="images/ehef-2018.jpg"
+onerror="this.style.display='none'">
 
-      </div>
+<div class="placeholder">
 
-    </div>
+🌍
 
-  </div>
+<div>
+
+<b>
+Foto EHEF
+</b>
+
+<small>
+ehef-2018.jpg
+</small>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     09 CONNECTION
+  9. CONNECTION
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Connections">
+<section class="slide">
 
-  <div class="content center">
+<div class="content center">
 
-    <div class="hero-icon">🤝</div>
+<div class="icon-bubble" style="margin:auto auto 18px">
+🌎
+</div>
 
-    <div class="eyebrow">
-      GLOBAL CONNECTIONS
-    </div>
+<div class="eyebrow">
+GLOBAL CONNECTIONS
+</div>
 
-    <h2>
-      I met people
-      <span class="gold">
-        from everywhere.
-      </span>
-    </h2>
+<h2>
+I met people
+<span class="gold">from everywhere.</span>
+</h2>
 
-    <p class="lead">
-      Dari berbagai pengalaman tersebut,
-      saya bertemu banyak teman dari luar negeri.
-    </p>
+<p class="lead">
 
-    <div
-      class="quote"
-      style="margin-left:auto;margin-right:auto">
+Dari berbagai pengalaman tersebut,
+saya bertemu banyak teman dari luar negeri.
 
-      <div class="quote-text">
-        The world became
-        <span class="gold">
-          smaller
-        </span>
-        <br>
-        when I started
-        <span class="gold">
-          connecting.
-        </span>
-      </div>
+</p>
 
-    </div>
+<div class="quote" style="margin:auto">
 
-  </div>
+<div class="quote-text">
+
+The world became
+<span class="gold">smaller</span>
+
+<br>
+
+when I started
+<span class="gold">connecting.</span>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     10 ENGLISH
+  10. ENGLISH
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="English">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">🗣️</div>
+<div class="icon-bubble">💬</div>
 
-    <div class="eyebrow">
-      FINDING MY VOICE
-    </div>
+<div class="eyebrow">
+FINDING MY VOICE
+</div>
 
-    <h2>
-      Then I realized...
-      <br>
-      <span class="gold">
-        I had to speak.
-      </span>
-    </h2>
+<h2>
+Then I realized...
+<br>
+<span class="gold">I had to speak.</span>
+</h2>
 
-    <p class="lead">
-      Bertemu dengan banyak teman dari luar
-      negeri membuat saya harus belajar
-      berkomunikasi dalam Bahasa Inggris.
-    </p>
+<p class="lead">
 
-    <div class="grid">
+Bertemu dengan banyak teman dari luar negeri
+membuat saya harus belajar berkomunikasi
+dalam Bahasa Inggris.
 
-      <div class="card">
-        <strong>
-          🌎 English
-        </strong>
-        <span>
-          Bukan hanya belajar memahami,
-          tetapi belajar menggunakannya.
-        </span>
-      </div>
+</p>
 
-      <div class="card">
-        <strong>
-          💬 Communication
-        </strong>
-        <span>
-          Belajar menyampaikan pikiran kepada
-          orang dari latar belakang berbeda.
-        </span>
-      </div>
+<div class="grid">
 
-      <div class="card">
-        <strong>
-          💪 Confidence
-        </strong>
-        <span>
-          Berani berbicara meskipun belum
-          merasa sempurna.
-        </span>
-      </div>
+<div class="card">
+<strong>🗣️ English</strong>
+<span>
+Bukan hanya belajar memahami,
+tetapi belajar menggunakannya.
+</span>
+</div>
 
-      <div class="card">
-        <strong>
-          ❤️ Connection
-        </strong>
-        <span>
-          Bahasa menjadi jembatan untuk
-          membangun pertemanan.
-        </span>
-      </div>
+<div class="card">
+<strong>🤝 Communication</strong>
+<span>
+Belajar menyampaikan pikiran kepada orang
+dari latar belakang berbeda.
+</span>
+</div>
 
-    </div>
+<div class="card">
+<strong>💪 Confidence</strong>
+<span>
+Berani berbicara meskipun belum merasa sempurna.
+</span>
+</div>
 
-    <div class="quote">
+<div class="card">
+<strong>🌉 Connection</strong>
+<span>
+Bahasa menjadi jembatan untuk membangun pertemanan.
+</span>
+</div>
 
-      <div class="quote-text">
-        I didn't need to speak
-        <span class="gold">
-          perfect English.
-        </span>
+</div>
 
-        <br><br>
+<div class="quote">
 
-        I needed the courage
-        <span class="gold">
-          to speak.
-        </span>
-      </div>
+<div class="quote-text">
 
-    </div>
+I didn't need to speak
+<span class="gold">perfect English.</span>
 
-  </div>
+<br><br>
+
+I needed the courage
+<span class="gold">to speak.</span>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     11 PATTERN
+  11. PATTERN
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Pattern">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">🧩</div>
+<div class="icon-bubble">🧩</div>
 
-    <div class="eyebrow">
-      THE PATTERN
-    </div>
+<div class="eyebrow">
+THE PATTERN
+</div>
 
-    <h2>
-      Looking back,
-      <span class="gold">
-        I see it now.
-      </span>
-    </h2>
+<h2>
+Looking back,
+<span class="gold">I see it now.</span>
+</h2>
 
-    <p class="lead">
-      Ternyata saya tidak menjadi traveler
-      dalam satu lompatan besar.
-      Semuanya dimulai dari kesempatan-kesempatan
-      kecil.
-    </p>
+<p class="lead">
 
-    <div class="grid">
+Ternyata saya tidak menjadi traveler
+dalam satu lompatan besar.
+Semuanya dimulai dari kesempatan-kesempatan kecil.
 
-      <div class="card">
-        <strong>
-          01 · 🌟 Berani
-        </strong>
-        <span>
-          Mengambil kesempatan pertama.
-        </span>
-      </div>
+</p>
 
-      <div class="card">
-        <strong>
-          02 · 🤝 Bertemu
-        </strong>
-        <span>
-          Berinteraksi dengan orang baru.
-        </span>
-      </div>
+<div class="grid">
 
-      <div class="card">
-        <strong>
-          03 · 📚 Belajar
-        </strong>
-        <span>
-          English, communication &
-          adaptability.
-        </span>
-      </div>
+<div class="card">
+<strong>01 · 🌟 Berani</strong>
+<span>
+Mengambil kesempatan pertama.
+</span>
+</div>
 
-      <div class="card">
-        <strong>
-          04 · 🌱 Bertumbuh
-        </strong>
-        <span>
-          Confidence mulai terbentuk.
-        </span>
-      </div>
+<div class="card">
+<strong>02 · 🤝 Bertemu</strong>
+<span>
+Berinteraksi dengan orang baru.
+</span>
+</div>
 
-    </div>
+<div class="card">
+<strong>03 · 📚 Belajar</strong>
+<span>
+English, communication & adaptability.
+</span>
+</div>
 
-  </div>
+<div class="card">
+<strong>04 · 🌱 Bertumbuh</strong>
+<span>
+Confidence mulai terbentuk.
+</span>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     12 MAP
+  12. MAP
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Travel Map">
+<section class="slide">
 
-  <div class="content center">
+<div class="content center">
 
-    <div class="hero-icon">🗺️</div>
+<div class="icon-bubble" style="margin:auto auto 18px">
+🗺️
+</div>
 
-    <div class="eyebrow">
-      THE WORLD OPENED
-    </div>
+<div class="eyebrow">
+THE WORLD OPENED
+</div>
 
-    <h2>
-      And eventually...
-      <br>
-      <span class="gold">
-        I became a traveler.
-      </span>
-    </h2>
+<h2>
+And eventually...
+<br>
+<span class="gold">I became a traveler.</span>
+</h2>
 
-    <p class="lead">
-      Dari semua pengalaman itu,
-      perjalanan saya akhirnya membawa saya
-      ke berbagai negara.
-      <br><br>
-      <b>
-        Ini baru teaser-nya.
-      </b>
-    </p>
+<p class="lead">
 
-    <div
-      class="map"
-      id="worldMap">
+Dari semua pengalaman itu,
+perjalanan saya akhirnya membawa saya
+ke berbagai negara.
 
-      <i class="land l1"></i>
-      <i class="land l2"></i>
-      <i class="land l3"></i>
-      <i class="land l4"></i>
-      <i class="land l5"></i>
-      <i class="land l6"></i>
+<br><br>
 
-      <div
-        class="tip"
-        id="tip">
-      </div>
+<b>Ini baru teaser-nya.</b>
 
-    </div>
+</p>
 
-  </div>
+<div class="map" id="worldMap">
+
+<i class="land l1"></i>
+<i class="land l2"></i>
+<i class="land l3"></i>
+<i class="land l4"></i>
+<i class="land l5"></i>
+<i class="land l6"></i>
+
+<div class="tip" id="tip"></div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     13 GALLERY
+  13. GALLERY
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Gallery">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">📸</div>
+<div class="icon-bubble">📸</div>
 
-    <div class="eyebrow">
-      ONE JOURNEY · MANY MOMENTS
-    </div>
+<div class="eyebrow">
+ONE JOURNEY · MANY MOMENTS
+</div>
 
-    <h2>
-      My Journey
-      <span class="gold">
-        Gallery.
-      </span>
-    </h2>
+<h2>
+My Journey
+<span class="gold">Gallery.</span>
+</h2>
 
-    <p class="lead">
-      Satu perjalanan tidak selalu terdiri
-      dari satu tempat.
-      Setiap foto menyimpan cerita, orang,
-      keberanian, dan pengalaman yang membawa
-      saya sampai ke titik hari ini.
-    </p>
+<p class="lead">
 
-    <div
-      class="gallery"
-      id="gallery">
-    </div>
+Satu perjalanan tidak selalu terdiri dari satu tempat.
+Setiap foto menyimpan cerita, orang,
+keberanian, dan pengalaman yang membawa saya
+sampai ke titik hari ini.
 
-    <p
-      style="
-        margin-top:20px;
-        text-align:center;
-        color:#ffffff80;
-        font-size:11px">
+</p>
 
-      📸 Klik foto untuk melihat lebih besar
+<div class="gallery" id="gallery"></div>
 
-    </p>
+<p style="
+margin-top:20px;
+text-align:center;
+color:#ffffff80;
+font-size:11px
+">
 
-  </div>
+✨ Klik foto untuk melihat lebih besar
+
+</p>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     14 SAFAR
+  14. SAFAR
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Safar & Islam">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">🕌</div>
+<div class="icon-bubble">🕌</div>
 
-    <div class="eyebrow">
-      WEBINAR MATERIAL · 01
-    </div>
+<div class="eyebrow">
+WEBINAR MATERIAL · 01
+</div>
 
-    <h2>
-      Safar dalam
-      <span class="gold">
-        Perspektif Islam.
-      </span>
-    </h2>
+<h2>
+Safar dalam
+<span class="gold">Perspektif Islam.</span>
+</h2>
 
-    <p class="lead">
-      Perjalanan bukan sekadar berpindah tempat.
-      Dalam webinar ini, safar menjadi ruang
-      untuk belajar, bertafakur, memperluas
-      wawasan, dan menjaga adab sebagai
-      seorang Muslimah.
-    </p>
+<p class="lead">
 
-    <div class="grid">
+Perjalanan bukan sekadar berpindah tempat.
+Dalam webinar ini, safar menjadi ruang untuk belajar,
+bertafakur, memperluas wawasan, dan menjaga adab
+sebagai seorang Muslimah.
 
-      <div class="card">
-        <strong>
-          🕌 Makna Safar
-        </strong>
-        <span>
-          Memahami perjalanan dalam perspektif
-          Al-Qur'an dan Sunnah.
-        </span>
-      </div>
+</p>
 
-      <div class="card">
-        <strong>
-          🌱 Hikmah Perjalanan
-        </strong>
-        <span>
-          Melihat perjalanan sebagai kesempatan
-          untuk belajar dan mengambil pelajaran.
-        </span>
-      </div>
+<div class="grid">
 
-      <div class="card">
-        <strong>
-          🌍 Beyond Comfort
-        </strong>
-        <span>
-          Traveling sebagai sarana belajar,
-          bertafakur, dan memperluas wawasan.
-        </span>
-      </div>
+<div class="card">
+<strong>🕌 Makna Safar</strong>
+<span>
+Memahami perjalanan dalam perspektif Al-Qur'an dan Sunnah.
+</span>
+</div>
 
-      <div class="card">
-        <strong>
-          🤍 Adab Safar
-        </strong>
-        <span>
-          Menjaga sikap dan adab seorang
-          Muslimah ketika melakukan perjalanan.
-        </span>
-      </div>
+<div class="card">
+<strong>💡 Hikmah Perjalanan</strong>
+<span>
+Melihat perjalanan sebagai kesempatan untuk belajar
+dan mengambil pelajaran.
+</span>
+</div>
 
-    </div>
+<div class="card">
+<strong>🌏 Beyond Comfort</strong>
+<span>
+Traveling sebagai sarana belajar, bertafakur,
+dan memperluas wawasan.
+</span>
+</div>
 
-    <div class="quote">
+<div class="card">
+<strong>🤲 Adab Safar</strong>
+<span>
+Menjaga sikap dan adab seorang Muslimah
+ketika melakukan perjalanan.
+</span>
+</div>
 
-      <div class="quote-text">
-        “The world is wide,
-        but every journey can bring us
-        <span class="gold">
-          closer to meaning.
-        </span>”
-      </div>
+</div>
 
-    </div>
+<div class="quote">
 
-  </div>
+<div class="quote-text">
+
+“The world is wide, but every journey can bring us
+<span class="gold">closer to meaning.</span>”
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     15 BEYOND BORDERS
+  15. BEYOND BORDERS
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Beyond Borders">
+<section class="slide">
 
-  <div class="content center">
+<div class="content center">
 
-    <div class="hero-icon">🚀</div>
+<div class="icon-bubble" style="margin:auto auto 18px">
+🌈
+</div>
 
-    <div class="eyebrow">
-      WEBINAR MATERIAL · 02
-    </div>
+<div class="eyebrow">
+WEBINAR MATERIAL · 02
+</div>
 
-    <h2>
-      Beyond Borders:
-      <br>
-      <span class="gold">
-        Berani Melihat Dunia.
-      </span>
-    </h2>
+<h2>
+Beyond Borders:<br>
+<span class="gold">Berani Melihat Dunia.</span>
+</h2>
 
-    <p class="lead">
-      Melihat dunia bukan berarti kehilangan
-      jati diri.
-      Justru perjalanan dapat menjadi ruang
-      untuk mengenal perbedaan, belajar keluar
-      dari zona nyaman, dan kembali dengan
-      wawasan yang lebih luas.
-    </p>
+<p class="lead">
 
-    <div
-      class="grid"
-      style="text-align:left">
+Melihat dunia bukan berarti kehilangan jati diri.
+Justru perjalanan dapat menjadi ruang untuk mengenal
+perbedaan, belajar keluar dari zona nyaman,
+dan kembali dengan wawasan yang lebih luas.
 
-      <div class="card">
-        <strong>
-          🌎 Global Mindset
-        </strong>
-        <span>
-          Mengapa Muslimah perlu memiliki
-          wawasan global.
-        </span>
-      </div>
+</p>
 
-      <div class="card">
-        <strong>
-          🎓 Learning Outside Class
-        </strong>
-        <span>
-          Traveling sebagai proses belajar
-          di luar ruang kelas.
-        </span>
-      </div>
+<div class="grid" style="text-align:left">
 
-      <div class="card">
-        <strong>
-          🦋 Courage
-        </strong>
-        <span>
-          Membangun keberanian untuk keluar
-          dari zona nyaman.
-        </span>
-      </div>
+<div class="card">
+<strong>🌎 Global Mindset</strong>
+<span>
+Mengapa Muslimah perlu memiliki wawasan global.
+</span>
+</div>
 
-      <div class="card">
-        <strong>
-          💎 Life Investment
-        </strong>
-        <span>
-          Menjadikan setiap perjalanan sebagai
-          investasi pengalaman.
-        </span>
-      </div>
+<div class="card">
+<strong>📚 Learning Outside Class</strong>
+<span>
+Traveling sebagai proses belajar di luar ruang kelas.
+</span>
+</div>
 
-    </div>
+<div class="card">
+<strong>🦋 Courage</strong>
+<span>
+Membangun keberanian untuk keluar dari zona nyaman.
+</span>
+</div>
 
-    <div
-      class="quote"
-      style="margin-left:auto;margin-right:auto">
+<div class="card">
+<strong>💎 Life Investment</strong>
+<span>
+Menjadikan setiap perjalanan sebagai investasi pengalaman.
+</span>
+</div>
 
-      <div class="quote-text">
-        “You do not have to cross every border
-        to grow.
-        Sometimes, growth begins the moment
-        you dare to cross
-        <span class="gold">
-          your own limits.
-        </span>”
-      </div>
+</div>
 
-    </div>
+<div class="quote" style="margin:28px auto 0">
 
-  </div>
+<div class="quote-text">
+
+“You do not have to cross every border to grow.
+Sometimes, growth begins the moment you dare to cross
+<span class="gold">your own limits.</span>”
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     16 TEN COUNTRIES
+  16. TEN COUNTRIES
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="10 Countries">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">🌏</div>
+<div class="icon-bubble">🌍</div>
 
-    <div class="eyebrow">
-      WEBINAR MATERIAL · 03
-    </div>
+<div class="eyebrow">
+WEBINAR MATERIAL · 03
+</div>
 
-    <h2>
-      Belajar dari Perjalanan
-      ke <span class="gold">
-        Berbagai Negara.
-      </span>
-    </h2>
+<h2>
+Belajar dari Perjalanan<br>
+ke <span class="gold">Berbagai Negara.</span>
+</h2>
 
-    <p class="lead">
-      Narasumber akan berbagi pengalaman selama
-      mengunjungi sepuluh negara—bukan hanya
-      tentang tempat yang indah, tetapi tentang
-      pelajaran yang dibawa pulang.
-    </p>
+<p class="lead">
 
-    <div class="grid">
+Narasumber akan berbagi pengalaman selama mengunjungi
+sepuluh negara—bukan hanya tentang tempat yang indah,
+tetapi tentang pelajaran yang dibawa pulang.
 
-      <div class="card">
-        <strong>🎎 Culture</strong>
-        <span>
-          Keunikan budaya dan kebiasaan masyarakat.
-        </span>
-      </div>
+</p>
 
-      <div class="card">
-        <strong>✨ Positive Values</strong>
-        <span>
-          Nilai-nilai positif yang dapat dipelajari
-          dari setiap negara.
-        </span>
-      </div>
+<div class="grid">
 
-      <div class="card">
-        <strong>👀 Perspective</strong>
-        <span>
-          Pengalaman yang mengubah cara pandang
-          terhadap kehidupan.
-        </span>
-      </div>
+<div class="card">
+<strong>🏛️ Culture</strong>
+<span>
+Keunikan budaya dan kebiasaan masyarakat.
+</span>
+</div>
 
-      <div class="card">
-        <strong>🧭 Challenges</strong>
-        <span>
-          Tantangan selama perjalanan dan cara
-          menghadapinya.
-        </span>
-      </div>
+<div class="card">
+<strong>✨ Positive Values</strong>
+<span>
+Nilai-nilai positif yang dapat dipelajari dari setiap negara.
+</span>
+</div>
 
-      <div class="card">
-        <strong>📸 Memorable Moments</strong>
-        <span>
-          Momen paling berkesan yang memberikan
-          pelajaran hidup.
-        </span>
-      </div>
+<div class="card">
+<strong>👀 Perspective</strong>
+<span>
+Pengalaman yang mengubah cara pandang terhadap kehidupan.
+</span>
+</div>
 
-      <div class="card">
-        <strong>🌍 Ten Stories</strong>
-        <span>
-          Setiap negara memiliki cerita dan
-          makna yang berbeda.
-        </span>
-      </div>
+<div class="card">
+<strong>🧭 Challenges</strong>
+<span>
+Tantangan selama perjalanan dan cara menghadapinya.
+</span>
+</div>
 
-    </div>
+<div class="card">
+<strong>📸 Memorable Moments</strong>
+<span>
+Momen paling berkesan yang memberikan pelajaran hidup.
+</span>
+</div>
 
-    <div class="quote">
+<div class="card">
+<strong>🌏 Ten Stories</strong>
+<span>
+Setiap negara memiliki cerita yang berbeda
+dan makna yang berbeda.
+</span>
+</div>
 
-      <div class="quote-text">
-        “A journey may change your location
-        for a while, but the lessons you bring
-        home can change
-        <span class="gold">
-          your life forever.
-        </span>”
-      </div>
+</div>
 
-    </div>
+<div class="quote">
 
-  </div>
+<div class="quote-text">
+
+“A journey may change your location for a while,
+but the lessons you bring home can change
+<span class="gold">your life forever.</span>”
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     17 CONFIDENT MUSLIMAH
+  17. CONFIDENT MUSLIMAH
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Confident Muslimah">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">🧕🏻</div>
+<div class="icon-bubble">👩🏻‍🦱✨</div>
 
-    <div class="eyebrow">
-      WEBINAR MATERIAL · 04
-    </div>
+<div class="eyebrow">
+WEBINAR MATERIAL · 04
+</div>
 
-    <h2>
-      Menjadi Muslimah yang
-      <br>
-      <span class="gold">
-        Percaya Diri di Mana Pun Berada.
-      </span>
-    </h2>
+<h2>
+Menjadi Muslimah yang<br>
+<span class="gold">Percaya Diri di Mana Pun Berada.</span>
+</h2>
 
-    <p class="lead">
-      Kepercayaan diri tidak berarti menjadi
-      orang lain.
-      Kepercayaan diri berarti tetap mengenal
-      nilai diri, menjaga identitas, dan
-      berinteraksi dengan dunia secara baik
-      dan terbuka.
-    </p>
+<p class="lead">
 
-    <div class="grid">
+Kepercayaan diri tidak berarti menjadi orang lain.
+Kepercayaan diri berarti tetap mengenal nilai diri,
+menjaga identitas, dan berinteraksi dengan dunia
+secara baik dan terbuka.
 
-      <div class="card">
-        <strong>
-          🤍 Identity
-        </strong>
-        <span>
-          Menjaga identitas sebagai Muslimah
-          di lingkungan internasional.
-        </span>
-      </div>
+</p>
 
-      <div class="card">
-        <strong>
-          🌙 Adab & Akhlak
-        </strong>
-        <span>
-          Menjaga ibadah dan akhlak selama
-          perjalanan.
-        </span>
-      </div>
+<div class="grid">
 
-      <div class="card">
-        <strong>
-          🤝 Interaction
-        </strong>
-        <span>
-          Berinteraksi dengan masyarakat dari
-          berbagai latar belakang.
-        </span>
-      </div>
+<div class="card">
+<strong>🪞 Identity</strong>
+<span>
+Menjaga identitas sebagai Muslimah
+di lingkungan internasional.
+</span>
+</div>
 
-      <div class="card">
-        <strong>
-          🌎 Representation
-        </strong>
-        <span>
-          Menjadi representasi Islam yang ramah,
-          santun, dan terbuka.
-        </span>
-      </div>
+<div class="card">
+<strong>🤍 Adab & Akhlak</strong>
+<span>
+Menjaga ibadah dan akhlak selama perjalanan.
+</span>
+</div>
 
-    </div>
+<div class="card">
+<strong>🤝 Interaction</strong>
+<span>
+Berinteraksi dengan masyarakat
+dari berbagai latar belakang.
+</span>
+</div>
 
-    <div class="quote">
+<div class="card">
+<strong>🌟 Representation</strong>
+<span>
+Menjadi representasi Islam yang ramah,
+santun, dan terbuka.
+</span>
+</div>
 
-      <div class="quote-text">
-        “Confidence is not becoming louder.
-        It is becoming so secure in your values
-        that you can walk into the world and still
-        remain
-        <span class="gold">
-          yourself.
-        </span>”
-      </div>
+</div>
 
-    </div>
+<div class="quote">
 
-  </div>
+<div class="quote-text">
+
+“Confidence is not becoming louder.
+It is becoming so secure in your values that you can
+walk into the world and still remain
+<span class="gold">yourself.</span>”
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     18 TRAVEL ESSENTIALS
+  18. TRAVEL ESSENTIALS
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Travel Essentials">
+<section class="slide">
 
-  <div class="content">
+<div class="content">
 
-    <div class="hero-icon">🎒</div>
+<div class="icon-bubble">🎒</div>
 
-    <div class="eyebrow">
-      WEBINAR MATERIAL · 05
-    </div>
+<div class="eyebrow">
+WEBINAR MATERIAL · 05
+</div>
 
-    <h2>
-      Bekal untuk Memulai
-      <br>
-      <span class="gold">
-        Perjalanan.
-      </span>
-    </h2>
+<h2>
+Bekal untuk Memulai<br>
+<span class="gold">Perjalanan.</span>
+</h2>
 
-    <p class="lead">
-      Memulai perjalanan tidak harus selalu
-      dengan langkah besar.
-      Bekal yang tepat dapat membantu sebuah
-      mimpi terasa lebih mungkin untuk diwujudkan.
-    </p>
+<p class="lead">
 
-    <div class="grid">
+Memulai perjalanan tidak harus selalu dengan langkah besar.
+Bekal yang tepat dapat membantu sebuah mimpi terasa
+lebih mungkin untuk diwujudkan.
 
-      <div class="card">
-        <strong>
-          🧠 Mental & Spiritual
-        </strong>
-        <span>
-          Persiapan mental dan spiritual sebelum
-          melakukan perjalanan.
-        </span>
-      </div>
+</p>
 
-      <div class="card">
-        <strong>
-          📝 Simple Planning
-        </strong>
-        <span>
-          Perencanaan perjalanan secara sederhana
-          dan bertahap.
-        </span>
-      </div>
+<div class="grid">
 
-      <div class="card">
-        <strong>
-          🗣️ English
-        </strong>
-        <span>
-          Pentingnya kemampuan Bahasa Inggris
-          sebagai bekal komunikasi internasional.
-        </span>
-      </div>
+<div class="card">
+<strong>🧠 Mental & Spiritual</strong>
+<span>
+Persiapan mental dan spiritual sebelum melakukan perjalanan.
+</span>
+</div>
 
-      <div class="card">
-        <strong>
-          👣 Small Steps
-        </strong>
-        <span>
-          Langkah kecil untuk mulai mewujudkan
-          impian menjelajah dunia.
-        </span>
-      </div>
+<div class="card">
+<strong>📝 Simple Planning</strong>
+<span>
+Perencanaan perjalanan secara sederhana dan bertahap.
+</span>
+</div>
 
-    </div>
+<div class="card">
+<strong>🗣️ English</strong>
+<span>
+Pentingnya kemampuan Bahasa Inggris
+sebagai bekal komunikasi internasional.
+</span>
+</div>
 
-    <div class="quote">
+<div class="card">
+<strong>👣 Small Steps</strong>
+<span>
+Langkah kecil untuk mulai mewujudkan
+impian menjelajah dunia.
+</span>
+</div>
 
-      <div class="quote-text">
-        “You don't need to see the whole road
-        before you begin.
-        Take the next right step, and let the
-        journey reveal
-        <span class="gold">
-          what comes after.
-        </span>”
-      </div>
+</div>
 
-    </div>
+<div class="quote">
 
-  </div>
+<div class="quote-text">
+
+“You don't need to see the whole road before you begin.
+Take the next right step, and let the journey reveal
+<span class="gold">what comes after.</span>”
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     19 INTERACTIVE + EXPECTED OUTCOME
+  19. MERGED INTERACTIVE + EXPECTED OUTCOME
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Reflection">
+<section class="slide">
 
-  <div class="content center">
+<div class="content center">
 
-    <div class="hero-icon">💭</div>
+<div class="icon-bubble" style="margin:auto auto 18px">
+💫
+</div>
 
-    <div class="eyebrow">
-      REFLECT · CONNECT · BEGIN
-    </div>
+<div class="eyebrow">
+HOW WE LEARN TOGETHER
+</div>
 
-    <h2>
-      One thought
-      <span class="gold">
-        to take home.
-      </span>
-    </h2>
+<h2>
+Metode & <span class="gold">Impact.</span>
+</h2>
 
-    <div
-      class="quote"
-      style="
-        margin:30px auto 0;
-        text-align:left">
+<div class="grid" style="text-align:left">
 
-      <div class="quote-text">
+<div class="card">
+<strong>01 · 🎤 Presentasi Inspiratif</strong>
+<span>
+Materi disampaikan dengan visual dan cerita
+yang mudah diikuti.
+</span>
+</div>
 
-        “The best conversations do not end
-        when the webinar ends.
-        They continue in the choices people make
-        <span class="gold">
-          afterwards.
-        </span>”
+<div class="card">
+<strong>02 · 💬 Story Sharing</strong>
+<span>
+Berbagi berdasarkan pengalaman nyata
+dari perjalanan dan kehidupan.
+</span>
+</div>
 
-        <br><br>
+<div class="card">
+<strong>03 · 🙋 Diskusi Interaktif</strong>
+<span>
+Audience dapat ikut berpikir, menjawab,
+dan merefleksikan pengalaman.
+</span>
+</div>
 
-        “May you leave with more than notes.
-        May you leave with a wider mind,
-        a braver heart, and the courage to take
-        your
-        <span class="gold">
-          next step.
-        </span>”
+<div class="card">
+<strong>04 · ❓ Tanya Jawab</strong>
+<span>
+Ruang untuk membahas pertanyaan
+dan pengalaman peserta.
+</span>
+</div>
 
-      </div>
+</div>
 
-    </div>
+<div class="quote" style="margin:30px auto 0">
 
-    <div
-      class="label"
-      style="
-        color:var(--gold2);
-        margin-top:25px">
+<div class="quote-text">
 
-      LEARN · REFLECT · CONNECT · BEGIN
+“The best conversations do not end when the webinar ends.
+They continue in the choices people make
+<span class="gold">afterwards.</span>”
 
-    </div>
+<br><br>
 
-  </div>
+“May you leave with more than notes.
+May you leave with a wider mind, a braver heart,
+and the courage to take your
+<span class="gold">next step.</span>”
+
+</div>
+
+</div>
+
+<div class="label" style="
+color:var(--gold2);
+margin-top:25px;
+">
+LEARN · REFLECT · CONNECT · BEGIN
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =====================================================
-     20 CLOSING
+  20. CLOSING
 ===================================================== -->
 
-<section
-  class="slide"
-  data-name="Closing">
+<section class="slide">
 
-  <div class="content center">
+<div class="content center">
 
-    <div class="hero-icon">🌟</div>
+<div class="icon-bubble" style="margin:auto auto 18px">
+🌟
+</div>
 
-    <div class="eyebrow">
-      THE BEGINNING
-    </div>
+<div class="eyebrow">
+THE BEGINNING
+</div>
 
-    <h2>
-      You don't have to
-      <br>
-      <span class="gold">
-        be ready.
-      </span>
-    </h2>
+<h2>
+You don't have to
+<br>
+<span class="gold">be ready.</span>
+</h2>
 
-    <p class="lead">
-      Kadang kita hanya perlu cukup berani
-      untuk mengatakan YES pada kesempatan pertama.
-      <br><br>
-      Karena kita tidak pernah tahu,
-      satu YES hari ini akan membawa kita ke mana
-      di masa depan.
-    </p>
+<p class="lead">
 
-    <div
-      class="quote"
-      style="
-        margin-left:auto;
-        margin-right:auto;
-        text-align:left">
+Kadang kita hanya perlu cukup berani
+untuk mengatakan YES pada kesempatan pertama.
 
-      <div class="quote-text">
+<br><br>
 
-        Maybe your first YES
-        <br>
-        is already waiting for you.
+Karena kita tidak pernah tahu,
+satu YES hari ini akan membawa kita ke mana
+di masa depan.
 
-      </div>
+</p>
 
-    </div>
+<div class="quote"
+style="margin:auto;text-align:left">
 
-    <div
-      class="label"
-      style="
-        margin-top:30px;
-        color:var(--gold2)">
+<div class="quote-text">
 
-      ISTI FATIMAH
+Maybe your first YES
 
-    </div>
+<br>
 
-    <button
-      class="btn"
-      onclick="go(0)">
+is already waiting for you.
 
-      ↺ Back to Beginning
+</div>
 
-    </button>
+</div>
 
-  </div>
+<div class="label"
+style="
+margin-top:30px;
+color:var(--gold2)
+">
+
+ISTI FATIMAH
+
+</div>
+
+<button class="btn" onclick="go(0)">
+↺ Back to Beginning
+</button>
+
+</div>
 
 </section>
 
@@ -2904,50 +2385,42 @@ h3{
 
 
 <!-- =====================================================
-     BOTTOM NAVIGATION
+  NAVIGATION
 ===================================================== -->
 
 <div class="bottom">
 
-  <button
-    onclick="prev()"
-    title="Previous">
-    ←
-  </button>
+<button onclick="prev()" title="Previous">
+←
+</button>
 
-  <button
-    onclick="go(0)"
-    title="Home">
-    ⌂
-  </button>
+<button onclick="go(0)" title="Home">
+⌂
+</button>
 
-  <button
-    onclick="nextSlide()"
-    title="Next">
-    →
-  </button>
+<button onclick="nextSlide()" title="Next">
+→
+</button>
 
 </div>
 
 
 <!-- =====================================================
-     LIGHTBOX
+  LIGHTBOX
 ===================================================== -->
 
 <div
-  class="lightbox"
-  id="lightbox"
-  onclick="closePhoto()">
+class="lightbox"
+id="lightbox"
+onclick="closePhoto()">
 
-  <button
-    class="close"
-    onclick="closePhoto()">
-    ×
-  </button>
+<button
+class="close"
+onclick="event.stopPropagation();closePhoto()">
+×
+</button>
 
-  <img
-    id="lightboxImg"
-    alt="Gallery">
+<img id="lightboxImg">
 
 </div>
 
@@ -2958,45 +2431,68 @@ h3{
 <script>
 
 /* =========================================================
-   SLIDE SYSTEM
+   SLIDE NAMES
 ========================================================= */
 
-const slides = [
-  ...document.querySelectorAll(".slide")
+const names=[
+
+"Start",
+"Audience",
+"First Yes",
+"FIFA 2014",
+"Invitation",
+"Bandung Bali",
+"Asian Games",
+"EHEF",
+"Connections",
+"English",
+"Pattern",
+"Travel Map",
+"Gallery",
+"Safar & Islam",
+"Beyond Borders",
+"10 Countries",
+"Confident Muslimah",
+"Travel Essentials",
+"Interactive",
+"Closing"
+
 ];
-
-const tabs =
-  document.getElementById("tabs");
-
-const progress =
-  document.getElementById("progress");
-
-let cur = 0;
 
 
 /* =========================================================
-   AUTOMATIC TAB CREATION
+   SLIDES
 ========================================================= */
 
-slides.forEach((slide,index)=>{
+const slides=[
+  ...document.querySelectorAll(".slide")
+];
 
-  const name =
-    slide.dataset.name ||
-    `Slide ${index+1}`;
+const tabs=document.getElementById("tabs");
 
-  const button =
-    document.createElement("button");
+const progress=document.getElementById("progress");
 
-  button.className =
-    "tab" +
-    (index === 0 ? " active" : "");
+let cur=0;
 
-  button.textContent = name;
 
-  button.type = "button";
+/* =========================================================
+   CREATE TABS
+========================================================= */
 
-  button.onclick = ()=>{
-    go(index);
+names.forEach((name,i)=>{
+
+  const button=document.createElement("button");
+
+  button.className="tab";
+
+  if(i===0){
+    button.classList.add("active");
+  }
+
+  button.textContent=name;
+
+  button.onclick=()=>{
+    go(i);
   };
 
   tabs.appendChild(button);
@@ -3005,49 +2501,47 @@ slides.forEach((slide,index)=>{
 
 
 /* =========================================================
-   UPDATE
+   UPDATE SLIDE
 ========================================================= */
 
 function update(){
 
-  slides.forEach(
-    (slide,index)=>{
+  slides.forEach((slide,index)=>{
 
-      slide.classList.toggle(
-        "active",
-        index === cur
-      );
+    slide.classList.toggle(
+      "active",
+      index===cur
+    );
 
-    }
-  );
+  });
 
 
   [...tabs.children].forEach(
-    (button,index)=>{
+    (tab,index)=>{
 
-      button.classList.toggle(
+      tab.classList.toggle(
         "active",
-        index === cur
+        index===cur
       );
 
     }
   );
 
 
-  progress.style.width =
-    (
-      ((cur + 1) /
-      slides.length) *
-      100
-    ) + "%";
+  progress.style.width=
+    ((cur+1)/slides.length*100)+"%";
 
 
   if(tabs.children[cur]){
 
     tabs.children[cur].scrollIntoView({
+
       behavior:"smooth",
+
       inline:"center",
+
       block:"nearest"
+
     });
 
   }
@@ -3061,14 +2555,13 @@ function update(){
 
 function go(index){
 
-  cur =
-    Math.max(
-      0,
-      Math.min(
-        slides.length - 1,
-        index
-      )
-    );
+  cur=Math.max(
+    0,
+    Math.min(
+      slides.length-1,
+      index
+    )
+  );
 
   update();
 
@@ -3081,9 +2574,9 @@ function go(index){
 
 function nextSlide(){
 
-  if(cur < slides.length - 1){
+  if(cur<slides.length-1){
 
-    go(cur + 1);
+    go(cur+1);
 
   }
 
@@ -3096,9 +2589,9 @@ function nextSlide(){
 
 function prev(){
 
-  if(cur > 0){
+  if(cur>0){
 
-    go(cur - 1);
+    go(cur-1);
 
   }
 
@@ -3114,8 +2607,8 @@ document.addEventListener(
   function(e){
 
     if(
-      e.key === "ArrowRight" ||
-      e.key === " "
+      e.key==="ArrowRight" ||
+      e.key===" "
     ){
 
       e.preventDefault();
@@ -3124,29 +2617,25 @@ document.addEventListener(
 
     }
 
-
-    if(e.key === "ArrowLeft"){
+    if(e.key==="ArrowLeft"){
 
       prev();
 
     }
 
-
-    if(e.key === "Home"){
+    if(e.key==="Home"){
 
       go(0);
 
     }
 
+    if(e.key==="End"){
 
-    if(e.key === "End"){
-
-      go(slides.length - 1);
+      go(slides.length-1);
 
     }
 
-
-    if(e.key === "Escape"){
+    if(e.key==="Escape"){
 
       closePhoto();
 
@@ -3160,53 +2649,39 @@ document.addEventListener(
    TOUCH / SWIPE
 ========================================================= */
 
-let startX = 0;
-let startY = 0;
+let startX=0;
+let startY=0;
 
 document.addEventListener(
   "touchstart",
   function(e){
 
-    startX =
-      e.changedTouches[0].screenX;
-
-    startY =
-      e.changedTouches[0].screenY;
+    startX=e.changedTouches[0].screenX;
+    startY=e.changedTouches[0].screenY;
 
   },
   {passive:true}
 );
 
-
 document.addEventListener(
   "touchend",
   function(e){
 
-    const endX =
+    const endX=
       e.changedTouches[0].screenX;
 
-    const endY =
+    const endY=
       e.changedTouches[0].screenY;
 
-    const dx =
-      endX - startX;
-
-    const dy =
-      endY - startY;
-
-
-    /*
-      Abaikan swipe kalau gerakan
-      lebih banyak vertikal.
-    */
+    const diffX=endX-startX;
+    const diffY=endY-startY;
 
     if(
-      Math.abs(dx) >
-      Math.abs(dy) &&
-      Math.abs(dx) > 65
+      Math.abs(diffX)>65 &&
+      Math.abs(diffX)>Math.abs(diffY)
     ){
 
-      if(dx < 0){
+      if(diffX<0){
 
         nextSlide();
 
@@ -3229,18 +2704,13 @@ document.addEventListener(
 
 function openPhoto(src){
 
-  const lightbox =
-    document.getElementById(
-      "lightbox"
-    );
+  const lightbox=
+    document.getElementById("lightbox");
 
-  const image =
-    document.getElementById(
-      "lightboxImg"
-    );
+  const image=
+    document.getElementById("lightboxImg");
 
-
-  image.src = src;
+  image.src=src;
 
   lightbox.classList.add("show");
 
@@ -3249,82 +2719,50 @@ function openPhoto(src){
 
 function closePhoto(){
 
-  const lightbox =
-    document.getElementById(
-      "lightbox"
-    );
-
-  lightbox.classList.remove("show");
+  document
+    .getElementById("lightbox")
+    .classList.remove("show");
 
 }
-
-
-/*
-  Jangan tutup lightbox ketika
-  user klik gambar.
-*/
-
-document
-  .getElementById("lightboxImg")
-  .addEventListener(
-    "click",
-    function(e){
-
-      e.stopPropagation();
-
-    }
-  );
 
 
 /* =========================================================
    WORLD MAP
 ========================================================= */
 
-const countries = [
+const countries=[
 
-  ["Singapore",67,53],
-  ["Malaysia",66,56],
-  ["Thailand",64,48],
-  ["Saudi Arabia",56,47],
-  ["Japan",78,39],
-  ["Korea",74,37],
-  ["Sri Lanka",63,60],
-  ["Vietnam",69,52],
-  ["Philippines",74,55],
-  ["Mongolia",70,31]
+["Singapore",67,53],
+["Malaysia",66,56],
+["Thailand",64,48],
+["Saudi Arabia",56,47],
+["Japan",78,39],
+["Korea",74,37],
+["Sri Lanka",63,60],
+["Vietnam",69,52],
+["Philippines",74,55],
+["Mongolia",70,31]
 
 ];
 
+const map=
+  document.getElementById("worldMap");
 
-const map =
-  document.getElementById(
-    "worldMap"
-  );
-
-const tip =
-  document.getElementById(
-    "tip"
-  );
+const tip=
+  document.getElementById("tip");
 
 
 countries.forEach(
   ([name,x,y],index)=>{
 
-    const point =
-      document.createElement(
-        "button"
-      );
+    const point=
+      document.createElement("button");
 
-    point.type = "button";
+    point.className="point";
 
-    point.className =
-      "point";
+    point.style.left=x+"%";
 
-    point.style.left =
-      x + "%";
-
-    point.style.top =
-      y + "%";
+    point.style.top=y+"%";
 
 
     point.setAttribute(
@@ -3333,43 +2771,30 @@ countries.forEach(
     );
 
 
-    point.onclick =
-      function(e){
+    point.onclick=function(e){
 
-        e.stopPropagation();
-
-
-        tip.innerHTML =
-
-          "JOURNEY " +
-
-          String(index + 1)
-            .padStart(2,"0") +
-
-          "<b>" +
-          name +
-          "</b>";
+      e.stopPropagation();
 
 
-        tip.style.left =
-          Math.min(
-            x + 2,
-            78
-          ) + "%";
+      tip.innerHTML=
+        "JOURNEY "+
+        String(index+1).padStart(2,"0")+
+        "<b>"+
+        name+
+        "</b>";
 
 
-        tip.style.top =
-          Math.max(
-            y - 12,
-            5
-          ) + "%";
+      tip.style.left=
+        Math.min(x+2,78)+"%";
 
 
-        tip.classList.add(
-          "show"
-        );
+      tip.style.top=
+        Math.max(y-12,5)+"%";
 
-      };
+
+      tip.classList.add("show");
+
+    };
 
 
     map.appendChild(point);
@@ -3378,23 +2803,15 @@ countries.forEach(
 );
 
 
-/* =========================================================
-   CLOSE MAP TIP
-========================================================= */
+/* close map tooltip */
 
 map.addEventListener(
   "click",
   function(e){
 
-    if(
-      !e.target.classList.contains(
-        "point"
-      )
-    ){
+    if(e.target===map){
 
-      tip.classList.remove(
-        "show"
-      );
+      tip.classList.remove("show");
 
     }
 
@@ -3406,66 +2823,48 @@ map.addEventListener(
    GALLERY
 ========================================================= */
 
-const gallery =
-  document.getElementById(
-    "gallery"
-  );
+const gallery=
+  document.getElementById("gallery");
 
 
-for(
-  let i = 1;
-  i <= 8;
-  i++
-){
+for(let i=1;i<=8;i++){
 
-  const number =
-    String(i).padStart(
-      2,
-      "0"
-    );
+  const number=
+    String(i).padStart(2,"0");
 
 
-  const item =
-    document.createElement(
-      "div"
-    );
+  const item=
+    document.createElement("div");
 
-  item.className =
+  item.className=
     "gallery-item";
 
 
-  item.innerHTML = `
+  item.innerHTML=`
 
     <img
       src="images/gallery-${number}.jpg"
-      alt="Journey moment ${number}"
-      onerror="
-        this.style.display='none';
-      "
+      alt="Journey Moment ${number}"
+      onerror="this.style.display='none'"
     >
 
     <span>
-      📸 MOMENT ${number}
+      MOMENT ${number}
     </span>
 
   `;
 
 
-  item.onclick =
-    function(){
+  item.onclick=function(){
 
-      openPhoto(
-        "images/gallery-" +
-        number +
-        ".jpg"
-      );
+    openPhoto(
+      "images/gallery-"+number+".jpg"
+    );
 
-    };
+  };
 
 
-  gallery.appendChild(
-    item
-  );
+  gallery.appendChild(item);
 
 }
 
