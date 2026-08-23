@@ -2,29 +2,43 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <title>Beyond Borders — Isti Fatimah</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
-  --green:#16483d;
-  --deep:#102f29;
-  --green-soft:#285d50;
-  --sage:#8ca99d;
+  --green:#17483d;
+  --green-dark:#0d3029;
+  --green-soft:#2d6255;
+
   --cream:#f7f2e8;
-  --cream-2:#efe7d8;
-  --gold:#c7954b;
-  --gold-light:#e5c993;
-  --white:#fffdf8;
-  --text:#243b35;
-  --muted:#66756f;
-  --line:#ded5c6;
-  --shadow:0 20px 60px rgba(28,55,48,.12);
+  --cream-light:#fffdf8;
+
+  --gold:#c6954b;
+  --gold-light:#e4c88f;
+
+  --text:#243a34;
+  --muted:#697872;
+
+  --border:#ded5c6;
+
+  --shadow:0 15px 45px rgba(23,72,61,.10);
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
   box-sizing:border-box;
@@ -43,74 +57,108 @@ body{
   overflow:hidden;
 }
 
-/* =========================
+
+/* =========================================================
    PRESENTATION
-========================= */
+========================================================= */
 
 .presentation{
-  height:100vh;
   position:relative;
+  width:100%;
+  height:100vh;
   overflow:hidden;
 }
 
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
 .progress{
   position:fixed;
-  top:0;
   left:0;
+  top:0;
   height:4px;
-  background:linear-gradient(90deg,var(--gold),var(--gold-light));
-  z-index:200;
-  width:5%;
-  transition:.5s ease;
+  width:0%;
+  background:linear-gradient(
+    90deg,
+    var(--gold),
+    var(--gold-light)
+  );
+  z-index:500;
+  transition:width .45s ease;
 }
 
-/* =========================
+
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 header{
   position:fixed;
   top:0;
   left:0;
   right:0;
-  z-index:100;
-  padding:14px 22px;
+
+  height:68px;
+
+  padding:10px 20px;
+
   display:flex;
   align-items:center;
   gap:22px;
-  background:rgba(247,242,232,.90);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(22,72,61,.08);
+
+  background:rgba(247,242,232,.92);
+
+  backdrop-filter:blur(16px);
+
+  border-bottom:1px solid rgba(23,72,61,.08);
+
+  z-index:300;
 }
 
 .brand{
-  font-family:"Playfair Display";
-  font-size:18px;
-  white-space:nowrap;
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:9px;
+
   color:var(--green);
+
+  font-family:"Playfair Display";
+  font-size:18px;
+
+  white-space:nowrap;
 }
 
 .mark{
   width:36px;
   height:36px;
+
   border:1px solid var(--gold);
   border-radius:50%;
+
   display:grid;
   place-items:center;
+
   color:var(--gold);
+
+  background:var(--cream-light);
+
+  font-family:"DM Sans";
   font-size:10px;
-  background:var(--white);
-  box-shadow:0 5px 20px rgba(199,149,75,.12);
+  font-weight:700;
 }
 
 .tabs{
   display:flex;
-  gap:7px;
+  align-items:center;
+  gap:6px;
+
   overflow-x:auto;
+
   scrollbar-width:none;
+
+  flex:1;
 }
 
 .tabs::-webkit-scrollbar{
@@ -119,114 +167,147 @@ header{
 
 .tab{
   flex:0 0 auto;
-  border:1px solid transparent;
-  background:transparent;
-  color:#7c8782;
+
   padding:8px 12px;
+
+  border:1px solid transparent;
   border-radius:999px;
+
+  background:transparent;
+
+  color:#7b8781;
+
+  font-family:"DM Sans";
   font-size:10px;
+
   cursor:pointer;
+
   transition:.25s;
 }
 
 .tab:hover{
   color:var(--green);
-  background:#ffffff80;
+  background:#ffffffaa;
 }
 
 .tab.active{
   color:var(--green);
-  border-color:#d8c39d;
-  background:var(--white);
-  box-shadow:0 4px 15px rgba(28,55,48,.08);
+
+  background:var(--cream-light);
+
+  border-color:#d9c39b;
+
+  box-shadow:0 4px 15px rgba(23,72,61,.08);
 }
 
-/* =========================
-   SLIDES
-========================= */
+
+/* =========================================================
+   SLIDE
+========================================================= */
 
 .slide{
   position:absolute;
+
   inset:0;
-  padding:110px 8vw 90px;
+
+  padding:
+    105px
+    8vw
+    90px;
+
   display:flex;
   align-items:center;
+
   overflow-y:auto;
 
   opacity:0;
   visibility:hidden;
-  transform:translateY(25px) scale(.985);
+
+  transform:
+    translateX(35px)
+    scale(.985);
 
   transition:
     opacity .45s ease,
-    transform .55s cubic-bezier(.2,.7,.2,1);
+    transform .55s ease;
+
+  pointer-events:none;
 }
 
 .slide.active{
   opacity:1;
   visibility:visible;
+
   transform:none;
+
+  pointer-events:auto;
 }
 
 .content{
   width:min(1120px,100%);
+
   margin:auto;
+
   position:relative;
 }
 
 .content:before{
   content:"";
+
   position:absolute;
-  width:500px;
-  height:500px;
-  border-radius:50%;
+
+  width:420px;
+  height:420px;
+
   right:-220px;
-  top:-230px;
-  background:radial-gradient(
-    circle,
-    rgba(199,149,75,.12),
-    transparent 68%
-  );
+  top:-220px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(198,149,75,.14),
+      transparent 70%
+    );
+
   pointer-events:none;
 }
 
-.content:after{
-  content:"";
-  position:absolute;
-  width:280px;
-  height:280px;
-  border-radius:50%;
-  left:-220px;
-  bottom:-180px;
-  background:radial-gradient(
-    circle,
-    rgba(140,169,157,.12),
-    transparent 68%
-  );
-  pointer-events:none;
-}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
 
 .eyebrow{
   color:var(--gold);
-  letter-spacing:.22em;
+
   font-size:10px;
   font-weight:700;
-  margin-bottom:17px;
+
+  letter-spacing:.22em;
+
+  margin-bottom:16px;
 }
 
-h1,h2,h3{
+h1,
+h2,
+h3{
   font-family:"Playfair Display";
   font-weight:500;
+
   color:var(--green);
 }
 
 h1{
   font-size:clamp(58px,9vw,120px);
-  line-height:.95;
+
+  line-height:.94;
 }
 
 h2{
-  font-size:clamp(42px,6vw,75px);
+  font-size:clamp(40px,6vw,74px);
+
   line-height:1.05;
 }
 
@@ -240,10 +321,19 @@ h3{
 
 .lead{
   max-width:760px;
-  color:var(--muted);
-  line-height:1.75;
-  font-size:clamp(16px,2vw,20px);
+
   margin-top:22px;
+
+  color:var(--muted);
+
+  font-size:
+    clamp(
+      16px,
+      2vw,
+      20px
+    );
+
+  line-height:1.75;
 }
 
 .center{
@@ -256,158 +346,247 @@ h3{
 }
 
 .label{
+  margin-top:17px;
+
   color:#80908a;
-  letter-spacing:.18em;
+
   font-size:9px;
-  margin-top:18px;
+
+  letter-spacing:.18em;
 }
 
-/* =========================
+
+/* =========================================================
    BUTTON
-========================= */
+========================================================= */
 
 .btn{
   margin-top:28px;
+
   padding:13px 23px;
+
   border:0;
+
   border-radius:999px;
+
   background:var(--green);
+
   color:white;
+
+  font-family:"DM Sans";
+
   font-weight:700;
+
   cursor:pointer;
-  box-shadow:0 10px 25px rgba(22,72,61,.18);
+
+  box-shadow:
+    0 10px 25px
+    rgba(23,72,61,.18);
+
   transition:.25s;
 }
 
 .btn:hover{
   transform:translateY(-3px);
-  box-shadow:0 15px 30px rgba(22,72,61,.24);
+
+  box-shadow:
+    0 15px 32px
+    rgba(23,72,61,.25);
 }
 
-/* =========================
+
+/* =========================================================
    QUOTE
-========================= */
+========================================================= */
 
 .quote{
-  margin-top:28px;
-  padding:28px 32px;
-  border-left:3px solid var(--gold);
-  background:rgba(255,255,255,.72);
-  border-radius:0 20px 20px 0;
   max-width:900px;
-  box-shadow:0 12px 35px rgba(28,55,48,.07);
+
+  margin-top:28px;
+
+  padding:28px 32px;
+
+  background:
+    rgba(255,255,255,.72);
+
+  border-left:
+    3px solid var(--gold);
+
+  border-radius:
+    0 20px 20px 0;
+
+  box-shadow:var(--shadow);
 }
 
 .quote-text{
   font-family:"Playfair Display";
-  font-size:clamp(24px,4vw,42px);
+
+  font-size:
+    clamp(
+      24px,
+      4vw,
+      42px
+    );
+
   line-height:1.35;
+
   color:var(--green);
 }
 
-/* =========================
+
+/* =========================================================
    SPLIT
-========================= */
+========================================================= */
 
 .split{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:55px;
+
   align-items:center;
+
   margin-top:34px;
 }
 
-/* =========================
+
+/* =========================================================
    YEAR
-========================= */
+========================================================= */
 
 .year{
-  font:70px "Playfair Display";
+  font-family:"Playfair Display";
+
+  font-size:70px;
+
   color:var(--gold);
+
+  line-height:1;
 }
 
-.year + .label{
-  margin-top:0;
-}
 
-/* =========================
+/* =========================================================
    PHOTO
-========================= */
+========================================================= */
 
 .photo{
   height:400px;
-  border-radius:28px;
-  overflow:hidden;
-  border:1px solid rgba(22,72,61,.12);
-  background:var(--white);
+
   position:relative;
-  cursor:pointer;
+
+  overflow:hidden;
+
+  border-radius:28px;
+
+  background:var(--cream-light);
+
+  border:
+    1px solid
+    rgba(23,72,61,.12);
+
   box-shadow:var(--shadow);
-  transition:.35s;
+
+  cursor:pointer;
+
+  transition:.3s;
 }
 
 .photo:hover{
   transform:translateY(-5px);
-  box-shadow:0 28px 70px rgba(28,55,48,.18);
+
+  box-shadow:
+    0 25px 65px
+    rgba(23,72,61,.16);
 }
 
 .photo img{
   width:100%;
   height:100%;
+
   object-fit:cover;
+
   display:block;
 }
 
 .placeholder{
   position:absolute;
+
   inset:0;
+
   display:grid;
   place-items:center;
+
   text-align:center;
+
   padding:20px;
+
+  color:white;
+
   background:
     radial-gradient(
-      circle at center,
-      rgba(199,149,75,.20),
-      rgba(22,72,61,.94)
+      circle,
+      rgba(198,149,75,.25),
+      rgba(23,72,61,.96)
     );
-  color:#fff;
 }
 
 .placeholder small{
   display:block;
-  color:#ffffffaa;
+
   margin-top:8px;
+
+  color:#ffffffaa;
 }
 
-.photo .tag{
+.tag{
   position:absolute;
+
   left:14px;
   bottom:14px;
-  background:rgba(16,47,41,.88);
-  border:1px solid rgba(255,255,255,.2);
-  color:white;
-  border-radius:99px;
+
   padding:7px 10px;
+
+  border-radius:999px;
+
+  background:
+    rgba(13,48,41,.90);
+
+  color:white;
+
   font-size:9px;
+
   letter-spacing:.1em;
 }
 
-/* =========================
+
+/* =========================================================
    TIMELINE
-========================= */
+========================================================= */
 
 .timeline{
   display:grid;
+
   gap:13px;
 }
 
 .timeline div{
   padding:17px 19px;
-  border-left:3px solid var(--gold);
-  background:rgba(255,255,255,.72);
-  border-radius:0 16px 16px 0;
-  box-shadow:0 7px 20px rgba(28,55,48,.05);
+
+  border-left:
+    3px solid var(--gold);
+
+  background:
+    rgba(255,255,255,.72);
+
+  border-radius:
+    0 16px 16px 0;
+
+  box-shadow:
+    0 8px 25px
+    rgba(23,72,61,.06);
+
   transition:.25s;
 }
 
@@ -420,143 +599,223 @@ h3{
 }
 
 .timeline p{
-  color:var(--muted);
   margin-top:6px;
+
+  color:var(--muted);
+
   line-height:1.55;
 }
 
-/* =========================
-   CARDS
-========================= */
+
+/* =========================================================
+   GRID
+========================================================= */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
   gap:15px;
+
   margin-top:30px;
 }
 
 .card{
-  padding:24px;
-  border:1px solid rgba(22,72,61,.10);
-  background:rgba(255,255,255,.72);
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(28,55,48,.05);
-  transition:.3s;
   position:relative;
+
+  padding:24px;
+
+  border:
+    1px solid
+    rgba(23,72,61,.10);
+
+  background:
+    rgba(255,255,255,.72);
+
+  border-radius:20px;
+
+  box-shadow:
+    0 8px 25px
+    rgba(23,72,61,.05);
+
   overflow:hidden;
+
+  transition:.3s;
 }
 
 .card:before{
   content:"";
+
   position:absolute;
+
   width:100px;
   height:100px;
-  border-radius:50%;
+
   right:-55px;
   top:-55px;
-  background:rgba(199,149,75,.10);
+
+  border-radius:50%;
+
+  background:
+    rgba(198,149,75,.10);
 }
 
 .card:hover{
   transform:translateY(-5px);
-  box-shadow:0 18px 40px rgba(28,55,48,.10);
-  border-color:#d7c6a6;
+
+  border-color:#d7c49f;
+
+  box-shadow:
+    0 18px 40px
+    rgba(23,72,61,.10);
 }
 
 .card strong{
-  color:var(--green);
-  font-size:18px;
   position:relative;
+
+  color:var(--green);
+
+  font-size:18px;
 }
 
 .card span{
-  display:block;
-  margin-top:9px;
-  color:var(--muted);
-  line-height:1.6;
   position:relative;
+
+  display:block;
+
+  margin-top:9px;
+
+  color:var(--muted);
+
+  line-height:1.6;
 }
 
-/* =========================
+
+/* =========================================================
    INTERACTIVE QUESTION
-========================= */
+========================================================= */
 
 .question-box{
-  margin:32px auto 0;
   max-width:850px;
+
+  margin:
+    32px
+    auto
+    0;
 }
 
 .question{
-  font-family:"Playfair Display";
-  color:var(--green);
-  font-size:clamp(24px,4vw,38px);
   margin-bottom:20px;
+
+  color:var(--green);
+
+  font-family:"Playfair Display";
+
+  font-size:
+    clamp(
+      24px,
+      4vw,
+      38px
+    );
 }
 
 .choices{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:12px;
 }
 
 .choice{
-  border:1px solid #dcd3c5;
-  background:rgba(255,255,255,.75);
-  border-radius:18px;
   padding:18px 12px;
-  cursor:pointer;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:18px;
+
+  background:
+    rgba(255,255,255,.75);
+
   color:var(--green);
+
+  cursor:pointer;
+
   transition:.25s;
 }
 
 .choice:hover{
   transform:translateY(-4px);
+
   border-color:var(--gold);
-  box-shadow:0 12px 30px rgba(28,55,48,.10);
+
+  box-shadow:
+    0 12px 30px
+    rgba(23,72,61,.10);
 }
 
 .choice.selected{
-  background:var(--green);
   color:white;
+
+  background:var(--green);
+
   border-color:var(--green);
 }
 
 .choice b{
   display:block;
-  font-size:21px;
-  color:var(--gold);
+
   margin-bottom:7px;
+
+  color:var(--gold);
+
+  font-size:21px;
 }
 
 .choice small{
   display:block;
+
   line-height:1.4;
 }
 
 .response{
-  min-height:30px;
+  min-height:28px;
+
   margin-top:20px;
+
   color:var(--gold);
+
   font-weight:600;
 }
 
-/* =========================
+
+/* =========================================================
    REFLECTION
-========================= */
+========================================================= */
 
 .reflection{
   margin-top:28px;
+
   padding:22px;
-  background:var(--green);
-  color:white;
+
   border-radius:20px;
+
+  background:var(--green);
+
+  color:white;
+
   cursor:pointer;
+
   transition:.3s;
 }
 
 .reflection:hover{
-  transform:scale(1.01);
+  transform:translateY(-2px);
 }
 
 .reflection-title{
@@ -565,90 +824,188 @@ h3{
 
 .reflection-answer{
   display:none;
+
   margin-top:12px;
-  line-height:1.7;
+
   color:#ffffffcc;
+
+  line-height:1.7;
 }
 
-.reflection.open .reflection-answer{
+.reflection.open
+.reflection-answer{
   display:block;
 }
 
-/* =========================
+
+/* =========================================================
    MAP
-========================= */
+========================================================= */
 
 .map{
-  margin-top:28px;
-  height:410px;
-  border:1px solid rgba(22,72,61,.12);
-  border-radius:28px;
   position:relative;
+
+  height:410px;
+
+  margin-top:28px;
+
   overflow:hidden;
+
+  border-radius:28px;
+
   background:
     radial-gradient(
       ellipse at center,
-      #3b7667,
-      #16483d 55%,
-      #102f29
+      #3c7567,
+      #17483d 55%,
+      #0d3029
     );
+
   box-shadow:var(--shadow);
 }
 
 .map:before{
   content:"";
+
   position:absolute;
+
   inset:0;
+
   opacity:.08;
+
   background-image:
-    linear-gradient(#fff 1px,transparent 1px),
-    linear-gradient(90deg,#fff 1px,transparent 1px);
-  background-size:10% 20%;
+    linear-gradient(
+      #fff 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      #fff 1px,
+      transparent 1px
+    );
+
+  background-size:
+    10% 20%;
 }
 
 .land{
   position:absolute;
-  background:rgba(255,255,255,.11);
+
+  background:
+    rgba(255,255,255,.11);
+
   border-radius:50%;
 }
 
-.l1{width:18%;height:24%;left:12%;top:20%}
-.l2{width:10%;height:30%;left:25%;top:48%}
-.l3{width:11%;height:10%;left:47%;top:25%}
-.l4{width:15%;height:32%;left:47%;top:40%}
-.l5{width:27%;height:27%;left:55%;top:23%}
-.l6{width:12%;height:11%;right:10%;bottom:18%}
+.l1{
+  width:18%;
+  height:24%;
+  left:12%;
+  top:20%;
+}
+
+.l2{
+  width:10%;
+  height:30%;
+  left:25%;
+  top:48%;
+}
+
+.l3{
+  width:11%;
+  height:10%;
+  left:47%;
+  top:25%;
+}
+
+.l4{
+  width:15%;
+  height:32%;
+  left:47%;
+  top:40%;
+}
+
+.l5{
+  width:27%;
+  height:27%;
+  left:55%;
+  top:23%;
+}
+
+.l6{
+  width:12%;
+  height:11%;
+  right:10%;
+  bottom:18%;
+}
 
 .point{
   position:absolute;
+
   width:15px;
   height:15px;
+
+  transform:
+    translate(-50%,-50%);
+
+  border:
+    2px solid white;
+
   border-radius:50%;
-  border:2px solid white;
+
   background:var(--gold);
-  box-shadow:0 0 0 0 rgba(229,201,147,.6);
-  transform:translate(-50%,-50%);
+
   cursor:pointer;
+
   animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(229,201,147,.55)}
-  70%{box-shadow:0 0 0 14px rgba(229,201,147,0)}
-  100%{box-shadow:0 0 0 0 rgba(229,201,147,0)}
+
+  0%{
+    box-shadow:
+      0 0 0 0
+      rgba(229,201,147,.55);
+  }
+
+  70%{
+    box-shadow:
+      0 0 0 14px
+      rgba(229,201,147,0);
+  }
+
+  100%{
+    box-shadow:
+      0 0 0 0
+      rgba(229,201,147,0);
+  }
+
 }
 
 .tip{
   position:absolute;
+
   display:none;
-  z-index:3;
-  background:var(--white);
-  color:var(--green);
-  border:1px solid var(--gold);
-  border-radius:14px;
+
+  z-index:20;
+
   padding:12px 15px;
+
+  border:
+    1px solid
+    var(--gold);
+
+  border-radius:14px;
+
+  background:var(--cream-light);
+
+  color:var(--green);
+
   font-size:11px;
-  box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+  box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.25);
 }
 
 .tip.show{
@@ -657,103 +1014,168 @@ h3{
 
 .tip b{
   display:block;
-  font:21px "Playfair Display";
+
   margin-top:4px;
+
+  font-family:"Playfair Display";
+
+  font-size:21px;
 }
 
-/* =========================
+
+/* =========================================================
    GALLERY
-========================= */
+========================================================= */
 
 .gallery{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:13px;
+
   margin-top:28px;
 }
 
 .gallery-item{
   height:180px;
+
   position:relative;
-  border-radius:19px;
+
   overflow:hidden;
-  background:white;
-  border:1px solid rgba(22,72,61,.10);
+
+  border-radius:19px;
+
+  background:var(--cream-light);
+
+  border:
+    1px solid
+    rgba(23,72,61,.10);
+
+  box-shadow:
+    0 8px 25px
+    rgba(23,72,61,.07);
+
   cursor:pointer;
-  box-shadow:0 8px 25px rgba(28,55,48,.07);
+
   transition:.3s;
 }
 
 .gallery-item:hover{
-  transform:translateY(-5px) scale(1.015);
+  transform:
+    translateY(-5px)
+    scale(1.015);
 }
 
 .gallery-item img{
   width:100%;
   height:100%;
+
   object-fit:cover;
 }
 
 .gallery-item span{
   position:absolute;
-  bottom:10px;
+
   left:10px;
-  background:rgba(16,47,41,.88);
-  color:white;
-  border-radius:99px;
+  bottom:10px;
+
   padding:6px 9px;
+
+  border-radius:999px;
+
+  background:
+    rgba(13,48,41,.88);
+
+  color:white;
+
   font-size:9px;
 }
 
-/* =========================
+
+/* =========================================================
    BOTTOM NAV
-========================= */
+========================================================= */
 
 .bottom{
   position:fixed;
-  z-index:150;
-  bottom:16px;
+
   left:50%;
-  transform:translateX(-50%);
+  bottom:16px;
+
+  transform:
+    translateX(-50%);
+
+  z-index:350;
+
   display:flex;
+
   gap:8px;
+
   padding:7px;
-  border:1px solid rgba(22,72,61,.12);
-  background:rgba(255,253,248,.92);
-  backdrop-filter:blur(15px);
+
+  border:
+    1px solid
+    rgba(23,72,61,.12);
+
   border-radius:999px;
-  box-shadow:0 12px 35px rgba(28,55,48,.13);
+
+  background:
+    rgba(255,253,248,.94);
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:
+    0 12px 35px
+    rgba(23,72,61,.13);
 }
 
 .bottom button{
   width:40px;
   height:40px;
-  border-radius:50%;
+
   border:0;
+
+  border-radius:50%;
+
   background:#edf0eb;
+
   color:var(--green);
+
   font-size:18px;
+
   cursor:pointer;
+
   transition:.2s;
 }
 
 .bottom button:hover{
   background:var(--green);
+
   color:white;
 }
 
-/* =========================
+
+/* =========================================================
    LIGHTBOX
-========================= */
+========================================================= */
 
 .lightbox{
   position:fixed;
+
   inset:0;
+
   z-index:999;
+
   display:none;
+
   place-items:center;
-  background:rgba(10,30,26,.92);
+
   padding:20px;
+
+  background:
+    rgba(8,28,24,.94);
 }
 
 .lightbox.show{
@@ -763,27 +1185,43 @@ h3{
 .lightbox img{
   max-width:95vw;
   max-height:88vh;
+
   border-radius:16px;
-  box-shadow:0 30px 90px rgba(0,0,0,.4);
+
+  box-shadow:
+    0 30px 90px
+    rgba(0,0,0,.45);
 }
 
 .close{
   position:absolute;
+
   top:20px;
   right:20px;
+
   width:44px;
   height:44px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.3);
+
   border-radius:50%;
-  border:1px solid #fff4;
-  background:#fff2;
-  color:#fff;
+
+  background:
+    rgba(255,255,255,.12);
+
+  color:white;
+
   font-size:25px;
+
   cursor:pointer;
 }
 
-/* =========================
-   MOBILE
-========================= */
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media(max-width:850px){
 
@@ -793,28 +1231,53 @@ h3{
   }
 
   .gallery{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
   .choices{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
+
 }
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:600px){
 
   header{
-    display:block;
-    padding:8px 12px;
     height:110px;
+
+    display:block;
+
+    padding:
+      8px 12px;
   }
 
   .brand{
-    height:34px;
+    height:35px;
+  }
+
+  .tabs{
+    margin-top:5px;
+  }
+
+  .tab{
+    padding:
+      7px 9px;
+
+    font-size:8px;
   }
 
   .slide{
-    padding:125px 18px 85px;
+    padding:
+      125px
+      18px
+      82px;
   }
 
   .photo{
@@ -833,62 +1296,88 @@ h3{
     height:330px;
   }
 
-  .tab{
-    font-size:8px;
-    padding:7px 9px;
+  .quote{
+    padding:22px;
   }
 
   .choices{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
   }
 
   .choice{
-    padding:14px 9px;
-  }
-
-  .quote{
-    padding:22px;
+    padding:
+      14px 9px;
   }
 
   .bottom{
     bottom:10px;
   }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="presentation">
 
-<div class="progress" id="progress"></div>
+<div
+  class="progress"
+  id="progress">
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
   <div class="brand">
-    <div class="mark">IF</div>
+
+    <div class="mark">
+      IF
+    </div>
+
     Isti Fatimah
+
   </div>
 
-  <nav class="tabs" id="tabs"></nav>
+  <nav
+    class="tabs"
+    id="tabs">
+  </nav>
 
 </header>
 
-<main id="slides">
 
 <!-- =====================================================
-     01 · START
+     SLIDES
+===================================================== -->
+
+<main id="slides">
+
+
+<!-- =====================================================
+01 START
 ===================================================== -->
 
 <section class="slide active">
 
 <div class="content">
 
-<div class="eyebrow">WEBINAR SERIES · PART 01</div>
+<div class="eyebrow">
+WEBINAR SERIES · PART 01
+</div>
 
 <h1>
 Beyond<br>
-<span class="gold">Borders.</span>
+<span class="gold">
+Borders.
+</span>
 </h1>
 
 <p class="lead">
@@ -901,7 +1390,9 @@ semakin dekat dengan dunia.
 ISTI FATIMAH · JOURNEY BEFORE TRAVELING
 </div>
 
-<button class="btn" onclick="nextSlide()">
+<button
+  class="btn"
+  onclick="nextSlide()">
 Let's Begin →
 </button>
 
@@ -911,14 +1402,16 @@ Let's Begin →
 
 
 <!-- =====================================================
-     02 · AUDIENCE INTERACTIVE
+02 AUDIENCE
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content center">
 
-<div class="eyebrow">MEET THE AUDIENCE</div>
+<div class="eyebrow">
+MEET THE AUDIENCE
+</div>
 
 <h2>
 Saya mau tahu...
@@ -932,39 +1425,80 @@ Pernah merasa belum siap ketika sebuah kesempatan datang?
 
 <div class="choices">
 
-<button class="choice" onclick="choose(this,'A')">
+<button
+  class="choice"
+  onclick="chooseAnswer(this,'A')">
+
 <b>A</b>
-<small>Sering banget</small>
+
+<small>
+Sering banget
+</small>
+
 </button>
 
-<button class="choice" onclick="choose(this,'B')">
+
+<button
+  class="choice"
+  onclick="chooseAnswer(this,'B')">
+
 <b>B</b>
-<small>Kadang-kadang</small>
+
+<small>
+Kadang-kadang
+</small>
+
 </button>
 
-<button class="choice" onclick="choose(this,'C')">
+
+<button
+  class="choice"
+  onclick="chooseAnswer(this,'C')">
+
 <b>C</b>
-<small>Pernah sekali</small>
+
+<small>
+Pernah sekali
+</small>
+
 </button>
 
-<button class="choice" onclick="choose(this,'D')">
+
+<button
+  class="choice"
+  onclick="chooseAnswer(this,'D')">
+
 <b>D</b>
-<small>Justru saya ambil</small>
+
+<small>
+Justru saya ambil
+</small>
+
 </button>
 
 </div>
 
-<div class="response" id="response">
-Pilih salah satu dalam hati... atau klik jawabannya.
-</div>
+
+<div
+  class="response"
+  id="response">
+
+Pilih salah satu dalam hati...
+atau klik jawabannya.
 
 </div>
 
-<div class="quote" style="margin:25px auto 0">
+</div>
+
+
+<div
+  class="quote"
+  style="margin:25px auto 0">
 
 <div class="quote-text">
 
 Maybe being ready isn't the first step.
+
 <br><br>
 
 <span class="gold">
@@ -981,18 +1515,22 @@ Maybe saying YES is.
 
 
 <!-- =====================================================
-     03 · FIRST YES
+03 FIRST YES
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="eyebrow">THE FIRST YES</div>
+<div class="eyebrow">
+THE FIRST YES
+</div>
 
 <h2>
 I didn't start with<br>
-<span class="gold">traveling.</span>
+<span class="gold">
+traveling.
+</span>
 </h2>
 
 <p class="lead">
@@ -1001,7 +1539,10 @@ mungkin orang akan berpikir semuanya dimulai
 dari perjalanan ke luar negeri.
 </p>
 
-<div class="reflection" onclick="toggleReflection(this)">
+
+<div
+  class="reflection"
+  onclick="toggleReflection(this)">
 
 <div class="reflection-title">
 💭 Coba pikirkan sebentar...
@@ -1016,6 +1557,7 @@ lebih besar dari yang pernah Anda bayangkan?
 
 </div>
 
+
 <div class="quote">
 
 <div class="quote-text">
@@ -1024,7 +1566,9 @@ But actually...
 <br><br>
 
 it started with
-<span class="gold">courage.</span>
+<span class="gold">
+courage.
+</span>
 
 </div>
 
@@ -1036,35 +1580,49 @@ it started with
 
 
 <!-- =====================================================
-     04 · FIFA
+04 FIFA
 ===================================================== -->
 
 <section class="slide">
 
 <div class="content">
 
-<div class="eyebrow">DREAMING BEYOND · 2014</div>
+<div class="eyebrow">
+DREAMING BEYOND · 2014
+</div>
 
 <h2>
 My first big
-<span class="gold">dream.</span>
+<span class="gold">
+dream.
+</span>
 </h2>
 
 <div class="split">
 
-<div class="photo"
-onclick="openPhoto('images/fifa-2014.jpg')">
 
-<img src="images/fifa-2014.jpg"
-onerror="this.style.display='none'">
+<div
+  class="photo"
+  onclick="openPhoto('images/fifa-2014.jpg')">
+
+<img
+  src="images/fifa-2014.jpg"
+  onerror="this.style.display='none';">
 
 <div class="placeholder">
 
 ⚽
 
 <div>
-<b>Foto FIFA World Cup 2014</b>
-<small>fifa-2014.jpg</small>
+
+<b>
+Foto FIFA World Cup 2014
+</b>
+
+<small>
+fifa-2014.jpg
+</small>
+
 </div>
 
 </div>
@@ -1074,6 +1632,7 @@ RIO DE JANEIRO · BRAZIL
 </div>
 
 </div>
+
 
 <div>
 
@@ -1105,7 +1664,7 @@ FIFA World Cup 2014 di Rio de Janeiro, Brazil.
 
 
 <!-- =====================================================
-     05 · INVITATION
+05 INVITATION
 ===================================================== -->
 
 <section class="slide">
@@ -1118,10 +1677,13 @@ ANOTHER DOOR · 2018
 
 <h2>
 Another door
-<span class="gold">opened.</span>
+<span class="gold">
+opened.
+</span>
 </h2>
 
 <div class="split">
+
 
 <div>
 
@@ -1144,19 +1706,29 @@ pada Invitation Tournament Asian Games 2018.
 
 </div>
 
-<div class="photo"
-onclick="openPhoto('images/invitation-asian-games.jpg')">
 
-<img src="images/invitation-asian-games.jpg"
-onerror="this.style.display='none'">
+<div
+  class="photo"
+  onclick="openPhoto('images/invitation-asian-games.jpg')">
+
+<img
+  src="images/invitation-asian-games.jpg"
+  onerror="this.style.display='none';">
 
 <div class="placeholder">
 
 🏟️
 
 <div>
-<b>Invitation Tournament</b>
-<small>invitation-asian-games.jpg</small>
+
+<b>
+Invitation Tournament
+</b>
+
+<small>
+invitation-asian-games.jpg
+</small>
+
 </div>
 
 </div>
@@ -1171,7 +1743,7 @@ onerror="this.style.display='none'">
 
 
 <!-- =====================================================
-     06 · BANDUNG BALI
+06 BANDUNG BALI
 ===================================================== -->
 
 <section class="slide">
@@ -1184,7 +1756,9 @@ AN UNEXPECTED TURN
 
 <h2>
 Sometimes...
-<span class="gold">just say YES.</span>
+<span class="gold">
+just say YES.
+</span>
 </h2>
 
 <p class="lead">
@@ -1192,26 +1766,39 @@ Saya mengikuti giveaway flight
 <b>Bandung — Bali.</b>
 </p>
 
-<div class="split" style="text-align:left">
+<div
+  class="split"
+  style="text-align:left">
 
-<div class="photo"
-onclick="openPhoto('images/giveaway-bandung-bali.jpg')">
 
-<img src="images/giveaway-bandung-bali.jpg"
-onerror="this.style.display='none'">
+<div
+  class="photo"
+  onclick="openPhoto('images/giveaway-bandung-bali.jpg')">
+
+<img
+  src="images/giveaway-bandung-bali.jpg"
+  onerror="this.style.display='none';">
 
 <div class="placeholder">
 
 ✈️
 
 <div>
-<b>Bandung → Bali</b>
-<small>giveaway-bandung-bali.jpg</small>
-</div>
+
+<b>
+Bandung → Bali
+</b>
+
+<small>
+giveaway-bandung-bali.jpg
+</small>
 
 </div>
 
 </div>
+
+</div>
+
 
 <div class="quote">
 
@@ -1219,8 +1806,11 @@ onerror="this.style.display='none'">
 
 Not every journey
 <br>
+
 starts with
-<span class="gold">a plan.</span>
+<span class="gold">
+a plan.
+</span>
 
 </div>
 
@@ -1234,7 +1824,7 @@ starts with
 
 
 <!-- =====================================================
-     07 · ASIAN GAMES
+07 ASIAN GAMES
 ===================================================== -->
 
 <section class="slide">
@@ -1247,50 +1837,95 @@ THE BIGGER YES · 2018
 
 <h2>
 I stepped into
-<span class="gold">Asian Games 2018.</span>
+<span class="gold">
+Asian Games 2018.
+</span>
 </h2>
 
 <div class="split">
 
-<div class="photo"
-onclick="openPhoto('images/asian-games-2018.jpg')">
 
-<img src="images/asian-games-2018.jpg"
-onerror="this.style.display='none'">
+<div
+  class="photo"
+  onclick="openPhoto('images/asian-games-2018.jpg')">
+
+<img
+  src="images/asian-games-2018.jpg"
+  onerror="this.style.display='none';">
 
 <div class="placeholder">
 
 🏅
 
 <div>
-<b>Volunteer Asian Games</b>
-<small>asian-games-2018.jpg</small>
-</div>
+
+<b>
+Volunteer Asian Games
+</b>
+
+<small>
+asian-games-2018.jpg
+</small>
 
 </div>
 
 </div>
+
+</div>
+
 
 <div class="timeline">
 
 <div>
-<h3>Meet</h3>
-<p>Bertemu lebih banyak orang.</p>
+
+<h3>
+Meet
+</h3>
+
+<p>
+Bertemu lebih banyak orang.
+</p>
+
 </div>
 
-<div>
-<h3>Interact</h3>
-<p>Berinteraksi dengan lingkungan yang lebih beragam.</p>
-</div>
 
 <div>
-<h3>Adapt</h3>
-<p>Belajar menyesuaikan diri.</p>
+
+<h3>
+Interact
+</h3>
+
+<p>
+Berinteraksi dengan lingkungan
+yang lebih beragam.
+</p>
+
 </div>
 
+
 <div>
-<h3>Grow</h3>
-<p>Kepercayaan diri semakin tumbuh.</p>
+
+<h3>
+Adapt
+</h3>
+
+<p>
+Belajar menyesuaikan diri.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Grow
+</h3>
+
+<p>
+Kepercayaan diri semakin tumbuh.
+</p>
+
 </div>
 
 </div>
@@ -1303,7 +1938,7 @@ onerror="this.style.display='none'">
 
 
 <!-- =====================================================
-     08 · EHEF
+08 EHEF
 ===================================================== -->
 
 <section class="slide">
@@ -1316,10 +1951,13 @@ THE EHEF CHAPTER · 2018—2020
 
 <h2>
 Then came
-<span class="gold">EHEF.</span>
+<span class="gold">
+EHEF.
+</span>
 </h2>
 
 <div class="split">
+
 
 <div>
 
@@ -1340,27 +1978,41 @@ Saya kemudian bergabung dalam volunteer
 dan kepanitiaan EHEF pada periode 2018–2020.
 </p>
 
-<p class="lead" style="font-size:15px">
+<p
+  class="lead"
+  style="font-size:15px">
+
 Pengalaman ini semakin mempertemukan saya
 dengan banyak orang dari berbagai negara
 dan latar belakang.
+
 </p>
 
 </div>
 
-<div class="photo"
-onclick="openPhoto('images/ehef-2018.jpg')">
 
-<img src="images/ehef-2018.jpg"
-onerror="this.style.display='none'">
+<div
+  class="photo"
+  onclick="openPhoto('images/ehef-2018.jpg')">
+
+<img
+  src="images/ehef-2018.jpg"
+  onerror="this.style.display='none';">
 
 <div class="placeholder">
 
 🌍
 
 <div>
-<b>Foto EHEF</b>
-<small>ehef-2018.jpg</small>
+
+<b>
+Foto EHEF
+</b>
+
+<small>
+ehef-2018.jpg
+</small>
+
 </div>
 
 </div>
@@ -1375,7 +2027,7 @@ onerror="this.style.display='none'">
 
 
 <!-- =====================================================
-     09 · CONNECTION
+09 CONNECTION
 ===================================================== -->
 
 <section class="slide">
@@ -1388,7 +2040,9 @@ GLOBAL CONNECTIONS
 
 <h2>
 I met people
-<span class="gold">from everywhere.</span>
+<span class="gold">
+from everywhere.
+</span>
 </h2>
 
 <p class="lead">
@@ -1396,15 +2050,23 @@ Dari berbagai pengalaman tersebut,
 saya bertemu banyak teman dari luar negeri.
 </p>
 
-<div class="quote" style="margin:auto">
+<div
+  class="quote"
+  style="margin:auto">
 
 <div class="quote-text">
 
 The world became
-<span class="gold">smaller</span>
+<span class="gold">
+smaller
+</span>
+
 <br>
+
 when I started
-<span class="gold">connecting.</span>
+<span class="gold">
+connecting.
+</span>
 
 </div>
 
@@ -1416,7 +2078,7 @@ when I started
 
 
 <!-- =====================================================
-     10 · ENGLISH
+10 ENGLISH
 ===================================================== -->
 
 <section class="slide">
@@ -1430,7 +2092,9 @@ FINDING MY VOICE
 <h2>
 Then I realized...
 <br>
-<span class="gold">I had to speak.</span>
+<span class="gold">
+I had to speak.
+</span>
 </h2>
 
 <p class="lead">
@@ -1441,49 +2105,78 @@ dalam Bahasa Inggris.
 
 <div class="grid">
 
+
 <div class="card">
-<strong>English</strong>
+
+<strong>
+English
+</strong>
+
 <span>
 Bukan hanya belajar memahami,
 tetapi belajar menggunakannya.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Communication</strong>
+
+<strong>
+Communication
+</strong>
+
 <span>
 Belajar menyampaikan pikiran kepada orang
 dari latar belakang berbeda.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Confidence</strong>
+
+<strong>
+Confidence
+</strong>
+
 <span>
 Berani berbicara meskipun belum merasa sempurna.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Connection</strong>
+
+<strong>
+Connection
+</strong>
+
 <span>
 Bahasa menjadi jembatan untuk membangun pertemanan.
 </span>
+
 </div>
 
 </div>
+
 
 <div class="quote">
 
 <div class="quote-text">
 
 I didn't need to speak
-<span class="gold">perfect English.</span>
+<span class="gold">
+perfect English.
+</span>
 
 <br><br>
 
 I needed the courage
-<span class="gold">to speak.</span>
+<span class="gold">
+to speak.
+</span>
 
 </div>
 
@@ -1495,7 +2188,7 @@ I needed the courage
 
 
 <!-- =====================================================
-     11 · PATTERN
+11 PATTERN
 ===================================================== -->
 
 <section class="slide">
@@ -1508,7 +2201,9 @@ THE PATTERN
 
 <h2>
 Looking back,
-<span class="gold">I see it now.</span>
+<span class="gold">
+I see it now.
+</span>
 </h2>
 
 <p class="lead">
@@ -1519,45 +2214,64 @@ Semuanya dimulai dari kesempatan-kesempatan kecil.
 
 <div class="grid">
 
+
 <div class="card">
+
 <strong>
 01 · Berani
 </strong>
+
 <span>
 Mengambil kesempatan pertama.
 </span>
+
 </div>
 
+
 <div class="card">
+
 <strong>
 02 · Bertemu
 </strong>
+
 <span>
 Berinteraksi dengan orang baru.
 </span>
+
 </div>
 
+
 <div class="card">
+
 <strong>
 03 · Belajar
 </strong>
+
 <span>
 English, communication & adaptability.
 </span>
+
 </div>
 
+
 <div class="card">
+
 <strong>
 04 · Bertumbuh
 </strong>
+
 <span>
 Confidence mulai terbentuk.
 </span>
-</div>
 
 </div>
 
-<div class="reflection" onclick="toggleReflection(this)">
+</div>
+
+
+<div
+  class="reflection"
+  onclick="toggleReflection(this)">
 
 <div class="reflection-title">
 ✨ What about your journey?
@@ -1577,7 +2291,7 @@ yang ternyata sudah membawa Anda jauh.
 
 
 <!-- =====================================================
-     12 · MAP
+12 MAP
 ===================================================== -->
 
 <section class="slide">
@@ -1591,7 +2305,11 @@ THE WORLD OPENED
 <h2>
 And eventually...
 <br>
-<span class="gold">I became a traveler.</span>
+
+<span class="gold">
+I became a traveler.
+</span>
+
 </h2>
 
 <p class="lead">
@@ -1599,10 +2317,16 @@ Dari semua pengalaman itu,
 perjalanan saya akhirnya membawa saya
 ke berbagai negara.
 <br><br>
-<b>Ini baru teaser-nya.</b>
+
+<b>
+Ini baru teaser-nya.
+</b>
+
 </p>
 
-<div class="map" id="worldMap">
+<div
+  class="map"
+  id="worldMap">
 
 <i class="land l1"></i>
 <i class="land l2"></i>
@@ -1611,7 +2335,10 @@ ke berbagai negara.
 <i class="land l5"></i>
 <i class="land l6"></i>
 
-<div class="tip" id="tip"></div>
+<div
+  class="tip"
+  id="tip">
+</div>
 
 </div>
 
@@ -1621,7 +2348,7 @@ ke berbagai negara.
 
 
 <!-- =====================================================
-     13 · GALLERY
+13 GALLERY
 ===================================================== -->
 
 <section class="slide">
@@ -1634,7 +2361,9 @@ ONE JOURNEY · MANY MOMENTS
 
 <h2>
 My Journey
-<span class="gold">Gallery.</span>
+<span class="gold">
+Gallery.
+</span>
 </h2>
 
 <p class="lead">
@@ -1644,15 +2373,21 @@ keberanian, dan pengalaman yang membawa saya
 sampai ke titik hari ini.
 </p>
 
-<div class="gallery" id="gallery"></div>
+<div
+  class="gallery"
+  id="gallery">
+</div>
 
-<p style="
-margin-top:20px;
-text-align:center;
-color:#71807a;
-font-size:11px;
-">
+<p
+  style="
+  margin-top:20px;
+  text-align:center;
+  color:#71807a;
+  font-size:11px;
+  ">
+
 Klik foto untuk melihat lebih besar
+
 </p>
 
 </div>
@@ -1661,7 +2396,7 @@ Klik foto untuk melihat lebih besar
 
 
 <!-- =====================================================
-     14 · SAFAR
+14 SAFAR
 ===================================================== -->
 
 <section class="slide">
@@ -1674,7 +2409,9 @@ WEBINAR MATERIAL · 01
 
 <h2>
 Safar dalam
-<span class="gold">Perspektif Islam.</span>
+<span class="gold">
+Perspektif Islam.
+</span>
 </h2>
 
 <p class="lead">
@@ -1686,36 +2423,60 @@ sebagai seorang Muslimah.
 
 <div class="grid">
 
+
 <div class="card">
-<strong>Makna Safar</strong>
+
+<strong>
+Makna Safar
+</strong>
+
 <span>
 Memahami perjalanan dalam perspektif
 Al-Qur'an dan Sunnah.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Hikmah Perjalanan</strong>
+
+<strong>
+Hikmah Perjalanan
+</strong>
+
 <span>
 Melihat perjalanan sebagai kesempatan
 untuk belajar dan mengambil pelajaran.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Beyond Comfort</strong>
+
+<strong>
+Beyond Comfort
+</strong>
+
 <span>
 Traveling sebagai sarana belajar,
 bertafakur, dan memperluas wawasan.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Adab Safar</strong>
+
+<strong>
+Adab Safar
+</strong>
+
 <span>
 Menjaga sikap dan adab seorang Muslimah
 ketika melakukan perjalanan.
 </span>
+
 </div>
 
 </div>
@@ -1725,7 +2486,9 @@ ketika melakukan perjalanan.
 <div class="quote-text">
 
 “The world is wide, but every journey can bring us
-<span class="gold">closer to meaning.</span>”
+<span class="gold">
+closer to meaning.
+</span>”
 
 </div>
 
@@ -1737,7 +2500,7 @@ ketika melakukan perjalanan.
 
 
 <!-- =====================================================
-     15 · BEYOND BORDERS
+15 BEYOND BORDERS
 ===================================================== -->
 
 <section class="slide">
@@ -1750,7 +2513,11 @@ WEBINAR MATERIAL · 02
 
 <h2>
 Beyond Borders:<br>
-<span class="gold">Berani Melihat Dunia.</span>
+
+<span class="gold">
+Berani Melihat Dunia.
+</span>
+
 </h2>
 
 <p class="lead">
@@ -1760,48 +2527,79 @@ perbedaan, belajar keluar dari zona nyaman,
 dan kembali dengan wawasan yang lebih luas.
 </p>
 
-<div class="grid" style="text-align:left">
+<div
+  class="grid"
+  style="text-align:left">
+
 
 <div class="card">
-<strong>Global Mindset</strong>
+
+<strong>
+Global Mindset
+</strong>
+
 <span>
 Mengapa Muslimah perlu memiliki wawasan global.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Learning Outside Class</strong>
+
+<strong>
+Learning Outside Class
+</strong>
+
 <span>
 Traveling sebagai proses belajar
 di luar ruang kelas.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Courage</strong>
+
+<strong>
+Courage
+</strong>
+
 <span>
 Membangun keberanian untuk keluar
 dari zona nyaman.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Life Investment</strong>
+
+<strong>
+Life Investment
+</strong>
+
 <span>
 Menjadikan setiap perjalanan
 sebagai investasi pengalaman.
 </span>
-</div>
 
 </div>
 
-<div class="quote" style="margin:28px auto 0">
+</div>
+
+
+<div
+  class="quote"
+  style="margin:28px auto 0">
 
 <div class="quote-text">
 
 “You do not have to cross every border to grow.
 Sometimes, growth begins the moment you dare to cross
-<span class="gold">your own limits.</span>”
+<span class="gold">
+your own limits.
+</span>”
 
 </div>
 
@@ -1813,7 +2611,7 @@ Sometimes, growth begins the moment you dare to cross
 
 
 <!-- =====================================================
-     16 · TEN COUNTRIES
+16 TEN COUNTRIES
 ===================================================== -->
 
 <section class="slide">
@@ -1826,7 +2624,10 @@ WEBINAR MATERIAL · 03
 
 <h2>
 Belajar dari Perjalanan<br>
-ke <span class="gold">Berbagai Negara.</span>
+ke
+<span class="gold">
+Berbagai Negara.
+</span>
 </h2>
 
 <p class="lead">
@@ -1837,54 +2638,91 @@ tetapi tentang pelajaran yang dibawa pulang.
 
 <div class="grid">
 
+
 <div class="card">
-<strong>Culture</strong>
+
+<strong>
+Culture
+</strong>
+
 <span>
 Keunikan budaya dan kebiasaan masyarakat.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Positive Values</strong>
+
+<strong>
+Positive Values
+</strong>
+
 <span>
 Nilai-nilai positif yang dapat dipelajari
 dari setiap negara.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Perspective</strong>
+
+<strong>
+Perspective
+</strong>
+
 <span>
 Pengalaman yang mengubah cara pandang
 terhadap kehidupan.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Challenges</strong>
+
+<strong>
+Challenges
+</strong>
+
 <span>
 Tantangan selama perjalanan
 dan cara menghadapinya.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Memorable Moments</strong>
+
+<strong>
+Memorable Moments
+</strong>
+
 <span>
 Momen paling berkesan yang memberikan
 pelajaran hidup.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Ten Stories</strong>
+
+<strong>
+Ten Stories
+</strong>
+
 <span>
 Setiap negara memiliki cerita yang berbeda
 dan makna yang berbeda.
 </span>
+
 </div>
 
 </div>
+
 
 <div class="quote">
 
@@ -1892,7 +2730,9 @@ dan makna yang berbeda.
 
 “A journey may change your location for a while,
 but the lessons you bring home can change
-<span class="gold">your life forever.</span>”
+<span class="gold">
+your life forever.
+</span>”
 
 </div>
 
@@ -1904,7 +2744,7 @@ but the lessons you bring home can change
 
 
 <!-- =====================================================
-     17 · CONFIDENT MUSLIMAH
+17 CONFIDENT MUSLIMAH
 ===================================================== -->
 
 <section class="slide">
@@ -1917,9 +2757,11 @@ WEBINAR MATERIAL · 04
 
 <h2>
 Menjadi Muslimah yang<br>
+
 <span class="gold">
 Percaya Diri di Mana Pun Berada.
 </span>
+
 </h2>
 
 <p class="lead">
@@ -1931,38 +2773,63 @@ secara baik dan terbuka.
 
 <div class="grid">
 
+
 <div class="card">
-<strong>Identity</strong>
+
+<strong>
+Identity
+</strong>
+
 <span>
 Menjaga identitas sebagai Muslimah
 di lingkungan internasional.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Adab & Akhlak</strong>
+
+<strong>
+Adab & Akhlak
+</strong>
+
 <span>
 Menjaga ibadah dan akhlak selama perjalanan.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Interaction</strong>
+
+<strong>
+Interaction
+</strong>
+
 <span>
 Berinteraksi dengan masyarakat
 dari berbagai latar belakang.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Representation</strong>
+
+<strong>
+Representation
+</strong>
+
 <span>
 Menjadi representasi Islam yang ramah,
 santun, dan terbuka.
 </span>
+
 </div>
 
 </div>
+
 
 <div class="quote">
 
@@ -1971,7 +2838,9 @@ santun, dan terbuka.
 “Confidence is not becoming louder.
 It is becoming so secure in your values that you can
 walk into the world and still remain
-<span class="gold">yourself.</span>”
+<span class="gold">
+yourself.
+</span>”
 
 </div>
 
@@ -1983,7 +2852,7 @@ walk into the world and still remain
 
 
 <!-- =====================================================
-     18 · TRAVEL ESSENTIALS
+18 TRAVEL ESSENTIALS
 ===================================================== -->
 
 <section class="slide">
@@ -1996,7 +2865,11 @@ WEBINAR MATERIAL · 05
 
 <h2>
 Bekal untuk Memulai<br>
-<span class="gold">Perjalanan.</span>
+
+<span class="gold">
+Perjalanan.
+</span>
+
 </h2>
 
 <p class="lead">
@@ -2007,37 +2880,64 @@ lebih mungkin untuk diwujudkan.
 
 <div class="grid">
 
-<div class="card">
-<strong>Mental & Spiritual</strong>
-<span>
-Persiapan mental dan spiritual sebelum melakukan perjalanan.
-</span>
-</div>
 
 <div class="card">
-<strong>Simple Planning</strong>
+
+<strong>
+Mental & Spiritual
+</strong>
+
 <span>
-Perencanaan perjalanan secara sederhana dan bertahap.
+Persiapan mental dan spiritual
+sebelum melakukan perjalanan.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>English</strong>
+
+<strong>
+Simple Planning
+</strong>
+
+<span>
+Perencanaan perjalanan secara sederhana
+dan bertahap.
+</span>
+
+</div>
+
+
+<div class="card">
+
+<strong>
+English
+</strong>
+
 <span>
 Pentingnya kemampuan Bahasa Inggris
 sebagai bekal komunikasi internasional.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>Small Steps</strong>
+
+<strong>
+Small Steps
+</strong>
+
 <span>
 Langkah kecil untuk mulai mewujudkan
 impian menjelajah dunia.
 </span>
+
 </div>
 
 </div>
+
 
 <div class="quote">
 
@@ -2045,7 +2945,9 @@ impian menjelajah dunia.
 
 “You don't need to see the whole road before you begin.
 Take the next right step, and let the journey reveal
-<span class="gold">what comes after.</span>”
+<span class="gold">
+what comes after.
+</span>”
 
 </div>
 
@@ -2057,7 +2959,7 @@ Take the next right step, and let the journey reveal
 
 
 <!-- =====================================================
-     19 · INTERACTIVE
+19 INTERACTIVE METHOD
 ===================================================== -->
 
 <section class="slide">
@@ -2070,7 +2972,9 @@ HOW WE LEARN TOGETHER
 
 <h2>
 Metode
-<span class="gold">Pelaksanaan.</span>
+<span class="gold">
+Pelaksanaan.
+</span>
 </h2>
 
 <p class="lead">
@@ -2079,43 +2983,72 @@ tetapi untuk dirasakan bersama melalui pengalaman nyata
 dan percakapan yang hidup.
 </p>
 
-<div class="grid" style="text-align:left">
+<div
+  class="grid"
+  style="text-align:left">
+
 
 <div class="card">
-<strong>01 · Presentasi Inspiratif</strong>
+
+<strong>
+01 · Presentasi Inspiratif
+</strong>
+
 <span>
-Materi disampaikan dengan visual dan cerita
-yang mudah diikuti.
+Materi disampaikan dengan visual
+dan cerita yang mudah diikuti.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>02 · Story Sharing</strong>
+
+<strong>
+02 · Story Sharing
+</strong>
+
 <span>
 Berbagi berdasarkan pengalaman nyata
 dari perjalanan dan kehidupan.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>03 · Diskusi Interaktif</strong>
+
+<strong>
+03 · Diskusi Interaktif
+</strong>
+
 <span>
 Audience dapat ikut berpikir, menjawab,
 dan merefleksikan pengalaman.
 </span>
+
 </div>
 
+
 <div class="card">
-<strong>04 · Tanya Jawab</strong>
+
+<strong>
+04 · Tanya Jawab
+</strong>
+
 <span>
 Ruang untuk membahas pertanyaan
 dan pengalaman peserta.
 </span>
-</div>
 
 </div>
 
-<div class="reflection" onclick="toggleReflection(this)">
+</div>
+
+
+<div
+  class="reflection"
+  onclick="toggleReflection(this)">
 
 <div class="reflection-title">
 💬 Let's make this a conversation.
@@ -2130,13 +3063,18 @@ ke kehidupan setelah webinar ini selesai.
 
 </div>
 
-<div class="quote" style="margin:28px auto 0">
+
+<div
+  class="quote"
+  style="margin:28px auto 0">
 
 <div class="quote-text">
 
 “The best conversations do not end when the webinar ends.
 They continue in the choices people make
-<span class="gold">afterwards.</span>”
+<span class="gold">
+afterwards.
+</span>”
 
 </div>
 
@@ -2148,7 +3086,7 @@ They continue in the choices people make
 
 
 <!-- =====================================================
-     20 · EXPECTED OUTCOME
+20 OUTCOME
 ===================================================== -->
 
 <section class="slide">
@@ -2161,7 +3099,11 @@ VI · HASIL YANG DIHARAPKAN
 
 <h2>
 What do we hope<br>
-<span class="gold">you take with you?</span>
+
+<span class="gold">
+you take with you?
+</span>
+
 </h2>
 
 <p class="lead">
@@ -2170,23 +3112,31 @@ pulang bukan hanya informasi, tetapi juga keberanian
 untuk melihat kemungkinan baru dalam perjalanan hidupnya.
 </p>
 
-<div class="quote"
-style="margin:30px auto;text-align:left">
+
+<div
+  class="quote"
+  style="margin:30px auto;text-align:left">
 
 <div class="quote-text">
 
 “May you leave with more than notes.
 May you leave with a wider mind, a braver heart,
 and the courage to take your
-<span class="gold">next step.</span>”
+<span class="gold">
+next step.
+</span>”
 
 </div>
 
 </div>
 
-<div class="label"
-style="color:var(--gold)">
+
+<div
+  class="label"
+  style="color:var(--gold)">
+
 LEARN · REFLECT · CONNECT · BEGIN
+
 </div>
 
 </div>
@@ -2195,7 +3145,7 @@ LEARN · REFLECT · CONNECT · BEGIN
 
 
 <!-- =====================================================
-     21 · NEXT CHAPTER
+21 NEXT CHAPTER
 ===================================================== -->
 
 <section class="slide">
@@ -2208,7 +3158,9 @@ NEXT CHAPTER
 
 <h2>
 The story
-<span class="gold">continues.</span>
+<span class="gold">
+continues.
+</span>
 </h2>
 
 <p class="lead">
@@ -2216,7 +3168,10 @@ Di webinar berikutnya, kita akan mulai membuka
 satu per satu cerita di balik titik-titik perjalanan tersebut.
 </p>
 
-<div class="quote" style="margin:auto">
+
+<div
+  class="quote"
+  style="margin:auto">
 
 <div class="quote-text">
 
@@ -2231,7 +3186,10 @@ satu per satu cerita di balik titik-titik perjalanan tersebut.
 
 </div>
 
-<p class="lead" style="font-size:15px">
+
+<p
+  class="lead"
+  style="font-size:15px">
 
 Bukan hanya tentang tempat yang saya kunjungi,
 tetapi tentang apa yang saya pelajari
@@ -2245,7 +3203,7 @@ dari setiap perjalanan.
 
 
 <!-- =====================================================
-     22 · CLOSING
+22 CLOSING
 ===================================================== -->
 
 <section class="slide">
@@ -2259,284 +3217,509 @@ THE BEGINNING
 <h2>
 You don't have to
 <br>
-<span class="gold">be ready.</span>
+
+<span class="gold">
+be ready.
+</span>
+
 </h2>
 
 <p class="lead">
 Kadang kita hanya perlu cukup berani
 untuk mengatakan YES pada kesempatan pertama.
 <br><br>
+
 Karena kita tidak pernah tahu,
 satu YES hari ini akan membawa kita ke mana
 di masa depan.
 </p>
 
-<div class="quote"
-style="margin:auto;text-align:left">
+
+<div
+  class="quote"
+  style="margin:auto;text-align:left">
 
 <div class="quote-text">
 
 Maybe your first YES
 <br>
+
 is already waiting for you.
 
 </div>
 
 </div>
 
-<div class="label"
-style="margin-top:30px;color:var(--gold)">
+
+<div
+  class="label"
+  style="
+    margin-top:30px;
+    color:var(--gold);
+  ">
+
 ISTI FATIMAH
+
 </div>
 
-<button class="btn" onclick="go(0)">
+
+<button
+  class="btn"
+  onclick="goToSlide(0)">
+
 ↺ Back to Beginning
+
 </button>
 
 </div>
 
 </section>
 
+
 </main>
 
 
-<!-- BOTTOM NAV -->
+<!-- =====================================================
+BOTTOM NAVIGATION
+===================================================== -->
 
 <div class="bottom">
 
-<button onclick="prev()" aria-label="Previous">
+<button
+  onclick="previousSlide()"
+  aria-label="Previous">
+
 ←
+
 </button>
-
-<button onclick="go(0)" aria-label="Home">
-⌂
-</button>
-
-<button onclick="nextSlide()" aria-label="Next">
-→
-</button>
-
-</div>
-
-
-<!-- LIGHTBOX -->
-
-<div class="lightbox"
-id="lightbox"
-onclick="closePhoto()">
 
 <button
-class="close"
-onclick="event.stopPropagation();closePhoto()">
-×
+  onclick="goToSlide(0)"
+  aria-label="Home">
+
+⌂
+
 </button>
 
-<img id="lightboxImg">
+<button
+  onclick="nextSlide()"
+  aria-label="Next">
+
+→
+
+</button>
 
 </div>
+
+
+<!-- =====================================================
+LIGHTBOX
+===================================================== -->
+
+<div
+  class="lightbox"
+  id="lightbox">
+
+<button
+  class="close"
+  onclick="closePhoto()">
+
+×
+
+</button>
+
+<img
+  id="lightboxImg"
+  alt="Preview">
+
+</div>
+
 
 </div>
 
 
 <script>
 
-/* =====================================================
-   SLIDE NAMES
-===================================================== */
+/* =========================================================
+   SLIDE DATA
+========================================================= */
 
-const names=[
-"Start",
-"Audience",
-"First Yes",
-"FIFA 2014",
-"Invitation",
-"Bandung Bali",
-"Asian Games",
-"EHEF",
-"Connections",
-"English",
-"Pattern",
-"Travel Map",
-"Gallery",
-"Safar & Islam",
-"Beyond Borders",
-"10 Countries",
-"Confident Muslimah",
-"Travel Essentials",
-"Interactive",
-"Expected Outcome",
-"Next Chapter",
-"Closing"
+const slideNames = [
+
+  "Start",
+  "Audience",
+  "First Yes",
+  "FIFA 2014",
+  "Invitation",
+  "Bandung Bali",
+  "Asian Games",
+  "EHEF",
+  "Connections",
+  "English",
+  "Pattern",
+  "Travel Map",
+  "Gallery",
+  "Safar & Islam",
+  "Beyond Borders",
+  "10 Countries",
+  "Confident Muslimah",
+  "Travel Essentials",
+  "Interactive",
+  "Expected Outcome",
+  "Next Chapter",
+  "Closing"
+
 ];
 
 
-/* =====================================================
-   SLIDES
-===================================================== */
+/* =========================================================
+   GET ELEMENTS
+========================================================= */
 
-const slides=[
-  ...document.querySelectorAll(".slide")
-];
-
-const tabs=document.getElementById("tabs");
-const progress=document.getElementById("progress");
-
-let cur=0;
-
-
-/* =====================================================
-   CREATE TABS
-===================================================== */
-
-names.forEach((n,i)=>{
-
-  const b=document.createElement("button");
-
-  b.className="tab"+(!i?" active":"");
-
-  b.textContent=n;
-
-  b.onclick=()=>go(i);
-
-  tabs.appendChild(b);
-
-});
-
-
-/* =====================================================
-   UPDATE
-===================================================== */
-
-function update(){
-
-  slides.forEach((s,i)=>{
-
-    s.classList.toggle(
-      "active",
-      i===cur
-    );
-
-  });
-
-
-  [...tabs.children].forEach((b,i)=>{
-
-    b.classList.toggle(
-      "active",
-      i===cur
-    );
-
-  });
-
-
-  progress.style.width=
-    ((cur+1)/slides.length*100)+"%";
-
-
-  tabs.children[cur].scrollIntoView({
-
-    behavior:"smooth",
-
-    inline:"center",
-
-    block:"nearest"
-
-  });
-
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-function go(i){
-
-  cur=Math.max(
-    0,
-    Math.min(
-      slides.length-1,
-      i
-    )
+const slides =
+  Array.from(
+    document.querySelectorAll(".slide")
   );
 
-  update();
+const tabs =
+  document.getElementById("tabs");
+
+const progress =
+  document.getElementById("progress");
+
+const lightbox =
+  document.getElementById("lightbox");
+
+const lightboxImg =
+  document.getElementById("lightboxImg");
+
+let currentSlide = 0;
+
+
+/* =========================================================
+   CREATE TABS
+========================================================= */
+
+slideNames.forEach(
+  (name,index)=>{
+
+    const button =
+      document.createElement("button");
+
+    button.type="button";
+
+    button.className =
+      "tab" +
+      (index===0 ? " active" : "");
+
+    button.textContent =
+      name;
+
+    button.addEventListener(
+      "click",
+      ()=>{
+        goToSlide(index);
+      }
+    );
+
+    tabs.appendChild(button);
+
+  }
+);
+
+
+/* =========================================================
+   UPDATE PRESENTATION
+========================================================= */
+
+function updatePresentation(){
+
+  slides.forEach(
+    (slide,index)=>{
+
+      slide.classList.toggle(
+        "active",
+        index===currentSlide
+      );
+
+    }
+  );
+
+
+  Array.from(
+    tabs.children
+  ).forEach(
+    (tab,index)=>{
+
+      tab.classList.toggle(
+        "active",
+        index===currentSlide
+      );
+
+    }
+  );
+
+
+  const percent =
+    (
+      (currentSlide+1)
+      /
+      slides.length
+    ) * 100;
+
+  progress.style.width =
+    percent+"%";
+
+
+  const activeTab =
+    tabs.children[currentSlide];
+
+  if(activeTab){
+
+    activeTab.scrollIntoView({
+      behavior:"smooth",
+      inline:"center",
+      block:"nearest"
+    });
+
+  }
 
 }
 
+
+/* =========================================================
+   GO TO SLIDE
+========================================================= */
+
+function goToSlide(index){
+
+  if(index < 0){
+    index=0;
+  }
+
+  if(index >= slides.length){
+    index=slides.length-1;
+  }
+
+  currentSlide=index;
+
+  updatePresentation();
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
 
 function nextSlide(){
 
-  go(cur+1);
+  if(currentSlide < slides.length-1){
+
+    currentSlide++;
+
+    updatePresentation();
+
+  }
 
 }
 
 
-function prev(){
+/* =========================================================
+   PREVIOUS
+========================================================= */
 
-  go(cur-1);
+function previousSlide(){
+
+  if(currentSlide > 0){
+
+    currentSlide--;
+
+    updatePresentation();
+
+  }
 
 }
 
 
-/* =====================================================
-   PHOTO
-===================================================== */
+/* =========================================================
+   INTERACTIVE ANSWER
+========================================================= */
 
-function openPhoto(src){
+function chooseAnswer(element,answer){
 
-  document.getElementById(
-    "lightboxImg"
-  ).src=src;
+  const choices =
+    document.querySelectorAll(".choice");
 
-  document.getElementById(
-    "lightbox"
-  ).classList.add("show");
+  choices.forEach(
+    choice=>{
+      choice.classList.remove(
+        "selected"
+      );
+    }
+  );
+
+
+  element.classList.add(
+    "selected"
+  );
+
+
+  const response =
+    document.getElementById(
+      "response"
+    );
+
+
+  const messages = {
+
+    A:
+      "Berarti Anda tidak sendirian. Banyak orang pernah merasakan hal yang sama.",
+
+    B:
+      "Itu manusiawi. Kadang rasa siap memang datang setelah kita mulai.",
+
+    C:
+      "Satu kesempatan kecil bisa menjadi awal dari cerita yang besar.",
+
+    D:
+      "Beautiful. Sometimes courage means saying YES before knowing everything."
+
+  };
+
+
+  response.textContent =
+    messages[answer];
+
+}
+
+
+/* =========================================================
+   REFLECTION
+========================================================= */
+
+function toggleReflection(element){
+
+  element.classList.toggle(
+    "open"
+  );
+
+}
+
+
+/* =========================================================
+   PHOTO LIGHTBOX
+========================================================= */
+
+function openPhoto(source){
+
+  lightboxImg.src =
+    source;
+
+  lightbox.classList.add(
+    "show"
+  );
 
 }
 
 
 function closePhoto(){
 
-  document.getElementById(
-    "lightbox"
-  ).classList.remove("show");
+  lightbox.classList.remove(
+    "show"
+  );
 
+  lightboxImg.src="";
 }
 
 
-/* =====================================================
-   KEYBOARD
-===================================================== */
+/* =========================================================
+   CLOSE LIGHTBOX WHEN CLICKING BACKGROUND
+========================================================= */
 
-document.addEventListener(
-  "keydown",
-  e=>{
+lightbox.addEventListener(
+  "click",
+  event=>{
 
-    if(e.key==="ArrowRight")
-      nextSlide();
+    if(event.target === lightbox){
 
-    if(e.key==="ArrowLeft")
-      prev();
-
-    if(e.key==="Escape")
       closePhoto();
+
+    }
 
   }
 );
 
 
-/* =====================================================
-   TOUCH / SWIPE
-===================================================== */
+/* =========================================================
+   KEYBOARD NAVIGATION
+========================================================= */
 
-let sx=0;
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(
+      event.key==="ArrowRight" ||
+      event.key==="PageDown"
+    ){
+
+      nextSlide();
+
+    }
+
+
+    if(
+      event.key==="ArrowLeft" ||
+      event.key==="PageUp"
+    ){
+
+      previousSlide();
+
+    }
+
+
+    if(event.key==="Home"){
+
+      goToSlide(0);
+
+    }
+
+
+    if(event.key==="Escape"){
+
+      closePhoto();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   SWIPE NAVIGATION
+========================================================= */
+
+let touchStartX=0;
+let touchStartY=0;
+
 
 document.addEventListener(
   "touchstart",
-  e=>{
+  event=>{
 
-    sx=e.changedTouches[0].screenX;
+    if(
+      event.touches &&
+      event.touches.length
+    ){
+
+      touchStartX =
+        event.touches[0].clientX;
+
+      touchStartY =
+        event.touches[0].clientY;
+
+    }
 
   },
   {passive:true}
@@ -2545,17 +3728,46 @@ document.addEventListener(
 
 document.addEventListener(
   "touchend",
-  e=>{
+  event=>{
 
-    const d=
-      e.changedTouches[0].screenX-sx;
+    if(
+      !event.changedTouches ||
+      !event.changedTouches.length
+    ){
 
-    if(Math.abs(d)>65){
+      return;
 
-      if(d<0)
+    }
+
+
+    const endX =
+      event.changedTouches[0].clientX;
+
+    const endY =
+      event.changedTouches[0].clientY;
+
+
+    const diffX =
+      endX-touchStartX;
+
+    const diffY =
+      endY-touchStartY;
+
+
+    if(
+      Math.abs(diffX)>65 &&
+      Math.abs(diffX)>Math.abs(diffY)
+    ){
+
+      if(diffX<0){
+
         nextSlide();
-      else
-        prev();
+
+      }else{
+
+        previousSlide();
+
+      }
 
     }
 
@@ -2564,181 +3776,175 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   AUDIENCE CHOICE
-===================================================== */
-
-function choose(el,value){
-
-  document
-    .querySelectorAll(".choice")
-    .forEach(c=>{
-      c.classList.remove("selected");
-    });
-
-  el.classList.add("selected");
-
-  const response=
-    document.getElementById("response");
-
-  const messages={
-
-    A:
-    "Berarti Anda tidak sendirian. Banyak orang pernah merasakan hal yang sama.",
-
-    B:
-    "Itu manusiawi. Kadang rasa siap memang datang setelah kita mulai.",
-
-    C:
-    "Satu kesempatan kecil bisa menjadi awal dari cerita yang besar.",
-
-    D:
-    "Beautiful. Sometimes courage means saying YES before knowing everything."
-
-  };
-
-  response.textContent=
-    messages[value];
-
-}
-
-
-/* =====================================================
-   REFLECTION
-===================================================== */
-
-function toggleReflection(el){
-
-  el.classList.toggle("open");
-
-}
-
-
-/* =====================================================
+/* =========================================================
    WORLD MAP
-===================================================== */
+========================================================= */
 
-const countries=[
+const countries = [
 
-  ["Singapore",67,53],
-  ["Malaysia",66,56],
-  ["Thailand",64,48],
-  ["Saudi Arabia",56,47],
-  ["Japan",78,39],
-  ["Korea",74,37],
-  ["Sri Lanka",63,60],
-  ["Vietnam",69,52],
-  ["Philippines",74,55],
-  ["Mongolia",70,31]
+  {
+    name:"Singapore",
+    x:67,
+    y:53
+  },
+
+  {
+    name:"Malaysia",
+    x:66,
+    y:56
+  },
+
+  {
+    name:"Thailand",
+    x:64,
+    y:48
+  },
+
+  {
+    name:"Saudi Arabia",
+    x:56,
+    y:47
+  },
+
+  {
+    name:"Japan",
+    x:78,
+    y:39
+  },
+
+  {
+    name:"Korea",
+    x:74,
+    y:37
+  },
+
+  {
+    name:"Sri Lanka",
+    x:63,
+    y:60
+  },
+
+  {
+    name:"Vietnam",
+    x:69,
+    y:52
+  },
+
+  {
+    name:"Philippines",
+    x:74,
+    y:55
+  },
+
+  {
+    name:"Mongolia",
+    x:70,
+    y:31
+  }
 
 ];
 
 
-const map=
-  document.getElementById("worldMap");
+const worldMap =
+  document.getElementById(
+    "worldMap"
+  );
 
-const tip=
-  document.getElementById("tip");
+const tip =
+  document.getElementById(
+    "tip"
+  );
 
 
 countries.forEach(
-  ([n,x,y],i)=>{
+  (country,index)=>{
 
-    const p=
-      document.createElement("button");
+    const point =
+      document.createElement(
+        "button"
+      );
 
-    p.className="point";
+    point.type="button";
 
-    p.style.left=x+"%";
+    point.className=
+      "point";
 
-    p.style.top=y+"%";
+    point.style.left =
+      country.x+"%";
 
-    p.setAttribute(
+    point.style.top =
+      country.y+"%";
+
+
+    point.setAttribute(
       "aria-label",
-      n
+      country.name
     );
 
-    p.onclick=()=>{
 
-      tip.innerHTML=
-        "JOURNEY "+
-        String(i+1).padStart(2,"0")+
-        "<b>"+n+"</b>";
+    point.addEventListener(
+      "click",
+      event=>{
 
-      tip.style.left=
-        Math.min(x+2,78)+"%";
+        event.stopPropagation();
 
-      tip.style.top=
-        Math.max(y-12,5)+"%";
 
-      tip.classList.add("show");
+        tip.innerHTML =
+          "JOURNEY " +
+          String(index+1)
+          .padStart(2,"0") +
+          "<b>" +
+          country.name +
+          "</b>";
 
-    };
 
-    map.appendChild(p);
+        tip.style.left =
+          Math.min(
+            country.x+2,
+            78
+          )+"%";
+
+
+        tip.style.top =
+          Math.max(
+            country.y-12,
+            5
+          )+"%";
+
+
+        tip.classList.add(
+          "show"
+        );
+
+      }
+    );
+
+
+    worldMap.appendChild(
+      point
+    );
 
   }
 );
 
 
-/* =====================================================
-   GALLERY
-===================================================== */
-
-const gallery=
-  document.getElementById("gallery");
-
-
-for(let i=1;i<=8;i++){
-
-  const num=
-    String(i).padStart(2,"0");
-
-  const d=
-    document.createElement("div");
-
-  d.className=
-    "gallery-item";
-
-  d.innerHTML=`
-
-    <img
-      src="images/gallery-${num}.jpg"
-      onerror="this.style.display='none'">
-
-    <span>
-      MOMENT ${num}
-    </span>
-
-  `;
-
-  d.onclick=()=>{
-
-    openPhoto(
-      \`images/gallery-${num}.jpg\`
-    );
-
-  };
-
-  gallery.appendChild(d);
-
-}
-
-
-/* =====================================================
-   CLOSE MAP TIP WHEN CLICKING OUTSIDE
-===================================================== */
+/* =========================================================
+   CLOSE MAP TIP
+========================================================= */
 
 document.addEventListener(
   "click",
-  e=>{
+  event=>{
 
     if(
-      !e.target.classList.contains("point") &&
-      !e.target.closest(".tip")
+      !event.target.classList.contains(
+        "point"
+      )
     ){
 
-      tip.classList.remove("show");
+      tip.classList.remove(
+        "show"
+      );
 
     }
 
@@ -2746,11 +3952,106 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
+/* =========================================================
+   GALLERY
+========================================================= */
 
-update();
+const gallery =
+  document.getElementById(
+    "gallery"
+  );
+
+
+for(
+  let i=1;
+  i<=8;
+  i++
+){
+
+  const number =
+    String(i).padStart(
+      2,
+      "0"
+    );
+
+
+  const item =
+    document.createElement(
+      "div"
+    );
+
+
+  item.className =
+    "gallery-item";
+
+
+  const image =
+    document.createElement(
+      "img"
+    );
+
+  image.src =
+    "images/gallery-" +
+    number +
+    ".jpg";
+
+  image.alt =
+    "Journey Moment " +
+    number;
+
+
+  image.onerror =
+    function(){
+
+      this.style.display=
+        "none";
+
+    };
+
+
+  const label =
+    document.createElement(
+      "span"
+    );
+
+  label.textContent =
+    "MOMENT " +
+    number;
+
+
+  item.appendChild(
+    image
+  );
+
+  item.appendChild(
+    label
+  );
+
+
+  item.addEventListener(
+    "click",
+    ()=>{
+      openPhoto(
+        "images/gallery-" +
+        number +
+        ".jpg"
+      );
+    }
+  );
+
+
+  gallery.appendChild(
+    item
+  );
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updatePresentation();
 
 </script>
 
