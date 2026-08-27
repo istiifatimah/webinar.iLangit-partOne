@@ -10,11 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================================================
-   ROOT
-========================================================= */
-
 :root{
   --green:#063f34;
   --deep:#021f1b;
@@ -29,19 +24,8 @@
   --muted:#c7cfcc;
 }
 
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 
 body{
   font-family:"DM Sans",sans-serif;
@@ -53,53 +37,29 @@ body{
   overflow:hidden;
 }
 
-/* =========================================================
-   PRESENTATION
-========================================================= */
-
 .presentation{
   height:100vh;
   position:relative;
   overflow:hidden;
 }
 
-/* =========================================================
-   PROGRESS
-========================================================= */
-
 .progress{
   position:fixed;
-  top:0;
-  left:0;
+  top:0;left:0;
   height:4px;
-  background:linear-gradient(
-    90deg,
-    var(--gold),
-    var(--gold2),
-    #f5d69b
-  );
+  background:linear-gradient(90deg,var(--gold),var(--gold2),#f5d69b);
   z-index:200;
   width:5%;
   transition:.5s ease;
   box-shadow:0 0 12px #c28b3c99;
 }
 
-/* =========================================================
-   HEADER
-========================================================= */
-
 header{
   position:fixed;
-  top:0;
-  left:0;
-  right:0;
+  top:0;left:0;right:0;
   z-index:100;
   padding:12px 18px;
-  background:
-    linear-gradient(
-      #021f1bee 65%,
-      transparent
-    );
+  background:linear-gradient(#021f1bee 65%,transparent);
   display:flex;
   gap:18px;
   align-items:center;
@@ -115,8 +75,7 @@ header{
 }
 
 .mark{
-  width:35px;
-  height:35px;
+  width:35px;height:35px;
   border:1px solid var(--gold);
   border-radius:50%;
   display:grid;
@@ -124,12 +83,7 @@ header{
   color:var(--gold);
   font-size:10px;
   font-weight:700;
-  box-shadow:0 0 15px #c28b3c22;
 }
-
-/* =========================================================
-   TABS
-========================================================= */
 
 .tabs{
   display:flex;
@@ -137,10 +91,7 @@ header{
   overflow-x:auto;
   scrollbar-width:none;
 }
-
-.tabs::-webkit-scrollbar{
-  display:none;
-}
+.tabs::-webkit-scrollbar{display:none}
 
 .tab{
   flex:0 0 auto;
@@ -154,47 +105,25 @@ header{
   transition:.25s;
 }
 
-.tab:hover{
-  color:white;
-  background:#ffffff0b;
-}
+.tab:hover{color:white;background:#ffffff0b}
 
 .tab.active{
   color:var(--gold2);
   border-color:#805f30;
   background:#c28b3c14;
-  box-shadow:0 0 15px #c28b3c12;
 }
-
-/* =========================================================
-   SLIDES
-========================================================= */
 
 .slide{
   position:absolute;
   inset:0;
-
-  padding:
-    105px
-    8vw
-    90px;
-
+  padding:105px 8vw 90px;
   display:flex;
   align-items:center;
-
   overflow-y:auto;
-
   opacity:0;
   visibility:hidden;
-
-  transform:
-    translateX(45px)
-    scale(.98);
-
-  transition:
-    opacity .55s ease,
-    transform .55s ease,
-    visibility .55s;
+  transform:translateX(45px) scale(.98);
+  transition:opacity .55s ease,transform .55s ease,visibility .55s;
 }
 
 .slide.active{
@@ -209,52 +138,27 @@ header{
   position:relative;
 }
 
-/* =========================================================
-   DECORATIVE BACKGROUND
-========================================================= */
-
 .content:before{
   content:"";
   position:absolute;
-
-  width:520px;
-  height:520px;
-
+  width:520px;height:520px;
   border-radius:50%;
-
   right:-300px;
   top:-300px;
-
-  background:
-    radial-gradient(
-      circle,
-      #c28b3c1c,
-      transparent 68%
-    );
-
+  background:radial-gradient(circle,#c28b3c1c,transparent 68%);
   pointer-events:none;
-
-  animation:
-    rotateGlow 18s linear infinite;
+  animation:rotateGlow 18s linear infinite;
 }
 
 .content:after{
   content:"✦";
   position:absolute;
-
   right:4%;
   top:8%;
-
   color:#c28b3c44;
   font-size:28px;
-
-  animation:
-    sparkleFloat 3s ease-in-out infinite;
+  animation:sparkleFloat 3s ease-in-out infinite;
 }
-
-/* =========================================================
-   TYPOGRAPHY
-========================================================= */
 
 .eyebrow{
   color:var(--gold2);
@@ -264,9 +168,7 @@ header{
   margin-bottom:16px;
 }
 
-h1,
-h2,
-h3{
+h1,h2,h3{
   font-family:"Playfair Display",serif;
   font-weight:500;
 }
@@ -281,13 +183,8 @@ h2{
   line-height:1.05;
 }
 
-h3{
-  font-size:28px;
-}
-
-.gold{
-  color:var(--gold2);
-}
+h3{font-size:28px}
+.gold{color:var(--gold2)}
 
 .lead{
   max-width:760px;
@@ -297,14 +194,8 @@ h3{
   margin-top:22px;
 }
 
-.center{
-  text-align:center;
-}
-
-.center .lead{
-  margin-left:auto;
-  margin-right:auto;
-}
+.center{text-align:center}
+.center .lead{margin-left:auto;margin-right:auto}
 
 .label{
   color:#ffffff70;
@@ -313,69 +204,31 @@ h3{
   margin-top:10px;
 }
 
-/* =========================================================
-   BUTTON
-========================================================= */
-
 .btn{
   margin-top:28px;
   padding:14px 25px;
-
   border:0;
   border-radius:999px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold),
-      var(--gold2)
-    );
-
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
   color:var(--deep);
-
   font-weight:700;
   cursor:pointer;
-
-  box-shadow:
-    0 8px 25px #c28b3c33;
-
+  box-shadow:0 8px 25px #c28b3c33;
   transition:.3s;
 }
 
 .btn:hover{
-  transform:
-    translateY(-3px)
-    scale(1.03);
-
-  box-shadow:
-    0 12px 35px #c28b3c55;
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 12px 35px #c28b3c55;
 }
-
-/* =========================================================
-   QUOTE
-========================================================= */
 
 .quote{
   margin-top:28px;
   padding:28px 32px;
-
   border-left:2px solid var(--gold);
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff0b,
-      #c28b3c08
-    );
-
+  background:linear-gradient(135deg,#ffffff0b,#c28b3c08);
   max-width:900px;
-
-  border-radius:
-    0
-    18px
-    18px
-    0;
-
+  border-radius:0 18px 18px 0;
   box-shadow:0 10px 35px #0002;
 }
 
@@ -384,10 +237,6 @@ h3{
   font-size:clamp(24px,4vw,42px);
   line-height:1.35;
 }
-
-/* =========================================================
-   SPLIT
-========================================================= */
 
 .split{
   display:grid;
@@ -402,40 +251,21 @@ h3{
   color:var(--gold2);
 }
 
-/* =========================================================
-   PHOTO
-========================================================= */
-
 .photo{
   height:400px;
-
   border-radius:26px;
-
   overflow:hidden;
-
   border:1px solid #ffffff20;
-
   background:#ffffff08;
-
   position:relative;
-
   cursor:pointer;
-
-  box-shadow:
-    0 20px 45px #0003;
-
+  box-shadow:0 20px 45px #0003;
   transition:.4s;
 }
 
 .photo:hover{
-  transform:
-    translateY(-7px)
-    rotate(-.5deg);
-
+  transform:translateY(-7px) rotate(-.5deg);
   border-color:#c28b3c66;
-
-  box-shadow:
-    0 25px 55px #0005;
 }
 
 .photo img{
@@ -448,69 +278,41 @@ h3{
 .placeholder{
   position:absolute;
   inset:0;
-
   display:grid;
   place-items:center;
-
   text-align:center;
-
   padding:20px;
-
-  background:
-    radial-gradient(
-      circle,
-      #c28b3c25,
-      #063f34ee
-    );
-
+  background:radial-gradient(circle,#c28b3c25,#063f34ee);
   color:white;
+  font-size:35px;
 }
 
 .placeholder small{
   display:block;
   color:#ffffff99;
   margin-top:8px;
+  font-size:12px;
 }
 
 .photo .tag{
   position:absolute;
   left:14px;
   bottom:14px;
-
   background:#021f1bdd;
-
   border:1px solid #ffffff22;
-
   border-radius:99px;
-
   padding:7px 10px;
-
   font-size:9px;
   letter-spacing:.1em;
 }
 
-/* =========================================================
-   TIMELINE
-========================================================= */
-
-.timeline{
-  display:grid;
-  gap:16px;
-}
+.timeline{display:grid;gap:16px}
 
 .timeline div{
   padding:16px 18px;
-
   border-left:2px solid var(--gold);
-
   background:#ffffff08;
-
-  border-radius:
-    0
-    14px
-    14px
-    0;
-
+  border-radius:0 14px 14px 0;
   transition:.3s;
 }
 
@@ -525,10 +327,6 @@ h3{
   line-height:1.55;
 }
 
-/* =========================================================
-   GRID CARDS
-========================================================= */
-
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -538,47 +336,25 @@ h3{
 
 .card{
   padding:24px;
-
   border:1px solid #ffffff18;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff0b,
-      #ffffff04
-    );
-
+  background:linear-gradient(135deg,#ffffff0b,#ffffff04);
   border-radius:18px;
-
-  transition:
-    transform .3s,
-    border .3s,
-    background .3s;
-
+  transition:.3s;
   position:relative;
   overflow:hidden;
 }
 
 .card:after{
   content:"✦";
-
   position:absolute;
-
   right:13px;
   top:10px;
-
   color:#c28b3c44;
-
-  font-size:15px;
 }
 
 .card:hover{
-  transform:
-    translateY(-6px)
-    scale(1.01);
-
+  transform:translateY(-6px) scale(1.01);
   border-color:#c28b3c55;
-
   background:#c28b3c0c;
 }
 
@@ -594,196 +370,89 @@ h3{
   line-height:1.6;
 }
 
-/* =========================================================
-   AUDIENCE INTERACTIVE
-========================================================= */
-
+/* AUDIENCE */
 .thought-bubble{
   display:inline-flex;
-
   align-items:center;
   gap:10px;
-
-  margin:
-    18px
-    auto
-    25px;
-
-  padding:
-    13px
-    22px;
-
+  margin:18px auto 25px;
+  padding:13px 22px;
   border-radius:50px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff14,
-      #c28b3c20
-    );
-
+  background:linear-gradient(135deg,#ffffff14,#c28b3c20);
   border:1px solid #c28b3c55;
-
-  box-shadow:
-    0 10px 35px #0003;
-
-  animation:
-    floatBubble 3s ease-in-out infinite;
+  animation:floatBubble 3s ease-in-out infinite;
 }
 
 .bubble-icon{
   font-size:25px;
-
-  animation:
-    wiggle 2s ease-in-out infinite;
+  animation:wiggle 2s ease-in-out infinite;
 }
 
 .choice-grid{
   max-width:900px;
   margin:0 auto;
-
   display:grid;
   grid-template-columns:repeat(2,1fr);
-
   gap:14px;
 }
 
 .choice-card{
   position:relative;
-
   display:flex;
   align-items:center;
-
   gap:15px;
-
   text-align:left;
-
   padding:18px;
-
   border-radius:20px;
-
   border:1px solid #ffffff18;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff0c,
-      #ffffff05
-    );
-
+  background:linear-gradient(135deg,#ffffff0c,#ffffff05);
   color:white;
-
   cursor:pointer;
-
   overflow:hidden;
-
-  transition:
-    transform .3s ease,
-    border .3s ease,
-    background .3s ease,
-    box-shadow .3s ease;
-}
-
-.choice-card:before{
-  content:"";
-
-  position:absolute;
-
-  width:80px;
-  height:80px;
-
-  right:-30px;
-  top:-30px;
-
-  border-radius:50%;
-
-  background:#c28b3c18;
+  transition:.3s;
 }
 
 .choice-card:hover{
-  transform:
-    translateY(-6px)
-    scale(1.02);
-
+  transform:translateY(-6px) scale(1.02);
   border-color:#c28b3c88;
-
   background:#c28b3c12;
-
-  box-shadow:
-    0 15px 35px #0005;
 }
 
 .choice-card.selected{
   transform:scale(1.04);
-
   border-color:var(--gold);
-
   background:#c28b3c20;
-
-  box-shadow:
-    0 0 0 3px #c28b3c18,
-    0 15px 40px #0005;
 }
 
 .choice-icon{
-  width:48px;
-  height:48px;
-
+  width:48px;height:48px;
   flex:0 0 48px;
-
   display:grid;
   place-items:center;
-
   border-radius:15px;
-
   background:#ffffff0d;
-
   font-size:25px;
 }
 
-.choice-card b{
-  display:block;
-  font-size:15px;
-}
+.choice-card b{display:block;font-size:15px}
 
 .choice-card small{
   display:block;
-
   margin-top:5px;
-
   color:#ffffff70;
-
   font-size:11px;
-
   line-height:1.4;
 }
 
 .audience-result{
   max-width:650px;
-
-  margin:
-    22px
-    auto
-    0;
-
-  padding:
-    17px
-    22px;
-
+  margin:22px auto 0;
+  padding:17px 22px;
   border-radius:18px;
-
   background:#ffffff09;
-
   border:1px solid #c28b3c33;
-
   opacity:0;
-
-  transform:
-    translateY(15px)
-    scale(.96);
-
-  pointer-events:none;
-
+  transform:translateY(15px) scale(.96);
   transition:.5s ease;
 }
 
@@ -794,3350 +463,1211 @@ h3{
 
 .audience-result span{
   font-size:25px;
-
-  display:inline-block;
-
-  animation:
-    sparkle 1.2s ease-in-out infinite;
+  animation:sparkle 1.2s ease-in-out infinite;
 }
 
-.audience-result b{
-  color:var(--gold);
-  margin-left:5px;
-}
+/* ================= MAP BARU ================= */
 
-.audience-result p{
-  margin-top:7px;
-
-  color:#ffffff90;
-
-  font-size:13px;
-
-  line-height:1.5;
-}
-
-/* =========================================================
-   MAP
-========================================================= */
-
-.map{
+.travel-map{
   margin-top:28px;
-
-  height:410px;
-
-  border:1px solid #ffffff20;
-
-  border-radius:28px;
-
+  height:470px;
   position:relative;
-
   overflow:hidden;
-
+  border-radius:30px;
+  border:1px solid #ffffff22;
   background:
-    radial-gradient(
-      ellipse at center,
-      #0a4c40,
-      #021f1b
-    );
-
-  box-shadow:
-    inset 0 0 80px #0005;
+    radial-gradient(circle at 50% 45%,#155e50 0%,#063f34 42%,#021f1b 100%);
+  box-shadow:inset 0 0 90px #0007,0 25px 60px #0003;
 }
 
-.map:before{
+.travel-map:before{
   content:"";
-
   position:absolute;
-
   inset:0;
-
-  opacity:.12;
-
   background-image:
-    linear-gradient(#fff 1px,transparent 1px),
-    linear-gradient(90deg,#fff 1px,transparent 1px);
-
-  background-size:
-    10% 20%;
-
-  animation:
-    mapMove 10s linear infinite;
+    linear-gradient(#ffffff0b 1px,transparent 1px),
+    linear-gradient(90deg,#ffffff0b 1px,transparent 1px);
+  background-size:45px 45px;
+  opacity:.5;
 }
 
-.land{
+.map-title{
   position:absolute;
-
-  background:#ffffff12;
-
-  border-radius:50%;
-
-  animation:
-    landFloat 5s ease-in-out infinite;
+  top:18px;
+  left:22px;
+  z-index:5;
+  font-size:11px;
+  letter-spacing:.18em;
+  color:#ffffff90;
 }
 
-.l1{
-  width:18%;
-  height:24%;
-  left:12%;
-  top:20%;
-}
-
-.l2{
-  width:10%;
-  height:30%;
-  left:25%;
-  top:48%;
-}
-
-.l3{
-  width:11%;
-  height:10%;
-  left:47%;
-  top:25%;
-}
-
-.l4{
-  width:15%;
-  height:32%;
-  left:47%;
-  top:40%;
-}
-
-.l5{
-  width:27%;
-  height:27%;
-  left:55%;
-  top:23%;
-}
-
-.l6{
-  width:12%;
-  height:11%;
-  right:10%;
-  bottom:18%;
-}
-
-.point{
+.map-subtitle{
   position:absolute;
+  top:37px;
+  left:22px;
+  z-index:5;
+  font-size:10px;
+  color:var(--gold2);
+}
 
-  width:15px;
-  height:15px;
+.map-svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
 
+.continent{
+  fill:#ffffff12;
+  stroke:#ffffff22;
+  stroke-width:1;
+  transition:.4s;
+}
+
+.continent:hover{
+  fill:#ffffff18;
+}
+
+.route-line{
+  fill:none;
+  stroke:#e8b866aa;
+  stroke-width:1.5;
+  stroke-dasharray:6 8;
+  animation:routeMove 8s linear infinite;
+  filter:drop-shadow(0 0 3px #e8b86699);
+}
+
+.map-point{
+  position:absolute;
+  width:16px;height:16px;
   border-radius:50%;
-
   border:2px solid white;
-
   background:var(--gold);
-
-  box-shadow:
-    0 0 0 5px #c28b3c22,
-    0 0 20px #c28b3c;
-
-  transform:
-    translate(-50%,-50%);
-
+  transform:translate(-50%,-50%);
   cursor:pointer;
+  z-index:6;
+  box-shadow:0 0 0 5px #c28b3c22,0 0 22px #c28b3c;
+  animation:pointPulse 1.8s infinite;
+}
 
-  animation:
-    pointPulse 1.8s infinite;
+.map-point.home{
+  width:23px;height:23px;
+  background:#f5d69b;
+  box-shadow:0 0 0 7px #f5d69b22,0 0 30px #f5d69b;
+}
+
+.map-point .plane{
+  position:absolute;
+  font-size:14px;
+  top:-22px;
+  left:-3px;
+  animation:planeFloat 2s ease-in-out infinite;
+}
+
+.map-label{
+  position:absolute;
+  transform:translate(-50%,0);
+  font-size:8px;
+  white-space:nowrap;
+  color:#ffffffa8;
+  margin-top:8px;
+  pointer-events:none;
 }
 
 .tip{
   position:absolute;
-
   display:none;
-
-  z-index:3;
-
+  z-index:10;
   background:#032f28;
-
   border:1px solid #c28b3c;
-
   border-radius:14px;
-
   padding:12px 15px;
-
-  font-size:12px;
-
-  box-shadow:
-    0 15px 40px #0007;
+  font-size:11px;
+  box-shadow:0 15px 40px #0007;
 }
 
 .tip.show{
   display:block;
-
-  animation:
-    popIn .3s ease;
+  animation:popIn .3s ease;
 }
 
 .tip b{
   display:block;
-
-  font:
-    21px
-    "Playfair Display",serif;
-
+  font:21px "Playfair Display",serif;
   margin-top:4px;
+  color:var(--gold2);
 }
 
-/* =========================================================
-   GALLERY
-========================================================= */
+.map-legend{
+  position:absolute;
+  bottom:16px;
+  left:18px;
+  z-index:6;
+  display:flex;
+  gap:12px;
+  font-size:9px;
+  color:#ffffff85;
+}
 
+.legend-dot{
+  display:inline-block;
+  width:9px;height:9px;
+  border-radius:50%;
+  background:var(--gold);
+  margin-right:4px;
+}
+
+.legend-home{
+  background:#f5d69b;
+}
+
+/* GALLERY */
 .gallery{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   gap:13px;
-
   margin-top:28px;
 }
 
 .gallery-item{
   height:180px;
-
   position:relative;
-
   border-radius:17px;
-
   overflow:hidden;
-
   background:#ffffff08;
-
   border:1px solid #ffffff18;
-
   cursor:pointer;
-
   transition:.35s;
 }
 
 .gallery-item:hover{
-  transform:
-    translateY(-7px)
-    scale(1.02);
-
+  transform:translateY(-7px) scale(1.02);
   border-color:#c28b3c66;
 }
 
 .gallery-item img{
-  width:100%;
-  height:100%;
+  width:100%;height:100%;
   object-fit:cover;
 }
 
 .gallery-item span{
   position:absolute;
-
-  bottom:10px;
-  left:10px;
-
+  bottom:10px;left:10px;
   background:#021f1bdd;
-
   border-radius:99px;
-
   padding:6px 9px;
-
   font-size:9px;
 }
 
-/* =========================================================
-   CLOSING QUOTE
-========================================================= */
-
+/* CLOSING */
 .closing-quote{
   position:relative;
-
   max-width:900px;
-
   margin:30px auto;
-
   padding:40px 35px;
-
   border:1px solid #c28b3c55;
-
   border-radius:28px;
-
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      #c28b3c20,
-      transparent 55%
-    ),
-    #ffffff08;
-
-  box-shadow:
-    0 20px 60px #0005,
-    inset 0 0 40px #c28b3c08;
-
+  background:radial-gradient(circle at 50% 0%,#c28b3c20,transparent 55%),#ffffff08;
+  box-shadow:0 20px 60px #0005,inset 0 0 40px #c28b3c08;
   overflow:hidden;
-
-  animation:
-    closingFloat 4s ease-in-out infinite;
-}
-
-.closing-quote:before,
-.closing-quote:after{
-  content:"";
-
-  position:absolute;
-
-  width:100px;
-  height:100px;
-
-  border-radius:50%;
-
-  border:1px solid #c28b3c25;
-
-  animation:
-    orbit 5s linear infinite;
-}
-
-.closing-quote:before{
-  left:-50px;
-  top:-50px;
-}
-
-.closing-quote:after{
-  right:-50px;
-  bottom:-50px;
-
-  animation-direction:reverse;
+  animation:closingFloat 4s ease-in-out infinite;
 }
 
 .quote-decoration{
   color:var(--gold);
-
   font-size:30px;
-
   margin-bottom:15px;
-
-  animation:
-    starPulse 1.8s ease-in-out infinite;
+  animation:starPulse 1.8s ease-in-out infinite;
 }
 
 .closing-quote .quote-text{
   position:relative;
-
   z-index:2;
-
-  font-size:
-    clamp(
-      22px,
-      3.5vw,
-      38px
-    );
-
+  font-size:clamp(22px,3.5vw,38px);
   line-height:1.45;
 }
 
 .quote-stars{
   margin-top:20px;
-
   color:var(--gold);
-
   font-size:18px;
-
   letter-spacing:5px;
-
-  animation:
-    twinkle 2s ease-in-out infinite;
+  animation:twinkle 2s ease-in-out infinite;
 }
-
-/* =========================================================
-   BOTTOM NAVIGATION
-========================================================= */
 
 .bottom{
   position:fixed;
-
   z-index:150;
-
   bottom:16px;
   left:50%;
-
-  transform:
-    translateX(-50%);
-
+  transform:translateX(-50%);
   display:flex;
-
   gap:8px;
-
   padding:7px;
-
   border:1px solid #ffffff1f;
-
   background:#032f28e8;
-
   border-radius:999px;
-
   backdrop-filter:blur(12px);
-
-  box-shadow:
-    0 10px 35px #0005;
+  box-shadow:0 10px 35px #0005;
 }
 
 .bottom button{
-  width:40px;
-  height:40px;
-
+  width:40px;height:40px;
   border-radius:50%;
-
   border:0;
-
   background:#ffffff10;
-
   color:white;
-
   font-size:18px;
-
   cursor:pointer;
-
   transition:.25s;
 }
 
 .bottom button:hover{
   background:#c28b3c30;
-
   color:var(--gold2);
-
   transform:scale(1.08);
 }
 
-/* =========================================================
-   LIGHTBOX
-========================================================= */
-
 .lightbox{
   position:fixed;
-
   inset:0;
-
   z-index:999;
-
   display:none;
-
   place-items:center;
-
   background:#000e;
-
   padding:20px;
 }
 
-.lightbox.show{
-  display:grid;
-
-  animation:
-    fadeIn .3s ease;
-}
+.lightbox.show{display:grid;animation:fadeIn .3s ease}
 
 .lightbox img{
   max-width:95vw;
   max-height:88vh;
-
   border-radius:12px;
-
-  box-shadow:
-    0 20px 80px #000;
+  box-shadow:0 20px 80px #000;
 }
 
 .close{
   position:absolute;
-
-  top:20px;
-  right:20px;
-
-  width:44px;
-  height:44px;
-
+  top:20px;right:20px;
+  width:44px;height:44px;
   border-radius:50%;
-
   border:1px solid #fff4;
-
   background:#fff2;
-
   color:white;
-
   font-size:25px;
-
   cursor:pointer;
 }
 
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes rotateGlow{
-  from{
-    transform:rotate(0deg);
-  }
-
-  to{
-    transform:rotate(360deg);
-  }
-}
-
-@keyframes sparkleFloat{
-  0%,100%{
-    transform:
-      translateY(0)
-      rotate(0);
-    opacity:.4;
-  }
-
-  50%{
-    transform:
-      translateY(-12px)
-      rotate(15deg);
-    opacity:1;
-  }
-}
-
-@keyframes floatBubble{
-  0%,100%{
-    transform:
-      translateY(0)
-      rotate(-1deg);
-  }
-
-  50%{
-    transform:
-      translateY(-7px)
-      rotate(1deg);
-  }
-}
-
-@keyframes wiggle{
-  0%,100%{
-    transform:rotate(0);
-  }
-
-  25%{
-    transform:rotate(-12deg);
-  }
-
-  75%{
-    transform:rotate(12deg);
-  }
-}
-
-@keyframes sparkle{
-  0%,100%{
-    transform:
-      scale(1)
-      rotate(0);
-  }
-
-  50%{
-    transform:
-      scale(1.25)
-      rotate(12deg);
-  }
-}
-
+/* ANIMATION */
+@keyframes rotateGlow{to{transform:rotate(360deg)}}
+@keyframes sparkleFloat{50%{transform:translateY(-12px) rotate(15deg);opacity:1}}
+@keyframes floatBubble{50%{transform:translateY(-7px) rotate(1deg)}}
+@keyframes wiggle{25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+@keyframes sparkle{50%{transform:scale(1.25) rotate(12deg)}}
 @keyframes pointPulse{
-  0%,100%{
-    box-shadow:
-      0 0 0 4px #c28b3c22,
-      0 0 15px #c28b3c;
-  }
-
-  50%{
-    box-shadow:
-      0 0 0 10px #c28b3c10,
-      0 0 28px #c28b3c;
-  }
+  0%,100%{box-shadow:0 0 0 4px #c28b3c22,0 0 15px #c28b3c}
+  50%{box-shadow:0 0 0 10px #c28b3c10,0 0 28px #c28b3c}
 }
-
-@keyframes mapMove{
-  from{
-    transform:translateX(0);
-  }
-
-  to{
-    transform:translateX(20px);
-  }
-}
-
-@keyframes landFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-5px);
-  }
-}
-
-@keyframes popIn{
-  from{
-    opacity:0;
-    transform:scale(.8);
-  }
-
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
-}
-
-@keyframes fadeIn{
-  from{
-    opacity:0;
-  }
-
-  to{
-    opacity:1;
-  }
-}
-
-@keyframes closingFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-8px);
-  }
-}
-
-@keyframes starPulse{
-  0%,100%{
-    transform:
-      scale(1)
-      rotate(0);
-  }
-
-  50%{
-    transform:
-      scale(1.3)
-      rotate(15deg);
-  }
-}
-
-@keyframes twinkle{
-  0%,100%{
-    opacity:.45;
-    transform:scale(.95);
-  }
-
-  50%{
-    opacity:1;
-    transform:scale(1.08);
-  }
-}
-
-@keyframes orbit{
-  from{
-    transform:rotate(0deg);
-  }
-
-  to{
-    transform:rotate(360deg);
-  }
-}
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+@keyframes routeMove{to{stroke-dashoffset:-120}}
+@keyframes planeFloat{50%{transform:translateY(-5px) rotate(-8deg)}}
+@keyframes popIn{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes closingFloat{50%{transform:translateY(-8px)}}
+@keyframes starPulse{50%{transform:scale(1.3) rotate(15deg)}}
+@keyframes twinkle{50%{opacity:1;transform:scale(1.08)}}
 
 @media(max-width:850px){
-
-  .split{
-    grid-template-columns:1fr;
-    gap:28px;
-  }
-
-  .gallery{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .choice-grid{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
+  .split{grid-template-columns:1fr;gap:28px}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .choice-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:600px){
-
-  header{
-    display:block;
-
-    padding:
-      8px
-      12px;
-
-    height:110px;
-  }
-
-  .brand{
-    height:34px;
-  }
-
-  .slide{
-    padding:
-      125px
-      18px
-      85px;
-  }
-
-  .photo{
-    height:260px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .gallery-item{
-    height:145px;
-  }
-
-  .map{
-    height:330px;
-  }
-
-  .tab{
-    font-size:8px;
-    padding:
-      7px
-      9px;
-  }
-
-  .choice-grid{
-    grid-template-columns:1fr;
-  }
-
-  .choice-card{
-    padding:14px;
-  }
-
-  .choice-icon{
-    width:42px;
-    height:42px;
-    flex-basis:42px;
-    font-size:22px;
-  }
-
-  .closing-quote{
-    padding:
-      30px
-      20px;
-  }
-
+  header{display:block;padding:8px 12px;height:110px}
+  .brand{height:34px}
+  .slide{padding:125px 18px 85px}
+  .photo{height:260px}
+  .grid{grid-template-columns:1fr}
+  .gallery-item{height:145px}
+  .travel-map{height:360px}
+  .tab{font-size:8px;padding:7px 9px}
+  .choice-grid{grid-template-columns:1fr}
+  .choice-card{padding:14px}
+  .choice-icon{width:42px;height:42px;flex-basis:42px;font-size:22px}
+  .closing-quote{padding:30px 20px}
+  .map-label{display:none}
 }
-
 </style>
 </head>
-
 
 <body>
 
 <div class="presentation">
-
-<!-- =====================================================
-     PROGRESS
-===================================================== -->
-
-<div
-  class="progress"
-  id="progress">
-</div>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<div class="progress" id="progress"></div>
 
 <header>
-
   <div class="brand">
-
-    <div class="mark">
-      IF
-    </div>
-
+    <div class="mark">IF</div>
     Isti Fatimah
-
   </div>
-
-  <nav
-    class="tabs"
-    id="tabs">
-  </nav>
-
+  <nav class="tabs" id="tabs"></nav>
 </header>
-
-
-<!-- =====================================================
-     SLIDES
-===================================================== -->
 
 <main id="slides">
 
-
-<!-- =====================================================
-     01 · START
-===================================================== -->
-
+<!-- 01 -->
 <section class="slide active">
-
 <div class="content">
-
-<div class="eyebrow">
-  ✨ WEBINAR SERIES · PART 01
-</div>
-
-<h1>
-  Beyond<br>
-  <span class="gold">
-    Borders.
-  </span>
-</h1>
-
+<div class="eyebrow">✨ WEBINAR SERIES · PART 01</div>
+<h1>Beyond<br><span class="gold">Borders.</span></h1>
 <p class="lead">
-
-  Sebelum saya menjadi seorang traveler,
-  ada banyak "YES" kecil yang ternyata
-  membawa saya semakin dekat dengan dunia.
-
+Sebelum saya menjadi seorang traveler, ada banyak "YES" kecil
+yang ternyata membawa saya semakin dekat dengan dunia.
 </p>
-
-<div class="label">
-  ISTI FATIMAH · JOURNEY BEFORE TRAVELING
+<div class="label">ISTI FATIMAH · JOURNEY BEFORE TRAVELING</div>
+<button class="btn" onclick="nextSlide()">Let's Begin →</button>
 </div>
-
-<button
-  class="btn"
-  onclick="nextSlide()">
-
-  Let's Begin →
-  
-</button>
-
-</div>
-
 </section>
 
-
-<!-- =====================================================
-     02 · AUDIENCE
-===================================================== -->
-
-<section class="slide audience-slide">
-
+<!-- 02 -->
+<section class="slide">
 <div class="content center">
+<div class="eyebrow">✨ LET'S START WITH YOU</div>
+<h2>Pernah nggak...<br><span class="gold">dapat kesempatan?</span></h2>
+<p class="lead">Tapi sebelum mengambilnya, ada suara kecil di kepala yang bilang...</p>
 
-<div class="eyebrow">
-  ✨ LET'S START WITH YOU
-</div>
-
-<h2>
-
-  Pernah nggak...
-  <br>
-
-  <span class="gold">
-    dapat kesempatan?
-  </span>
-
-</h2>
-
-<p class="lead">
-
-  Tapi sebelum mengambilnya,
-  ada suara kecil di kepala yang bilang...
-
-</p>
-
-<div class="thought-bubble">
-
-  <span class="bubble-icon">
-    💭
-  </span>
-
-  <strong>
-    "Aku..."
-  </strong>
-
-</div>
-
+<div class="thought-bubble"><span class="bubble-icon">💭</span><strong>"Aku..."</strong></div>
 
 <div class="choice-grid">
-
-
-<button
-  class="choice-card"
-  onclick="chooseAudience(this)">
-
-  <span class="choice-icon">
-    😳
-  </span>
-
-  <span>
-
-    <b>
-      "Kayaknya belum siap."
-    </b>
-
-    <small>
-      Takut salah atau gagal.
-    </small>
-
-  </span>
-
+<button class="choice-card" onclick="chooseAudience(this)">
+<span class="choice-icon">😳</span>
+<span><b>"Kayaknya belum siap."</b><small>Takut salah atau gagal.</small></span>
 </button>
 
-
-<button
-  class="choice-card"
-  onclick="chooseAudience(this)">
-
-  <span class="choice-icon">
-    🤔
-  </span>
-
-  <span>
-
-    <b>
-      "Nanti aja deh."
-    </b>
-
-    <small>
-      Masih banyak yang harus dipikirkan.
-    </small>
-
-  </span>
-
+<button class="choice-card" onclick="chooseAudience(this)">
+<span class="choice-icon">🤔</span>
+<span><b>"Nanti aja deh."</b><small>Masih banyak yang harus dipikirkan.</small></span>
 </button>
 
-
-<button
-  class="choice-card"
-  onclick="chooseAudience(this)">
-
-  <span class="choice-icon">
-    🙈
-  </span>
-
-  <span>
-
-    <b>
-      "Aku nggak bisa."
-    </b>
-
-    <small>
-      Merasa kemampuan belum cukup.
-    </small>
-
-  </span>
-
+<button class="choice-card" onclick="chooseAudience(this)">
+<span class="choice-icon">🙈</span>
+<span><b>"Aku nggak bisa."</b><small>Merasa kemampuan belum cukup.</small></span>
 </button>
 
-
-<button
-  class="choice-card"
-  onclick="chooseAudience(this)">
-
-  <span class="choice-icon">
-    😅
-  </span>
-
-  <span>
-
-    <b>
-      "Coba dulu kali ya?"
-    </b>
-
-    <small>
-      Mulai berani mengambil kesempatan.
-    </small>
-
-  </span>
-
+<button class="choice-card" onclick="chooseAudience(this)">
+<span class="choice-icon">😅</span>
+<span><b>"Coba dulu kali ya?"</b><small>Mulai berani mengambil kesempatan.</small></span>
 </button>
-
-
 </div>
 
-
-<div
-  class="audience-result"
-  id="audienceResult">
-
-  <span>
-    ✨
-  </span>
-
-  <b>
-    Apapun jawabanmu...
-  </b>
-
-  <p>
-
-    Kamu tidak sendirian.
-    Hampir semua perjalanan besar
-    pernah dimulai dari rasa ragu.
-
-  </p>
-
+<div class="audience-result" id="audienceResult">
+<span>✨</span>
+<b> Apapun jawabanmu...</b>
+<p>Kamu tidak sendirian. Hampir semua perjalanan besar pernah dimulai dari rasa ragu.</p>
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     03 · FIRST YES
-===================================================== -->
-
+<!-- 03 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  🌱 THE FIRST YES
-</div>
-
-<h2>
-
-  I didn't start with
-  <br>
-
-  <span class="gold">
-    traveling.
-  </span>
-
-</h2>
-
+<div class="eyebrow">🌱 THE FIRST YES</div>
+<h2>I didn't start with<br><span class="gold">traveling.</span></h2>
 <p class="lead">
-
-  Kalau hari ini saya dikenal sebagai seorang traveler,
-  mungkin orang akan berpikir semuanya dimulai
-  dari perjalanan ke luar negeri.
-
+Kalau hari ini saya dikenal sebagai seorang traveler, mungkin orang akan berpikir
+semuanya dimulai dari perjalanan ke luar negeri.
 </p>
-
 <div class="quote">
-
 <div class="quote-text">
-
-  But actually...
-
-  <br><br>
-
-  it started with
-  <span class="gold">
-    courage.
-  </span>
-
+But actually...<br><br>
+it started with <span class="gold">courage.</span>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     04 · FIFA
-===================================================== -->
-
+<!-- 04 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  ⚽ DREAMING BEYOND · 2014
-</div>
-
-<h2>
-
-  My first big
-  <span class="gold">
-    dream.
-  </span>
-
-</h2>
-
+<div class="eyebrow">⚽ DREAMING BEYOND · 2014</div>
+<h2>My first big <span class="gold">dream.</span></h2>
 
 <div class="split">
-
-
-<div
-  class="photo"
-  onclick="openPhoto('images/fifa-2014.jpg')">
-
-<img
-  src="images/fifa-2014.jpg"
-  onerror="this.style.display='none'">
-
-<div class="placeholder">
-
-  ⚽
-
-  <div>
-
-    <b>
-      
-    </b>
-
-    <small>
-      fifabrasil2014.png
-    </small>
-
-  </div>
-
+<div class="photo" onclick="openPhoto('images/fifa-2014.jpg')">
+<img src="images/fifa-2014.jpg" onerror="this.style.display='none'">
+<div class="placeholder">⚽<small>fifa-2014.jpg</small></div>
+<div class="tag">RIO DE JANEIRO · BRAZIL</div>
 </div>
-
-<div class="tag">
-  RIO DE JANEIRO · BRAZIL
-</div>
-
-</div>
-
 
 <div>
-
-<div class="year">
-  2014
-</div>
-
-<div class="label">
-  FIFA WORLD CUP
-</div>
-
-<h3 style="margin-top:12px">
-
-  Calon Volunteer
-
-</h3>
-
+<div class="year">2014</div>
+<div class="label">FIFA WORLD CUP</div>
+<h3 style="margin-top:12px">Calon Volunteer</h3>
 <p class="lead">
-
-  Salah satu titik awal perjalanan saya adalah ketika
-  saya memberanikan diri menjadi calon volunteer
-  FIFA World Cup 2014 di Rio de Janeiro, Brazil.
-
+Salah satu titik awal perjalanan saya adalah ketika saya memberanikan diri
+menjadi calon volunteer FIFA World Cup 2014 di Rio de Janeiro, Brazil.
 </p>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     05 · INVITATION
-===================================================== -->
-
+<!-- 05 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  🚪 ANOTHER DOOR · 2018
-</div>
-
-<h2>
-
-  Another door
-  <span class="gold">
-    opened.
-  </span>
-
-</h2>
-
-
+<div class="eyebrow">🚪 ANOTHER DOOR · 2018</div>
+<h2>Another door <span class="gold">opened.</span></h2>
 <div class="split">
-
-
 <div>
-
-<div class="year">
-  2018
-</div>
-
-<div class="label">
-  ASIAN GAMES
-</div>
-
-<h3 style="margin-top:12px">
-
-  Volunteer Invitation Tournament
-
-</h3>
-
+<div class="year">2018</div>
+<div class="label">ASIAN GAMES</div>
+<h3 style="margin-top:12px">Volunteer Invitation Tournament</h3>
 <p class="lead">
-
-  Saya kemudian mendapatkan kesempatan menjadi
-  volunteer pada Invitation Tournament Asian Games 2018.
-
+Saya kemudian mendapatkan kesempatan menjadi volunteer pada
+Invitation Tournament Asian Games 2018.
 </p>
-
 </div>
 
-
-<div
-  class="photo"
-  onclick="openPhoto('images/invitation-asian-games.jpg')">
-
-<img
-  src="images/invitation-asian-games.jpg"
-  onerror="this.style.display='none'">
-
-<div class="placeholder">
-
-  🏟️
-
-  <div>
-
-    <b>
-      Invitation Tournament
-    </b>
-
-    <small>
-      invitation-asian-games.jpg
-    </small>
-
-  </div>
-
+<div class="photo" onclick="openPhoto('images/invitation-asian-games.jpg')">
+<img src="images/invitation-asian-games.jpg" onerror="this.style.display='none'">
+<div class="placeholder">🏟️<small>invitation-asian-games.jpg</small></div>
 </div>
-
 </div>
-
 </div>
-
-</div>
-
 </section>
 
-
-<!-- =====================================================
-     06 · BANDUNG BALI
-===================================================== -->
-
+<!-- 06 -->
 <section class="slide">
-
 <div class="content center">
+<div class="eyebrow">✈️ AN UNEXPECTED TURN</div>
+<h2>Sometimes... <span class="gold">just say YES.</span></h2>
+<p class="lead">Saya mengikuti giveaway flight <b>Bandung — Bali.</b></p>
 
-<div class="eyebrow">
-  ✈️ AN UNEXPECTED TURN
+<div class="split" style="text-align:left">
+<div class="photo" onclick="openPhoto('images/giveaway-bandung-bali.jpg')">
+<img src="images/giveaway-bandung-bali.jpg" onerror="this.style.display='none'">
+<div class="placeholder">✈️<small>giveaway-bandung-bali.jpg</small></div>
 </div>
-
-<h2>
-
-  Sometimes...
-  <span class="gold">
-    just say YES.
-  </span>
-
-</h2>
-
-<p class="lead">
-
-  Saya mengikuti giveaway flight
-  <b>
-    Bandung — Bali.
-  </b>
-
-</p>
-
-
-<div
-  class="split"
-  style="text-align:left">
-
-
-<div
-  class="photo"
-  onclick="openPhoto('images/giveaway-bandung-bali.jpg')">
-
-<img
-  src="images/giveaway-bandung-bali.jpg"
-  onerror="this.style.display='none'">
-
-<div class="placeholder">
-
-  ✈️
-
-  <div>
-
-    <b>
-      Bandung → Bali
-    </b>
-
-    <small>
-      giveaway-bandung-bali.jpg
-    </small>
-
-  </div>
-
-</div>
-
-</div>
-
 
 <div class="quote">
-
 <div class="quote-text">
-
-  Not every journey
-  <br>
-
-  starts with
-  <span class="gold">
-    a plan.
-  </span>
-
+Not every journey<br>
+starts with <span class="gold">a plan.</span>
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     07 · ASIAN GAMES
-===================================================== -->
-
+<!-- 07 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  🏅 THE BIGGER YES · 2018
-</div>
-
-<h2>
-
-  I stepped into
-  <span class="gold">
-    Asian Games 2018.
-  </span>
-
-</h2>
-
+<div class="eyebrow">🏅 THE BIGGER YES · 2018</div>
+<h2>I stepped into <span class="gold">Asian Games 2018.</span></h2>
 
 <div class="split">
-
-
-<div
-  class="photo"
-  onclick="openPhoto('images/asian-games-2018.jpg')">
-
-<img
-  src="images/asian-games-2018.jpg"
-  onerror="this.style.display='none'">
-
-<div class="placeholder">
-
-  🏅
-
-  <div>
-
-    <b>
-      Volunteer Asian Games
-    </b>
-
-    <small>
-      asian-games-2018.jpg
-    </small>
-
-  </div>
-
+<div class="photo" onclick="openPhoto('images/asian-games-2018.jpg')">
+<img src="images/asian-games-2018.jpg" onerror="this.style.display='none'">
+<div class="placeholder">🏅<small>asian-games-2018.jpg</small></div>
 </div>
-
-</div>
-
 
 <div class="timeline">
-
-
-<div>
-
-<h3>
-  🤝 Meet
-</h3>
-
-<p>
-  Bertemu lebih banyak orang.
-</p>
-
+<div><h3>🤝 Meet</h3><p>Bertemu lebih banyak orang.</p></div>
+<div><h3>💬 Interact</h3><p>Berinteraksi dengan lingkungan yang lebih beragam.</p></div>
+<div><h3>🌱 Adapt</h3><p>Belajar menyesuaikan diri.</p></div>
+<div><h3>🚀 Grow</h3><p>Kepercayaan diri semakin tumbuh.</p></div>
 </div>
-
-
-<div>
-
-<h3>
-  💬 Interact
-</h3>
-
-<p>
-  Berinteraksi dengan lingkungan
-  yang lebih beragam.
-</p>
-
 </div>
-
-
-<div>
-
-<h3>
-  🌱 Adapt
-</h3>
-
-<p>
-  Belajar menyesuaikan diri.
-</p>
-
 </div>
-
-
-<div>
-
-<h3>
-  🚀 Grow
-</h3>
-
-<p>
-  Kepercayaan diri semakin tumbuh.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-
-<!-- =====================================================
-     08 · EHEF
-===================================================== -->
-
+<!-- 08 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  🌍 THE EHEF CHAPTER · 2018—2020
-</div>
-
-<h2>
-
-  Then came
-  <span class="gold">
-    EHEF.
-  </span>
-
-</h2>
-
+<div class="eyebrow">🌍 THE EHEF CHAPTER · 2018—2020</div>
+<h2>Then came <span class="gold">EHEF.</span></h2>
 
 <div class="split">
-
-
 <div>
-
-<div class="year">
-  2018–20
-</div>
-
-<div class="label">
-  EHEF
-</div>
-
-<h3 style="margin-top:12px">
-
-  Volunteer & Committee
-
-</h3>
-
+<div class="year">2018–20</div>
+<div class="label">EHEF</div>
+<h3 style="margin-top:12px">Volunteer & Committee</h3>
 <p class="lead">
-
-  Saya kemudian bergabung dalam volunteer
-  dan kepanitiaan EHEF pada periode 2018–2020.
-
+Saya kemudian bergabung dalam volunteer dan kepanitiaan EHEF pada periode 2018–2020.
 </p>
-
-<p
-  class="lead"
-  style="font-size:15px">
-
-  Pengalaman ini semakin mempertemukan saya
-  dengan banyak orang dari berbagai negara
-  dan latar belakang.
-
+<p class="lead" style="font-size:15px">
+Pengalaman ini semakin mempertemukan saya dengan banyak orang dari berbagai negara
+dan latar belakang.
 </p>
-
 </div>
 
-
-<div
-  class="photo"
-  onclick="openPhoto('images/ehef-2018.jpg')">
-
-<img
-  src="images/ehef-2018.jpg"
-  onerror="this.style.display='none'">
-
-<div class="placeholder">
-
-  🌍
-
-  <div>
-
-    <b>
-      Foto EHEF
-    </b>
-
-    <small>
-      ehef-2018.jpg
-    </small>
-
-  </div>
-
+<div class="photo" onclick="openPhoto('images/ehef-2018.jpg')">
+<img src="images/ehef-2018.jpg" onerror="this.style.display='none'">
+<div class="placeholder">🌍<small>ehef-2018.jpg</small></div>
 </div>
-
 </div>
-
 </div>
-
-</div>
-
 </section>
 
-
-<!-- =====================================================
-     09 · CONNECTION
-===================================================== -->
-
+<!-- 09 -->
 <section class="slide">
-
 <div class="content center">
-
-<div class="eyebrow">
-  🌎 GLOBAL CONNECTIONS
-</div>
-
-<h2>
-
-  I met people
-  <span class="gold">
-    from everywhere.
-  </span>
-
-</h2>
-
+<div class="eyebrow">🌎 GLOBAL CONNECTIONS</div>
+<h2>I met people <span class="gold">from everywhere.</span></h2>
 <p class="lead">
-
-  Dari berbagai pengalaman tersebut,
-  saya bertemu banyak teman dari luar negeri.
-
+Dari berbagai pengalaman tersebut, saya bertemu banyak teman dari luar negeri.
 </p>
 
-<div
-  class="quote"
-  style="margin:auto">
-
+<div class="quote" style="margin:auto">
 <div class="quote-text">
-
-  The world became
-  <span class="gold">
-    smaller
-  </span>
-
-  <br>
-
-  when I started
-  <span class="gold">
-    connecting.
-  </span>
-
+The world became <span class="gold">smaller</span><br>
+when I started <span class="gold">connecting.</span>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     10 · ENGLISH
-===================================================== -->
-
+<!-- 10 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  🗣️ FINDING MY VOICE
-</div>
-
-<h2>
-
-  Then I realized...
-
-  <br>
-
-  <span class="gold">
-    I had to speak.
-  </span>
-
-</h2>
-
+<div class="eyebrow">🗣️ FINDING MY VOICE</div>
+<h2>Then I realized...<br><span class="gold">I had to speak.</span></h2>
 <p class="lead">
-
-  Bertemu dengan banyak teman dari luar negeri
-  membuat saya harus belajar berkomunikasi
-  dalam Bahasa Inggris.
-
+Bertemu dengan banyak teman dari luar negeri membuat saya harus belajar
+berkomunikasi dalam Bahasa Inggris.
 </p>
-
 
 <div class="grid">
-
-
-<div class="card">
-
-<strong>
-  🇬🇧 English
-</strong>
-
-<span>
-  Bukan hanya belajar memahami,
-  tetapi belajar menggunakannya.
-</span>
-
+<div class="card"><strong>🇬🇧 English</strong><span>Bukan hanya belajar memahami, tetapi belajar menggunakannya.</span></div>
+<div class="card"><strong>💬 Communication</strong><span>Belajar menyampaikan pikiran kepada orang dari latar belakang berbeda.</span></div>
+<div class="card"><strong>💪 Confidence</strong><span>Berani berbicara meskipun belum merasa sempurna.</span></div>
+<div class="card"><strong>🤝 Connection</strong><span>Bahasa menjadi jembatan untuk membangun pertemanan.</span></div>
 </div>
-
-
-<div class="card">
-
-<strong>
-  💬 Communication
-</strong>
-
-<span>
-  Belajar menyampaikan pikiran kepada orang
-  dari latar belakang berbeda.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  💪 Confidence
-</strong>
-
-<span>
-  Berani berbicara meskipun belum merasa sempurna.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  🤝 Connection
-</strong>
-
-<span>
-  Bahasa menjadi jembatan untuk membangun pertemanan.
-</span>
-
-</div>
-
-
-</div>
-
 
 <div class="quote">
-
 <div class="quote-text">
-
-  I didn't need to speak
-  <span class="gold">
-    perfect English.
-  </span>
-
-  <br><br>
-
-  I needed the courage
-  <span class="gold">
-    to speak.
-  </span>
-
+I didn't need to speak <span class="gold">perfect English.</span><br><br>
+I needed the courage <span class="gold">to speak.</span>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     11 · PATTERN
-===================================================== -->
-
+<!-- 11 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  🧩 THE PATTERN
-</div>
-
-<h2>
-
-  Looking back,
-  <span class="gold">
-    I see it now.
-  </span>
-
-</h2>
-
+<div class="eyebrow">🧩 THE PATTERN</div>
+<h2>Looking back, <span class="gold">I see it now.</span></h2>
 <p class="lead">
-
-  Ternyata saya tidak menjadi traveler
-  dalam satu lompatan besar.
-  Semuanya dimulai dari kesempatan-kesempatan kecil.
-
+Ternyata saya tidak menjadi traveler dalam satu lompatan besar.
+Semuanya dimulai dari kesempatan-kesempatan kecil.
 </p>
 
-
 <div class="grid">
-
-
-<div class="card">
-
-<strong>
-  01 · Berani
-</strong>
-
-<span>
-  Mengambil kesempatan pertama.
-</span>
-
+<div class="card"><strong>01 · Berani</strong><span>Mengambil kesempatan pertama.</span></div>
+<div class="card"><strong>02 · Bertemu</strong><span>Berinteraksi dengan orang baru.</span></div>
+<div class="card"><strong>03 · Belajar</strong><span>English, communication & adaptability.</span></div>
+<div class="card"><strong>04 · Bertumbuh</strong><span>Confidence mulai terbentuk.</span></div>
 </div>
-
-
-<div class="card">
-
-<strong>
-  02 · Bertemu
-</strong>
-
-<span>
-  Berinteraksi dengan orang baru.
-</span>
-
 </div>
-
-
-<div class="card">
-
-<strong>
-  03 · Belajar
-</strong>
-
-<span>
-  English, communication & adaptability.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  04 · Bertumbuh
-</strong>
-
-<span>
-  Confidence mulai terbentuk.
-</span>
-
-</div>
-
-
-</div>
-
-</div>
-
 </section>
 
-
-<!-- =====================================================
-     12 · MAP
-===================================================== -->
-
+<!-- 12 MAP BARU -->
 <section class="slide">
-
 <div class="content center">
 
-<div class="eyebrow">
-  🗺️ THE WORLD OPENED
-</div>
-
-<h2>
-
-  And eventually...
-
-  <br>
-
-  <span class="gold">
-    I became a traveler.
-  </span>
-
-</h2>
+<div class="eyebrow">🗺️ THE WORLD OPENED</div>
+<h2>And eventually...<br><span class="gold">I became a traveler.</span></h2>
 
 <p class="lead">
-
-  Dari semua pengalaman itu,
-  perjalanan saya akhirnya membawa saya
-  ke berbagai negara.
-
-  <br><br>
-
-  <b>
-    Ini baru teaser-nya.
-  </b>
-
+Dari semua pengalaman itu, perjalanan saya akhirnya membawa saya
+ke berbagai negara.
+<br><br>
+<b>Ini baru teaser-nya.</b>
 </p>
 
+<div class="travel-map" id="worldMap">
 
-<div
-  class="map"
-  id="worldMap">
+<div class="map-title">MY TRAVEL JOURNEY</div>
+<div class="map-subtitle">FROM INDONESIA TO THE WORLD ✈</div>
 
-<i class="land l1"></i>
-<i class="land l2"></i>
-<i class="land l3"></i>
-<i class="land l4"></i>
-<i class="land l5"></i>
-<i class="land l6"></i>
+<!-- PETA SVG STYLIZED -->
+<svg class="map-svg" viewBox="0 0 1000 500" preserveAspectRatio="none">
 
-<div
-  class="tip"
-  id="tip">
+<!-- Asia / Eurasia -->
+<path class="continent"
+d="M430 70
+C500 35 650 35 790 70
+C880 95 940 150 930 215
+C920 265 865 275 820 255
+L770 300
+L700 285
+L650 330
+L575 310
+L520 345
+L475 300
+L440 245
+L395 210
+L405 150
+Z"/>
+
+<!-- Middle East / South Asia -->
+<path class="continent"
+d="M430 200
+L500 190
+L555 240
+L575 310
+L520 345
+L475 300
+L440 280
+L410 240
+Z"/>
+
+<!-- Africa -->
+<path class="continent"
+d="M345 235
+L430 220
+L470 275
+L455 365
+L400 435
+L350 395
+L320 315
+Z"/>
+
+<!-- Europe -->
+<path class="continent"
+d="M400 125
+L520 95
+L590 125
+L570 180
+L480 185
+L420 170
+Z"/>
+
+<!-- Australia -->
+<path class="continent"
+d="M700 360
+C755 335 835 350 860 405
+C820 455 730 450 690 410
+Z"/>
+
+<!-- Indonesia island chain -->
+<path class="continent"
+d="M620 330
+C650 320 690 325 730 340
+L750 360
+L705 370
+L655 360
+L610 345
+Z"/>
+
+<!-- Philippines -->
+<path class="continent"
+d="M760 245 L775 230 L785 255 L775 275 L760 260 Z"/>
+
+<!-- Japan -->
+<path class="continent"
+d="M825 135 L840 150 L850 185 L835 205 L825 175 Z"/>
+
+<!-- Korea -->
+<path class="continent"
+d="M785 160 L800 155 L805 180 L795 195 Z"/>
+
+<!-- Sri Lanka -->
+<ellipse class="continent" cx="585" cy="320" rx="8" ry="15"/>
+
+<!-- Mongolia -->
+<path class="continent"
+d="M700 100 L775 95 L800 125 L730 145 Z"/>
+
+<!-- ROUTES FROM INDONESIA -->
+<path class="route-line" d="M670 350 Q640 310 625 255"/>
+<path class="route-line" d="M670 350 Q650 320 645 285"/>
+<path class="route-line" d="M670 350 Q690 300 705 245"/>
+<path class="route-line" d="M670 350 Q720 290 770 255"/>
+<path class="route-line" d="M670 350 Q690 340 745 315"/>
+<path class="route-line" d="M670 350 Q610 345 585 320"/>
+<path class="route-line" d="M670 350 Q540 300 480 240"/>
+<path class="route-line" d="M670 350 Q740 260 795 180"/>
+<path class="route-line" d="M670 350 Q760 250 838 170"/>
+<path class="route-line" d="M670 350 Q690 230 750 120"/>
+
+</svg>
+
+<div class="tip" id="tip"></div>
+
+<div class="map-legend">
+<span><i class="legend-dot legend-home"></i> Starting Point</span>
+<span><i class="legend-dot"></i> Countries Visited</span>
 </div>
 
 </div>
 
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     13 · GALLERY
-===================================================== -->
-
+<!-- 13 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  📸 ONE JOURNEY · MANY MOMENTS
-</div>
-
-<h2>
-
-  My Journey
-  <span class="gold">
-    Gallery.
-  </span>
-
-</h2>
-
+<div class="eyebrow">📸 ONE JOURNEY · MANY MOMENTS</div>
+<h2>My Journey <span class="gold">Gallery.</span></h2>
 <p class="lead">
-
-  Satu perjalanan tidak selalu terdiri dari satu tempat.
-  Setiap foto menyimpan cerita, orang,
-  keberanian, dan pengalaman yang membawa saya
-  sampai ke titik hari ini.
-
+Satu perjalanan tidak selalu terdiri dari satu tempat.
+Setiap foto menyimpan cerita, orang, keberanian, dan pengalaman.
 </p>
 
+<div class="gallery" id="gallery"></div>
 
-<div
-  class="gallery"
-  id="gallery">
-</div>
-
-<p
-  style="
-  margin-top:20px;
-  text-align:center;
-  color:#ffffff80;
-  font-size:11px">
-
-  ✨ Klik foto untuk melihat lebih besar
-
+<p style="margin-top:20px;text-align:center;color:#ffffff80;font-size:11px">
+✨ Klik foto untuk melihat lebih besar
 </p>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     14 · SAFAR
-===================================================== -->
-
+<!-- 14 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  🕌 WEBINAR MATERIAL · 01
-</div>
-
-<h2>
-
-  Safar dalam
-  <span class="gold">
-    Perspektif Islam.
-  </span>
-
-</h2>
+<div class="eyebrow">🕌 WEBINAR MATERIAL · 01</div>
+<h2>Safar dalam <span class="gold">Perspektif Islam.</span></h2>
 
 <p class="lead">
-
-  Dalam Islam, perjalanan atau safar bukan cuma
-  pindah tempat. Allah menyebut dalam Al-Qur'an
-  agar kita berjalan di muka bumi untuk melihat
-  tanda-tanda kebesaran-Nya dan mengambil pelajaran.
-
+Dalam Islam, perjalanan atau safar bukan cuma pindah tempat.
+Allah menyebut dalam Al-Qur'an agar kita berjalan di muka bumi
+untuk melihat tanda-tanda kebesaran-Nya dan mengambil pelajaran.
 </p>
-
 
 <div class="grid">
-
-
-<div class="card">
-
-<strong>
-  🌿 Makna Safar
-</strong>
-
-<span>
-  Memahami perjalanan bukan hanya sebagai
-  perpindahan tempat, tetapi sebagai ruang
-  untuk melihat dan belajar.
-</span>
-
+<div class="card"><strong>🌿 Makna Safar</strong><span>Perjalanan bukan hanya perpindahan tempat, tetapi ruang untuk melihat dan belajar.</span></div>
+<div class="card"><strong>👀 Melihat Tanda Kebesaran Allah</strong><span>Berjalan di muka bumi dan memperhatikan berbagai ciptaan.</span></div>
+<div class="card"><strong>📖 Mengambil Pelajaran</strong><span>Setiap tempat, orang, dan pengalaman dapat menjadi sumber hikmah.</span></div>
+<div class="card"><strong>✈️ Traveling = Sekolah</strong><span>Traveling itu ibarat sekolah tanpa dinding. Setiap langkah adalah guru.</span></div>
 </div>
-
-
-<div class="card">
-
-<strong>
-  👀 Melihat Tanda Kebesaran Allah
-</strong>
-
-<span>
-  Berjalan di muka bumi dan memperhatikan
-  berbagai ciptaan serta perjalanan manusia.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  📖 Mengambil Pelajaran
-</strong>
-
-<span>
-  Setiap tempat, orang, dan pengalaman
-  dapat menjadi sumber hikmah.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  ✈️ Traveling = Sekolah
-</strong>
-
-<span>
-  Traveling itu ibarat sekolah tanpa dinding.
-  Setiap langkah adalah guru.
-</span>
-
-</div>
-
-
-</div>
-
 
 <div class="quote">
-
 <div class="quote-text">
-
-  “Berjalanlah di muka bumi, maka perhatikanlah
-  bagaimana kesudahan orang-orang yang mendustakan.”
-
-  <br><br>
-
-  <span class="gold">
-    QS. Al-An'am: 11
-  </span>
-
+“Berjalanlah di muka bumi, maka perhatikanlah bagaimana kesudahan
+orang-orang yang mendustakan.”<br><br>
+<span class="gold">QS. Al-An'am: 11</span>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     15 · BEYOND BORDERS
-===================================================== -->
-
+<!-- 15 -->
 <section class="slide">
-
 <div class="content center">
-
-<div class="eyebrow">
-  🌏 WEBINAR MATERIAL · 02
-</div>
-
-<h2>
-
-  Beyond Borders:
-
-  <br>
-
-  <span class="gold">
-    Berani Melihat Dunia.
-  </span>
-
-</h2>
+<div class="eyebrow">🌏 WEBINAR MATERIAL · 02</div>
+<h2>Beyond Borders:<br><span class="gold">Berani Melihat Dunia.</span></h2>
 
 <p class="lead">
-
-  Muslimah perlu memiliki wawasan global
-  agar tidak berpikir sempit. Keluar dari zona nyaman
-  membuat kita lebih mandiri, belajar problem solving,
-  dan semakin menghargai perbedaan.
-
+Muslimah perlu memiliki wawasan global agar tidak berpikir sempit.
+Keluar dari zona nyaman membuat kita lebih mandiri, belajar problem solving,
+dan semakin menghargai perbedaan.
 </p>
-
 
 <div class="grid" style="text-align:left">
-
-
-<div class="card">
-
-<strong>
-  🌎 Global Mindset
-</strong>
-
-<span>
-  Melihat dunia dengan wawasan yang lebih luas
-  tanpa kehilangan jati diri.
-</span>
-
+<div class="card"><strong>🌎 Global Mindset</strong><span>Melihat dunia dengan wawasan lebih luas tanpa kehilangan jati diri.</span></div>
+<div class="card"><strong>🧠 Problem Solving</strong><span>Tantangan di tempat baru melatih kita berpikir dan mencari solusi.</span></div>
+<div class="card"><strong>🚀 Beyond Comfort Zone</strong><span>Keluar dari zona nyaman membantu menjadi lebih mandiri.</span></div>
+<div class="card"><strong>💎 Life Investment</strong><span>Setiap perjalanan adalah investasi pengalaman yang tidak bisa dibeli.</span></div>
 </div>
-
-
-<div class="card">
-
-<strong>
-  🧠 Problem Solving
-</strong>
-
-<span>
-  Tantangan di tempat baru melatih kita
-  untuk berpikir dan mencari solusi.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  🚀 Beyond Comfort Zone
-</strong>
-
-<span>
-  Keluar dari zona nyaman membantu kita
-  menjadi lebih mandiri dan percaya diri.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  💎 Life Investment
-</strong>
-
-<span>
-  Setiap perjalanan adalah investasi pengalaman
-  yang tidak bisa dibeli.
-</span>
-
-</div>
-
-
-</div>
-
 
 <div class="quote">
-
 <div class="quote-text">
-
-  “Dunia itu luas.
-  Jangan biarkan zona nyamanmu
-  memenjarakan mimpimu.”
-
-  <br><br>
-
-  <span class="gold">
-    “Keberanian dimulai saat kamu
-    memutuskan untuk beli tiket pertama.”
-  </span>
-
+“Dunia itu luas. Jangan biarkan zona nyamanmu memenjarakan mimpimu.”
+<br><br>
+<span class="gold">“Keberanian dimulai saat kamu memutuskan untuk beli tiket pertama.”</span>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     16 · 10 COUNTRIES
-===================================================== -->
-
+<!-- 16 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  🌍 WEBINAR MATERIAL · 03
-</div>
-
-<h2>
-
-  Belajar dari Perjalanan
-  <br>
-
-  ke <span class="gold">
-    Berbagai Negara.
-  </span>
-
-</h2>
+<div class="eyebrow">🌍 WEBINAR MATERIAL · 03</div>
+<h2>Belajar dari Perjalanan<br>ke <span class="gold">Berbagai Negara.</span></h2>
 
 <p class="lead">
-
-  Dari sepuluh negara yang dikunjungi,
-  setiap tempat memberikan pengalaman,
-  tantangan, budaya, dan pelajaran yang berbeda.
-
+Dari sepuluh negara yang dikunjungi, setiap tempat memberikan pengalaman,
+tantangan, budaya, dan pelajaran yang berbeda.
 </p>
-
 
 <div class="grid">
 
+<!-- BENDERA JEPANG SUDAH DIGANTI -->
+<div class="card">
+<strong>🌸 Culture</strong>
+<span>Jepang mengajarkan tentang disiplin, ketepatan waktu, dan keteraturan.</span>
+</div>
 
 <div class="card">
-
-<strong>
-  🇯🇵 Culture
-</strong>
-
-<span>
-  Jepang mengajarkan tentang disiplin,
-  ketepatan waktu, dan keteraturan.
-</span>
-
+<strong>🕌 History</strong>
+<span>Perjalanan juga membuka kesempatan untuk mengenal sejarah Islam di berbagai tempat.</span>
 </div>
-
 
 <div class="card">
-
-<strong>
-  🕌 History
-</strong>
-
-<span>
-  Perjalanan juga membuka kesempatan
-  untuk mengenal sejarah Islam di berbagai tempat.
-</span>
-
+<strong>🤝 Hospitality</strong>
+<span>Keramahan masyarakat di berbagai negara menunjukkan bahwa kebaikan bersifat universal.</span>
 </div>
-
 
 <div class="card">
-
-<strong>
-  🤝 Hospitality
-</strong>
-
-<span>
-  Keramahan masyarakat di berbagai negara
-  menunjukkan bahwa kebaikan bersifat universal.
-</span>
-
+<strong>🧭 Challenges</strong>
+<span>Bahasa, nyasar, makanan berbeda, dan situasi tak terduga membuat kita bertumbuh.</span>
 </div>
-
 
 <div class="card">
-
-<strong>
-  🧭 Challenges
-</strong>
-
-<span>
-  Bahasa, nyasar, makanan berbeda,
-  dan situasi tak terduga justru membuat kita bertumbuh.
-</span>
-
+<strong>👁️ Perspective</strong>
+<span>Setiap negara membantu kita melihat kehidupan dari perspektif berbeda.</span>
 </div>
-
 
 <div class="card">
-
-<strong>
-  👁️ Perspective
-</strong>
-
-<span>
-  Setiap negara membantu kita melihat kehidupan
-  dari perspektif yang berbeda.
-</span>
-
+<strong>❤️ Human Connection</strong>
+<span>Manusia boleh berbeda budaya, tetapi hati kita sama-sama membutuhkan kebaikan.</span>
 </div>
 
-
-<div class="card">
-
-<strong>
-  ❤️ Human Connection
-</strong>
-
-<span>
-  Manusia boleh berbeda budaya,
-  tetapi hati kita sama-sama membutuhkan kebaikan.
-</span>
-
 </div>
-
-
-</div>
-
 
 <div class="quote">
-
 <div class="quote-text">
-
-  “Setiap negara ngajarin 1 hal:
-  manusia beda-beda, tapi hati kita
-  sama-sama butuh kebaikan.”
-
-  <br><br>
-
-  <span class="gold">
-    “Tantangan di perjalanan =
-    cerita terbaik yang akan kamu ceritakan nanti.”
-  </span>
-
+“Setiap negara ngajarin 1 hal: manusia beda-beda,
+tapi hati kita sama-sama butuh kebaikan.”
+<br><br>
+<span class="gold">“Tantangan di perjalanan = cerita terbaik yang akan kamu ceritakan nanti.”</span>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     17 · CONFIDENT MUSLIMAH
-===================================================== -->
-
+<!-- 17 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  🧕 WEBINAR MATERIAL · 04
-</div>
-
-<h2>
-
-  Menjadi Muslimah yang
-  <br>
-
-  <span class="gold">
-    Percaya Diri di Mana Pun Berada.
-  </span>
-
-</h2>
+<div class="eyebrow">🧕 WEBINAR MATERIAL · 04</div>
+<h2>Menjadi Muslimah yang<br><span class="gold">Percaya Diri di Mana Pun Berada.</span></h2>
 
 <p class="lead">
-
-  Kunci utamanya adalah menjaga identitas.
-  Tetap sholat tepat waktu, menjaga aurat,
-  menjaga akhlak, serta tetap ramah, santun,
-  dan terbuka terhadap orang lain.
-
+Kunci utamanya adalah menjaga identitas. Tetap sholat tepat waktu,
+menjaga aurat, menjaga akhlak, serta tetap ramah dan santun.
 </p>
 
-
 <div class="grid">
-
-
-<div class="card">
-
-<strong>
-  🧕 Identity
-</strong>
-
-<span>
-  Menjaga identitas sebagai Muslimah
-  di lingkungan internasional.
-</span>
-
+<div class="card"><strong>🧕 Identity</strong><span>Menjaga identitas sebagai Muslimah di lingkungan internasional.</span></div>
+<div class="card"><strong>🕌 Ibadah</strong><span>Tetap menjaga sholat dan nilai spiritual selama perjalanan.</span></div>
+<div class="card"><strong>🌷 Akhlak</strong><span>Menunjukkan keramahan, kesantunan, dan sikap terbuka.</span></div>
+<div class="card"><strong>🌍 Representation</strong><span>Kita adalah duta Islam. Orang dapat mengenal keindahan Islam melalui sikap kita.</span></div>
 </div>
-
-
-<div class="card">
-
-<strong>
-  🕌 Ibadah
-</strong>
-
-<span>
-  Tetap menjaga sholat dan nilai spiritual
-  selama perjalanan.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  🌷 Akhlak
-</strong>
-
-<span>
-  Menunjukkan keramahan, kesantunan,
-  dan sikap terbuka.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  🌍 Representation
-</strong>
-
-<span>
-  Kita adalah duta Islam.
-  Orang dapat mengenal keindahan Islam
-  melalui sikap kita.
-</span>
-
-</div>
-
-
-</div>
-
 
 <div class="quote">
-
 <div class="quote-text">
-
-  “Jilbabmu bukan penghalang petualangan.
-  Justru itu mahkotamu di mana pun kamu berada.”
-
-  <br><br>
-
-  <span class="gold">
-    “Jadilah Muslimah yang membuat orang bertanya:
-    'Islam itu indah ya?'”
-  </span>
-
+“Jilbabmu bukan penghalang petualangan. Justru itu mahkotamu di mana pun kamu berada.”
+<br><br>
+<span class="gold">“Jadilah Muslimah yang membuat orang bertanya: 'Islam itu indah ya?'”</span>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     18 · TRAVEL ESSENTIALS
-===================================================== -->
-
+<!-- 18 -->
 <section class="slide">
-
 <div class="content">
-
-<div class="eyebrow">
-  🎒 WEBINAR MATERIAL · 05
-</div>
-
-<h2>
-
-  Bekal untuk Memulai
-  <br>
-
-  <span class="gold">
-    Perjalanan.
-  </span>
-
-</h2>
+<div class="eyebrow">🎒 WEBINAR MATERIAL · 05</div>
+<h2>Bekal untuk Memulai<br><span class="gold">Perjalanan.</span></h2>
 
 <p class="lead">
-
-  Memulai perjalanan tidak harus selalu dengan langkah besar.
-  Mulai dari hal kecil: kuatkan niat, siapkan mental,
-  buat planning sederhana, dan terus upgrade kemampuan.
-
+Memulai perjalanan tidak harus selalu dengan langkah besar.
+Mulai dari hal kecil: kuatkan niat, siapkan mental, buat planning sederhana,
+dan terus upgrade kemampuan.
 </p>
 
-
 <div class="grid">
-
-
-<div class="card">
-
-<strong>
-  🤲 Niat
-</strong>
-
-<span>
-  Kuatkan niat dan tujuan sebelum perjalanan.
-</span>
-
+<div class="card"><strong>🤲 Niat</strong><span>Kuatkan niat dan tujuan sebelum perjalanan.</span></div>
+<div class="card"><strong>🧠 Mental</strong><span>Persiapkan diri menghadapi hal-hal yang mungkin tidak sesuai rencana.</span></div>
+<div class="card"><strong>🗓️ Planning</strong><span>Buat perencanaan sederhana dan realistis.</span></div>
+<div class="card"><strong>🇬🇧 English</strong><span>Upgrade kemampuan Bahasa Inggris sebagai bekal komunikasi internasional.</span></div>
+<div class="card"><strong>👣 Small Steps</strong><span>Tidak harus menunggu sempurna. Mulai dari langkah kecil.</span></div>
+<div class="card"><strong>✨ Trust the Journey</strong><span>Nggak harus nunggu kaya dulu. Jalan dulu, rezeki ngikutin.</span></div>
 </div>
-
-
-<div class="card">
-
-<strong>
-  🧠 Mental
-</strong>
-
-<span>
-  Persiapkan diri menghadapi hal-hal
-  yang mungkin tidak sesuai rencana.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  🗓️ Planning
-</strong>
-
-<span>
-  Buat perencanaan sederhana
-  dan realistis.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  🇬🇧 English
-</strong>
-
-<span>
-  Upgrade kemampuan Bahasa Inggris
-  sebagai bekal komunikasi internasional.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  👣 Small Steps
-</strong>
-
-<span>
-  Tidak harus menunggu sempurna.
-  Mulai dari langkah kecil.
-</span>
-
-</div>
-
-
-<div class="card">
-
-<strong>
-  ✨ Trust the Journey
-</strong>
-
-<span>
-  Nggak harus nunggu kaya dulu.
-  Jalan dulu, rezeki ngikutin.
-</span>
-
-</div>
-
-
-</div>
-
 
 <div class="quote">
-
 <div class="quote-text">
-
-  “Jangan tunggu 'siap sempurna'.
-  Berangkat aja dulu,
-  Allah yang akan mudahkan.”
-
-  <br><br>
-
-  <span class="gold">
-    “Bahasa Inggris = paspor kedua.
-    Iman = kompas pertama.”
-  </span>
-
+“Jangan tunggu 'siap sempurna'. Berangkat aja dulu, Allah yang akan mudahkan.”
+<br><br>
+<span class="gold">“Bahasa Inggris = paspor kedua. Iman = kompas pertama.”</span>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
-<!-- =====================================================
-     19 · INTERACTIVE + EXPECTED OUTCOME
-===================================================== -->
-
+<!-- 19 -->
 <section class="slide">
-
 <div class="content center">
-
-<div class="eyebrow">
-  ✨ LET'S TAKE IT HOME
-</div>
-
-<h2>
-
-  What do we hope
-  <br>
-
-  <span class="gold">
-    you take with you?
-  </span>
-
-</h2>
+<div class="eyebrow">✨ LET'S TAKE IT HOME</div>
+<h2>What do we hope<br><span class="gold">you take with you?</span></h2>
 
 <p class="lead">
-
-  Setelah mengikuti webinar ini,
-  semoga peserta tidak hanya membawa informasi,
-  tetapi juga keberanian untuk melihat kemungkinan
-  baru dalam perjalanan hidupnya.
-
+Setelah mengikuti webinar ini, semoga peserta tidak hanya membawa informasi,
+tetapi juga keberanian untuk melihat kemungkinan baru.
 </p>
-
 
 <div class="quote" style="margin:30px auto">
-
 <div class="quote-text">
-
-  “May you leave with more than notes.
-
-  <br><br>
-
-  May you leave with a wider mind,
-  a braver heart,
-  and the courage to take your
-
-  <span class="gold">
-    next step.
-  </span>”
-
+“May you leave with more than notes.<br><br>
+May you leave with a wider mind, a braver heart,
+and the courage to take your <span class="gold">next step.</span>”
+</div>
 </div>
 
+<div class="label" style="color:var(--gold)">✨ LEARN · REFLECT · CONNECT · BEGIN ✨</div>
 </div>
-
-
-<div class="label"
-style="color:var(--gold)">
-
-  ✨ LEARN · REFLECT · CONNECT · BEGIN ✨
-
-</div>
-
-</div>
-
 </section>
 
-
-<!-- =====================================================
-     20 · CLOSING
-===================================================== -->
-
+<!-- 20 -->
 <section class="slide">
-
 <div class="content center">
-
-<div class="eyebrow">
-  🌟 THE BEGINNING
-</div>
-
-<h2>
-
-  You don't have to
-  <br>
-
-  <span class="gold">
-    be ready.
-  </span>
-
-</h2>
+<div class="eyebrow">🌟 THE BEGINNING</div>
+<h2>You don't have to<br><span class="gold">be ready.</span></h2>
 
 <p class="lead">
-
-  Kadang kita hanya perlu cukup berani
-  untuk mengatakan YES pada kesempatan pertama.
-
-  <br><br>
-
-  Karena kita tidak pernah tahu,
-  satu YES hari ini akan membawa kita ke mana
-  di masa depan.
-
+Kadang kita hanya perlu cukup berani untuk mengatakan YES pada kesempatan pertama.
+<br><br>
+Karena kita tidak pernah tahu, satu YES hari ini akan membawa kita ke mana
+di masa depan.
 </p>
 
-
 <div class="closing-quote">
-
-<div class="quote-decoration">
-  ✦
-</div>
-
+<div class="quote-decoration">✦</div>
 <div class="quote-text">
-
-  “Orang yang berani bukan berarti
-  dia tidak memiliki rasa takut.
-
-  <br><br>
-
-  Tapi orang yang berani adalah dia
-  yang bisa <span class="gold">
-  mengendalikan rasa takutnya.</span>”
-
+“Orang yang berani bukan berarti dia tidak memiliki rasa takut.
+<br><br>
+Tapi orang yang berani adalah dia yang bisa
+<span class="gold">mengendalikan rasa takutnya.</span>”
+</div>
+<div class="quote-stars">✨ &nbsp; ✦ &nbsp; ✨</div>
 </div>
 
-<div class="quote-stars">
-  ✨ &nbsp; ✦ &nbsp; ✨
+<div class="label" style="margin-top:30px;color:var(--gold)">ISTI FATIMAH</div>
+
+<button class="btn" onclick="go(0)">↺ Back to Beginning</button>
 </div>
-
-</div>
-
-
-<div
-  class="label"
-  style="margin-top:30px;color:var(--gold)">
-
-  ISTI FATIMAH
-
-</div>
-
-
-<button
-  class="btn"
-  onclick="go(0)">
-
-  ↺ Back to Beginning
-
-</button>
-
-</div>
-
 </section>
-
 
 </main>
 
-
-<!-- =====================================================
-     BOTTOM NAV
-===================================================== -->
-
 <div class="bottom">
-
-<button onclick="prev()">
-  ←
-</button>
-
-<button onclick="go(0)">
-  ⌂
-</button>
-
-<button onclick="nextSlide()">
-  →
-</button>
-
+<button onclick="prev()">←</button>
+<button onclick="go(0)">⌂</button>
+<button onclick="nextSlide()">→</button>
 </div>
 
-
-<!-- =====================================================
-     LIGHTBOX
-===================================================== -->
-
-<div
-  class="lightbox"
-  id="lightbox"
-  onclick="closePhoto()">
-
-<button
-  class="close"
-  onclick="event.stopPropagation();closePhoto()">
-
-  ×
-
-</button>
-
-<img
-  id="lightboxImg"
-  alt="Journey photo">
-
+<div class="lightbox" id="lightbox" onclick="closePhoto()">
+<button class="close" onclick="event.stopPropagation();closePhoto()">×</button>
+<img id="lightboxImg" alt="Journey photo">
 </div>
 
-
 </div>
-
 
 <script>
-
-/* =========================================================
-   SLIDE NAMES
-========================================================= */
-
-const names = [
-
-  "Start",
-  "Audience",
-  "First Yes",
-  "FIFA 2014",
-  "Invitation",
-  "Bandung Bali",
-  "Asian Games",
-  "EHEF",
-  "Connections",
-  "English",
-  "Pattern",
-  "Travel Map",
-  "Gallery",
-  "Safar & Islam",
-  "Beyond Borders",
-  "10 Countries",
-  "Confident Muslimah",
-  "Travel Essentials",
-  "Takeaway",
-  "Closing"
-
+const names=[
+"Start","Audience","First Yes","FIFA 2014","Invitation",
+"Bandung Bali","Asian Games","EHEF","Connections","English",
+"Pattern","Travel Map","Gallery","Safar & Islam","Beyond Borders",
+"10 Countries","Confident Muslimah","Travel Essentials","Takeaway","Closing"
 ];
 
-
-/* =========================================================
-   SLIDES
-========================================================= */
-
-const slides =
-  [
-    ...document.querySelectorAll(".slide")
-  ];
-
-const tabs =
-  document.getElementById("tabs");
-
-const progress =
-  document.getElementById("progress");
-
-let cur = 0;
-
-
-/* =========================================================
-   CREATE TABS
-========================================================= */
+const slides=[...document.querySelectorAll(".slide")];
+const tabs=document.getElementById("tabs");
+const progress=document.getElementById("progress");
+let cur=0;
 
 names.forEach((name,index)=>{
-
-  const button =
-    document.createElement("button");
-
-  button.className =
-    "tab" +
-    (!index ? " active" : "");
-
-  button.textContent =
-    name;
-
-  button.onclick =
-    ()=>go(index);
-
+  const button=document.createElement("button");
+  button.className="tab"+(!index?" active":"");
+  button.textContent=name;
+  button.onclick=()=>go(index);
   tabs.appendChild(button);
-
 });
 
-
-/* =========================================================
-   UPDATE SLIDE
-========================================================= */
-
 function update(){
+  slides.forEach((slide,index)=>{
+    slide.classList.toggle("active",index===cur);
+  });
 
-  slides.forEach(
-    (slide,index)=>{
+  [...tabs.children].forEach((tab,index)=>{
+    tab.classList.toggle("active",index===cur);
+  });
 
-      slide.classList.toggle(
-        "active",
-        index === cur
-      );
-
-    }
-  );
-
-
-  [
-    ...tabs.children
-  ].forEach(
-    (tab,index)=>{
-
-      tab.classList.toggle(
-        "active",
-        index === cur
-      );
-
-    }
-  );
-
-
-  progress.style.width =
-    (
-      (cur + 1) /
-      slides.length *
-      100
-    ) + "%";
-
+  progress.style.width=((cur+1)/slides.length*100)+"%";
 
   if(tabs.children[cur]){
-
-    tabs.children[cur]
-      .scrollIntoView({
-
-        behavior:"smooth",
-
-        inline:"center",
-
-        block:"nearest"
-
-      });
-
+    tabs.children[cur].scrollIntoView({
+      behavior:"smooth",
+      inline:"center",
+      block:"nearest"
+    });
   }
-
 }
-
-
-/* =========================================================
-   GO
-========================================================= */
 
 function go(index){
-
-  cur =
-    Math.max(
-      0,
-      Math.min(
-        slides.length - 1,
-        index
-      )
-    );
-
+  cur=Math.max(0,Math.min(slides.length-1,index));
   update();
-
 }
-
-
-/* =========================================================
-   NEXT
-========================================================= */
 
 function nextSlide(){
-
-  if(cur < slides.length - 1){
-
-    go(cur + 1);
-
-  }
-
+  if(cur<slides.length-1)go(cur+1);
 }
-
-
-/* =========================================================
-   PREVIOUS
-========================================================= */
 
 function prev(){
-
-  if(cur > 0){
-
-    go(cur - 1);
-
-  }
-
+  if(cur>0)go(cur-1);
 }
-
-
-/* =========================================================
-   PHOTO LIGHTBOX
-========================================================= */
 
 function openPhoto(src){
-
-  const lightbox =
-    document.getElementById("lightbox");
-
-  const image =
-    document.getElementById("lightboxImg");
-
-  image.src = src;
-
-  lightbox.classList.add("show");
-
+  document.getElementById("lightboxImg").src=src;
+  document.getElementById("lightbox").classList.add("show");
 }
-
 
 function closePhoto(){
-
-  document
-    .getElementById("lightbox")
-    .classList.remove("show");
-
+  document.getElementById("lightbox").classList.remove("show");
 }
 
-
-/* =========================================================
-   KEYBOARD
-========================================================= */
-
-document.addEventListener(
-  "keydown",
-  event=>{
-
-    if(
-      event.key === "ArrowRight" ||
-      event.key === " "
-    ){
-
-      event.preventDefault();
-
-      nextSlide();
-
-    }
-
-
-    if(event.key === "ArrowLeft"){
-
-      prev();
-
-    }
-
-
-    if(event.key === "Escape"){
-
-      closePhoto();
-
-    }
-
+document.addEventListener("keydown",event=>{
+  if(event.key==="ArrowRight"||event.key===" "){
+    event.preventDefault();
+    nextSlide();
   }
-);
 
+  if(event.key==="ArrowLeft")prev();
+  if(event.key==="Escape")closePhoto();
+});
 
-/* =========================================================
-   TOUCH SWIPE
-========================================================= */
+let startX=0,startY=0;
 
-let startX = 0;
-let startY = 0;
+document.addEventListener("touchstart",event=>{
+  startX=event.changedTouches[0].screenX;
+  startY=event.changedTouches[0].screenY;
+},{passive:true});
 
-document.addEventListener(
-  "touchstart",
-  event=>{
+document.addEventListener("touchend",event=>{
+  const endX=event.changedTouches[0].screenX;
+  const endY=event.changedTouches[0].screenY;
 
-    startX =
-      event.changedTouches[0].screenX;
+  const deltaX=endX-startX;
+  const deltaY=endY-startY;
 
-    startY =
-      event.changedTouches[0].screenY;
-
-  },
-  {passive:true}
-);
-
-
-document.addEventListener(
-  "touchend",
-  event=>{
-
-    const endX =
-      event.changedTouches[0].screenX;
-
-    const endY =
-      event.changedTouches[0].screenY;
-
-
-    const deltaX =
-      endX - startX;
-
-    const deltaY =
-      endY - startY;
-
-
-    /*
-      Jangan pindah slide kalau
-      user sedang scroll vertikal.
-    */
-
-    if(
-      Math.abs(deltaX) > 65 &&
-      Math.abs(deltaX) > Math.abs(deltaY)
-    ){
-
-      if(deltaX < 0){
-
-        nextSlide();
-
-      }else{
-
-        prev();
-
-      }
-
-    }
-
-  },
-  {passive:true}
-);
-
-
-/* =========================================================
-   AUDIENCE INTERACTION
-========================================================= */
+  if(Math.abs(deltaX)>65&&Math.abs(deltaX)>Math.abs(deltaY)){
+    if(deltaX<0)nextSlide();
+    else prev();
+  }
+},{passive:true});
 
 function chooseAudience(element){
+  document.querySelectorAll(".choice-card").forEach(card=>{
+    card.classList.remove("selected");
+  });
 
-  document
-    .querySelectorAll(".choice-card")
-    .forEach(
-      card=>{
-        card.classList.remove(
-          "selected"
-        );
-      }
-    );
-
-
-  element.classList.add(
-    "selected"
-  );
-
-
-  const result =
-    document.getElementById(
-      "audienceResult"
-    );
-
-  result.classList.add(
-    "show"
-  );
-
+  element.classList.add("selected");
+  document.getElementById("audienceResult").classList.add("show");
 
   element.animate(
-
     [
-      {
-        transform:"scale(1)"
-      },
-
-      {
-        transform:"scale(1.08)"
-      },
-
-      {
-        transform:"scale(1.04)"
-      }
-
+      {transform:"scale(1)"},
+      {transform:"scale(1.08)"},
+      {transform:"scale(1.04)"}
     ],
-
-    {
-      duration:400,
-      easing:"ease-out"
-    }
-
+    {duration:400,easing:"ease-out"}
   );
-
 }
 
-
 /* =========================================================
-   TRAVEL MAP
+   TRAVEL MAP BARU
+   INDONESIA SEBAGAI TITIK AWAL
 ========================================================= */
 
-const countries = [
-
-  ["Singapore",67,53],
-
-  ["Malaysia",66,56],
-
-  ["Thailand",64,48],
-
-  ["Saudi Arabia",56,47],
-
-  ["Japan",78,39],
-
-  ["Korea",74,37],
-
-  ["Sri Lanka",63,60],
-
-  ["Vietnam",69,52],
-
-  ["Philippines",74,55],
-
-  ["Mongolia",70,31]
-
+const countries=[
+  {name:"Indonesia",x:67,y:70,home:true,icon:"🏠"},
+  {name:"Thailand",x:62.5,y:51},
+  {name:"Singapore",x:64.5,y:57},
+  {name:"Malaysia",x:64.5,y:61},
+  {name:"Vietnam",x:70.5,y:49},
+  {name:"Philippines",x:77,y:51},
+  {name:"Sri Lanka",x:58.5,y:64},
+  {name:"Saudi Arabia",x:48,y:48},
+  {name:"Korea",x:79.5,y:36},
+  {name:"Japan",x:84,y:34},
+  {name:"Mongolia",x:75,y:24}
 ];
 
+const map=document.getElementById("worldMap");
+const tip=document.getElementById("tip");
 
-const map =
-  document.getElementById(
-    "worldMap"
-  );
+countries.forEach((country,index)=>{
+  const point=document.createElement("button");
 
-const tip =
-  document.getElementById(
-    "tip"
-  );
+  point.className="map-point"+(country.home?" home":"");
+  point.style.left=country.x+"%";
+  point.style.top=country.y+"%";
+  point.title=country.name;
+  point.setAttribute("aria-label",country.name);
 
-
-countries.forEach(
-  ([name,x,y],index)=>{
-
-    const point =
-      document.createElement(
-        "button"
-      );
-
-    point.className =
-      "point";
-
-    point.style.left =
-      x + "%";
-
-    point.style.top =
-      y + "%";
-
-
-    point.title =
-      name;
-
-
-    point.onclick =
-      event=>{
-
-        event.stopPropagation();
-
-
-        tip.innerHTML =
-          "JOURNEY " +
-          String(index + 1)
-            .padStart(2,"0") +
-
-          "<b>" +
-          name +
-          "</b>";
-
-
-        tip.style.left =
-          Math.min(
-            x + 2,
-            78
-          ) + "%";
-
-
-        tip.style.top =
-          Math.max(
-            y - 12,
-            5
-          ) + "%";
-
-
-        tip.classList.add(
-          "show"
-        );
-
-      };
-
-
-    map.appendChild(
-      point
-    );
-
+  if(country.home){
+    point.innerHTML='<span class="plane">✈️</span>';
   }
-);
 
+  const label=document.createElement("div");
+  label.className="map-label";
+  label.textContent=country.name;
+  label.style.left=country.x+"%";
+  label.style.top=`calc(${country.y}% + 8px)`;
 
-/* =========================================================
-   MAP CLICK OUTSIDE
-========================================================= */
+  point.onclick=event=>{
+    event.stopPropagation();
 
-map.addEventListener(
-  "click",
-  event=>{
+    tip.innerHTML=
+      (country.home?"STARTING POINT":"DESTINATION "+String(index).padStart(2,"0"))+
+      "<b>"+country.name+"</b>";
 
-    if(
-      !event.target.classList.contains(
-        "point"
-      )
-    ){
+    tip.style.left=Math.min(country.x+2,78)+"%";
+    tip.style.top=Math.max(country.y-14,8)+"%";
+    tip.classList.add("show");
+  };
 
-      tip.classList.remove(
-        "show"
-      );
+  map.appendChild(point);
+  map.appendChild(label);
+});
 
-    }
-
+map.addEventListener("click",event=>{
+  if(!event.target.classList.contains("map-point")){
+    tip.classList.remove("show");
   }
-);
+});
 
+/* GALLERY */
+const gallery=document.getElementById("gallery");
 
-/* =========================================================
-   GALLERY
-========================================================= */
+for(let i=1;i<=8;i++){
+  const number=String(i).padStart(2,"0");
+  const item=document.createElement("div");
 
-const gallery =
-  document.getElementById(
-    "gallery"
-  );
+  item.className="gallery-item";
 
-
-for(
-  let i = 1;
-  i <= 8;
-  i++
-){
-
-  const number =
-    String(i).padStart(
-      2,
-      "0"
-    );
-
-
-  const item =
-    document.createElement(
-      "div"
-    );
-
-
-  item.className =
-    "gallery-item";
-
-
-  item.innerHTML = `
-
+  item.innerHTML=`
     <img
       src="images/gallery-${number}.jpg"
       alt="Journey moment ${number}"
       onerror="this.style.display='none'"
     >
-
-    <span>
-      MOMENT ${number}
-    </span>
-
+    <span>MOMENT ${number}</span>
   `;
 
-
-  item.onclick =
-    ()=>{
-      openPhoto(
-        `images/gallery-${number}.jpg`
-      );
-    };
-
-
-  gallery.appendChild(
-    item
-  );
-
+  item.onclick=()=>openPhoto(`images/gallery-${number}.jpg`);
+  gallery.appendChild(item);
 }
 
-
-/* =========================================================
-   LIGHTBOX CLICK IMAGE
-========================================================= */
-
-document
-  .getElementById("lightboxImg")
-  .addEventListener(
-    "click",
-    event=>{
-      event.stopPropagation();
-    }
-  );
-
-
-/* =========================================================
-   INITIALIZE
-========================================================= */
+document.getElementById("lightboxImg").addEventListener("click",event=>{
+  event.stopPropagation();
+});
 
 update();
-
 </script>
 
 </body>
