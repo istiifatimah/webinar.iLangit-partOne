@@ -354,6 +354,7 @@ h3{
   color:var(--gold2);
 }
 
+
 /* =========================================================
    FOTO STYLE
    Tetap dipertahankan untuk Gallery/elemen lain,
@@ -2365,57 +2366,6 @@ h3{
 
 
 <!-- =====================================================
-     13 · GALLERY
-===================================================== -->
-
-<section class="slide">
-
-<div class="content">
-
-<div class="eyebrow">
-  📸 ONE JOURNEY · MANY MOMENTS
-</div>
-
-<h2>
-
-  My Journey
-  <span class="gold">
-    Gallery.
-  </span>
-
-</h2>
-
-<p class="lead">
-
-  Satu perjalanan tidak selalu terdiri dari satu tempat.
-  Setiap foto menyimpan cerita, orang,
-  keberanian, dan pengalaman yang membawa saya
-  sampai ke titik hari ini.
-
-</p>
-
-<div
-  class="gallery"
-  id="gallery">
-</div>
-
-<p
-  style="
-  margin-top:20px;
-  text-align:center;
-  color:#ffffff80;
-  font-size:11px">
-
-  ✨ Klik foto untuk melihat lebih besar
-
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
      14 · SAFAR
 ===================================================== -->
 
@@ -3231,7 +3181,6 @@ const names = [
   "English",
   "Pattern",
   "Travel Map",
-  "Gallery",
   "Safar & Islam",
   "Beyond Borders",
   "10 Countries",
@@ -3699,64 +3648,6 @@ map.addEventListener(
 
   }
 );
-
-
-/* =========================================================
-   GALLERY
-========================================================= */
-
-const gallery =
-  document.getElementById(
-    "gallery"
-  );
-
-
-for(
-  let i = 1;
-  i <= 20;
-  i++
-){
-
-  const number =
-    String(i).padStart(
-      2,
-      "0"
-    );
-
-  const item =
-    document.createElement(
-      "div"
-    );
-
-  item.className =
-    "gallery-item";
-
-  item.innerHTML = `
-
-    <img
-      src="images/gallery-${number}.jpg"
-      alt="Journey moment ${number}"
-      onerror="this.style.display='none'"
-    >
-
-    <span>
-      MOMENT ${number}
-    </span>
-
-  `;
-
-  item.onclick =
-    ()=>{
-      openPhoto(
-        `images/gallery-${number}.jpg`
-      );
-    };
-
-  gallery.appendChild(
-    item
-  );
-
-}
 
 
 /* =========================================================
