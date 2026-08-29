@@ -1190,296 +1190,83 @@ h3{
    ANIMATIONS
 ========================================================= */
 
-@keyframes rotateGlow{
-  from{
-    transform:rotate(0deg);
-  }
-  to{
-    transform:rotate(360deg);
-  }
-}
+<header class="navbar">
 
-@keyframes sparkleFloat{
-  0%,100%{
-    transform:
-      translateY(0)
-      rotate(0);
-    opacity:.4;
-  }
+    <div class="container nav-inner">
 
-  50%{
-    transform:
-      translateY(-12px)
-      rotate(15deg);
-    opacity:1;
-  }
-}
+        <div class="nav-brand">
 
-@keyframes floatBubble{
-  0%,100%{
-    transform:
-      translateY(0)
-      rotate(-1deg);
-  }
+    <a href="#home" class="logo">
+        istiifatimah<span>.</span>
+    </a>
 
-  50%{
-    transform:
-      translateY(-7px)
-      rotate(1deg);
-  }
-}
+    <div class="social-nav">
 
-@keyframes wiggle{
-  0%,100%{
-    transform:rotate(0);
-  }
+        <a
+            href="https://www.instagram.com/istiifatimah"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="social-icon instagram"
+        >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                />
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                />
+                <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    fill="currentColor"
+                />
+            </svg>
+        </a>
 
-  25%{
-    transform:rotate(-12deg);
-  }
 
-  75%{
-    transform:rotate(12deg);
-  }
-}
+        <a
+            href="https://www.tiktok.com/@istiifatimah_"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+            class="social-icon tiktok"
+        >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                    d="M15 3c.3 2.3 1.7 4.1 4 4.6v3.1c-1.5-.1-2.8-.6-4-1.4v6.1c0 3.8-2.6 5.7-5.4 5.7C6.5 21.1 4 19 4 15.9c0-3 2.4-5.4 5.5-5.4.4 0 .8 0 1.2.1v3.1c-.3-.1-.7-.2-1.1-.2-1.2 0-2.3.9-2.3 2.3 0 1.4 1 2.3 2.3 2.3 1.2 0 2.2-.7 2.2-2.5V3H15z"
+                    fill="currentColor"
+                />
+            </svg>
+        </a>
 
-@keyframes sparkle{
-  0%,100%{
-    transform:
-      scale(1)
-      rotate(0);
-  }
-
-  50%{
-    transform:
-      scale(1.25)
-      rotate(12deg);
-  }
-}
-
-@keyframes pointPulse{
-  0%,100%{
-    box-shadow:
-      0 0 0 4px #c28b3c22,
-      0 0 15px #c28b3c;
-  }
-
-  50%{
-    box-shadow:
-      0 0 0 10px #c28b3c10,
-      0 0 28px #c28b3c;
-  }
-}
-
-@keyframes mapMove{
-  from{
-    transform:translateX(0);
-  }
-
-  to{
-    transform:translateX(20px);
-  }
-}
-
-@keyframes landFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-5px);
-  }
-}
-
-@keyframes popIn{
-  from{
-    opacity:0;
-    transform:scale(.8);
-  }
-
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
-}
-
-@keyframes fadeIn{
-  from{
-    opacity:0;
-  }
-
-  to{
-    opacity:1;
-  }
-}
-
-@keyframes closingFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-8px);
-  }
-}
-
-@keyframes starPulse{
-  0%,100%{
-    transform:
-      scale(1)
-      rotate(0);
-  }
-
-  50%{
-    transform:
-      scale(1.3)
-      rotate(15deg);
-  }
-}
-
-@keyframes twinkle{
-  0%,100%{
-    opacity:.45;
-    transform:scale(.95);
-  }
-
-  50%{
-    opacity:1;
-    transform:scale(1.08);
-  }
-}
-
-@keyframes orbit{
-  from{
-    transform:rotate(0deg);
-  }
-
-  to{
-    transform:rotate(360deg);
-  }
-}
-
-@media(max-width:850px){
-
-  .split{
-    grid-template-columns:1fr;
-    gap:28px;
-  }
-
-  .gallery{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .choice-grid{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-}
-
-@media(max-width:600px){
-
-  header{
-    display:block;
-
-    padding:
-      8px
-      12px;
-
-    height:110px;
-  }
-
-  .brand{
-    height:34px;
-  }
-
-  .slide{
-    padding:
-      125px
-      18px
-      85px;
-  }
-
-  .photo{
-    height:260px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .gallery-item{
-    height:145px;
-  }
-
-  .map{
-    height:330px;
-  }
-
-  .tab{
-    font-size:8px;
-    padding:
-      7px
-      9px;
-  }
-
-  .choice-grid{
-    grid-template-columns:1fr;
-  }
-
-  .choice-card{
-    padding:14px;
-  }
-
-  .choice-icon{
-    width:42px;
-    height:42px;
-    flex-basis:42px;
-    font-size:22px;
-  }
-
-  .closing-quote{
-    padding:
-      30px
-      20px;
-  }
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="presentation">
-
-<div
-  class="progress"
-  id="progress">
-</div>
-
-<header>
-
-  <div class="brand">
-
-    <div class="mark">
-      IF
     </div>
 
-    Isti Fatimah
-
-  </div>
-
-  <nav
-    class="tabs"
-    id="tabs">
-  </nav>
-
-</header>
-
-
-<main id="slides">
+</div>
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Buka menu"
+            aria-expanded="false"
+            type="button"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
 
 <!-- =====================================================
